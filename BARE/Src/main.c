@@ -16,31 +16,21 @@
  ******************************************************************************
  */
 #include "main.h"
+#define SYSTICK_RELOAD_VALUE (SystemCoreClock) / 1000 - 1
+
 int main(void)
 {
-	/*	create
-	 * 		CMSIS/Inc
-	 * 		CMSIS/Src
-	 * 	takes
-	 * 		CMSIS/DEVICE/ST/STMF4XXX/INCLUDE
-	 * 			3 header files -> CMSIS/INC
-	 * 	CMSIS/INCLUDE/
-	 * 		COPY ALL HEADER 	-> CMSIS/INC
-	 *	COPY SYSTEM_STM32F4XX.C TO CMSIS/SRC
-	 *	CREATE MAIN.H IN CMSIS/INC
-	 *	INCLUDE MAIN.H IN .C
-	 *	IN MAIN.H, INCLUDE STM32F4XX.H
-	 *
-	 *	PROPERTIES/C GENERAL/PATHS/
-	 *	INCLUDES
-	 *		EDIT INC -> IS A WORKSPACE PATH SET
-	 *
-	 *		more to do didn't finish notes
-	*/
+	SystemCoreClockUpdate();
+
+	RCC->AHB1ENR |= RCC_AHB1ENR_GPIODEN;
+
+	GPIOD->MODER |= GPIO_MODER_MODE12_0; // set GPIO to output for LEDs
+
+	RCC->CR &= RCC_CR_HSION;
+	//while(!(RCC->CR & RCC_CR_HSIRDY)){}
 
 
-
-
+	GPIOD->ODR |= GPIO_ODR_OD12;
 
     /* Loop forever */
 	for(;;);
