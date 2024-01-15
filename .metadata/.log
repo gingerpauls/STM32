@@ -13,3 +13,6 @@ Command-line arguments:  -os win32 -ws win32 -arch x86_64 -data D:\STM32F411VE\P
 
 !ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-01-15 14:22:58.953
 !MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-01-15 14:27:57.405
+!MESSAGE Indexed 'HAL' (36 sources, 100 headers) in 2.63 sec: 7,755 declarations; 50,629 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.0034%)
