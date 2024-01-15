@@ -1,4 +1,4 @@
-14:29:42 **** Incremental Build of configuration Debug for project HAL ****
+15:02:28 **** Incremental Build of configuration Debug for project HAL ****
 make -j20 all 
 arm-none-eabi-size  HAL.elf 
    text	   data	    bss	    dec	    hex	filename
@@ -6,5 +6,5 @@ arm-none-eabi-size  HAL.elf
 Finished building: default.size.stdout
  
 
-14:29:42 Build Finished. 0 errors, 0 warnings. (took 157ms)
+15:02:28 Build Finished. 0 errors, 0 warnings. (took 302ms)
 

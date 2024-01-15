@@ -15,9 +15,33 @@
  *
  ******************************************************************************
  */
-
+#include "main.h"
 int main(void)
 {
+	/*	create
+	 * 		CMSIS/Inc
+	 * 		CMSIS/Src
+	 * 	takes
+	 * 		CMSIS/DEVICE/ST/STMF4XXX/INCLUDE
+	 * 			3 header files -> CMSIS/INC
+	 * 	CMSIS/INCLUDE/
+	 * 		COPY ALL HEADER 	-> CMSIS/INC
+	 *	COPY SYSTEM_STM32F4XX.C TO CMSIS/SRC
+	 *	CREATE MAIN.H IN CMSIS/INC
+	 *	INCLUDE MAIN.H IN .C
+	 *	IN MAIN.H, INCLUDE STM32F4XX.H
+	 *
+	 *	PROPERTIES/C GENERAL/PATHS/
+	 *	INCLUDES
+	 *		EDIT INC -> IS A WORKSPACE PATH SET
+	 *
+	 *		more to do didn't finish notes
+	*/
+
+
+
+
+
     /* Loop forever */
 	for(;;);
 }
