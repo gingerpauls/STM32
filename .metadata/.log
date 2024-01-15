@@ -16,3 +16,6 @@ Command-line arguments:  -os win32 -ws win32 -arch x86_64 -data D:\STM32F411VE\P
 
 !ENTRY org.eclipse.cdt.core 1 0 2024-01-15 14:27:57.405
 !MESSAGE Indexed 'HAL' (36 sources, 100 headers) in 2.63 sec: 7,755 declarations; 50,629 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.0034%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-01-15 14:31:50.032
+!MESSAGE Indexed 'BARE' (3 sources, 53 headers) in 0.194 sec: 1,950 declarations; 2,832 references; 0 unresolved inclusions; 2 syntax errors; 2 unresolved names (0.042%)
