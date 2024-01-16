@@ -2471,3 +2471,17 @@ Finished building: default.size.stdout
  
 Finished building: BARE.list
  
+19:41:56 **** Incremental Build of configuration Debug for project BARE ****
+make -j20 all 
+arm-none-eabi-size  BARE.elf 
+   text	   data	    bss	    dec	    hex	filename
+   1260	     12	   1564	   2836	    b14	BARE.elf
+Finished building: default.size.stdout
+ 
+19:42:48 **** Incremental Build of configuration Debug for project BARE ****
+make -j20 all 
+arm-none-eabi-size  BARE.elf 
+   text	   data	    bss	    dec	    hex	filename
+   1260	     12	   1564	   2836	    b14	BARE.elf
+Finished building: default.size.stdout
+ 

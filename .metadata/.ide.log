@@ -938,3 +938,816 @@
 2024-01-15 17:58:39,973 [INFO] I2sManager:195 - I2S Clock Value : 1.6E8
 2024-01-15 17:58:39,973 [INFO] I2sManager:553 - AudioClock : 89285Divider : 3Odd : 1
 2024-01-15 17:58:52,366 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,450x370,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2024-01-15 19:16:04,993 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] Exception in thread "AWT-EventQueue-0" java.lang.ClassCastException: class sun.awt.windows.WEmbeddedFrame cannot be cast to class javax.swing.JFrame (sun.awt.windows.WEmbeddedFrame and javax.swing.JFrame are in module java.desktop of loader 'bootstrap')
+2024-01-15 19:16:04,993 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.clock.ClockConfigurationView.activatePlugin(ClockConfigurationView.java:425)
+2024-01-15 19:16:04,994 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at com.st.microxplorer.maingui.MainPanel$1.stateChanged(MainPanel.java:369)
+2024-01-15 19:16:04,994 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/javax.swing.JTabbedPane.fireStateChanged(JTabbedPane.java:444)
+2024-01-15 19:16:04,995 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/javax.swing.JTabbedPane$ModelListener.stateChanged(JTabbedPane.java:295)
+2024-01-15 19:16:04,995 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/javax.swing.DefaultSingleSelectionModel.fireStateChanged(DefaultSingleSelectionModel.java:148)
+2024-01-15 19:16:04,995 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/javax.swing.DefaultSingleSelectionModel.setSelectedIndex(DefaultSingleSelectionModel.java:79)
+2024-01-15 19:16:04,996 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/javax.swing.JTabbedPane.setSelectedIndexImpl(JTabbedPane.java:648)
+2024-01-15 19:16:04,996 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/javax.swing.JTabbedPane.setSelectedIndex(JTabbedPane.java:623)
+2024-01-15 19:16:04,997 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/javax.swing.plaf.basic.BasicTabbedPaneUI$Handler.mousePressed(BasicTabbedPaneUI.java:4101)
+2024-01-15 19:16:04,997 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/java.awt.Component.processMouseEvent(Component.java:6623)
+2024-01-15 19:16:04,998 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/javax.swing.JComponent.processMouseEvent(JComponent.java:3389)
+2024-01-15 19:16:04,998 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/java.awt.Component.processEvent(Component.java:6391)
+2024-01-15 19:16:04,999 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/java.awt.Container.processEvent(Container.java:2266)
+2024-01-15 19:16:04,999 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/java.awt.Component.dispatchEventImpl(Component.java:5001)
+2024-01-15 19:16:05,000 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2324)
+2024-01-15 19:16:05,000 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4833)
+2024-01-15 19:16:05,000 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4948)
+2024-01-15 19:16:05,001 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/java.awt.LightweightDispatcher.processMouseEvent(Container.java:4572)
+2024-01-15 19:16:05,001 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/java.awt.LightweightDispatcher.dispatchEvent(Container.java:4516)
+2024-01-15 19:16:05,001 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2310)
+2024-01-15 19:16:05,001 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4833)
+2024-01-15 19:16:05,003 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:775)
+2024-01-15 19:16:05,003 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:720)
+2024-01-15 19:16:05,004 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:714)
+2024-01-15 19:16:05,004 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.base/java.security.AccessController.doPrivileged(AccessController.java:399)
+2024-01-15 19:16:05,005 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:86)
+2024-01-15 19:16:05,005 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:97)
+2024-01-15 19:16:05,005 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:747)
+2024-01-15 19:16:05,006 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:745)
+2024-01-15 19:16:05,006 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.base/java.security.AccessController.doPrivileged(AccessController.java:399)
+2024-01-15 19:16:05,007 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:86)
+2024-01-15 19:16:05,007 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:744)
+2024-01-15 19:16:05,007 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
+2024-01-15 19:16:05,008 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
+2024-01-15 19:16:05,008 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
+2024-01-15 19:16:05,009 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
+2024-01-15 19:16:05,009 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+2024-01-15 19:16:05,010 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
+2024-01-15 19:16:12,848 [INFO] I2sManager:658 - 1.6E8
+2024-01-15 19:16:12,848 [INFO] I2sManager:195 - I2S Clock Value : 1.6E8
+2024-01-15 19:16:12,849 [INFO] I2sManager:553 - AudioClock : 96153Divider : 26Odd : 0
+2024-01-15 19:16:12,849 [INFO] I2sManager:658 - 1.6E8
+2024-01-15 19:16:12,849 [INFO] I2sManager:195 - I2S Clock Value : 1.6E8
+2024-01-15 19:16:12,849 [INFO] I2sManager:553 - AudioClock : 89285Divider : 3Odd : 1
+2024-01-15 19:16:12,888 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_AUDIO_FS = false
+2024-01-15 19:16:12,888 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_AUDIO_FS = false
+2024-01-15 19:16:12,888 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_AUDIO_HS = false
+2024-01-15 19:16:12,888 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_AUDIO_HS = false
+2024-01-15 19:16:12,888 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 19:16:12,888 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 19:16:12,888 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 19:16:12,888 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_CDC_HS = false
+2024-01-15 19:16:12,888 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_CDC_HS = false
+2024-01-15 19:16:12,888 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_HID_FS = false
+2024-01-15 19:16:12,888 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_HID_FS = false
+2024-01-15 19:16:12,888 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_HID_HS = false
+2024-01-15 19:16:12,888 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_HID_HS = false
+2024-01-15 19:16:12,888 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MSC_FS = false
+2024-01-15 19:16:12,888 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MSC_FS = false
+2024-01-15 19:16:12,888 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MSC_HS = false
+2024-01-15 19:16:12,888 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MSC_HS = false
+2024-01-15 19:16:12,888 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : ALL_SW_VBUS_DRIVE_FS = false
+2024-01-15 19:16:12,888 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : ALL_SW_VBUS_DRIVE_FS = false
+2024-01-15 19:16:12,888 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : ALL_SW_VBUS_DRIVE_HS = false
+2024-01-15 19:16:12,888 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : ALL_SW_VBUS_DRIVE_HS = false
+2024-01-15 19:16:12,888 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MTP_FS = false
+2024-01-15 19:16:12,888 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MTP_FS = false
+2024-01-15 19:16:12,888 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MTP_HS = false
+2024-01-15 19:16:12,888 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MTP_HS = false
+2024-01-15 19:16:12,899 [WARN] IP:2119 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2024-01-15 19:16:12,899 [WARN] IP:2119 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2024-01-15 19:16:12,899 [WARN] IP:2119 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2024-01-15 19:16:12,899 [WARN] IP:2119 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2024-01-15 19:16:19,955 [INFO] I2sManager:658 - 1.6E8
+2024-01-15 19:16:19,955 [INFO] I2sManager:195 - I2S Clock Value : 1.6E8
+2024-01-15 19:16:19,955 [INFO] I2sManager:553 - AudioClock : 96153Divider : 26Odd : 0
+2024-01-15 19:16:19,956 [INFO] I2sManager:658 - 1.6E8
+2024-01-15 19:16:19,956 [INFO] I2sManager:195 - I2S Clock Value : 1.6E8
+2024-01-15 19:16:19,956 [INFO] I2sManager:553 - AudioClock : 89285Divider : 3Odd : 1
+2024-01-15 19:16:19,996 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_AUDIO_FS = false
+2024-01-15 19:16:19,996 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_AUDIO_FS = false
+2024-01-15 19:16:19,996 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_AUDIO_HS = false
+2024-01-15 19:16:19,996 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_AUDIO_HS = false
+2024-01-15 19:16:19,996 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 19:16:19,997 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 19:16:19,997 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 19:16:19,997 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_CDC_HS = false
+2024-01-15 19:16:19,997 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_CDC_HS = false
+2024-01-15 19:16:19,997 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_HID_FS = false
+2024-01-15 19:16:19,997 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_HID_FS = false
+2024-01-15 19:16:19,997 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_HID_HS = false
+2024-01-15 19:16:19,997 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_HID_HS = false
+2024-01-15 19:16:19,997 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MSC_FS = false
+2024-01-15 19:16:19,997 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MSC_FS = false
+2024-01-15 19:16:19,997 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MSC_HS = false
+2024-01-15 19:16:19,997 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MSC_HS = false
+2024-01-15 19:16:19,997 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : ALL_SW_VBUS_DRIVE_FS = false
+2024-01-15 19:16:19,997 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : ALL_SW_VBUS_DRIVE_FS = false
+2024-01-15 19:16:19,997 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : ALL_SW_VBUS_DRIVE_HS = false
+2024-01-15 19:16:19,997 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : ALL_SW_VBUS_DRIVE_HS = false
+2024-01-15 19:16:19,997 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MTP_FS = false
+2024-01-15 19:16:19,997 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MTP_FS = false
+2024-01-15 19:16:19,997 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MTP_HS = false
+2024-01-15 19:16:19,997 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MTP_HS = false
+2024-01-15 19:16:20,011 [WARN] IP:2119 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2024-01-15 19:16:20,011 [WARN] IP:2119 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2024-01-15 19:16:20,011 [WARN] IP:2119 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2024-01-15 19:16:20,011 [WARN] IP:2119 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2024-01-15 19:32:31,369 [INFO] I2sManager:658 - 8.0E7
+2024-01-15 19:32:31,369 [INFO] I2sManager:195 - I2S Clock Value : 8.0E7
+2024-01-15 19:32:31,369 [INFO] I2sManager:553 - AudioClock : 96153Divider : 13Odd : 0
+2024-01-15 19:32:31,369 [INFO] I2sManager:658 - 8.0E7
+2024-01-15 19:32:31,369 [INFO] I2sManager:195 - I2S Clock Value : 8.0E7
+2024-01-15 19:32:31,440 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_AUDIO_FS = false
+2024-01-15 19:32:31,440 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_AUDIO_FS = false
+2024-01-15 19:32:31,440 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_AUDIO_HS = false
+2024-01-15 19:32:31,440 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_AUDIO_HS = false
+2024-01-15 19:32:31,440 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 19:32:31,440 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 19:32:31,440 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 19:32:31,440 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_CDC_HS = false
+2024-01-15 19:32:31,440 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_CDC_HS = false
+2024-01-15 19:32:31,440 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_HID_FS = false
+2024-01-15 19:32:31,440 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_HID_FS = false
+2024-01-15 19:32:31,440 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_HID_HS = false
+2024-01-15 19:32:31,441 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_HID_HS = false
+2024-01-15 19:32:31,441 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MSC_FS = false
+2024-01-15 19:32:31,441 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MSC_FS = false
+2024-01-15 19:32:31,441 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MSC_HS = false
+2024-01-15 19:32:31,441 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MSC_HS = false
+2024-01-15 19:32:31,441 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : ALL_SW_VBUS_DRIVE_FS = false
+2024-01-15 19:32:31,441 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : ALL_SW_VBUS_DRIVE_FS = false
+2024-01-15 19:32:31,441 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : ALL_SW_VBUS_DRIVE_HS = false
+2024-01-15 19:32:31,441 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : ALL_SW_VBUS_DRIVE_HS = false
+2024-01-15 19:32:31,441 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MTP_FS = false
+2024-01-15 19:32:31,441 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MTP_FS = false
+2024-01-15 19:32:31,441 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MTP_HS = false
+2024-01-15 19:32:31,441 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MTP_HS = false
+2024-01-15 19:32:31,451 [WARN] IP:2119 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2024-01-15 19:32:31,451 [WARN] IP:2119 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2024-01-15 19:32:31,451 [WARN] IP:2119 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2024-01-15 19:32:31,451 [WARN] IP:2119 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2024-01-15 19:32:34,784 [INFO] I2sManager:658 - 8.0E7
+2024-01-15 19:32:34,784 [INFO] I2sManager:195 - I2S Clock Value : 8.0E7
+2024-01-15 19:32:34,785 [INFO] I2sManager:553 - AudioClock : 96153Divider : 13Odd : 0
+2024-01-15 19:32:34,785 [INFO] I2sManager:658 - 8.0E7
+2024-01-15 19:32:34,785 [INFO] I2sManager:195 - I2S Clock Value : 8.0E7
+2024-01-15 19:32:34,826 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_AUDIO_FS = false
+2024-01-15 19:32:34,826 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_AUDIO_FS = false
+2024-01-15 19:32:34,826 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_AUDIO_HS = false
+2024-01-15 19:32:34,826 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_AUDIO_HS = false
+2024-01-15 19:32:34,826 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 19:32:34,826 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 19:32:34,826 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 19:32:34,826 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_CDC_HS = false
+2024-01-15 19:32:34,826 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_CDC_HS = false
+2024-01-15 19:32:34,826 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_HID_FS = false
+2024-01-15 19:32:34,826 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_HID_FS = false
+2024-01-15 19:32:34,826 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_HID_HS = false
+2024-01-15 19:32:34,826 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_HID_HS = false
+2024-01-15 19:32:34,826 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MSC_FS = false
+2024-01-15 19:32:34,826 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MSC_FS = false
+2024-01-15 19:32:34,826 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MSC_HS = false
+2024-01-15 19:32:34,826 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MSC_HS = false
+2024-01-15 19:32:34,826 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : ALL_SW_VBUS_DRIVE_FS = false
+2024-01-15 19:32:34,826 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : ALL_SW_VBUS_DRIVE_FS = false
+2024-01-15 19:32:34,826 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : ALL_SW_VBUS_DRIVE_HS = false
+2024-01-15 19:32:34,826 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : ALL_SW_VBUS_DRIVE_HS = false
+2024-01-15 19:32:34,826 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MTP_FS = false
+2024-01-15 19:32:34,826 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MTP_FS = false
+2024-01-15 19:32:34,826 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MTP_HS = false
+2024-01-15 19:32:34,826 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MTP_HS = false
+2024-01-15 19:32:34,857 [WARN] IP:2119 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2024-01-15 19:32:34,857 [WARN] IP:2119 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2024-01-15 19:32:34,857 [WARN] IP:2119 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2024-01-15 19:32:34,857 [WARN] IP:2119 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2024-01-15 19:32:37,462 [INFO] I2sManager:658 - 1.6E8
+2024-01-15 19:32:37,462 [INFO] I2sManager:195 - I2S Clock Value : 1.6E8
+2024-01-15 19:32:37,462 [INFO] I2sManager:553 - AudioClock : 96153Divider : 26Odd : 0
+2024-01-15 19:32:37,462 [INFO] I2sManager:658 - 1.6E8
+2024-01-15 19:32:37,462 [INFO] I2sManager:195 - I2S Clock Value : 1.6E8
+2024-01-15 19:32:37,462 [INFO] I2sManager:553 - AudioClock : 89285Divider : 3Odd : 1
+2024-01-15 19:32:37,545 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_AUDIO_FS = false
+2024-01-15 19:32:37,545 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_AUDIO_FS = false
+2024-01-15 19:32:37,545 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_AUDIO_HS = false
+2024-01-15 19:32:37,545 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_AUDIO_HS = false
+2024-01-15 19:32:37,545 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 19:32:37,545 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 19:32:37,547 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 19:32:37,547 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_CDC_HS = false
+2024-01-15 19:32:37,547 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_CDC_HS = false
+2024-01-15 19:32:37,547 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_HID_FS = false
+2024-01-15 19:32:37,547 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_HID_FS = false
+2024-01-15 19:32:37,547 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_HID_HS = false
+2024-01-15 19:32:37,547 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_HID_HS = false
+2024-01-15 19:32:37,547 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MSC_FS = false
+2024-01-15 19:32:37,547 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MSC_FS = false
+2024-01-15 19:32:37,547 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MSC_HS = false
+2024-01-15 19:32:37,547 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MSC_HS = false
+2024-01-15 19:32:37,547 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : ALL_SW_VBUS_DRIVE_FS = false
+2024-01-15 19:32:37,547 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : ALL_SW_VBUS_DRIVE_FS = false
+2024-01-15 19:32:37,547 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : ALL_SW_VBUS_DRIVE_HS = false
+2024-01-15 19:32:37,547 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : ALL_SW_VBUS_DRIVE_HS = false
+2024-01-15 19:32:37,547 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MTP_FS = false
+2024-01-15 19:32:37,547 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MTP_FS = false
+2024-01-15 19:32:37,547 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MTP_HS = false
+2024-01-15 19:32:37,547 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MTP_HS = false
+2024-01-15 19:32:37,557 [WARN] IP:2119 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2024-01-15 19:32:37,557 [WARN] IP:2119 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2024-01-15 19:32:37,557 [WARN] IP:2119 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2024-01-15 19:32:37,557 [WARN] IP:2119 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2024-01-15 19:33:34,623 [INFO] I2sManager:658 - 8.0E7
+2024-01-15 19:33:34,623 [INFO] I2sManager:195 - I2S Clock Value : 8.0E7
+2024-01-15 19:33:34,623 [INFO] I2sManager:553 - AudioClock : 96153Divider : 13Odd : 0
+2024-01-15 19:33:34,623 [INFO] I2sManager:658 - 8.0E7
+2024-01-15 19:33:34,623 [INFO] I2sManager:195 - I2S Clock Value : 8.0E7
+2024-01-15 19:33:34,691 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_AUDIO_FS = false
+2024-01-15 19:33:34,691 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_AUDIO_FS = false
+2024-01-15 19:33:34,692 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_AUDIO_HS = false
+2024-01-15 19:33:34,692 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_AUDIO_HS = false
+2024-01-15 19:33:34,692 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 19:33:34,692 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 19:33:34,692 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 19:33:34,692 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_CDC_HS = false
+2024-01-15 19:33:34,692 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_CDC_HS = false
+2024-01-15 19:33:34,692 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_HID_FS = false
+2024-01-15 19:33:34,692 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_HID_FS = false
+2024-01-15 19:33:34,692 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_HID_HS = false
+2024-01-15 19:33:34,692 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_HID_HS = false
+2024-01-15 19:33:34,692 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MSC_FS = false
+2024-01-15 19:33:34,692 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MSC_FS = false
+2024-01-15 19:33:34,692 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MSC_HS = false
+2024-01-15 19:33:34,692 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MSC_HS = false
+2024-01-15 19:33:34,692 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : ALL_SW_VBUS_DRIVE_FS = false
+2024-01-15 19:33:34,692 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : ALL_SW_VBUS_DRIVE_FS = false
+2024-01-15 19:33:34,692 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : ALL_SW_VBUS_DRIVE_HS = false
+2024-01-15 19:33:34,692 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : ALL_SW_VBUS_DRIVE_HS = false
+2024-01-15 19:33:34,692 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MTP_FS = false
+2024-01-15 19:33:34,692 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MTP_FS = false
+2024-01-15 19:33:34,692 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MTP_HS = false
+2024-01-15 19:33:34,692 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MTP_HS = false
+2024-01-15 19:33:34,700 [WARN] IP:2119 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2024-01-15 19:33:34,700 [WARN] IP:2119 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2024-01-15 19:33:34,700 [WARN] IP:2119 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2024-01-15 19:33:34,700 [WARN] IP:2119 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2024-01-15 19:33:38,053 [INFO] I2sManager:658 - 1.6E8
+2024-01-15 19:33:38,054 [INFO] I2sManager:195 - I2S Clock Value : 1.6E8
+2024-01-15 19:33:38,054 [INFO] I2sManager:553 - AudioClock : 96153Divider : 26Odd : 0
+2024-01-15 19:33:38,054 [INFO] I2sManager:658 - 1.6E8
+2024-01-15 19:33:38,054 [INFO] I2sManager:195 - I2S Clock Value : 1.6E8
+2024-01-15 19:33:38,054 [INFO] I2sManager:553 - AudioClock : 89285Divider : 3Odd : 1
+2024-01-15 19:33:38,141 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_AUDIO_FS = false
+2024-01-15 19:33:38,141 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_AUDIO_FS = false
+2024-01-15 19:33:38,141 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_AUDIO_HS = false
+2024-01-15 19:33:38,141 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_AUDIO_HS = false
+2024-01-15 19:33:38,141 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 19:33:38,141 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 19:33:38,141 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 19:33:38,141 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_CDC_HS = false
+2024-01-15 19:33:38,141 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_CDC_HS = false
+2024-01-15 19:33:38,141 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_HID_FS = false
+2024-01-15 19:33:38,141 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_HID_FS = false
+2024-01-15 19:33:38,141 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_HID_HS = false
+2024-01-15 19:33:38,141 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_HID_HS = false
+2024-01-15 19:33:38,141 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MSC_FS = false
+2024-01-15 19:33:38,141 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MSC_FS = false
+2024-01-15 19:33:38,141 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MSC_HS = false
+2024-01-15 19:33:38,141 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MSC_HS = false
+2024-01-15 19:33:38,141 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : ALL_SW_VBUS_DRIVE_FS = false
+2024-01-15 19:33:38,141 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : ALL_SW_VBUS_DRIVE_FS = false
+2024-01-15 19:33:38,141 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : ALL_SW_VBUS_DRIVE_HS = false
+2024-01-15 19:33:38,141 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : ALL_SW_VBUS_DRIVE_HS = false
+2024-01-15 19:33:38,141 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MTP_FS = false
+2024-01-15 19:33:38,141 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MTP_FS = false
+2024-01-15 19:33:38,141 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MTP_HS = false
+2024-01-15 19:33:38,141 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MTP_HS = false
+2024-01-15 19:33:38,150 [WARN] IP:2119 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2024-01-15 19:33:38,150 [WARN] IP:2119 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2024-01-15 19:33:38,151 [WARN] IP:2119 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2024-01-15 19:33:38,151 [WARN] IP:2119 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2024-01-15 19:33:42,858 [INFO] I2sManager:658 - 8.0E7
+2024-01-15 19:33:42,859 [INFO] I2sManager:195 - I2S Clock Value : 8.0E7
+2024-01-15 19:33:42,859 [INFO] I2sManager:553 - AudioClock : 96153Divider : 13Odd : 0
+2024-01-15 19:33:42,859 [INFO] I2sManager:658 - 8.0E7
+2024-01-15 19:33:42,859 [INFO] I2sManager:195 - I2S Clock Value : 8.0E7
+2024-01-15 19:33:42,941 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_AUDIO_FS = false
+2024-01-15 19:33:42,941 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_AUDIO_FS = false
+2024-01-15 19:33:42,941 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_AUDIO_HS = false
+2024-01-15 19:33:42,941 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_AUDIO_HS = false
+2024-01-15 19:33:42,941 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 19:33:42,941 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 19:33:42,941 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 19:33:42,941 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_CDC_HS = false
+2024-01-15 19:33:42,941 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_CDC_HS = false
+2024-01-15 19:33:42,941 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_HID_FS = false
+2024-01-15 19:33:42,941 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_HID_FS = false
+2024-01-15 19:33:42,941 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_HID_HS = false
+2024-01-15 19:33:42,941 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_HID_HS = false
+2024-01-15 19:33:42,941 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MSC_FS = false
+2024-01-15 19:33:42,941 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MSC_FS = false
+2024-01-15 19:33:42,941 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MSC_HS = false
+2024-01-15 19:33:42,941 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MSC_HS = false
+2024-01-15 19:33:42,941 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : ALL_SW_VBUS_DRIVE_FS = false
+2024-01-15 19:33:42,941 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : ALL_SW_VBUS_DRIVE_FS = false
+2024-01-15 19:33:42,941 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : ALL_SW_VBUS_DRIVE_HS = false
+2024-01-15 19:33:42,941 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : ALL_SW_VBUS_DRIVE_HS = false
+2024-01-15 19:33:42,941 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MTP_FS = false
+2024-01-15 19:33:42,941 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MTP_FS = false
+2024-01-15 19:33:42,941 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MTP_HS = false
+2024-01-15 19:33:42,941 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MTP_HS = false
+2024-01-15 19:33:42,950 [WARN] IP:2119 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2024-01-15 19:33:42,950 [WARN] IP:2119 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2024-01-15 19:33:42,950 [WARN] IP:2119 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2024-01-15 19:33:42,950 [WARN] IP:2119 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2024-01-15 19:33:49,457 [INFO] I2sManager:658 - 8.0E7
+2024-01-15 19:33:49,457 [INFO] I2sManager:195 - I2S Clock Value : 8.0E7
+2024-01-15 19:33:49,457 [INFO] I2sManager:553 - AudioClock : 96153Divider : 13Odd : 0
+2024-01-15 19:33:49,457 [INFO] I2sManager:658 - 8.0E7
+2024-01-15 19:33:49,457 [INFO] I2sManager:195 - I2S Clock Value : 8.0E7
+2024-01-15 19:33:49,494 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_AUDIO_FS = false
+2024-01-15 19:33:49,494 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_AUDIO_FS = false
+2024-01-15 19:33:49,494 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_AUDIO_HS = false
+2024-01-15 19:33:49,494 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_AUDIO_HS = false
+2024-01-15 19:33:49,494 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 19:33:49,494 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 19:33:49,494 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 19:33:49,494 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_CDC_HS = false
+2024-01-15 19:33:49,494 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_CDC_HS = false
+2024-01-15 19:33:49,494 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_HID_FS = false
+2024-01-15 19:33:49,494 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_HID_FS = false
+2024-01-15 19:33:49,494 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_HID_HS = false
+2024-01-15 19:33:49,494 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_HID_HS = false
+2024-01-15 19:33:49,494 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MSC_FS = false
+2024-01-15 19:33:49,494 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MSC_FS = false
+2024-01-15 19:33:49,494 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MSC_HS = false
+2024-01-15 19:33:49,494 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MSC_HS = false
+2024-01-15 19:33:49,494 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : ALL_SW_VBUS_DRIVE_FS = false
+2024-01-15 19:33:49,494 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : ALL_SW_VBUS_DRIVE_FS = false
+2024-01-15 19:33:49,494 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : ALL_SW_VBUS_DRIVE_HS = false
+2024-01-15 19:33:49,494 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : ALL_SW_VBUS_DRIVE_HS = false
+2024-01-15 19:33:49,494 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MTP_FS = false
+2024-01-15 19:33:49,494 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MTP_FS = false
+2024-01-15 19:33:49,494 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MTP_HS = false
+2024-01-15 19:33:49,494 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MTP_HS = false
+2024-01-15 19:33:49,502 [WARN] IP:2119 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2024-01-15 19:33:49,502 [WARN] IP:2119 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2024-01-15 19:33:49,502 [WARN] IP:2119 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2024-01-15 19:33:49,502 [WARN] IP:2119 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2024-01-15 19:33:55,461 [INFO] I2sManager:658 - 8.0E7
+2024-01-15 19:33:55,461 [INFO] I2sManager:195 - I2S Clock Value : 8.0E7
+2024-01-15 19:33:55,461 [INFO] I2sManager:553 - AudioClock : 96153Divider : 13Odd : 0
+2024-01-15 19:33:55,461 [INFO] I2sManager:658 - 8.0E7
+2024-01-15 19:33:55,461 [INFO] I2sManager:195 - I2S Clock Value : 8.0E7
+2024-01-15 19:33:55,499 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_AUDIO_FS = false
+2024-01-15 19:33:55,500 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_AUDIO_FS = false
+2024-01-15 19:33:55,500 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_AUDIO_HS = false
+2024-01-15 19:33:55,500 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_AUDIO_HS = false
+2024-01-15 19:33:55,500 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 19:33:55,500 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 19:33:55,500 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 19:33:55,500 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_CDC_HS = false
+2024-01-15 19:33:55,500 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_CDC_HS = false
+2024-01-15 19:33:55,500 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_HID_FS = false
+2024-01-15 19:33:55,500 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_HID_FS = false
+2024-01-15 19:33:55,500 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_HID_HS = false
+2024-01-15 19:33:55,500 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_HID_HS = false
+2024-01-15 19:33:55,500 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MSC_FS = false
+2024-01-15 19:33:55,500 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MSC_FS = false
+2024-01-15 19:33:55,500 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MSC_HS = false
+2024-01-15 19:33:55,500 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MSC_HS = false
+2024-01-15 19:33:55,500 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : ALL_SW_VBUS_DRIVE_FS = false
+2024-01-15 19:33:55,500 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : ALL_SW_VBUS_DRIVE_FS = false
+2024-01-15 19:33:55,500 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : ALL_SW_VBUS_DRIVE_HS = false
+2024-01-15 19:33:55,500 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : ALL_SW_VBUS_DRIVE_HS = false
+2024-01-15 19:33:55,500 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MTP_FS = false
+2024-01-15 19:33:55,500 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MTP_FS = false
+2024-01-15 19:33:55,500 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MTP_HS = false
+2024-01-15 19:33:55,500 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MTP_HS = false
+2024-01-15 19:33:55,507 [WARN] IP:2119 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2024-01-15 19:33:55,508 [WARN] IP:2119 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2024-01-15 19:33:55,508 [WARN] IP:2119 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2024-01-15 19:33:55,508 [WARN] IP:2119 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2024-01-15 19:33:59,759 [INFO] I2sManager:658 - 1.6E8
+2024-01-15 19:33:59,759 [INFO] I2sManager:195 - I2S Clock Value : 1.6E8
+2024-01-15 19:33:59,759 [INFO] I2sManager:553 - AudioClock : 96153Divider : 26Odd : 0
+2024-01-15 19:33:59,759 [INFO] I2sManager:658 - 1.6E8
+2024-01-15 19:33:59,759 [INFO] I2sManager:195 - I2S Clock Value : 1.6E8
+2024-01-15 19:33:59,759 [INFO] I2sManager:553 - AudioClock : 89285Divider : 3Odd : 1
+2024-01-15 19:33:59,839 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_AUDIO_FS = false
+2024-01-15 19:33:59,840 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_AUDIO_FS = false
+2024-01-15 19:33:59,840 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_AUDIO_HS = false
+2024-01-15 19:33:59,840 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_AUDIO_HS = false
+2024-01-15 19:33:59,840 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 19:33:59,840 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 19:33:59,840 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 19:33:59,840 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_CDC_HS = false
+2024-01-15 19:33:59,840 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_CDC_HS = false
+2024-01-15 19:33:59,840 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_HID_FS = false
+2024-01-15 19:33:59,840 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_HID_FS = false
+2024-01-15 19:33:59,840 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_HID_HS = false
+2024-01-15 19:33:59,840 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_HID_HS = false
+2024-01-15 19:33:59,840 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MSC_FS = false
+2024-01-15 19:33:59,840 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MSC_FS = false
+2024-01-15 19:33:59,840 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MSC_HS = false
+2024-01-15 19:33:59,840 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MSC_HS = false
+2024-01-15 19:33:59,840 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : ALL_SW_VBUS_DRIVE_FS = false
+2024-01-15 19:33:59,840 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : ALL_SW_VBUS_DRIVE_FS = false
+2024-01-15 19:33:59,840 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : ALL_SW_VBUS_DRIVE_HS = false
+2024-01-15 19:33:59,840 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : ALL_SW_VBUS_DRIVE_HS = false
+2024-01-15 19:33:59,840 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MTP_FS = false
+2024-01-15 19:33:59,840 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MTP_FS = false
+2024-01-15 19:33:59,840 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MTP_HS = false
+2024-01-15 19:33:59,840 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MTP_HS = false
+2024-01-15 19:33:59,848 [WARN] IP:2119 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2024-01-15 19:33:59,848 [WARN] IP:2119 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2024-01-15 19:33:59,848 [WARN] IP:2119 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2024-01-15 19:33:59,848 [WARN] IP:2119 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2024-01-15 19:34:12,012 [INFO] I2sManager:658 - 1.6E8
+2024-01-15 19:34:12,013 [INFO] I2sManager:195 - I2S Clock Value : 1.6E8
+2024-01-15 19:34:12,013 [INFO] I2sManager:553 - AudioClock : 96153Divider : 26Odd : 0
+2024-01-15 19:34:12,013 [INFO] I2sManager:658 - 1.6E8
+2024-01-15 19:34:12,013 [INFO] I2sManager:195 - I2S Clock Value : 1.6E8
+2024-01-15 19:34:12,013 [INFO] I2sManager:553 - AudioClock : 89285Divider : 3Odd : 1
+2024-01-15 19:34:15,704 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_AUDIO_FS = false
+2024-01-15 19:34:15,704 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_AUDIO_FS = false
+2024-01-15 19:34:15,704 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_AUDIO_HS = false
+2024-01-15 19:34:15,704 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_AUDIO_HS = false
+2024-01-15 19:34:15,704 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 19:34:15,704 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 19:34:15,704 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 19:34:15,704 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_CDC_HS = false
+2024-01-15 19:34:15,704 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_CDC_HS = false
+2024-01-15 19:34:15,704 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_HID_FS = false
+2024-01-15 19:34:15,704 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_HID_FS = false
+2024-01-15 19:34:15,704 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_HID_HS = false
+2024-01-15 19:34:15,704 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_HID_HS = false
+2024-01-15 19:34:15,704 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MSC_FS = false
+2024-01-15 19:34:15,704 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MSC_FS = false
+2024-01-15 19:34:15,704 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MSC_HS = false
+2024-01-15 19:34:15,704 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MSC_HS = false
+2024-01-15 19:34:15,704 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : ALL_SW_VBUS_DRIVE_FS = false
+2024-01-15 19:34:15,704 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : ALL_SW_VBUS_DRIVE_FS = false
+2024-01-15 19:34:15,704 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : ALL_SW_VBUS_DRIVE_HS = false
+2024-01-15 19:34:15,704 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : ALL_SW_VBUS_DRIVE_HS = false
+2024-01-15 19:34:15,704 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MTP_FS = false
+2024-01-15 19:34:15,704 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MTP_FS = false
+2024-01-15 19:34:15,704 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MTP_HS = false
+2024-01-15 19:34:15,704 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MTP_HS = false
+2024-01-15 19:34:15,704 [WARN] BspModel:444 - BSP dependency skipped because of component: name='IOExpander', api='Unknown'
+2024-01-15 19:34:20,773 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_AUDIO_FS = false
+2024-01-15 19:34:20,773 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_AUDIO_FS = false
+2024-01-15 19:34:20,773 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_AUDIO_HS = false
+2024-01-15 19:34:20,773 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_AUDIO_HS = false
+2024-01-15 19:34:20,773 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 19:34:20,773 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 19:34:20,773 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 19:34:20,773 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_CDC_HS = false
+2024-01-15 19:34:20,773 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_CDC_HS = false
+2024-01-15 19:34:20,773 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_HID_FS = false
+2024-01-15 19:34:20,773 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_HID_FS = false
+2024-01-15 19:34:20,773 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_HID_HS = false
+2024-01-15 19:34:20,773 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_HID_HS = false
+2024-01-15 19:34:20,773 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MSC_FS = false
+2024-01-15 19:34:20,773 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MSC_FS = false
+2024-01-15 19:34:20,773 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MSC_HS = false
+2024-01-15 19:34:20,773 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MSC_HS = false
+2024-01-15 19:34:20,773 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : ALL_SW_VBUS_DRIVE_FS = false
+2024-01-15 19:34:20,773 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : ALL_SW_VBUS_DRIVE_FS = false
+2024-01-15 19:34:20,773 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : ALL_SW_VBUS_DRIVE_HS = false
+2024-01-15 19:34:20,773 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : ALL_SW_VBUS_DRIVE_HS = false
+2024-01-15 19:34:20,773 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MTP_FS = false
+2024-01-15 19:34:20,773 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MTP_FS = false
+2024-01-15 19:34:20,773 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MTP_HS = false
+2024-01-15 19:34:20,773 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MTP_HS = false
+2024-01-15 19:34:20,773 [WARN] BspModel:444 - BSP dependency skipped because of component: name='IOExpander', api='Unknown'
+2024-01-15 19:36:30,237 [INFO] I2sManager:658 - 1.6E8
+2024-01-15 19:36:30,237 [INFO] I2sManager:195 - I2S Clock Value : 1.6E8
+2024-01-15 19:36:30,238 [INFO] I2sManager:553 - AudioClock : 96153Divider : 26Odd : 0
+2024-01-15 19:36:30,238 [INFO] I2sManager:658 - 1.6E8
+2024-01-15 19:36:30,238 [INFO] I2sManager:195 - I2S Clock Value : 1.6E8
+2024-01-15 19:36:30,238 [INFO] I2sManager:553 - AudioClock : 89285Divider : 3Odd : 1
+2024-01-15 19:36:30,277 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_AUDIO_FS = false
+2024-01-15 19:36:30,277 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_AUDIO_FS = false
+2024-01-15 19:36:30,277 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_AUDIO_HS = false
+2024-01-15 19:36:30,277 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_AUDIO_HS = false
+2024-01-15 19:36:30,277 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 19:36:30,277 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 19:36:30,277 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 19:36:30,277 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_CDC_HS = false
+2024-01-15 19:36:30,277 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_CDC_HS = false
+2024-01-15 19:36:30,277 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_HID_FS = false
+2024-01-15 19:36:30,277 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_HID_FS = false
+2024-01-15 19:36:30,277 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_HID_HS = false
+2024-01-15 19:36:30,277 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_HID_HS = false
+2024-01-15 19:36:30,277 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MSC_FS = false
+2024-01-15 19:36:30,277 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MSC_FS = false
+2024-01-15 19:36:30,277 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MSC_HS = false
+2024-01-15 19:36:30,277 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MSC_HS = false
+2024-01-15 19:36:30,277 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : ALL_SW_VBUS_DRIVE_FS = false
+2024-01-15 19:36:30,277 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : ALL_SW_VBUS_DRIVE_FS = false
+2024-01-15 19:36:30,277 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : ALL_SW_VBUS_DRIVE_HS = false
+2024-01-15 19:36:30,277 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : ALL_SW_VBUS_DRIVE_HS = false
+2024-01-15 19:36:30,277 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MTP_FS = false
+2024-01-15 19:36:30,277 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MTP_FS = false
+2024-01-15 19:36:30,277 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MTP_HS = false
+2024-01-15 19:36:30,277 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MTP_HS = false
+2024-01-15 19:36:30,285 [WARN] IP:2119 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2024-01-15 19:36:30,285 [WARN] IP:2119 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2024-01-15 19:36:30,285 [WARN] IP:2119 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2024-01-15 19:36:30,285 [WARN] IP:2119 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2024-01-15 19:36:37,984 [INFO] I2sManager:658 - 3.2E8
+2024-01-15 19:36:37,984 [INFO] I2sManager:195 - I2S Clock Value : 3.2E8
+2024-01-15 19:36:37,984 [INFO] I2sManager:553 - AudioClock : 96153Divider : 52Odd : 0
+2024-01-15 19:36:37,984 [INFO] I2sManager:658 - 3.2E8
+2024-01-15 19:36:37,984 [INFO] I2sManager:195 - I2S Clock Value : 3.2E8
+2024-01-15 19:36:37,984 [INFO] I2sManager:553 - AudioClock : 96153Divider : 6Odd : 1
+2024-01-15 19:36:38,064 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_AUDIO_FS = false
+2024-01-15 19:36:38,064 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_AUDIO_FS = false
+2024-01-15 19:36:38,064 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_AUDIO_HS = false
+2024-01-15 19:36:38,064 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_AUDIO_HS = false
+2024-01-15 19:36:38,064 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 19:36:38,064 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 19:36:38,064 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 19:36:38,064 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_CDC_HS = false
+2024-01-15 19:36:38,064 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_CDC_HS = false
+2024-01-15 19:36:38,066 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_HID_FS = false
+2024-01-15 19:36:38,066 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_HID_FS = false
+2024-01-15 19:36:38,066 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_HID_HS = false
+2024-01-15 19:36:38,066 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_HID_HS = false
+2024-01-15 19:36:38,066 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MSC_FS = false
+2024-01-15 19:36:38,066 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MSC_FS = false
+2024-01-15 19:36:38,066 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MSC_HS = false
+2024-01-15 19:36:38,066 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MSC_HS = false
+2024-01-15 19:36:38,066 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : ALL_SW_VBUS_DRIVE_FS = false
+2024-01-15 19:36:38,066 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : ALL_SW_VBUS_DRIVE_FS = false
+2024-01-15 19:36:38,066 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : ALL_SW_VBUS_DRIVE_HS = false
+2024-01-15 19:36:38,066 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : ALL_SW_VBUS_DRIVE_HS = false
+2024-01-15 19:36:38,066 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MTP_FS = false
+2024-01-15 19:36:38,066 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MTP_FS = false
+2024-01-15 19:36:38,066 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MTP_HS = false
+2024-01-15 19:36:38,066 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MTP_HS = false
+2024-01-15 19:36:38,074 [WARN] IP:2119 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2024-01-15 19:36:38,074 [WARN] IP:2119 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2024-01-15 19:36:38,076 [WARN] IP:2119 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2024-01-15 19:36:38,076 [WARN] IP:2119 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2024-01-15 19:36:42,293 [INFO] I2sManager:658 - 3.2E8
+2024-01-15 19:36:42,293 [INFO] I2sManager:195 - I2S Clock Value : 3.2E8
+2024-01-15 19:36:42,293 [INFO] I2sManager:553 - AudioClock : 96153Divider : 52Odd : 0
+2024-01-15 19:36:42,293 [INFO] I2sManager:658 - 3.2E8
+2024-01-15 19:36:42,293 [INFO] I2sManager:195 - I2S Clock Value : 3.2E8
+2024-01-15 19:36:42,294 [INFO] I2sManager:553 - AudioClock : 96153Divider : 6Odd : 1
+2024-01-15 19:36:42,332 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_AUDIO_FS = false
+2024-01-15 19:36:42,332 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_AUDIO_FS = false
+2024-01-15 19:36:42,332 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_AUDIO_HS = false
+2024-01-15 19:36:42,332 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_AUDIO_HS = false
+2024-01-15 19:36:42,332 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 19:36:42,332 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 19:36:42,332 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 19:36:42,332 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_CDC_HS = false
+2024-01-15 19:36:42,332 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_CDC_HS = false
+2024-01-15 19:36:42,332 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_HID_FS = false
+2024-01-15 19:36:42,332 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_HID_FS = false
+2024-01-15 19:36:42,332 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_HID_HS = false
+2024-01-15 19:36:42,332 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_HID_HS = false
+2024-01-15 19:36:42,332 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MSC_FS = false
+2024-01-15 19:36:42,332 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MSC_FS = false
+2024-01-15 19:36:42,332 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MSC_HS = false
+2024-01-15 19:36:42,332 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MSC_HS = false
+2024-01-15 19:36:42,332 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : ALL_SW_VBUS_DRIVE_FS = false
+2024-01-15 19:36:42,332 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : ALL_SW_VBUS_DRIVE_FS = false
+2024-01-15 19:36:42,332 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : ALL_SW_VBUS_DRIVE_HS = false
+2024-01-15 19:36:42,332 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : ALL_SW_VBUS_DRIVE_HS = false
+2024-01-15 19:36:42,332 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MTP_FS = false
+2024-01-15 19:36:42,332 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MTP_FS = false
+2024-01-15 19:36:42,332 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MTP_HS = false
+2024-01-15 19:36:42,333 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MTP_HS = false
+2024-01-15 19:36:42,342 [WARN] IP:2119 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2024-01-15 19:36:42,342 [WARN] IP:2119 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2024-01-15 19:36:42,343 [WARN] IP:2119 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2024-01-15 19:36:42,343 [WARN] IP:2119 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2024-01-15 19:36:46,854 [INFO] I2sManager:658 - 3.2E8
+2024-01-15 19:36:46,854 [INFO] I2sManager:195 - I2S Clock Value : 3.2E8
+2024-01-15 19:36:46,854 [INFO] I2sManager:553 - AudioClock : 96153Divider : 52Odd : 0
+2024-01-15 19:36:46,854 [INFO] I2sManager:658 - 3.2E8
+2024-01-15 19:36:46,854 [INFO] I2sManager:195 - I2S Clock Value : 3.2E8
+2024-01-15 19:36:46,854 [INFO] I2sManager:553 - AudioClock : 96153Divider : 6Odd : 1
+2024-01-15 19:36:46,891 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_AUDIO_FS = false
+2024-01-15 19:36:46,891 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_AUDIO_FS = false
+2024-01-15 19:36:46,891 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_AUDIO_HS = false
+2024-01-15 19:36:46,891 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_AUDIO_HS = false
+2024-01-15 19:36:46,891 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 19:36:46,891 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 19:36:46,891 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 19:36:46,891 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_CDC_HS = false
+2024-01-15 19:36:46,891 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_CDC_HS = false
+2024-01-15 19:36:46,891 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_HID_FS = false
+2024-01-15 19:36:46,891 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_HID_FS = false
+2024-01-15 19:36:46,891 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_HID_HS = false
+2024-01-15 19:36:46,891 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_HID_HS = false
+2024-01-15 19:36:46,891 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MSC_FS = false
+2024-01-15 19:36:46,892 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MSC_FS = false
+2024-01-15 19:36:46,892 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MSC_HS = false
+2024-01-15 19:36:46,892 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MSC_HS = false
+2024-01-15 19:36:46,892 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : ALL_SW_VBUS_DRIVE_FS = false
+2024-01-15 19:36:46,892 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : ALL_SW_VBUS_DRIVE_FS = false
+2024-01-15 19:36:46,892 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : ALL_SW_VBUS_DRIVE_HS = false
+2024-01-15 19:36:46,892 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : ALL_SW_VBUS_DRIVE_HS = false
+2024-01-15 19:36:46,892 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MTP_FS = false
+2024-01-15 19:36:46,892 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MTP_FS = false
+2024-01-15 19:36:46,892 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MTP_HS = false
+2024-01-15 19:36:46,892 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MTP_HS = false
+2024-01-15 19:36:46,915 [WARN] IP:2119 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2024-01-15 19:36:46,915 [WARN] IP:2119 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2024-01-15 19:36:46,915 [WARN] IP:2119 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2024-01-15 19:36:46,915 [WARN] IP:2119 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2024-01-15 19:36:52,123 [INFO] I2sManager:658 - 1.6E8
+2024-01-15 19:36:52,123 [INFO] I2sManager:195 - I2S Clock Value : 1.6E8
+2024-01-15 19:36:52,123 [INFO] I2sManager:553 - AudioClock : 96153Divider : 26Odd : 0
+2024-01-15 19:36:52,123 [INFO] I2sManager:658 - 1.6E8
+2024-01-15 19:36:52,123 [INFO] I2sManager:195 - I2S Clock Value : 1.6E8
+2024-01-15 19:36:52,123 [INFO] I2sManager:553 - AudioClock : 89285Divider : 3Odd : 1
+2024-01-15 19:36:52,203 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_AUDIO_FS = false
+2024-01-15 19:36:52,203 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_AUDIO_FS = false
+2024-01-15 19:36:52,203 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_AUDIO_HS = false
+2024-01-15 19:36:52,203 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_AUDIO_HS = false
+2024-01-15 19:36:52,203 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 19:36:52,203 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 19:36:52,203 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 19:36:52,203 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_CDC_HS = false
+2024-01-15 19:36:52,203 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_CDC_HS = false
+2024-01-15 19:36:52,203 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_HID_FS = false
+2024-01-15 19:36:52,203 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_HID_FS = false
+2024-01-15 19:36:52,203 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_HID_HS = false
+2024-01-15 19:36:52,203 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_HID_HS = false
+2024-01-15 19:36:52,203 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MSC_FS = false
+2024-01-15 19:36:52,203 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MSC_FS = false
+2024-01-15 19:36:52,203 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MSC_HS = false
+2024-01-15 19:36:52,203 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MSC_HS = false
+2024-01-15 19:36:52,203 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : ALL_SW_VBUS_DRIVE_FS = false
+2024-01-15 19:36:52,203 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : ALL_SW_VBUS_DRIVE_FS = false
+2024-01-15 19:36:52,203 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : ALL_SW_VBUS_DRIVE_HS = false
+2024-01-15 19:36:52,203 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : ALL_SW_VBUS_DRIVE_HS = false
+2024-01-15 19:36:52,203 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MTP_FS = false
+2024-01-15 19:36:52,203 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MTP_FS = false
+2024-01-15 19:36:52,203 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MTP_HS = false
+2024-01-15 19:36:52,203 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MTP_HS = false
+2024-01-15 19:36:52,212 [WARN] IP:2119 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2024-01-15 19:36:52,212 [WARN] IP:2119 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2024-01-15 19:36:52,212 [WARN] IP:2119 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2024-01-15 19:36:52,212 [WARN] IP:2119 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2024-01-15 19:36:56,720 [INFO] I2sManager:658 - 8.0E7
+2024-01-15 19:36:56,721 [INFO] I2sManager:195 - I2S Clock Value : 8.0E7
+2024-01-15 19:36:56,721 [INFO] I2sManager:553 - AudioClock : 96153Divider : 13Odd : 0
+2024-01-15 19:36:56,721 [INFO] I2sManager:658 - 8.0E7
+2024-01-15 19:36:56,721 [INFO] I2sManager:195 - I2S Clock Value : 8.0E7
+2024-01-15 19:36:56,788 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_AUDIO_FS = false
+2024-01-15 19:36:56,788 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_AUDIO_FS = false
+2024-01-15 19:36:56,788 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_AUDIO_HS = false
+2024-01-15 19:36:56,788 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_AUDIO_HS = false
+2024-01-15 19:36:56,788 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 19:36:56,788 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 19:36:56,788 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 19:36:56,788 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_CDC_HS = false
+2024-01-15 19:36:56,788 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_CDC_HS = false
+2024-01-15 19:36:56,788 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_HID_FS = false
+2024-01-15 19:36:56,788 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_HID_FS = false
+2024-01-15 19:36:56,788 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_HID_HS = false
+2024-01-15 19:36:56,788 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_HID_HS = false
+2024-01-15 19:36:56,788 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MSC_FS = false
+2024-01-15 19:36:56,788 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MSC_FS = false
+2024-01-15 19:36:56,788 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MSC_HS = false
+2024-01-15 19:36:56,788 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MSC_HS = false
+2024-01-15 19:36:56,788 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : ALL_SW_VBUS_DRIVE_FS = false
+2024-01-15 19:36:56,788 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : ALL_SW_VBUS_DRIVE_FS = false
+2024-01-15 19:36:56,788 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : ALL_SW_VBUS_DRIVE_HS = false
+2024-01-15 19:36:56,788 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : ALL_SW_VBUS_DRIVE_HS = false
+2024-01-15 19:36:56,788 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MTP_FS = false
+2024-01-15 19:36:56,788 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MTP_FS = false
+2024-01-15 19:36:56,788 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MTP_HS = false
+2024-01-15 19:36:56,788 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MTP_HS = false
+2024-01-15 19:36:56,812 [WARN] IP:2119 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2024-01-15 19:36:56,812 [WARN] IP:2119 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2024-01-15 19:36:56,812 [WARN] IP:2119 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2024-01-15 19:36:56,812 [WARN] IP:2119 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2024-01-15 19:37:04,767 [INFO] I2sManager:658 - 8.0E7
+2024-01-15 19:37:04,767 [INFO] I2sManager:195 - I2S Clock Value : 8.0E7
+2024-01-15 19:37:04,767 [INFO] I2sManager:553 - AudioClock : 96153Divider : 13Odd : 0
+2024-01-15 19:37:04,767 [INFO] I2sManager:658 - 8.0E7
+2024-01-15 19:37:04,767 [INFO] I2sManager:195 - I2S Clock Value : 8.0E7
+2024-01-15 19:37:04,804 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_AUDIO_FS = false
+2024-01-15 19:37:04,804 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_AUDIO_FS = false
+2024-01-15 19:37:04,804 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_AUDIO_HS = false
+2024-01-15 19:37:04,804 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_AUDIO_HS = false
+2024-01-15 19:37:04,804 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 19:37:04,804 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 19:37:04,804 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 19:37:04,804 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_CDC_HS = false
+2024-01-15 19:37:04,804 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_CDC_HS = false
+2024-01-15 19:37:04,804 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_HID_FS = false
+2024-01-15 19:37:04,804 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_HID_FS = false
+2024-01-15 19:37:04,804 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_HID_HS = false
+2024-01-15 19:37:04,804 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_HID_HS = false
+2024-01-15 19:37:04,804 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MSC_FS = false
+2024-01-15 19:37:04,804 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MSC_FS = false
+2024-01-15 19:37:04,804 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MSC_HS = false
+2024-01-15 19:37:04,804 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MSC_HS = false
+2024-01-15 19:37:04,806 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : ALL_SW_VBUS_DRIVE_FS = false
+2024-01-15 19:37:04,806 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : ALL_SW_VBUS_DRIVE_FS = false
+2024-01-15 19:37:04,806 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : ALL_SW_VBUS_DRIVE_HS = false
+2024-01-15 19:37:04,806 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : ALL_SW_VBUS_DRIVE_HS = false
+2024-01-15 19:37:04,806 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MTP_FS = false
+2024-01-15 19:37:04,806 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MTP_FS = false
+2024-01-15 19:37:04,806 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MTP_HS = false
+2024-01-15 19:37:04,806 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MTP_HS = false
+2024-01-15 19:37:04,813 [WARN] IP:2119 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2024-01-15 19:37:04,813 [WARN] IP:2119 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2024-01-15 19:37:04,813 [WARN] IP:2119 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2024-01-15 19:37:04,813 [WARN] IP:2119 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2024-01-15 19:37:09,628 [INFO] I2sManager:658 - 1.6E8
+2024-01-15 19:37:09,628 [INFO] I2sManager:195 - I2S Clock Value : 1.6E8
+2024-01-15 19:37:09,628 [INFO] I2sManager:553 - AudioClock : 96153Divider : 26Odd : 0
+2024-01-15 19:37:09,628 [INFO] I2sManager:658 - 1.6E8
+2024-01-15 19:37:09,628 [INFO] I2sManager:195 - I2S Clock Value : 1.6E8
+2024-01-15 19:37:09,628 [INFO] I2sManager:553 - AudioClock : 89285Divider : 3Odd : 1
+2024-01-15 19:37:09,707 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_AUDIO_FS = false
+2024-01-15 19:37:09,707 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_AUDIO_FS = false
+2024-01-15 19:37:09,707 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_AUDIO_HS = false
+2024-01-15 19:37:09,707 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_AUDIO_HS = false
+2024-01-15 19:37:09,707 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 19:37:09,707 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 19:37:09,707 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 19:37:09,707 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_CDC_HS = false
+2024-01-15 19:37:09,707 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_CDC_HS = false
+2024-01-15 19:37:09,707 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_HID_FS = false
+2024-01-15 19:37:09,707 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_HID_FS = false
+2024-01-15 19:37:09,707 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_HID_HS = false
+2024-01-15 19:37:09,707 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_HID_HS = false
+2024-01-15 19:37:09,707 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MSC_FS = false
+2024-01-15 19:37:09,707 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MSC_FS = false
+2024-01-15 19:37:09,707 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MSC_HS = false
+2024-01-15 19:37:09,707 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MSC_HS = false
+2024-01-15 19:37:09,707 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : ALL_SW_VBUS_DRIVE_FS = false
+2024-01-15 19:37:09,707 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : ALL_SW_VBUS_DRIVE_FS = false
+2024-01-15 19:37:09,707 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : ALL_SW_VBUS_DRIVE_HS = false
+2024-01-15 19:37:09,707 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : ALL_SW_VBUS_DRIVE_HS = false
+2024-01-15 19:37:09,707 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MTP_FS = false
+2024-01-15 19:37:09,707 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MTP_FS = false
+2024-01-15 19:37:09,707 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MTP_HS = false
+2024-01-15 19:37:09,707 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MTP_HS = false
+2024-01-15 19:37:09,716 [WARN] IP:2119 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2024-01-15 19:37:09,716 [WARN] IP:2119 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2024-01-15 19:37:09,717 [WARN] IP:2119 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2024-01-15 19:37:09,717 [WARN] IP:2119 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2024-01-15 19:39:14,310 [INFO] I2sManager:658 - 1.6E8
+2024-01-15 19:39:14,310 [INFO] I2sManager:195 - I2S Clock Value : 1.6E8
+2024-01-15 19:39:14,310 [INFO] I2sManager:553 - AudioClock : 96153Divider : 26Odd : 0
+2024-01-15 19:39:14,310 [INFO] I2sManager:658 - 1.6E8
+2024-01-15 19:39:14,310 [INFO] I2sManager:195 - I2S Clock Value : 1.6E8
+2024-01-15 19:39:14,310 [INFO] I2sManager:553 - AudioClock : 89285Divider : 3Odd : 1
+2024-01-15 19:39:43,627 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_AUDIO_FS = false
+2024-01-15 19:39:43,627 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_AUDIO_FS = false
+2024-01-15 19:39:43,627 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_AUDIO_HS = false
+2024-01-15 19:39:43,627 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_AUDIO_HS = false
+2024-01-15 19:39:43,627 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 19:39:43,627 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 19:39:43,627 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 19:39:43,627 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_CDC_HS = false
+2024-01-15 19:39:43,627 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_CDC_HS = false
+2024-01-15 19:39:43,627 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_HID_FS = false
+2024-01-15 19:39:43,627 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_HID_FS = false
+2024-01-15 19:39:43,627 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_HID_HS = false
+2024-01-15 19:39:43,627 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_HID_HS = false
+2024-01-15 19:39:43,627 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MSC_FS = false
+2024-01-15 19:39:43,627 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MSC_FS = false
+2024-01-15 19:39:43,627 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MSC_HS = false
+2024-01-15 19:39:43,627 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MSC_HS = false
+2024-01-15 19:39:43,627 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : ALL_SW_VBUS_DRIVE_FS = false
+2024-01-15 19:39:43,627 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : ALL_SW_VBUS_DRIVE_FS = false
+2024-01-15 19:39:43,627 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : ALL_SW_VBUS_DRIVE_HS = false
+2024-01-15 19:39:43,627 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : ALL_SW_VBUS_DRIVE_HS = false
+2024-01-15 19:39:43,627 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MTP_FS = false
+2024-01-15 19:39:43,627 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MTP_FS = false
+2024-01-15 19:39:43,627 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MTP_HS = false
+2024-01-15 19:39:43,627 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MTP_HS = false
+2024-01-15 19:39:43,627 [WARN] BspModel:444 - BSP dependency skipped because of component: name='IOExpander', api='Unknown'
+2024-01-15 19:39:48,310 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_AUDIO_FS = false
+2024-01-15 19:39:48,310 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_AUDIO_FS = false
+2024-01-15 19:39:48,310 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_AUDIO_HS = false
+2024-01-15 19:39:48,310 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_AUDIO_HS = false
+2024-01-15 19:39:48,310 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 19:39:48,310 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 19:39:48,310 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 19:39:48,310 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_CDC_HS = false
+2024-01-15 19:39:48,310 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_CDC_HS = false
+2024-01-15 19:39:48,310 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_HID_FS = false
+2024-01-15 19:39:48,310 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_HID_FS = false
+2024-01-15 19:39:48,310 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_HID_HS = false
+2024-01-15 19:39:48,310 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_HID_HS = false
+2024-01-15 19:39:48,310 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MSC_FS = false
+2024-01-15 19:39:48,310 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MSC_FS = false
+2024-01-15 19:39:48,310 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MSC_HS = false
+2024-01-15 19:39:48,310 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MSC_HS = false
+2024-01-15 19:39:48,310 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : ALL_SW_VBUS_DRIVE_FS = false
+2024-01-15 19:39:48,310 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : ALL_SW_VBUS_DRIVE_FS = false
+2024-01-15 19:39:48,310 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : ALL_SW_VBUS_DRIVE_HS = false
+2024-01-15 19:39:48,310 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : ALL_SW_VBUS_DRIVE_HS = false
+2024-01-15 19:39:48,310 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MTP_FS = false
+2024-01-15 19:39:48,310 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MTP_FS = false
+2024-01-15 19:39:48,311 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MTP_HS = false
+2024-01-15 19:39:48,311 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MTP_HS = false
+2024-01-15 19:39:48,311 [WARN] BspModel:444 - BSP dependency skipped because of component: name='IOExpander', api='Unknown'
+2024-01-15 19:44:22,386 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 
