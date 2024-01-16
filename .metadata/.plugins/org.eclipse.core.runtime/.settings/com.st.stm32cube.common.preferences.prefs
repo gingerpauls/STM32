@@ -1,9 +1,0 @@
-<<<<<<< HEAD
-DeviceConfigurationTool.AskToSwitchToCubeMxPerspective=false
-=======
-DeviceConfigurationTool.AskToSwitchToCdtPerspective=false
-DeviceConfigurationTool.AskToSwitchToCubeMxPerspective=false
-DeviceConfigurationTool.SwitchToCdtPerspective=true
->>>>>>> feature/pll
-DeviceConfigurationTool.SwitchToCubeMxPerspective=true
-eclipse.preferences.version=1
