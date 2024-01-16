@@ -705,3 +705,383 @@ Finished building: default.size.stdout
  
 Finished building: BARE.list
  
+15:51:59 **** Incremental Build of configuration Debug for project BARE ****
+make -j20 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32F411VETx -DSTM32 -DSTM32F4 -DSTM32F411E_DISCO -c -I"D:/STM32F411VE/Projects/Learn/BARE/Inc" -I"D:/STM32F411VE/Projects/Learn/BARE/CMSIS/Device/ST/STM32F4xx/Include" -I"D:/STM32F411VE/Projects/Learn/BARE/CMSIS/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+../Src/main.c: In function 'main':
+../Src/main.c:37:9: warning: this 'for' clause does not guard... [-Wmisleading-indentation]
+   37 |         for(;;)
+      |         ^~~
+../Src/main.c:39:17: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'for'
+   39 |                 delay(0x444444);
+      |                 ^~~~~
+arm-none-eabi-gcc -o "BARE.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\STM32F411VE\Projects\Learn\BARE\STM32F411VETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="BARE.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: BARE.elf
+ 
+arm-none-eabi-size  BARE.elf 
+arm-none-eabi-objdump -h -S BARE.elf  > "BARE.list"
+   text	   data	    bss	    dec	    hex	filename
+   1028	     12	   1564	   2604	    a2c	BARE.elf
+Finished building: default.size.stdout
+ 
+Finished building: BARE.list
+ 
+15:52:30 **** Incremental Build of configuration Debug for project BARE ****
+make -j20 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32F411VETx -DSTM32 -DSTM32F4 -DSTM32F411E_DISCO -c -I"D:/STM32F411VE/Projects/Learn/BARE/Inc" -I"D:/STM32F411VE/Projects/Learn/BARE/CMSIS/Device/ST/STM32F4xx/Include" -I"D:/STM32F411VE/Projects/Learn/BARE/CMSIS/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+../Src/main.c: In function 'main':
+../Src/main.c:37:9: warning: this 'for' clause does not guard... [-Wmisleading-indentation]
+   37 |         for(;;)
+      |         ^~~
+../Src/main.c:39:17: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'for'
+   39 |                 delay(0x44);
+      |                 ^~~~~
+arm-none-eabi-gcc -o "BARE.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\STM32F411VE\Projects\Learn\BARE\STM32F411VETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="BARE.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: BARE.elf
+ 
+arm-none-eabi-size  BARE.elf 
+arm-none-eabi-objdump -h -S BARE.elf  > "BARE.list"
+   text	   data	    bss	    dec	    hex	filename
+   1028	     12	   1564	   2604	    a2c	BARE.elf
+Finished building: default.size.stdout
+ 
+Finished building: BARE.list
+ 
+15:52:47 **** Incremental Build of configuration Debug for project BARE ****
+make -j20 all 
+arm-none-eabi-size  BARE.elf 
+   text	   data	    bss	    dec	    hex	filename
+   1028	     12	   1564	   2604	    a2c	BARE.elf
+Finished building: default.size.stdout
+ 
+15:53:22 **** Incremental Build of configuration Debug for project BARE ****
+make -j20 all 
+arm-none-eabi-size  BARE.elf 
+   text	   data	    bss	    dec	    hex	filename
+   1028	     12	   1564	   2604	    a2c	BARE.elf
+Finished building: default.size.stdout
+ 
+15:54:07 **** Incremental Build of configuration Debug for project BARE ****
+make -j20 all 
+arm-none-eabi-size  BARE.elf 
+   text	   data	    bss	    dec	    hex	filename
+   1028	     12	   1564	   2604	    a2c	BARE.elf
+Finished building: default.size.stdout
+ 
+15:54:44 **** Incremental Build of configuration Debug for project BARE ****
+make -j20 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32F411VETx -DSTM32 -DSTM32F4 -DSTM32F411E_DISCO -c -I"D:/STM32F411VE/Projects/Learn/BARE/Inc" -I"D:/STM32F411VE/Projects/Learn/BARE/CMSIS/Device/ST/STM32F4xx/Include" -I"D:/STM32F411VE/Projects/Learn/BARE/CMSIS/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+../Src/main.c: In function 'main':
+../Src/main.c:37:9: warning: this 'for' clause does not guard... [-Wmisleading-indentation]
+   37 |         for(;;)
+      |         ^~~
+../Src/main.c:39:17: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'for'
+   39 |                 Crudedelay(0x44);
+      |                 ^~~~~~~~~~
+arm-none-eabi-gcc -o "BARE.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\STM32F411VE\Projects\Learn\BARE\STM32F411VETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="BARE.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: BARE.elf
+ 
+arm-none-eabi-size  BARE.elf 
+arm-none-eabi-objdump -h -S BARE.elf  > "BARE.list"
+   text	   data	    bss	    dec	    hex	filename
+   1028	     12	   1564	   2604	    a2c	BARE.elf
+Finished building: default.size.stdout
+ 
+Finished building: BARE.list
+ 
+15:55:29 **** Incremental Build of configuration Debug for project BARE ****
+make -j20 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32F411VETx -DSTM32 -DSTM32F4 -DSTM32F411E_DISCO -c -I"D:/STM32F411VE/Projects/Learn/BARE/Inc" -I"D:/STM32F411VE/Projects/Learn/BARE/CMSIS/Device/ST/STM32F4xx/Include" -I"D:/STM32F411VE/Projects/Learn/BARE/CMSIS/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+../Src/main.c: In function 'main':
+../Src/main.c:37:9: warning: this 'for' clause does not guard... [-Wmisleading-indentation]
+   37 |         for(;;)
+      |         ^~~
+../Src/main.c:39:17: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'for'
+   39 |                 Crudedelay(0xFFFFFFFF);
+      |                 ^~~~~~~~~~
+arm-none-eabi-gcc -o "BARE.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\STM32F411VE\Projects\Learn\BARE\STM32F411VETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="BARE.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: BARE.elf
+ 
+arm-none-eabi-size  BARE.elf 
+arm-none-eabi-objdump -h -S BARE.elf  > "BARE.list"
+   text	   data	    bss	    dec	    hex	filename
+   1028	     12	   1564	   2604	    a2c	BARE.elf
+Finished building: default.size.stdout
+ 
+Finished building: BARE.list
+ 
+15:57:16 **** Incremental Build of configuration Debug for project BARE ****
+make -j20 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32F411VETx -DSTM32 -DSTM32F4 -DSTM32F411E_DISCO -c -I"D:/STM32F411VE/Projects/Learn/BARE/Inc" -I"D:/STM32F411VE/Projects/Learn/BARE/CMSIS/Device/ST/STM32F4xx/Include" -I"D:/STM32F411VE/Projects/Learn/BARE/CMSIS/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+../Src/main.c: In function 'main':
+../Src/main.c:37:9: warning: this 'for' clause does not guard... [-Wmisleading-indentation]
+   37 |         for(;;)
+      |         ^~~
+../Src/main.c:39:17: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'for'
+   39 |                 Crudedelay(1000);
+      |                 ^~~~~~~~~~
+arm-none-eabi-gcc -o "BARE.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\STM32F411VE\Projects\Learn\BARE\STM32F411VETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="BARE.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: BARE.elf
+ 
+arm-none-eabi-size  BARE.elf 
+arm-none-eabi-objdump -h -S BARE.elf  > "BARE.list"
+   text	   data	    bss	    dec	    hex	filename
+   1028	     12	   1564	   2604	    a2c	BARE.elf
+Finished building: default.size.stdout
+ 
+Finished building: BARE.list
+ 
+15:58:07 **** Incremental Build of configuration Debug for project BARE ****
+make -j20 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32F411VETx -DSTM32 -DSTM32F4 -DSTM32F411E_DISCO -c -I"D:/STM32F411VE/Projects/Learn/BARE/Inc" -I"D:/STM32F411VE/Projects/Learn/BARE/CMSIS/Device/ST/STM32F4xx/Include" -I"D:/STM32F411VE/Projects/Learn/BARE/CMSIS/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "BARE.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\STM32F411VE\Projects\Learn\BARE\STM32F411VETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="BARE.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: BARE.elf
+ 
+arm-none-eabi-size  BARE.elf 
+arm-none-eabi-objdump -h -S BARE.elf  > "BARE.list"
+   text	   data	    bss	    dec	    hex	filename
+   1088	     12	   1564	   2664	    a68	BARE.elf
+Finished building: default.size.stdout
+ 
+Finished building: BARE.list
+ 
+15:58:07 **** Incremental Build of configuration Debug for project HAL ****
+make -j20 all 
+arm-none-eabi-size  HAL.elf 
+   text	   data	    bss	    dec	    hex	filename
+  35556	    132	   4196	  39884	   9bcc	HAL.elf
+Finished building: default.size.stdout
+ 
+15:58:12 **** Incremental Build of configuration Debug for project BARE ****
+make -j20 all 
+arm-none-eabi-size  BARE.elf 
+   text	   data	    bss	    dec	    hex	filename
+   1088	     12	   1564	   2664	    a68	BARE.elf
+Finished building: default.size.stdout
+ 
+15:58:47 **** Incremental Build of configuration Debug for project BARE ****
+make -j20 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32F411VETx -DSTM32 -DSTM32F4 -DSTM32F411E_DISCO -c -I"D:/STM32F411VE/Projects/Learn/BARE/Inc" -I"D:/STM32F411VE/Projects/Learn/BARE/CMSIS/Device/ST/STM32F4xx/Include" -I"D:/STM32F411VE/Projects/Learn/BARE/CMSIS/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "BARE.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\STM32F411VE\Projects\Learn\BARE\STM32F411VETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="BARE.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: BARE.elf
+ 
+arm-none-eabi-size  BARE.elf 
+arm-none-eabi-objdump -h -S BARE.elf  > "BARE.list"
+   text	   data	    bss	    dec	    hex	filename
+   1084	     12	   1564	   2660	    a64	BARE.elf
+Finished building: default.size.stdout
+ 
+Finished building: BARE.list
+ 
+16:00:49 **** Incremental Build of configuration Debug for project BARE ****
+make -j20 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32F411VETx -DSTM32 -DSTM32F4 -DSTM32F411E_DISCO -c -I"D:/STM32F411VE/Projects/Learn/BARE/Inc" -I"D:/STM32F411VE/Projects/Learn/BARE/CMSIS/Device/ST/STM32F4xx/Include" -I"D:/STM32F411VE/Projects/Learn/BARE/CMSIS/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "BARE.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\STM32F411VE\Projects\Learn\BARE\STM32F411VETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="BARE.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: BARE.elf
+ 
+arm-none-eabi-size  BARE.elf 
+arm-none-eabi-objdump -h -S BARE.elf  > "BARE.list"
+   text	   data	    bss	    dec	    hex	filename
+   1080	     12	   1564	   2656	    a60	BARE.elf
+Finished building: default.size.stdout
+ 
+Finished building: BARE.list
+ 
+16:02:07 **** Incremental Build of configuration Debug for project BARE ****
+make -j20 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32F411VETx -DSTM32 -DSTM32F4 -DSTM32F411E_DISCO -c -I"D:/STM32F411VE/Projects/Learn/BARE/Inc" -I"D:/STM32F411VE/Projects/Learn/BARE/CMSIS/Device/ST/STM32F4xx/Include" -I"D:/STM32F411VE/Projects/Learn/BARE/CMSIS/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "BARE.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\STM32F411VE\Projects\Learn\BARE\STM32F411VETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="BARE.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: BARE.elf
+ 
+arm-none-eabi-size  BARE.elf 
+arm-none-eabi-objdump -h -S BARE.elf  > "BARE.list"
+   text	   data	    bss	    dec	    hex	filename
+   1080	     12	   1564	   2656	    a60	BARE.elf
+Finished building: default.size.stdout
+ 
+Finished building: BARE.list
+ 
+16:02:41 **** Incremental Build of configuration Debug for project BARE ****
+make -j20 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32F411VETx -DSTM32 -DSTM32F4 -DSTM32F411E_DISCO -c -I"D:/STM32F411VE/Projects/Learn/BARE/Inc" -I"D:/STM32F411VE/Projects/Learn/BARE/CMSIS/Device/ST/STM32F4xx/Include" -I"D:/STM32F411VE/Projects/Learn/BARE/CMSIS/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "BARE.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\STM32F411VE\Projects\Learn\BARE\STM32F411VETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="BARE.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: BARE.elf
+ 
+arm-none-eabi-size  BARE.elf 
+arm-none-eabi-objdump -h -S BARE.elf  > "BARE.list"
+   text	   data	    bss	    dec	    hex	filename
+   1080	     12	   1564	   2656	    a60	BARE.elf
+Finished building: default.size.stdout
+ 
+Finished building: BARE.list
+ 
+16:05:42 **** Incremental Build of configuration Debug for project BARE ****
+make -j20 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32F411VETx -DSTM32 -DSTM32F4 -DSTM32F411E_DISCO -c -I"D:/STM32F411VE/Projects/Learn/BARE/Inc" -I"D:/STM32F411VE/Projects/Learn/BARE/CMSIS/Device/ST/STM32F4xx/Include" -I"D:/STM32F411VE/Projects/Learn/BARE/CMSIS/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "BARE.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\STM32F411VE\Projects\Learn\BARE\STM32F411VETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="BARE.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: BARE.elf
+ 
+arm-none-eabi-size  BARE.elf 
+arm-none-eabi-objdump -h -S BARE.elf  > "BARE.list"
+   text	   data	    bss	    dec	    hex	filename
+   1080	     12	   1564	   2656	    a60	BARE.elf
+Finished building: default.size.stdout
+ 
+Finished building: BARE.list
+ 
+16:10:13 **** Incremental Build of configuration Debug for project BARE ****
+make -j20 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32F411VETx -DSTM32 -DSTM32F4 -DSTM32F411E_DISCO -c -I"D:/STM32F411VE/Projects/Learn/BARE/Inc" -I"D:/STM32F411VE/Projects/Learn/BARE/CMSIS/Device/ST/STM32F4xx/Include" -I"D:/STM32F411VE/Projects/Learn/BARE/CMSIS/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "BARE.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\STM32F411VE\Projects\Learn\BARE\STM32F411VETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="BARE.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: BARE.elf
+ 
+arm-none-eabi-size  BARE.elf 
+arm-none-eabi-objdump -h -S BARE.elf  > "BARE.list"
+   text	   data	    bss	    dec	    hex	filename
+   1084	     12	   1564	   2660	    a64	BARE.elf
+Finished building: default.size.stdout
+ 
+Finished building: BARE.list
+ 
+16:10:53 **** Incremental Build of configuration Debug for project BARE ****
+make -j20 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32F411VETx -DSTM32 -DSTM32F4 -DSTM32F411E_DISCO -c -I"D:/STM32F411VE/Projects/Learn/BARE/Inc" -I"D:/STM32F411VE/Projects/Learn/BARE/CMSIS/Device/ST/STM32F4xx/Include" -I"D:/STM32F411VE/Projects/Learn/BARE/CMSIS/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "BARE.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\STM32F411VE\Projects\Learn\BARE\STM32F411VETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="BARE.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: BARE.elf
+ 
+arm-none-eabi-size  BARE.elf 
+arm-none-eabi-objdump -h -S BARE.elf  > "BARE.list"
+   text	   data	    bss	    dec	    hex	filename
+   1084	     12	   1564	   2660	    a64	BARE.elf
+Finished building: default.size.stdout
+ 
+Finished building: BARE.list
+ 
+16:11:23 **** Incremental Build of configuration Debug for project BARE ****
+make -j20 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32F411VETx -DSTM32 -DSTM32F4 -DSTM32F411E_DISCO -c -I"D:/STM32F411VE/Projects/Learn/BARE/Inc" -I"D:/STM32F411VE/Projects/Learn/BARE/CMSIS/Device/ST/STM32F4xx/Include" -I"D:/STM32F411VE/Projects/Learn/BARE/CMSIS/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "BARE.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\STM32F411VE\Projects\Learn\BARE\STM32F411VETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="BARE.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: BARE.elf
+ 
+arm-none-eabi-size  BARE.elf 
+arm-none-eabi-objdump -h -S BARE.elf  > "BARE.list"
+   text	   data	    bss	    dec	    hex	filename
+   1084	     12	   1564	   2660	    a64	BARE.elf
+Finished building: default.size.stdout
+ 
+Finished building: BARE.list
+ 
+16:11:59 **** Incremental Build of configuration Debug for project BARE ****
+make -j20 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32F411VETx -DSTM32 -DSTM32F4 -DSTM32F411E_DISCO -c -I"D:/STM32F411VE/Projects/Learn/BARE/Inc" -I"D:/STM32F411VE/Projects/Learn/BARE/CMSIS/Device/ST/STM32F4xx/Include" -I"D:/STM32F411VE/Projects/Learn/BARE/CMSIS/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+../Src/main.c: In function 'delay':
+../Src/main.c:51:47: error: expected ';' before ')' token
+   51 |         for(uint32_t i = 0; i < time * 1600000); i++){}
+      |                                               ^
+      |                                               ;
+../Src/main.c:51:9: warning: this 'for' clause does not guard... [-Wmisleading-indentation]
+   51 |         for(uint32_t i = 0; i < time * 1600000); i++){}
+      |         ^~~
+../Src/main.c:51:50: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'for'
+   51 |         for(uint32_t i = 0; i < time * 1600000); i++){}
+      |                                                  ^
+../Src/main.c:51:50: error: 'i' undeclared (first use in this function)
+../Src/main.c:51:50: note: each undeclared identifier is reported only once for each function it appears in
+../Src/main.c:51:53: error: expected ';' before ')' token
+   51 |         for(uint32_t i = 0; i < time * 1600000); i++){}
+      |                                                     ^
+      |                                                     ;
+../Src/main.c:51:53: error: expected statement before ')' token
+make: *** [Src/subdir.mk:28: Src/main.o] Error 1
+"make -j20 all" terminated with exit code 2. Build might be incomplete.
+16:12:10 **** Incremental Build of configuration Debug for project BARE ****
+make -j20 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32F411VETx -DSTM32 -DSTM32F4 -DSTM32F411E_DISCO -c -I"D:/STM32F411VE/Projects/Learn/BARE/Inc" -I"D:/STM32F411VE/Projects/Learn/BARE/CMSIS/Device/ST/STM32F4xx/Include" -I"D:/STM32F411VE/Projects/Learn/BARE/CMSIS/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "BARE.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\STM32F411VE\Projects\Learn\BARE\STM32F411VETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="BARE.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: BARE.elf
+ 
+arm-none-eabi-size  BARE.elf 
+arm-none-eabi-objdump -h -S BARE.elf  > "BARE.list"
+   text	   data	    bss	    dec	    hex	filename
+   1084	     12	   1564	   2660	    a64	BARE.elf
+Finished building: default.size.stdout
+ 
+Finished building: BARE.list
+ 
+16:13:06 **** Incremental Build of configuration Debug for project BARE ****
+make -j20 all 
+arm-none-eabi-size  BARE.elf 
+   text	   data	    bss	    dec	    hex	filename
+   1084	     12	   1564	   2660	    a64	BARE.elf
+Finished building: default.size.stdout
+ 
+16:14:03 **** Incremental Build of configuration Debug for project BARE ****
+make -j20 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32F411VETx -DSTM32 -DSTM32F4 -DSTM32F411E_DISCO -c -I"D:/STM32F411VE/Projects/Learn/BARE/Inc" -I"D:/STM32F411VE/Projects/Learn/BARE/CMSIS/Device/ST/STM32F4xx/Include" -I"D:/STM32F411VE/Projects/Learn/BARE/CMSIS/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "BARE.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\STM32F411VE\Projects\Learn\BARE\STM32F411VETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="BARE.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: BARE.elf
+ 
+arm-none-eabi-size  BARE.elf 
+arm-none-eabi-objdump -h -S BARE.elf  > "BARE.list"
+   text	   data	    bss	    dec	    hex	filename
+   1084	     12	   1564	   2660	    a64	BARE.elf
+Finished building: default.size.stdout
+ 
+Finished building: BARE.list
+ 
+16:14:53 **** Incremental Build of configuration Debug for project BARE ****
+make -j20 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32F411VETx -DSTM32 -DSTM32F4 -DSTM32F411E_DISCO -c -I"D:/STM32F411VE/Projects/Learn/BARE/Inc" -I"D:/STM32F411VE/Projects/Learn/BARE/CMSIS/Device/ST/STM32F4xx/Include" -I"D:/STM32F411VE/Projects/Learn/BARE/CMSIS/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "BARE.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\STM32F411VE\Projects\Learn\BARE\STM32F411VETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="BARE.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: BARE.elf
+ 
+arm-none-eabi-size  BARE.elf 
+arm-none-eabi-objdump -h -S BARE.elf  > "BARE.list"
+   text	   data	    bss	    dec	    hex	filename
+   1088	     12	   1564	   2664	    a68	BARE.elf
+Finished building: default.size.stdout
+ 
+Finished building: BARE.list
+ 
+16:15:12 **** Incremental Build of configuration Debug for project BARE ****
+make -j20 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32F411VETx -DSTM32 -DSTM32F4 -DSTM32F411E_DISCO -c -I"D:/STM32F411VE/Projects/Learn/BARE/Inc" -I"D:/STM32F411VE/Projects/Learn/BARE/CMSIS/Device/ST/STM32F4xx/Include" -I"D:/STM32F411VE/Projects/Learn/BARE/CMSIS/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "BARE.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\STM32F411VE\Projects\Learn\BARE\STM32F411VETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="BARE.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: BARE.elf
+ 
+arm-none-eabi-size  BARE.elf 
+arm-none-eabi-objdump -h -S BARE.elf  > "BARE.list"
+   text	   data	    bss	    dec	    hex	filename
+   1088	     12	   1564	   2664	    a68	BARE.elf
+Finished building: default.size.stdout
+ 
+Finished building: BARE.list
+ 
+16:15:40 **** Incremental Build of configuration Debug for project BARE ****
+make -j20 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32F411VETx -DSTM32 -DSTM32F4 -DSTM32F411E_DISCO -c -I"D:/STM32F411VE/Projects/Learn/BARE/Inc" -I"D:/STM32F411VE/Projects/Learn/BARE/CMSIS/Device/ST/STM32F4xx/Include" -I"D:/STM32F411VE/Projects/Learn/BARE/CMSIS/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "BARE.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\STM32F411VE\Projects\Learn\BARE\STM32F411VETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="BARE.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: BARE.elf
+ 
+arm-none-eabi-size  BARE.elf 
+arm-none-eabi-objdump -h -S BARE.elf  > "BARE.list"
+   text	   data	    bss	    dec	    hex	filename
+   1084	     12	   1564	   2660	    a64	BARE.elf
+Finished building: default.size.stdout
+ 
+Finished building: BARE.list
+ 
+16:16:19 **** Incremental Build of configuration Debug for project BARE ****
+make -j20 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32F411VETx -DSTM32 -DSTM32F4 -DSTM32F411E_DISCO -c -I"D:/STM32F411VE/Projects/Learn/BARE/Inc" -I"D:/STM32F411VE/Projects/Learn/BARE/CMSIS/Device/ST/STM32F4xx/Include" -I"D:/STM32F411VE/Projects/Learn/BARE/CMSIS/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "BARE.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\STM32F411VE\Projects\Learn\BARE\STM32F411VETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="BARE.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: BARE.elf
+ 
+arm-none-eabi-size  BARE.elf 
+arm-none-eabi-objdump -h -S BARE.elf  > "BARE.list"
+   text	   data	    bss	    dec	    hex	filename
+   1088	     12	   1564	   2664	    a68	BARE.elf
+Finished building: default.size.stdout
+ 
+Finished building: BARE.list
+ 
