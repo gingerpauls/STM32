@@ -349,3 +349,8 @@
 2024-01-15 14:23:57,830 [INFO] McuFinderGlobals:76 - Set McuFinderConnectedMode to true
 2024-01-15 14:23:57,832 [INFO] ApiDb:448 - Save user favorites file C:\Users\hutch/.stm32cubeide/favorites.mcus.txt: 0 item(s)
 2024-01-15 14:23:57,832 [INFO] ApiDb:452 - User favorites MCUs=[]
+2024-01-15 19:48:35,407 [INFO] Activator:176 - 
+
+
+2024-01-15 19:48:35,409 [INFO] Activator:177 - !SESSION log4j initialized
+2024-01-15 19:48:38,721 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
