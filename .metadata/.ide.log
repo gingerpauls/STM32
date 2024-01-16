@@ -349,3 +349,1162 @@
 2024-01-15 14:23:57,830 [INFO] McuFinderGlobals:76 - Set McuFinderConnectedMode to true
 2024-01-15 14:23:57,832 [INFO] ApiDb:448 - Save user favorites file C:\Users\hutch/.stm32cubeide/favorites.mcus.txt: 0 item(s)
 2024-01-15 14:23:57,832 [INFO] ApiDb:452 - User favorites MCUs=[]
+2024-01-15 14:25:22,833 [INFO] MainUpdater:2873 - connection check result : 10
+2024-01-15 14:25:22,895 [INFO] McuFinderGlobals:76 - Set McuFinderConnectedMode to true
+2024-01-15 14:25:22,896 [INFO] MultiScanPanel:200 - Auto-refresh data requested => check proxy status ongoing
+2024-01-15 14:25:22,896 [INFO] FinderPluginLoader:95 - Searching for filters in installed packs
+2024-01-15 14:25:23,326 [INFO] LoadUrlFilesThread:185 - End of LoadServerUrlFiles without Thread
+2024-01-15 14:25:23,327 [INFO] DetailPanel:341 - Set advertising image to C:/Users/hutch/STM32Cube/Repository/\en.prom-stm32wl3-mcu-finder.jpg
+2024-01-15 14:25:37,175 [INFO] McuFinderGlobals:76 - Set McuFinderConnectedMode to true
+2024-01-15 14:25:37,177 [INFO] ApiDb:448 - Save user favorites file C:\Users\hutch/.stm32cubeide/favorites.mcus.txt: 0 item(s)
+2024-01-15 14:25:37,177 [INFO] ApiDb:452 - User favorites MCUs=[]
+2024-01-15 14:27:21,200 [INFO] MainUpdater:2873 - connection check result : 10
+2024-01-15 14:27:21,254 [INFO] McuFinderGlobals:76 - Set McuFinderConnectedMode to true
+2024-01-15 14:27:21,254 [INFO] MultiScanPanel:200 - Auto-refresh data requested => check proxy status ongoing
+2024-01-15 14:27:21,254 [INFO] FinderPluginLoader:95 - Searching for filters in installed packs
+2024-01-15 14:27:21,542 [INFO] LoadUrlFilesThread:185 - End of LoadServerUrlFiles without Thread
+2024-01-15 14:27:21,542 [INFO] DetailPanel:341 - Set advertising image to C:/Users/hutch/STM32Cube/Repository/\en.prom-stm32wl3-mcu-finder.jpg
+2024-01-15 14:27:29,735 [INFO] MultiScanPanel:200 - Auto-refresh data requested => check proxy status ongoing
+2024-01-15 14:27:29,797 [INFO] LoadUrlFilesThread:185 - End of LoadServerUrlFiles without Thread
+2024-01-15 14:27:29,797 [INFO] DetailPanel:341 - Set advertising image to C:/Users/hutch/STM32Cube/Repository/\en.prom-stm32wl3-mcu-finder.jpg
+2024-01-15 14:27:29,803 [INFO] DbBoards:642 - Loading board mini-images...
+2024-01-15 14:27:30,265 [ERROR] DbBoards:659 - Image file not found for board NUCLEO-WBA55CG: C:\Users\hutch\.stmcufinder\plugins\mcufinder//mcu//boards_images/NUCLEO-WBA55CG.jpg
+2024-01-15 14:27:30,818 [ERROR] DbBoards:659 - Image file not found for board STM32WBA55G-DK1: C:\Users\hutch\.stmcufinder\plugins\mcufinder//mcu//boards_images/STM32WBA55G-DK1.jpg
+2024-01-15 14:27:30,818 [INFO] DbBoards:665 - Loaded 191 board mini-images
+2024-01-15 14:27:31,467 [INFO] ApiDb:581 - Connected to CubeFinder SQLite database (C:\Users\hutch\.stmcufinder\plugins\mcufinder\mcu\cube-finder-db.db)
+2024-01-15 14:27:45,471 [INFO] MainUpdater:2873 - connection check result : 10
+2024-01-15 14:27:45,471 [INFO] MainUpdater:2873 - connection check result : 10
+2024-01-15 14:27:45,487 [INFO] MicroXplorer:468 - Change Database Path : 
+2024-01-15 14:27:45,488 [INFO] MicroXplorer:498 - Change Database Version : DB.6.0.100
+2024-01-15 14:27:45,490 [WARN] ThirdParty:871 - waiting for thirdparty lock release [close project]
+2024-01-15 14:27:45,490 [INFO] ThirdParty:873 - entering critical section [close project]
+2024-01-15 14:27:45,491 [INFO] ThirdParty:883 - exiting critical section [close project]
+2024-01-15 14:27:45,496 [INFO] PinOutPanel:1499 - setPackage(No Configuration,No Configuration)
+2024-01-15 14:27:45,497 [INFO] UtilMem:75 - Begin LoadConfig() Used Memory: 736976320 Bytes (1073741824)
+2024-01-15 14:27:45,499 [INFO] OpenFileManager:312 - Change cursor
+2024-01-15 14:27:45,513 [INFO] ProjectFactory:440 - No CPN specified for board STM32F411E-DISCO => set CPN to STM32F411VET6
+2024-01-15 14:27:45,514 [INFO] Mcu:2016 - Initializing MCU STM32F411V(C-E)Tx STM32F411VETx STM32F411VET6
+2024-01-15 14:27:46,386 [INFO] Context:659 - Trying to add GPIOservice into a context  which must be forbidden
+2024-01-15 14:27:46,610 [INFO] Rule:228 - rule 117617 - U5Cobra4M][GTZC] default value MPCBB3 and MPCBB5 - Not Secured memory - MPCBB1 is applicable
+2024-01-15 14:27:46,610 [INFO] Rule:228 - rule 117617 - U5Cobra4M][GTZC] default value MPCBB3 and MPCBB5 - Not Secured memory - MPCBB1 is applicable
+2024-01-15 14:27:46,610 [INFO] Rule:228 - rule 117617 - U5Cobra4M][GTZC] default value MPCBB3 and MPCBB5 - Not Secured memory - MPCBB2 is applicable
+2024-01-15 14:27:46,610 [INFO] Rule:228 - rule 117617 - U5Cobra4M][GTZC] default value MPCBB3 and MPCBB5 - Not Secured memory - MPCBB2 is applicable
+2024-01-15 14:27:46,610 [INFO] Rule:228 - rule 117617 - U5Cobra4M][GTZC] default value MPCBB3 and MPCBB5 - Not Secured memory - MPCBB3 is applicable
+2024-01-15 14:27:46,610 [INFO] Rule:228 - rule 117617 - U5Cobra4M][GTZC] default value MPCBB3 and MPCBB5 - Not Secured memory - MPCBB3 is applicable
+2024-01-15 14:27:46,610 [INFO] Rule:228 - rule 117617 - U5Cobra4M][GTZC] default value MPCBB3 and MPCBB5 - Not Secured memory - MPCBB4 is applicable
+2024-01-15 14:27:46,610 [INFO] Rule:228 - rule 117617 - U5Cobra4M][GTZC] default value MPCBB3 and MPCBB5 - Not Secured memory - MPCBB4 is applicable
+2024-01-15 14:27:46,610 [INFO] Rule:228 - rule 117617 - U5Cobra4M][GTZC] default value MPCBB3 and MPCBB5 - Secured memory - MPCBB1 is applicable
+2024-01-15 14:27:46,610 [INFO] Rule:228 - rule 117617 - U5Cobra4M][GTZC] default value MPCBB3 and MPCBB5 - Secured memory - MPCBB2 is applicable
+2024-01-15 14:27:46,610 [INFO] Rule:228 - rule 117617 - U5Cobra4M][GTZC] default value MPCBB3 and MPCBB5 - Secured memory - MPCBB3 is applicable
+2024-01-15 14:27:46,611 [INFO] Rule:228 - rule 117617 - U5Cobra4M][GTZC] default value MPCBB3 and MPCBB5 - Secured memory - MPCBB4 is applicable
+2024-01-15 14:27:46,611 [INFO] Rule:228 - rule 117617 - U5Cobra4M][GTZC] default value MPCBB3 and MPCBB5 - Privileged memory - MPCBB1 is applicable
+2024-01-15 14:27:46,611 [INFO] Rule:228 - rule 117617 - U5Cobra4M][GTZC] default value MPCBB3 and MPCBB5 - Privileged memory - MPCBB2 is applicable
+2024-01-15 14:27:46,611 [INFO] Rule:228 - rule 117617 - U5Cobra4M][GTZC] default value MPCBB3 and MPCBB5 - Privileged memory - MPCBB3 is applicable
+2024-01-15 14:27:46,611 [INFO] Rule:228 - rule 117617 - U5Cobra4M][GTZC] default value MPCBB3 and MPCBB5 - Privileged memory - MPCBB4 is applicable
+2024-01-15 14:27:46,611 [INFO] Rule:228 - rule 117617 - U5Cobra4M][GTZC] default value MPCBB3 and MPCBB5 - Not Privileged memory - MPCBB1 is applicable
+2024-01-15 14:27:46,611 [INFO] Rule:228 - rule 117617 - U5Cobra4M][GTZC] default value MPCBB3 and MPCBB5 - Not Privileged memory - MPCBB2 is applicable
+2024-01-15 14:27:46,611 [INFO] Rule:228 - rule 117617 - U5Cobra4M][GTZC] default value MPCBB3 and MPCBB5 - Not Privileged memory - MPCBB3 is applicable
+2024-01-15 14:27:46,611 [INFO] Rule:228 - rule 117617 - U5Cobra4M][GTZC] default value MPCBB3 and MPCBB5 - Not Privileged memory - MPCBB4 is applicable
+2024-01-15 14:27:46,611 [INFO] Rule:228 - rule 117617 - U5Cobra4M][GTZC] default value MPCBB3 and MPCBB5 - Privileged memory - MPCBB1 is applicable
+2024-01-15 14:27:46,611 [INFO] Rule:228 - rule 117617 - U5Cobra4M][GTZC] default value MPCBB3 and MPCBB5 - Privileged memory - MPCBB2 is applicable
+2024-01-15 14:27:46,611 [INFO] Rule:228 - rule 117617 - U5Cobra4M][GTZC] default value MPCBB3 and MPCBB5 - Privileged memory - MPCBB3 is applicable
+2024-01-15 14:27:46,611 [INFO] Rule:228 - rule 117617 - U5Cobra4M][GTZC] default value MPCBB3 and MPCBB5 - Privileged memory - MPCBB4 is applicable
+2024-01-15 14:27:46,611 [INFO] Rule:228 - rule 117617 - U5Cobra4M][GTZC] default value MPCBB3 and MPCBB5 - Privileged memory - MPCBB1 is applicable
+2024-01-15 14:27:46,611 [INFO] Rule:228 - rule 117617 - U5Cobra4M][GTZC] default value MPCBB3 and MPCBB5 - Privileged memory - MPCBB2 is applicable
+2024-01-15 14:27:46,611 [INFO] Rule:228 - rule 117617 - U5Cobra4M][GTZC] default value MPCBB3 and MPCBB5 - Privileged memory - MPCBB3 is applicable
+2024-01-15 14:27:46,611 [INFO] Rule:228 - rule 117617 - U5Cobra4M][GTZC] default value MPCBB3 and MPCBB5 - Privileged memory - MPCBB4 is applicable
+2024-01-15 14:27:46,611 [INFO] Rule:228 - rule 117617 - U5Cobra4M][GTZC] default value MPCBB3 and MPCBB5 - Not Privileged memory - MPCBB1 is applicable
+2024-01-15 14:27:46,611 [INFO] Rule:228 - rule 117617 - U5Cobra4M][GTZC] default value MPCBB3 and MPCBB5 - Not Privileged memory - MPCBB2 is applicable
+2024-01-15 14:27:46,611 [INFO] Rule:228 - rule 117617 - U5Cobra4M][GTZC] default value MPCBB3 and MPCBB5 - Not Privileged memory - MPCBB3 is applicable
+2024-01-15 14:27:46,611 [INFO] Rule:228 - rule 117617 - U5Cobra4M][GTZC] default value MPCBB3 and MPCBB5 - Not Privileged memory - MPCBB4 is applicable
+2024-01-15 14:27:46,611 [INFO] Rule:228 - rule 117617 - U5Cobra4M][GTZC] default value MPCBB3 and MPCBB5 - Privileged memory - MPCBB1 is applicable
+2024-01-15 14:27:46,611 [INFO] Rule:228 - rule 117617 - U5Cobra4M][GTZC] default value MPCBB3 and MPCBB5 - Privileged memory - MPCBB2 is applicable
+2024-01-15 14:27:46,611 [INFO] Rule:228 - rule 117617 - U5Cobra4M][GTZC] default value MPCBB3 and MPCBB5 - Privileged memory - MPCBB3 is applicable
+2024-01-15 14:27:46,611 [INFO] Rule:228 - rule 117617 - U5Cobra4M][GTZC] default value MPCBB3 and MPCBB5 - Privileged memory - MPCBB4 is applicable
+2024-01-15 14:27:46,611 [INFO] Rule:228 - rule Rename SubGHz_Phy SUBGHZ_APPLICATION SUBGHZ_PINGPONG to SUBGHZ_ADV_APPLICATION is applicable
+2024-01-15 14:27:46,611 [INFO] Rule:228 - rule Rename Enabled to IBEACON is applicable
+2024-01-15 14:27:46,611 [INFO] Rule:228 - rule GTZC_S instance for project manager is applicable
+2024-01-15 14:27:46,611 [INFO] Rule:228 - rule GTZC_S instance for context M33S is applicable
+2024-01-15 14:27:46,611 [INFO] Rule:228 - rule GTZC_S instance value for IP GTZC is applicable
+2024-01-15 14:27:46,611 [INFO] Rule:228 - rule GTZC_S instance for mcu.IP is applicable
+2024-01-15 14:27:46,611 [INFO] Rule:228 - rule GTZC_S instance for VP is applicable
+2024-01-15 14:27:46,611 [INFO] Rule:228 - rule GTZC_S instance for signal is applicable
+2024-01-15 14:27:46,611 [INFO] Rule:228 - rule GTZC_S instance for mcu.Pin is applicable
+2024-01-15 14:27:46,611 [INFO] Rule:228 - rule GTZC_S instance for VP is applicable
+2024-01-15 14:27:46,611 [INFO] Rule:228 - rule GTZC_S instance for signal is applicable
+2024-01-15 14:27:46,611 [INFO] Rule:228 - rule GTZC_S instance for mcu is applicable
+2024-01-15 14:27:46,611 [INFO] Rule:228 - rule GTZC_S instance for mcu.Pin is applicable
+2024-01-15 14:27:46,611 [INFO] Rule:228 - rule GTZC_S instance value for IP GTZC is applicable
+2024-01-15 14:27:46,611 [INFO] Rule:228 - rule GTZC_S instance for project manager is applicable
+2024-01-15 14:27:46,611 [INFO] Rule:228 - rule GTZC_S instance for context M33S is applicable
+2024-01-15 14:27:46,611 [INFO] Rule:228 - rule GTZC_S instance for VP is applicable
+2024-01-15 14:27:46,611 [INFO] Rule:228 - rule GTZC_S instance for signal is applicable
+2024-01-15 14:27:46,611 [INFO] Rule:228 - rule SPDIFRX instance for mcu is applicable
+2024-01-15 14:27:46,611 [INFO] Rule:228 - rule Rename Tracer Mode is applicable
+2024-01-15 14:27:46,612 [INFO] Rule:228 - rule SPDIFRX instance value for IP SPDIFRX is applicable
+2024-01-15 14:27:46,612 [INFO] Rule:228 - rule SPDIFRX instance for signal is applicable
+2024-01-15 14:27:46,612 [INFO] Rule:228 - rule SPDIFRX instance for project manager is applicable
+2024-01-15 14:27:46,612 [INFO] Rule:228 - rule SPDIFRX instance for project manager is applicable
+2024-01-15 14:27:46,612 [INFO] Rule:228 - rule ADC Scan  fix with FW F7 is applicable
+2024-01-15 14:27:46,612 [INFO] Rule:228 - rule ADC Scan  fix with FW F7 is applicable
+2024-01-15 14:27:46,612 [INFO] Rule:228 - rule WakeUp0 Mode is applicable
+2024-01-15 14:27:46,612 [INFO] Rule:228 - rule WakeUp0 SIGNAL is applicable
+2024-01-15 14:27:46,612 [INFO] Rule:228 - rule WakeUp1 Mode is applicable
+2024-01-15 14:27:46,612 [INFO] Rule:228 - rule WakeUp1 SIGNAL is applicable
+2024-01-15 14:27:46,612 [INFO] Rule:228 - rule WakeUp2 Mode is applicable
+2024-01-15 14:27:46,612 [INFO] Rule:228 - rule WakeUp2 SIGNAL is applicable
+2024-01-15 14:27:46,612 [INFO] Rule:228 - rule WakeUp4 Mode is applicable
+2024-01-15 14:27:46,612 [INFO] Rule:228 - rule WakeUp4 SIGNAL is applicable
+2024-01-15 14:27:46,612 [INFO] Rule:228 - rule WakeUp5 Mode is applicable
+2024-01-15 14:27:46,612 [INFO] Rule:228 - rule WakeUp5 SIGNAL is applicable
+2024-01-15 14:27:46,612 [INFO] Rule:228 - rule UART/USART WORD LENGTH 7 is applicable
+2024-01-15 14:27:46,612 [INFO] Rule:228 - rule UART/USART WORD LENGTH 8 is applicable
+2024-01-15 14:27:46,612 [INFO] Rule:228 - rule UART/USART WORD LENGTH 9 is applicable
+2024-01-15 14:27:46,612 [INFO] Rule:228 - rule Change Default Value for LSE Drive Capability for WB family is applicable
+2024-01-15 14:27:46,612 [INFO] Rule:228 - rule Change Default Value for ADC Clock Prescaler G0 family is applicable
+2024-01-15 14:27:46,612 [INFO] Rule:228 - rule ADC SamplingTime fix with FW L0  is applicable
+2024-01-15 14:27:46,612 [INFO] Rule:228 - rule ADC SamplingTime fix with FW L0  is applicable
+2024-01-15 14:27:46,612 [INFO] Rule:228 - rule ADC SamplingTime fix with FW L0 is applicable
+2024-01-15 14:27:46,612 [INFO] Rule:228 - rule ADC SamplingTime fix with FW L0 is applicable
+2024-01-15 14:27:46,612 [INFO] Rule:228 - rule ADC SamplingTime fix with FW L0  is applicable
+2024-01-15 14:27:46,612 [INFO] Rule:228 - rule ADC SamplingTime fix with FW L0 is applicable
+2024-01-15 14:27:46,612 [INFO] Rule:228 - rule Rename USB_OE Signal is applicable
+2024-01-15 14:27:46,612 [INFO] Rule:228 - rule Rename Activate_OE Mode is applicable
+2024-01-15 14:27:46,612 [INFO] Rule:228 - rule Rename DIE462/DIE415 pin PC14/OSC32_IN -> PC14-OSC32_IN (PC14) is applicable
+2024-01-15 14:27:46,612 [INFO] Rule:228 - rule Rename DIE462/DIE415 pin PC15/OSC32_OUT -> PC15-OSC32_OUT (PC15) is applicable
+2024-01-15 14:27:46,612 [INFO] Rule:228 - rule Rename DIE462/DIE415 pin PH0/OSC_IN -> PH0-OSC_IN (PH0) is applicable
+2024-01-15 14:27:46,612 [INFO] Rule:228 - rule Rename DIE462/DIE415 pin PH1/OSC_OUT -> PH1-OSC_OUT (PH1) is applicable
+2024-01-15 14:27:46,612 [INFO] Rule:228 - rule Rename DIE462 pin PA13 -> PA13 (JTMS/SWDIO) is applicable
+2024-01-15 14:27:46,612 [INFO] Rule:228 - rule Rename DIE415 pin PA13 -> PA13 (JTMS/SWDIO) is applicable
+2024-01-15 14:27:46,612 [INFO] Rule:228 - rule Rename DIE462 pin PA14 -> PA14 (JTCK/SWCLK) is applicable
+2024-01-15 14:27:46,612 [INFO] Rule:228 - rule Rename DIE415 pin PA14 -> PA14 (JTCK/SWCLK) is applicable
+2024-01-15 14:27:46,612 [INFO] Rule:228 - rule Rename DIE462/DIE415 pin PA15 -> PA15 (JTDI) is applicable
+2024-01-15 14:27:46,612 [INFO] Rule:228 - rule Rename DIE462 pin PB3 -> PB3 (JTD0/TRACESWO) is applicable
+2024-01-15 14:27:46,612 [INFO] Rule:228 - rule Rename DIE415 pin PB3 -> PB3 (JTD0-TRACESWO) is applicable
+2024-01-15 14:27:46,612 [INFO] Rule:228 - rule Rename DIE462/DIE415 pin PB4 -> PB4 (NJTRST) is applicable
+2024-01-15 14:27:46,612 [INFO] Rule:228 - rule Rename DIE462 pin PH3/BOOT0 -> PH3-BOOT0 (BOOT0) is applicable
+2024-01-15 14:27:46,613 [INFO] Rule:228 - rule Rename CRYP DataEncryptionTypesList to Algorithm is applicable
+2024-01-15 14:27:46,613 [INFO] Rule:228 - rule Rename AES DataEncryptionTypesList to Algorithm is applicable
+2024-01-15 14:27:46,613 [INFO] Rule:228 - rule Rename TDESECB to CRYP_TDES_ECB is applicable
+2024-01-15 14:27:46,613 [INFO] Rule:228 - rule Rename TDESCBC to CRYP_TDES_CBC is applicable
+2024-01-15 14:27:46,613 [INFO] Rule:228 - rule Rename DESECB to CRYP_DES_ECB is applicable
+2024-01-15 14:27:46,613 [INFO] Rule:228 - rule Rename DESCBC to CRYP_DES_CBC is applicable
+2024-01-15 14:27:46,613 [INFO] Rule:228 - rule Rename AESECB to CRYP_AES_ECB is applicable
+2024-01-15 14:27:46,613 [INFO] Rule:228 - rule Rename AESCBC to CRYP_AES_CBC is applicable
+2024-01-15 14:27:46,613 [INFO] Rule:228 - rule Rename AESCTR to CRYP_AES_CTR is applicable
+2024-01-15 14:27:46,613 [INFO] Rule:228 - rule Rename AESGCM to CRYP_AES_GCM is applicable
+2024-01-15 14:27:46,613 [INFO] Rule:228 - rule Rename AESCCM to CRYP_AES_CCM is applicable
+2024-01-15 14:27:46,613 [INFO] Rule:228 - rule Rename CAN TimeSeg1 to BS1 is applicable
+2024-01-15 14:27:46,613 [INFO] Rule:228 - rule Rename CAN TimeSeg2 to BS2 is applicable
+2024-01-15 14:27:46,613 [INFO] Rule:228 - rule Rename CAN SyncJumpWidth to SJW is applicable
+2024-01-15 14:27:46,613 [INFO] Rule:228 - rule TimeTriggeredMode to TTCM is applicable
+2024-01-15 14:27:46,613 [INFO] Rule:228 - rule Rename CAN AutoBusOff to ABOM is applicable
+2024-01-15 14:27:46,613 [INFO] Rule:228 - rule Rename CAN AutoWakeUp to AWUM is applicable
+2024-01-15 14:27:46,613 [INFO] Rule:228 - rule Rename CAN AutoRetransmission to NART is applicable
+2024-01-15 14:27:46,613 [INFO] Rule:228 - rule Rename CAN ReceiveFifoLocked to RFLM is applicable
+2024-01-15 14:27:46,613 [INFO] Rule:228 - rule Rename CAN TransmitFifoPriority to TXFP is applicable
+2024-01-15 14:27:46,613 [INFO] Rule:228 - rule Rename HRTIMER HRTIM_OUTPUTFAULTLEVEL_HIGH in HRTIMER HRTIM_OUTPUTFAULTLEVEL_HIGHZ is applicable
+2024-01-15 14:27:46,613 [INFO] Rule:228 - rule Rename TIMER TIM_CLEARINPUTSOURCE_OCREFCLR in  TIMER TIM_CLEARINPUTSOURCE_NONE for F7 family is applicable
+2024-01-15 14:27:46,613 [INFO] Rule:228 - rule FDCAN_R1 - Rename FDCAN mode Master into Classic is applicable
+2024-01-15 14:27:46,613 [INFO] Rule:228 - rule FDCAN_R2 - Rename FDCAN mode Slave into Classic is applicable
+2024-01-15 14:27:46,613 [INFO] Rule:228 - rule FDCAN1_R3 - if PA10.Mode=FullDuplex, add Pin PA12 is applicable
+2024-01-15 14:27:46,613 [INFO] Rule:228 - rule FDCAN1_R3 - if PA9.Mode=FullDuplex, add Pin PA11 is applicable
+2024-01-15 14:27:46,613 [INFO] Rule:228 - rule FDCAN1_R3 - Alternatepin_1 - if PE1.Mode=FullDuplex, add Pin PB9 is applicable
+2024-01-15 14:27:46,613 [INFO] Rule:228 - rule FDCAN1_R3 - Alternatepin_1 - if PE0.Mode=FullDuplex, add Pin PB8 is applicable
+2024-01-15 14:27:46,613 [INFO] Rule:228 - rule FDCAN1_R3 - Alternatepin_2 - if PD5.Mode=FullDuplex, add Pin PD1 is applicable
+2024-01-15 14:27:46,613 [INFO] Rule:228 - rule FDCAN1_R3 - Alternatepin_2 - if PD4.Mode=FullDuplex, add Pin PD0 is applicable
+2024-01-15 14:27:46,613 [INFO] Rule:228 - rule FDCAN1_R4 - Rename Mode FullDuplex into Enable FDCAN_TXFD for pin PA10 is applicable
+2024-01-15 14:27:46,613 [INFO] Rule:228 - rule FDCAN1_R4 - Rename Mode FullDuplex into Enable FDCAN_TXFD for pin PA9 is applicable
+2024-01-15 14:27:46,613 [INFO] Rule:228 - rule FDCAN1_R4 - Alternatepin_1 - Rename Mode FullDuplex into Enable FDCAN_TXFD for pin PE1 is applicable
+2024-01-15 14:27:46,613 [INFO] Rule:228 - rule FDCAN1_R4 - Alternatepin_1 - Rename Mode FullDuplex into Enable FDCAN_TXFD for pin PE0 is applicable
+2024-01-15 14:27:46,613 [INFO] Rule:228 - rule FDCAN1_R4 - Alternatepin_2 - Rename Mode FullDuplex into Enable FDCAN_TXFD for pin PD5 is applicable
+2024-01-15 14:27:46,613 [INFO] Rule:228 - rule FDCAN1_R4 - Alternatepin_2 - Rename Mode FullDuplex into Enable FDCAN_TXFD for pin PD4 is applicable
+2024-01-15 14:27:46,613 [INFO] Rule:228 - rule FDCAN2_R3 - if PD10.Mode=FullDuplex, add Pin PB13 is applicable
+2024-01-15 14:27:46,614 [INFO] Rule:228 - rule FDCAN2_R3 - if PD9.Mode=FullDuplex, add Pin PB12 is applicable
+2024-01-15 14:27:46,614 [INFO] Rule:228 - rule FDCAN2_R3 - Alternatepin_1 - if PB7.Mode=FullDuplex, add Pin PB6 is applicable
+2024-01-15 14:27:46,614 [INFO] Rule:228 - rule FDCAN2_R3 - Alternatepin_1 - if PD9.Mode=FullDuplex, add Pin PB12 is applicable
+2024-01-15 14:27:46,614 [INFO] Rule:228 - rule FDCAN2_R4 - Rename Mode FullDuplex into Enable FDCAN_TXFD for pin PD10 is applicable
+2024-01-15 14:27:46,614 [INFO] Rule:228 - rule FDCAN2_R4 - Rename Mode FullDuplex into Enable FDCAN_TXFD for pin PD9 is applicable
+2024-01-15 14:27:46,614 [INFO] Rule:228 - rule FDCAN2_R4 - Alternatepin_1 - Rename Mode FullDuplex into Enable FDCAN_TXFD for pin PB7 is applicable
+2024-01-15 14:27:46,615 [INFO] Rule:228 - rule FDCAN2_R4 - Alternatepin_1 - Rename Mode FullDuplex into Enable FDCAN_TXFD for pin PD6 is applicable
+2024-01-15 14:27:46,615 [INFO] Rule:228 - rule USART TxPinLevelInvertParam Mode is applicable
+2024-01-15 14:27:46,615 [INFO] Rule:228 - rule USART RxPinLevelInvertParam Mode is applicable
+2024-01-15 14:27:46,615 [INFO] Rule:228 - rule USART DataInvertParam Mode is applicable
+2024-01-15 14:27:46,615 [INFO] Rule:228 - rule USART SwapParam Mode is applicable
+2024-01-15 14:27:46,615 [INFO] Rule:228 - rule USART OverrunDisableParam Mode is applicable
+2024-01-15 14:27:46,615 [INFO] Rule:228 - rule USART DMADisableonRxErrorParam Mode is applicable
+2024-01-15 14:27:46,615 [INFO] Rule:228 - rule USART MSBFirstParam Mode is applicable
+2024-01-15 14:27:46,615 [INFO] Rule:228 - rule Update MwName for USB_DEVICE is applicable
+2024-01-15 14:27:46,615 [INFO] Rule:228 - rule Change PWR_Regulator_Voltage_Scale Default Value for RCC  H7 family is applicable
+2024-01-15 14:27:46,615 [INFO] Rule:228 - rule UART/USART IPParameter rename Prescaler parameter to ClockPrescaler is applicable
+2024-01-15 14:27:46,615 [INFO] Rule:228 - rule UART/USART Prescaler rename Prescaler parameter to ClockPrescaler is applicable
+2024-01-15 14:27:46,615 [INFO] Rule:228 - rule TIM1CLockSelection is applicable
+2024-01-15 14:27:46,615 [INFO] Rule:228 - rule TIM15CLockSelection is applicable
+2024-01-15 14:27:46,615 [INFO] Rule:228 - rule align RCC SDMMC3CLockSelection default value on MP1 is applicable
+2024-01-15 14:27:46,615 [INFO] Rule:228 - rule align RCC SDMMC12CLockSelection default value on MP1 is applicable
+2024-01-15 14:27:46,615 [INFO] Rule:228 - rule align RCC QSPICLockSelection default value on MP1 is applicable
+2024-01-15 14:27:46,615 [INFO] Rule:228 - rule align RCC QSPICLockSelection default value on MP1 is applicable
+2024-01-15 14:27:46,615 [INFO] Rule:228 - rule align RCC SPI6CLockSelection default value on MP1 is applicable
+2024-01-15 14:27:46,615 [INFO] Rule:228 - rule align RCC LPTIM23CLockSelection default value on MP1 is applicable
+2024-01-15 14:27:46,615 [INFO] Rule:228 - rule align RCC LPTIM1CLockSelection default value on MP1 is applicable
+2024-01-15 14:27:46,615 [INFO] Rule:228 - rule align RCC USART1CLockSelection default value on MP1 is applicable
+2024-01-15 14:27:46,615 [INFO] Rule:228 - rule align RCC USART24CLockSelection default value on MP1 is applicable
+2024-01-15 14:27:46,615 [INFO] Rule:228 - rule align RCC USART6CLockSelection default value on MP1 is applicable
+2024-01-15 14:27:46,615 [INFO] Rule:228 - rule align RCC UART78CLockSelection default value on MP1 is applicable
+2024-01-15 14:27:46,615 [INFO] Rule:228 - rule align RCC USART35CLockSelection default value on MP1 is applicable
+2024-01-15 14:27:46,615 [INFO] Rule:228 - rule align RCC SPI45CLockSelection default value on MP1 is applicable
+2024-01-15 14:27:46,615 [INFO] Rule:228 - rule align RCC I2C46CLockSelection BCLK value on MP1 is applicable
+2024-01-15 14:27:46,615 [INFO] Rule:228 - rule align RCC SPI45CLockSelection default value on MP1 is applicable
+2024-01-15 14:27:46,615 [INFO] Rule:228 - rule align RCC I2C12CLockSelection default value on MP1 is applicable
+2024-01-15 14:27:46,615 [INFO] Rule:228 - rule align RCC I2C35CLockSelection default value on MP1 is applicable
+2024-01-15 14:27:46,615 [INFO] Rule:228 - rule align RCC LPTIM45CLockSelection default value on MP1 is applicable
+2024-01-15 14:27:46,615 [INFO] Rule:228 - rule Rename DCMI PIXCK signal is applicable
+2024-01-15 14:27:46,615 [INFO] Rule:228 - rule Change Default Value for I2C46CLockSelection MP1 family is applicable
+2024-01-15 14:27:46,615 [INFO] Rule:228 - rule Change Default Value for UART for G4, G0 and WB families is applicable
+2024-01-15 14:27:46,615 [INFO] Rule:228 - rule Change Default Value for USART for G4, G0 and WB families is applicable
+2024-01-15 14:27:46,615 [INFO] Rule:228 - rule Change Default Value for USART for G4 family is applicable
+2024-01-15 14:27:46,615 [INFO] Rule:228 - rule Change USART1CLockSelection refparam name for MP1 is applicable
+2024-01-15 14:27:46,615 [INFO] Rule:228 - rule Change USART2CLockSelection refparam name for MP1 is applicable
+2024-01-15 14:27:46,616 [INFO] Rule:228 - rule Change USART3CLockSelection refparam name for MP1 is applicable
+2024-01-15 14:27:46,616 [INFO] Rule:228 - rule Change UART4CLockSelection refparam name for MP1 is applicable
+2024-01-15 14:27:46,616 [INFO] Rule:228 - rule Change UART5CLockSelection refparam name for MP1 is applicable
+2024-01-15 14:27:46,616 [INFO] Rule:228 - rule Change LPUART1CLockSelection refparam name for MP1 is applicable
+2024-01-15 14:27:46,616 [INFO] Rule:228 - rule Change LPTIM1CLockSelection refparam name for MP1 is applicable
+2024-01-15 14:27:46,616 [INFO] Rule:228 - rule Change LPTIM2CLockSelection refparam name for MP1 is applicable
+2024-01-15 14:27:46,616 [INFO] Rule:228 - rule Change RCC_MCO1Source refparam name for MP1 is applicable
+2024-01-15 14:27:46,616 [INFO] Rule:228 - rule Change LSCOSource1 refparam name for MP1 is applicable
+2024-01-15 14:27:46,616 [INFO] Rule:228 - rule Change SMPSCLockSelection refparam name for MP1 is applicable
+2024-01-15 14:27:46,616 [INFO] Rule:228 - rule Change LPTIM3CLockSelection refparam name for MP1 is applicable
+2024-01-15 14:27:46,616 [INFO] Rule:228 - rule Change MPCBB* Default Template Mode to Parameters is applicable
+2024-01-15 14:27:46,616 [INFO] Rule:228 - rule Change MPCWM* or MPCBB* Secure Mode to Parameters is applicable
+2024-01-15 14:27:46,616 [INFO] Rule:228 - rule Change MPCWM* or MPCBB* No Secure Mode to Parameters is applicable
+2024-01-15 14:27:46,616 [INFO] Rule:228 - rule Change TZSC IP Secure Mode to Parameters is applicable
+2024-01-15 14:27:46,616 [INFO] Rule:228 - rule Change TZSC IP No Secure Mode to Parameters is applicable
+2024-01-15 14:27:46,616 [INFO] Rule:228 - rule Change TZSC IP Privilege Mode to Parameters is applicable
+2024-01-15 14:27:46,616 [INFO] Rule:228 - rule Change TZSC IP No Privilege Mode to Parameters is applicable
+2024-01-15 14:27:46,616 [INFO] Rule:228 - rule Change TZIC IT Secure Mode to Parameters is applicable
+2024-01-15 14:27:46,616 [INFO] Rule:228 - rule Change TZIC IT No Secure Mode to Parameters is applicable
+2024-01-15 14:27:46,616 [INFO] Rule:228 - rule Add MPCBB1_NonSecureArea_Start_Address value with referenced to MPCBB1_NonSecureArea_Start value is applicable
+2024-01-15 14:27:46,616 [INFO] Rule:228 - rule Add MPCBB2_NonSecureArea_Start_Address value with referenced to MPCBB2_NonSecureArea_Start value is applicable
+2024-01-15 14:27:46,616 [INFO] Rule:228 - rule Add MPCWM1_NonSecureArea*_Start_Address value with referenced to MPCWM1_NonSecureArea*_Start value is applicable
+2024-01-15 14:27:46,616 [INFO] Rule:228 - rule Add MPCWM2_NonSecureArea*_Start_Address value with referenced to MPCWM2_NonSecureArea*_Start value is applicable
+2024-01-15 14:27:46,616 [INFO] Rule:228 - rule Add MPCWM3_NonSecureArea_Start_Address value with referenced to MPCWM3_NonSecureArea_Start value is applicable
+2024-01-15 14:27:46,616 [INFO] Rule:228 - rule Change Default Value for PLL1UserDefinedConfig is applicable
+2024-01-15 14:27:46,616 [INFO] Rule:228 - rule Change GPIO_PuPd Default Value for USART in async mode is applicable
+2024-01-15 14:27:46,616 [INFO] Rule:228 - rule Change SMPSDivider Default Value is applicable
+2024-01-15 14:27:46,616 [INFO] Rule:228 - rule OPAMP is applicable
+2024-01-15 14:27:46,616 [INFO] Rule:228 - rule LPUART IPParameter rename Prescaler parameter to ClockPrescaler for STM32H7 is applicable
+2024-01-15 14:27:46,616 [INFO] Rule:228 - rule LPUART IPParameter rename Prescaler parameter to ClockPrescaler for STM32H7 is applicable
+2024-01-15 14:27:46,616 [INFO] Rule:228 - rule LPUART IPParameter rename Prescaler parameter to ClockPrescaler for STM32WB is applicable
+2024-01-15 14:27:46,616 [INFO] Rule:228 - rule LPUART IPParameter rename Prescaler parameter to ClockPrescaler for STM32WB is applicable
+2024-01-15 14:27:46,616 [INFO] Rule:228 - rule LPUART IPParameter rename Prescaler parameter to ClockPrescaler for STM32G4 is applicable
+2024-01-15 14:27:46,616 [INFO] Rule:228 - rule LPUART IPParameter rename Prescaler parameter to ClockPrescaler for STM32G4 is applicable
+2024-01-15 14:27:46,616 [INFO] Rule:228 - rule LPUART IPParameter rename Prescaler parameter to ClockPrescaler for STM32L5 is applicable
+2024-01-15 14:27:46,616 [INFO] Rule:228 - rule LPUART IPParameter rename Prescaler parameter to ClockPrescaler for STM32L5 is applicable
+2024-01-15 14:27:46,616 [INFO] Rule:228 - rule LPUART IPParameter rename Prescaler parameter to ClockPrescaler for STM32G4 is applicable
+2024-01-15 14:27:46,616 [INFO] Rule:228 - rule LPUART IPParameter rename Prescaler parameter to ClockPrescaler for STM32G4 is applicable
+2024-01-15 14:27:46,616 [INFO] Rule:228 - rule USB device lib V2.5.3 for L0 rename USBD_SUPPORT_USER_STRING parameter to USBD_SUPPORT_USER_STRING_DESC4 is applicable
+2024-01-15 14:27:46,616 [INFO] Rule:228 - rule I2SCLockSelection clock entry align is applicable
+2024-01-15 14:27:46,616 [INFO] Rule:228 - rule Assign TIMx context if used as SYS timebase is applicable
+2024-01-15 14:27:46,616 [INFO] Rule:228 - rule Change GPIO_Pu Default Value for I2C is applicable
+2024-01-15 14:27:46,616 [INFO] Rule:228 - rule Change GPIO_Pu Default Value for SMBus is applicable
+2024-01-15 14:27:46,616 [INFO] Rule:228 - rule change FDCAN default value is applicable
+2024-01-15 14:27:46,616 [INFO] Rule:228 - rule Change mode sai is applicable
+2024-01-15 14:27:46,616 [INFO] Rule:228 - rule **Change sai mode is applicable
+2024-01-15 14:27:46,616 [INFO] Rule:228 - rule Rename STM32WPAN CFG_BLE_IRK to CFG_BLE_IR is applicable
+2024-01-15 14:27:46,617 [INFO] Rule:228 - rule Rename STM32WPAN CFG_BLE_ERK to CFG_BLE_ER is applicable
+2024-01-15 14:27:46,617 [INFO] Rule:228 - rule Rename STM32WPAN CFG_BLE_IRK_HEX to CFG_BLE_IR_HEX is applicable
+2024-01-15 14:27:46,617 [INFO] Rule:228 - rule Rename STM32WPAN CFG_BLE_ERK_HEX to CFG_BLE_ER_HEX is applicable
+2024-01-15 14:27:46,633 [INFO] DbConfProperties:307 - Apply Compatibility (33/230 Rules)
+2024-01-15 14:27:46,650 [INFO] ImportTextPane:194 - (OptionalMessage_ERROR) Unable to find key (Mcu.ThirdPartyNb) in loaded IOC file
+2024-01-15 14:27:46,751 [INFO] RtosManager:555 - Registered RTOS mode: class=CMSIS, group=RTOS, mode=CMSIS_V1, owner=FREERTOS
+2024-01-15 14:27:46,751 [INFO] RtosManager:555 - Registered RTOS mode: class=CMSIS, group=RTOS2, mode=CMSIS_V2, owner=FREERTOS
+2024-01-15 14:27:46,752 [INFO] RtosManager:555 - Registered RTOS mode: class=RTOS, group=Core, mode=CMSIS_V1, owner=FREERTOS
+2024-01-15 14:27:46,752 [INFO] RtosManager:555 - Registered RTOS mode: class=RTOS, group=Core, mode=CMSIS_V2, owner=FREERTOS
+2024-01-15 14:27:46,752 [WARN] ModelIntegratedComponent:184 - Missing modes for component STMicroelectronics:FreeRTOS:0.0.1:STMicroelectronics:RTOS:FreeRTOS:Core:::10.2.0:
+2024-01-15 14:27:46,756 [WARN] ModelIntegratedComponent:182 - Modes not found for component STMicroelectronics:USB_HOST:1.0.0:STMicroelectronics:USB::USB Host:Audio HS::1.0:USB_HOST_1_0_RESTRICTED_HS
+2024-01-15 14:27:46,756 [WARN] ModelIntegratedComponent:188 - Modes not found for component STMicroelectronics:USB_HOST:1.0.0:STMicroelectronics:USB::USB Host:Audio HS::1.0:USB_HOST_1_0_RESTRICTED_HS
+2024-01-15 14:27:46,756 [WARN] ModelIntegratedComponent:182 - Modes not found for component STMicroelectronics:USB_HOST:1.0.0:STMicroelectronics:USB::USB Host:CDC HS::1.0:USB_HOST_1_0_RESTRICTED_HS
+2024-01-15 14:27:46,756 [WARN] ModelIntegratedComponent:188 - Modes not found for component STMicroelectronics:USB_HOST:1.0.0:STMicroelectronics:USB::USB Host:CDC HS::1.0:USB_HOST_1_0_RESTRICTED_HS
+2024-01-15 14:27:46,756 [WARN] ModelIntegratedComponent:182 - Modes not found for component STMicroelectronics:USB_HOST:1.0.0:STMicroelectronics:USB::USB Host:MSC HS::1.0:USB_HOST_1_0_RESTRICTED_HS
+2024-01-15 14:27:46,756 [WARN] ModelIntegratedComponent:188 - Modes not found for component STMicroelectronics:USB_HOST:1.0.0:STMicroelectronics:USB::USB Host:MSC HS::1.0:USB_HOST_1_0_RESTRICTED_HS
+2024-01-15 14:27:46,756 [WARN] ModelIntegratedComponent:182 - Modes not found for component STMicroelectronics:USB_HOST:1.0.0:STMicroelectronics:USB::USB Host:HID HS::1.0:USB_HOST_1_0_RESTRICTED_HS
+2024-01-15 14:27:46,756 [WARN] ModelIntegratedComponent:188 - Modes not found for component STMicroelectronics:USB_HOST:1.0.0:STMicroelectronics:USB::USB Host:HID HS::1.0:USB_HOST_1_0_RESTRICTED_HS
+2024-01-15 14:27:46,756 [WARN] ModelIntegratedComponent:182 - Modes not found for component STMicroelectronics:USB_HOST:1.0.0:STMicroelectronics:USB::USB Host:MTP HS::1.0:USB_HOST_1_0_RESTRICTED_HS
+2024-01-15 14:27:46,756 [WARN] ModelIntegratedComponent:188 - Modes not found for component STMicroelectronics:USB_HOST:1.0.0:STMicroelectronics:USB::USB Host:MTP HS::1.0:USB_HOST_1_0_RESTRICTED_HS
+2024-01-15 14:27:46,771 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-01-15 14:27:46,771 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-01-15 14:27:46,771 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-01-15 14:27:46,771 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-01-15 14:27:46,771 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-01-15 14:27:46,771 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-01-15 14:27:46,771 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-01-15 14:27:46,771 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-01-15 14:27:46,771 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-01-15 14:27:46,771 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-01-15 14:27:46,771 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-01-15 14:27:46,771 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-01-15 14:27:46,771 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-01-15 14:27:46,771 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-01-15 14:27:46,771 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-01-15 14:27:46,771 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-01-15 14:27:46,771 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-01-15 14:27:46,771 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-01-15 14:27:46,772 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-01-15 14:27:46,772 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-01-15 14:27:46,772 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-01-15 14:27:46,772 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-01-15 14:27:46,772 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-01-15 14:27:46,772 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-01-15 14:27:46,772 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-01-15 14:27:46,772 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-01-15 14:27:46,772 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-01-15 14:27:46,772 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-01-15 14:27:46,772 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-01-15 14:27:46,772 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-01-15 14:27:46,772 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-01-15 14:27:46,772 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-01-15 14:27:46,772 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-01-15 14:27:46,829 [WARN] ModelIntegratedComponent:182 - Modes not found for component STMicroelectronics:USB_DEVICE:1.0.0:STMicroelectronics:USB::USB Device:Audio HS::1.0:USB_DEVICE_1_0_RESTRICTED_HS
+2024-01-15 14:27:46,829 [WARN] ModelIntegratedComponent:188 - Modes not found for component STMicroelectronics:USB_DEVICE:1.0.0:STMicroelectronics:USB::USB Device:Audio HS::1.0:USB_DEVICE_1_0_RESTRICTED_HS
+2024-01-15 14:27:46,829 [WARN] ModelIntegratedComponent:182 - Modes not found for component STMicroelectronics:USB_DEVICE:1.0.0:STMicroelectronics:USB::USB Device:CDC HS::1.0:USB_DEVICE_1_0_RESTRICTED_HS
+2024-01-15 14:27:46,829 [WARN] ModelIntegratedComponent:188 - Modes not found for component STMicroelectronics:USB_DEVICE:1.0.0:STMicroelectronics:USB::USB Device:CDC HS::1.0:USB_DEVICE_1_0_RESTRICTED_HS
+2024-01-15 14:27:46,829 [WARN] ModelIntegratedComponent:182 - Modes not found for component STMicroelectronics:USB_DEVICE:1.0.0:STMicroelectronics:USB::USB Device:DFU HS::1.0:USB_DEVICE_1_0_RESTRICTED_HS
+2024-01-15 14:27:46,829 [WARN] ModelIntegratedComponent:188 - Modes not found for component STMicroelectronics:USB_DEVICE:1.0.0:STMicroelectronics:USB::USB Device:DFU HS::1.0:USB_DEVICE_1_0_RESTRICTED_HS
+2024-01-15 14:27:46,829 [WARN] ModelIntegratedComponent:182 - Modes not found for component STMicroelectronics:USB_DEVICE:1.0.0:STMicroelectronics:USB::USB Device:HID HS::1.0:USB_DEVICE_1_0_RESTRICTED_HS
+2024-01-15 14:27:46,829 [WARN] ModelIntegratedComponent:188 - Modes not found for component STMicroelectronics:USB_DEVICE:1.0.0:STMicroelectronics:USB::USB Device:HID HS::1.0:USB_DEVICE_1_0_RESTRICTED_HS
+2024-01-15 14:27:46,829 [WARN] ModelIntegratedComponent:182 - Modes not found for component STMicroelectronics:USB_DEVICE:1.0.0:STMicroelectronics:USB::USB Device:Custom HID HS::1.0:USB_DEVICE_1_0_RESTRICTED_HS
+2024-01-15 14:27:46,829 [WARN] ModelIntegratedComponent:188 - Modes not found for component STMicroelectronics:USB_DEVICE:1.0.0:STMicroelectronics:USB::USB Device:Custom HID HS::1.0:USB_DEVICE_1_0_RESTRICTED_HS
+2024-01-15 14:27:46,829 [WARN] ModelIntegratedComponent:182 - Modes not found for component STMicroelectronics:USB_DEVICE:1.0.0:STMicroelectronics:USB::USB Device:MSC HS::1.0:USB_DEVICE_1_0_RESTRICTED_HS
+2024-01-15 14:27:46,829 [WARN] ModelIntegratedComponent:188 - Modes not found for component STMicroelectronics:USB_DEVICE:1.0.0:STMicroelectronics:USB::USB Device:MSC HS::1.0:USB_DEVICE_1_0_RESTRICTED_HS
+2024-01-15 14:27:46,841 [INFO] ThirdPartyModel:298 - Start build external matchings
+2024-01-15 14:27:46,980 [INFO] ThirdPartyModel:316 - End build external matchings
+2024-01-15 14:27:46,988 [INFO] ImportTextPane:194 - (OptionalMessage_ERROR) IP (RCC) : Parameter (RTCHSEDivFreq_Value) has invalid value (4000000)
+2024-01-15 14:27:47,262 [INFO] UtilMem:75 - End LoadConfig() Used Memory: 932220256 Bytes (1073741824)
+2024-01-15 14:27:47,328 [INFO] MicroXplorer:468 - Change Database Path : 
+2024-01-15 14:27:47,328 [INFO] MicroXplorer:498 - Change Database Version : DB.6.0.100
+2024-01-15 14:27:47,328 [WARN] ThirdParty:833 - waiting for thirdparty lock release [change project]
+2024-01-15 14:27:47,328 [INFO] ThirdParty:835 - entering critical section [change project]
+2024-01-15 14:27:47,328 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics USBPD 4.1
+2024-01-15 14:27:47,328 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-GNSS1 6.0.0
+2024-01-15 14:27:47,328 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics USB_HOST 2.0.0
+2024-01-15 14:27:47,328 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-F4 1.1.0
+2024-01-15 14:27:47,328 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics LIBJPEG 8.0.0
+2024-01-15 14:27:47,328 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-SMBUS 2.1.0
+2024-01-15 14:27:47,328 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics USB_DEVICE 3.0.0
+2024-01-15 14:27:47,328 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-WB 2.0.0
+2024-01-15 14:27:47,328 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :wolfSSL I-CUBE-wolfSSL 5.6.6
+2024-01-15 14:27:47,328 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-TOUCHGFX 4.23.0
+2024-01-15 14:27:47,328 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-F7 1.1.0
+2024-01-15 14:27:47,328 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-L5 2.0.0
+2024-01-15 14:27:47,328 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics USB_DEVICE 2.0.0
+2024-01-15 14:27:47,328 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-EEPRMA1 4.2.0
+2024-01-15 14:27:47,328 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :ITTIA_DB I-CUBE-ITTIADB 8.8.0
+2024-01-15 14:27:47,328 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics FP-SNS-MOTENV1 4.3.2
+2024-01-15 14:27:47,328 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-ALGOBUILD 1.3.0
+2024-01-15 14:27:47,328 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics FreeRTOS 0.0.1
+2024-01-15 14:27:47,328 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-G0 1.1.0
+2024-01-15 14:27:47,329 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-NFC4 3.0.0
+2024-01-15 14:27:47,329 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-SUBG2 5.0.0
+2024-01-15 14:27:47,329 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics STM32_WPAN 1.0.0
+2024-01-15 14:27:47,329 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics lwIP 2.0.3
+2024-01-15 14:27:47,329 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics FP-SNS-FLIGHT1 5.0.2
+2024-01-15 14:27:47,329 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics USB_HOST 1.0.0
+2024-01-15 14:27:47,329 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-G4 2.0.0
+2024-01-15 14:27:47,329 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics PDM2PCM 3.1.0
+2024-01-15 14:27:47,329 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :Infineon AIROC-Wi-Fi-Bluetooth-STM32 1.5.1
+2024-01-15 14:27:47,329 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLEMGR 3.0.0
+2024-01-15 14:27:47,329 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics PDM2PCM 3.3.0
+2024-01-15 14:27:47,329 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-DISPLAY 3.0.0
+2024-01-15 14:27:47,329 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics FP-SNS-MOTENVWB1 1.3.1
+2024-01-15 14:27:47,329 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLE1 7.0.0
+2024-01-15 14:27:47,329 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics FP-ATR-SIGFOX1 3.2.0
+2024-01-15 14:27:47,329 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-ISPU 2.0.0
+2024-01-15 14:27:47,329 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics HAL Drivers 0.0.0
+2024-01-15 14:27:47,329 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics MBEDTLS 2.16.2
+2024-01-15 14:27:47,329 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :emotas I-CUBE-CANOPEN 1.3.0
+2024-01-15 14:27:47,329 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-MEMS1 10.0.0
+2024-01-15 14:27:47,329 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-FREERTOS 1.1.0
+2024-01-15 14:27:47,329 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-NFC7 1.0.1
+2024-01-15 14:27:47,329 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics MBEDTLS 2.14.1
+2024-01-15 14:27:47,329 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-NFC6 3.0.0
+2024-01-15 14:27:47,329 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :portGmbH I-Cube-SoM-uGOAL 1.1.0
+2024-01-15 14:27:47,329 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-ALS 1.0.1
+2024-01-15 14:27:47,329 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics ThreadX 1.0.0
+2024-01-15 14:27:47,329 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics FP-SNS-SMARTAG2 1.2.0
+2024-01-15 14:27:47,329 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-WL 2.0.0
+2024-01-15 14:27:47,329 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :SEGGER I-CUBE-embOS 1.3.1
+2024-01-15 14:27:47,329 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics USB_DEVICE 1.0.0
+2024-01-15 14:27:47,329 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AI 8.1.0
+2024-01-15 14:27:47,329 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-L4 2.0.0
+2024-01-15 14:27:47,329 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics ThreadX 0.0.2
+2024-01-15 14:27:47,329 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :WES I-CUBE-Cesium 1.3.0
+2024-01-15 14:27:47,329 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics FP-ATR-ASTRA1 2.0.0
+2024-01-15 14:27:47,329 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics lwIP 2.1.2
+2024-01-15 14:27:47,329 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-SFXS2LP1 4.0.0
+2024-01-15 14:27:47,329 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLE2 3.3.0
+2024-01-15 14:27:47,329 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-TOF1 3.4.0
+2024-01-15 14:27:47,329 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-H7 3.2.0
+2024-01-15 14:27:47,329 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics PDM2PCM 3.2.0
+2024-01-15 14:27:47,329 [INFO] ThirdParty:841 - exiting critical section [change project]
+2024-01-15 14:27:47,505 [INFO] PinOutPanel:1499 - setPackage(No Configuration,No Configuration)
+2024-01-15 14:27:47,507 [INFO] PinOutPanel:1499 - setPackage(STM32F411VETx,LQFP100)
+2024-01-15 14:27:47,867 [INFO] UtilMem:75 - Before build in PCC Used Memory: 795381448 Bytes (1073741824)
+2024-01-15 14:27:48,651 [INFO] UtilMem:75 - After build in PCC Used Memory: 855150280 Bytes (1073741824)
+2024-01-15 14:27:48,834 [INFO] ApiDbMcu:508 - Load IP Config File for USB_HOST
+2024-01-15 14:27:48,834 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_AUDIO_FS = false
+2024-01-15 14:27:48,834 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_AUDIO_FS = false
+2024-01-15 14:27:48,835 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_AUDIO_HS = false
+2024-01-15 14:27:48,835 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_AUDIO_HS = false
+2024-01-15 14:27:48,835 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 14:27:48,835 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 14:27:48,835 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 14:27:48,835 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_CDC_HS = false
+2024-01-15 14:27:48,835 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_CDC_HS = false
+2024-01-15 14:27:48,835 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_HID_FS = false
+2024-01-15 14:27:48,835 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_HID_FS = false
+2024-01-15 14:27:48,835 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_HID_HS = false
+2024-01-15 14:27:48,835 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_HID_HS = false
+2024-01-15 14:27:48,835 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MSC_FS = false
+2024-01-15 14:27:48,836 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MSC_FS = false
+2024-01-15 14:27:48,836 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MSC_HS = false
+2024-01-15 14:27:48,836 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MSC_HS = false
+2024-01-15 14:27:48,836 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : ALL_SW_VBUS_DRIVE_FS = false
+2024-01-15 14:27:48,836 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : ALL_SW_VBUS_DRIVE_FS = false
+2024-01-15 14:27:48,836 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : ALL_SW_VBUS_DRIVE_HS = false
+2024-01-15 14:27:48,836 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : ALL_SW_VBUS_DRIVE_HS = false
+2024-01-15 14:27:48,836 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MTP_FS = false
+2024-01-15 14:27:48,836 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MTP_FS = false
+2024-01-15 14:27:48,836 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MTP_HS = false
+2024-01-15 14:27:48,836 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MTP_HS = false
+2024-01-15 14:27:48,837 [WARN] BspModel:444 - BSP dependency skipped because of component: name='IOExpander', api='Unknown'
+2024-01-15 14:27:48,855 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-01-15 14:27:48,855 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-01-15 14:27:48,855 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-01-15 14:27:48,855 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-01-15 14:27:48,855 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-01-15 14:27:48,855 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-01-15 14:27:48,855 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-01-15 14:27:48,855 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-01-15 14:27:48,855 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-01-15 14:27:48,855 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-01-15 14:27:48,855 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-01-15 14:27:48,855 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-01-15 14:27:48,855 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-01-15 14:27:48,855 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-01-15 14:27:48,855 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-01-15 14:27:48,855 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-01-15 14:27:48,855 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-01-15 14:27:48,857 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-01-15 14:27:48,857 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-01-15 14:27:48,857 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-01-15 14:27:48,857 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-01-15 14:27:48,857 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-01-15 14:27:48,857 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-01-15 14:27:48,857 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-01-15 14:27:48,857 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-01-15 14:27:48,857 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-01-15 14:27:48,857 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-01-15 14:27:48,857 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-01-15 14:27:48,857 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-01-15 14:27:48,857 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-01-15 14:27:48,858 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-01-15 14:27:48,858 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-01-15 14:27:48,858 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-01-15 14:27:48,858 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-01-15 14:27:48,858 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-01-15 14:27:48,859 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-01-15 14:27:48,859 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-01-15 14:27:48,859 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-01-15 14:27:48,859 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-01-15 14:27:48,859 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-01-15 14:27:48,860 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-01-15 14:27:48,860 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-01-15 14:27:48,860 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-01-15 14:27:48,879 [INFO] ApiDbMcu:508 - Load IP Config File for PDM2PCM
+2024-01-15 14:27:48,895 [WARN] IP:2119 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2024-01-15 14:27:48,895 [WARN] IP:2119 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2024-01-15 14:27:48,907 [INFO] I2sManager:658 - 1.6E8
+2024-01-15 14:27:48,908 [INFO] I2sManager:195 - I2S Clock Value : 1.6E8
+2024-01-15 14:27:48,912 [INFO] I2sManager:553 - AudioClock : 96153Divider : 26Odd : 0
+2024-01-15 14:27:48,913 [INFO] I2sManager:658 - 1.6E8
+2024-01-15 14:27:48,913 [INFO] I2sManager:195 - I2S Clock Value : 1.6E8
+2024-01-15 14:27:48,913 [INFO] I2sManager:553 - AudioClock : 89285Divider : 3Odd : 1
+2024-01-15 14:27:49,068 [INFO] CADModel:165 - CPN selected for project levelSTM32F411VET6
+2024-01-15 14:27:49,068 [INFO] CADModel:114 - Register for checkConnection events
+2024-01-15 14:27:49,115 [INFO] OpenFileManager:343 - Restore cursor
+2024-01-15 14:27:49,202 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_AUDIO_FS = false
+2024-01-15 14:27:49,202 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_AUDIO_FS = false
+2024-01-15 14:27:49,202 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_AUDIO_HS = false
+2024-01-15 14:27:49,202 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_AUDIO_HS = false
+2024-01-15 14:27:49,202 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 14:27:49,202 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 14:27:49,202 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 14:27:49,202 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_CDC_HS = false
+2024-01-15 14:27:49,202 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_CDC_HS = false
+2024-01-15 14:27:49,202 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_HID_FS = false
+2024-01-15 14:27:49,202 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_HID_FS = false
+2024-01-15 14:27:49,202 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_HID_HS = false
+2024-01-15 14:27:49,202 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_HID_HS = false
+2024-01-15 14:27:49,202 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MSC_FS = false
+2024-01-15 14:27:49,203 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MSC_FS = false
+2024-01-15 14:27:49,203 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MSC_HS = false
+2024-01-15 14:27:49,203 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MSC_HS = false
+2024-01-15 14:27:49,203 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : ALL_SW_VBUS_DRIVE_FS = false
+2024-01-15 14:27:49,203 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : ALL_SW_VBUS_DRIVE_FS = false
+2024-01-15 14:27:49,203 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : ALL_SW_VBUS_DRIVE_HS = false
+2024-01-15 14:27:49,203 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : ALL_SW_VBUS_DRIVE_HS = false
+2024-01-15 14:27:49,203 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MTP_FS = false
+2024-01-15 14:27:49,203 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MTP_FS = false
+2024-01-15 14:27:49,203 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MTP_HS = false
+2024-01-15 14:27:49,203 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MTP_HS = false
+2024-01-15 14:27:49,225 [WARN] IP:2119 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2024-01-15 14:27:49,226 [WARN] IP:2119 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2024-01-15 14:27:49,226 [WARN] IP:2119 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2024-01-15 14:27:49,226 [WARN] IP:2119 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2024-01-15 14:27:49,610 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 788411512 Bytes (1073741824)
+2024-01-15 14:27:49,664 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 761664352 Bytes (1073741824)
+2024-01-15 14:27:49,945 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: SPI
+2024-01-15 14:27:49,945 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: USB_OTG_FS
+2024-01-15 14:27:49,945 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: NVIC
+2024-01-15 14:27:49,945 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: USB_HOST
+2024-01-15 14:27:49,945 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: I2S
+2024-01-15 14:27:49,945 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: I2S
+2024-01-15 14:27:49,945 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: SYS
+2024-01-15 14:27:49,947 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: GPIO
+2024-01-15 14:27:49,947 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: RCC
+2024-01-15 14:27:49,947 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: I2C
+2024-01-15 14:27:49,948 [INFO] CodeGenerator:807 - code generatio: config db path: C:\ST\STM32CubeIDE_1.14.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.10.0.202311202037\\db\
+2024-01-15 14:27:49,957 [WARN] IP:2119 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2024-01-15 14:27:49,957 [WARN] IP:2119 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2024-01-15 14:27:50,166 [INFO] CodeEngine:255 - oldGeneratedFile, D:\STM32F411VE\Projects\Learn\HAL\MXTmpFiles\license.tmp_save
+2024-01-15 14:27:50,387 [INFO] CodeEngine:279 - Generated code: D:\STM32F411VE\Projects\Learn\HAL\MXTmpFiles\license.tmp
+2024-01-15 14:27:50,463 [INFO] CodeEngine:255 - oldGeneratedFile, D:\STM32F411VE\Projects\Learn\HAL\MXTmpFiles\gpio.tmp_save
+2024-01-15 14:27:50,593 [INFO] CodeEngine:279 - Generated code: D:\STM32F411VE\Projects\Learn\HAL\MXTmpFiles\gpio.tmp
+2024-01-15 14:27:50,674 [WARN] IPConfigManager:2946 - Warning: the RefConfig PWREx_EnableUSBVoltageDetector is not available in your config.xml file
+2024-01-15 14:27:50,682 [INFO] CodeEngine:255 - oldGeneratedFile, D:\STM32F411VE\Projects\Learn\HAL\MXTmpFiles\usb_otg_fs_vars.tmp_save
+2024-01-15 14:27:50,753 [INFO] CodeEngine:279 - Generated code: D:\STM32F411VE\Projects\Learn\HAL\MXTmpFiles\usb_otg_fs_vars.tmp
+2024-01-15 14:27:50,756 [INFO] CodeEngine:255 - oldGeneratedFile, D:\STM32F411VE\Projects\Learn\HAL\MXTmpFiles\usb_otg_fs_inc.tmp_save
+2024-01-15 14:27:50,807 [INFO] CodeEngine:279 - Generated code: D:\STM32F411VE\Projects\Learn\HAL\MXTmpFiles\usb_otg_fs_inc.tmp
+2024-01-15 14:27:50,817 [INFO] CodeEngine:255 - oldGeneratedFile, D:\STM32F411VE\Projects\Learn\HAL\MXTmpFiles\usb_otg_fs_HalInit.tmp_save
+2024-01-15 14:27:50,903 [INFO] CodeEngine:279 - Generated code: D:\STM32F411VE\Projects\Learn\HAL\MXTmpFiles\usb_otg_fs_HalInit.tmp
+2024-01-15 14:27:50,911 [INFO] CodeEngine:255 - oldGeneratedFile, D:\STM32F411VE\Projects\Learn\HAL\MXTmpFiles\usb_otg_fs_Msp.tmp_save
+2024-01-15 14:27:51,015 [INFO] CodeEngine:279 - Generated code: D:\STM32F411VE\Projects\Learn\HAL\MXTmpFiles\usb_otg_fs_Msp.tmp
+2024-01-15 14:27:51,217 [INFO] CodeEngine:255 - oldGeneratedFile, D:\STM32F411VE\Projects\Learn\HAL\USB_HOST\App\usb_host.c_save
+2024-01-15 14:27:51,318 [INFO] CodeEngine:279 - Generated code: D:\STM32F411VE\Projects\Learn\HAL\USB_HOST\App\usb_host.c
+2024-01-15 14:27:51,326 [INFO] CodeEngine:255 - oldGeneratedFile, D:\STM32F411VE\Projects\Learn\HAL\USB_HOST\App\usb_host.h_save
+2024-01-15 14:27:51,382 [INFO] CodeEngine:279 - Generated code: D:\STM32F411VE\Projects\Learn\HAL\USB_HOST\App\usb_host.h
+2024-01-15 14:27:51,388 [INFO] CodeEngine:255 - oldGeneratedFile, D:\STM32F411VE\Projects\Learn\HAL\USB_HOST\Target\usbh_conf.h_save
+2024-01-15 14:27:51,462 [INFO] CodeEngine:279 - Generated code: D:\STM32F411VE\Projects\Learn\HAL\USB_HOST\Target\usbh_conf.h
+2024-01-15 14:27:51,468 [INFO] CodeEngine:255 - oldGeneratedFile, D:\STM32F411VE\Projects\Learn\HAL\USB_HOST\Target\usbh_conf.c_save
+2024-01-15 14:27:51,534 [INFO] CodeEngine:279 - Generated code: D:\STM32F411VE\Projects\Learn\HAL\USB_HOST\Target\usbh_conf.c
+2024-01-15 14:27:51,545 [INFO] CodeEngine:255 - oldGeneratedFile, D:\STM32F411VE\Projects\Learn\HAL\USB_HOST\Target\usbh_platform.c_save
+2024-01-15 14:27:51,589 [INFO] CodeEngine:279 - Generated code: D:\STM32F411VE\Projects\Learn\HAL\USB_HOST\Target\usbh_platform.c
+2024-01-15 14:27:51,593 [INFO] CodeEngine:255 - oldGeneratedFile, D:\STM32F411VE\Projects\Learn\HAL\USB_HOST\Target\usbh_platform.h_save
+2024-01-15 14:27:51,633 [INFO] CodeEngine:279 - Generated code: D:\STM32F411VE\Projects\Learn\HAL\USB_HOST\Target\usbh_platform.h
+2024-01-15 14:27:51,645 [INFO] CodeEngine:255 - oldGeneratedFile, D:\STM32F411VE\Projects\Learn\HAL\Core\Src\stm32f4xx_it.c_save
+2024-01-15 14:27:51,740 [INFO] CodeEngine:279 - Generated code: D:\STM32F411VE\Projects\Learn\HAL\Core\Src\stm32f4xx_it.c
+2024-01-15 14:27:51,745 [INFO] CodeEngine:255 - oldGeneratedFile, D:\STM32F411VE\Projects\Learn\HAL\Core\Inc\stm32f4xx_it.h_save
+2024-01-15 14:27:51,786 [INFO] CodeEngine:279 - Generated code: D:\STM32F411VE\Projects\Learn\HAL\Core\Inc\stm32f4xx_it.h
+2024-01-15 14:27:51,795 [INFO] CodeEngine:255 - oldGeneratedFile, D:\STM32F411VE\Projects\Learn\HAL\Core\Src\stm32f4xx_hal_msp.c_save
+2024-01-15 14:27:51,882 [INFO] CodeEngine:279 - Generated code: D:\STM32F411VE\Projects\Learn\HAL\Core\Src\stm32f4xx_hal_msp.c
+2024-01-15 14:27:51,893 [INFO] CodeEngine:255 - oldGeneratedFile, D:\STM32F411VE\Projects\Learn\HAL\MXTmpFiles\system.tmp_save
+2024-01-15 14:27:51,931 [INFO] CodeEngine:279 - Generated code: D:\STM32F411VE\Projects\Learn\HAL\MXTmpFiles\system.tmp
+2024-01-15 14:27:51,938 [INFO] CodeEngine:311 - oldGeneratedFile, D:\STM32F411VE\Projects\Learn\HAL\Core\Inc\stm32f4xx_hal_conf.h_save
+2024-01-15 14:27:52,010 [INFO] CodeEngine:335 - Generated code: D:\STM32F411VE\Projects\Learn\HAL\Core\Inc\stm32f4xx_hal_conf.h
+2024-01-15 14:27:52,043 [INFO] CodeEngine:255 - oldGeneratedFile, D:\STM32F411VE\Projects\Learn\HAL\Core\Inc\main.h_save
+2024-01-15 14:27:52,119 [INFO] CodeEngine:279 - Generated code: D:\STM32F411VE\Projects\Learn\HAL\Core\Inc\main.h
+2024-01-15 14:27:52,124 [INFO] CodeEngine:255 - oldGeneratedFile, D:\STM32F411VE\Projects\Learn\HAL\Core\Src\main.c_save
+2024-01-15 14:27:52,227 [INFO] CodeEngine:279 - Generated code: D:\STM32F411VE\Projects\Learn\HAL\Core\Src\main.c
+2024-01-15 14:27:52,498 [INFO] ProjectBuilder:3076 - Time for Copy HAL[1] : 62mS.
+2024-01-15 14:27:52,502 [INFO] ProjectBuilder:4485 - Project Generator version: 4.2.0-B44
+2024-01-15 14:27:52,602 [INFO] ConfigFileManager:1495 - The Die is : DIE431
+2024-01-15 14:27:52,609 [INFO] ApiDbMcu:508 - Load IP Config File for FATFS
+2024-01-15 14:27:52,614 [INFO] ApiDbMcu:508 - Load IP Config File for FREERTOS
+2024-01-15 14:27:52,619 [INFO] ApiDbMcu:508 - Load IP Config File for LIBJPEG
+2024-01-15 14:27:52,627 [INFO] ApiDbMcu:508 - Load IP Config File for MBEDTLS
+2024-01-15 14:27:52,634 [INFO] ApiDbMcu:508 - Load IP Config File for USB_DEVICE
+2024-01-15 14:27:53,169 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2024-01-15 14:27:54,903 [INFO] ProjectBuilder:4747 - Time for Generating toolchain IDE Files: 2400mS.
+2024-01-15 14:27:54,904 [INFO] ProjectBuilder:2947 - Time for Copy CMSIS : 1mS.
+2024-01-15 14:27:54,905 [INFO] ProjectBuilder:2947 - Time for Copy CMSIS : 1mS.
+2024-01-15 14:27:55,556 [INFO] McuFinderGlobals:76 - Set McuFinderConnectedMode to true
+2024-01-15 14:27:55,558 [INFO] ApiDb:448 - Save user favorites file C:\Users\hutch/.stm32cubeide/favorites.mcus.txt: 0 item(s)
+2024-01-15 14:27:55,558 [INFO] ApiDb:452 - User favorites MCUs=[]
+2024-01-15 14:27:55,558 [INFO] ApiDb:448 - Save user favorites file C:\Users\hutch/.stm32cubeide/favorites.boards.txt: 1 item(s)
+2024-01-15 14:27:55,558 [INFO] ApiDb:452 - User favorites Boards=[STM32F411E-DISCO]
+2024-01-15 14:27:59,581 [INFO] I2sManager:658 - 3.2E8
+2024-01-15 14:27:59,581 [INFO] I2sManager:195 - I2S Clock Value : 3.2E8
+2024-01-15 14:27:59,582 [INFO] I2sManager:553 - AudioClock : 96153Divider : 52Odd : 0
+2024-01-15 14:27:59,582 [INFO] I2sManager:658 - 3.2E8
+2024-01-15 14:27:59,582 [INFO] I2sManager:195 - I2S Clock Value : 3.2E8
+2024-01-15 14:27:59,582 [INFO] I2sManager:553 - AudioClock : 96153Divider : 6Odd : 1
+2024-01-15 14:27:59,636 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_AUDIO_FS = false
+2024-01-15 14:27:59,636 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_AUDIO_FS = false
+2024-01-15 14:27:59,636 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_AUDIO_HS = false
+2024-01-15 14:27:59,636 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_AUDIO_HS = false
+2024-01-15 14:27:59,636 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 14:27:59,636 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 14:27:59,636 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 14:27:59,636 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_CDC_HS = false
+2024-01-15 14:27:59,636 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_CDC_HS = false
+2024-01-15 14:27:59,636 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_HID_FS = false
+2024-01-15 14:27:59,636 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_HID_FS = false
+2024-01-15 14:27:59,636 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_HID_HS = false
+2024-01-15 14:27:59,636 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_HID_HS = false
+2024-01-15 14:27:59,636 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MSC_FS = false
+2024-01-15 14:27:59,636 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MSC_FS = false
+2024-01-15 14:27:59,636 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MSC_HS = false
+2024-01-15 14:27:59,636 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MSC_HS = false
+2024-01-15 14:27:59,636 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : ALL_SW_VBUS_DRIVE_FS = false
+2024-01-15 14:27:59,636 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : ALL_SW_VBUS_DRIVE_FS = false
+2024-01-15 14:27:59,636 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : ALL_SW_VBUS_DRIVE_HS = false
+2024-01-15 14:27:59,636 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : ALL_SW_VBUS_DRIVE_HS = false
+2024-01-15 14:27:59,636 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MTP_FS = false
+2024-01-15 14:27:59,636 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MTP_FS = false
+2024-01-15 14:27:59,636 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MTP_HS = false
+2024-01-15 14:27:59,636 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MTP_HS = false
+2024-01-15 14:27:59,649 [WARN] IP:2119 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2024-01-15 14:27:59,650 [WARN] IP:2119 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2024-01-15 14:27:59,650 [WARN] IP:2119 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2024-01-15 14:27:59,650 [WARN] IP:2119 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2024-01-15 14:28:03,368 [INFO] I2sManager:658 - 3.2E8
+2024-01-15 14:28:03,368 [INFO] I2sManager:195 - I2S Clock Value : 3.2E8
+2024-01-15 14:28:03,368 [INFO] I2sManager:553 - AudioClock : 96153Divider : 52Odd : 0
+2024-01-15 14:28:03,368 [INFO] I2sManager:658 - 3.2E8
+2024-01-15 14:28:03,368 [INFO] I2sManager:195 - I2S Clock Value : 3.2E8
+2024-01-15 14:28:03,368 [INFO] I2sManager:553 - AudioClock : 96153Divider : 6Odd : 1
+2024-01-15 14:28:03,382 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_AUDIO_FS = false
+2024-01-15 14:28:03,382 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_AUDIO_FS = false
+2024-01-15 14:28:03,382 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_AUDIO_HS = false
+2024-01-15 14:28:03,382 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_AUDIO_HS = false
+2024-01-15 14:28:03,382 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 14:28:03,382 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 14:28:03,382 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 14:28:03,382 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_CDC_HS = false
+2024-01-15 14:28:03,382 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_CDC_HS = false
+2024-01-15 14:28:03,382 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_HID_FS = false
+2024-01-15 14:28:03,382 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_HID_FS = false
+2024-01-15 14:28:03,382 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_HID_HS = false
+2024-01-15 14:28:03,382 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_HID_HS = false
+2024-01-15 14:28:03,382 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MSC_FS = false
+2024-01-15 14:28:03,382 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MSC_FS = false
+2024-01-15 14:28:03,382 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MSC_HS = false
+2024-01-15 14:28:03,382 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MSC_HS = false
+2024-01-15 14:28:03,382 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : ALL_SW_VBUS_DRIVE_FS = false
+2024-01-15 14:28:03,382 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : ALL_SW_VBUS_DRIVE_FS = false
+2024-01-15 14:28:03,382 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : ALL_SW_VBUS_DRIVE_HS = false
+2024-01-15 14:28:03,382 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : ALL_SW_VBUS_DRIVE_HS = false
+2024-01-15 14:28:03,382 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MTP_FS = false
+2024-01-15 14:28:03,382 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MTP_FS = false
+2024-01-15 14:28:03,382 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MTP_HS = false
+2024-01-15 14:28:03,382 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MTP_HS = false
+2024-01-15 14:28:03,392 [WARN] IP:2119 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2024-01-15 14:28:03,392 [WARN] IP:2119 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2024-01-15 14:28:03,393 [WARN] IP:2119 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2024-01-15 14:28:03,393 [WARN] IP:2119 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2024-01-15 14:28:04,840 [INFO] I2sManager:658 - 1.6E8
+2024-01-15 14:28:04,840 [INFO] I2sManager:195 - I2S Clock Value : 1.6E8
+2024-01-15 14:28:04,840 [INFO] I2sManager:553 - AudioClock : 96153Divider : 26Odd : 0
+2024-01-15 14:28:04,840 [INFO] I2sManager:658 - 1.6E8
+2024-01-15 14:28:04,840 [INFO] I2sManager:195 - I2S Clock Value : 1.6E8
+2024-01-15 14:28:04,840 [INFO] I2sManager:553 - AudioClock : 89285Divider : 3Odd : 1
+2024-01-15 14:28:04,879 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_AUDIO_FS = false
+2024-01-15 14:28:04,879 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_AUDIO_FS = false
+2024-01-15 14:28:04,879 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_AUDIO_HS = false
+2024-01-15 14:28:04,879 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_AUDIO_HS = false
+2024-01-15 14:28:04,879 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 14:28:04,879 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 14:28:04,879 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 14:28:04,879 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_CDC_HS = false
+2024-01-15 14:28:04,879 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_CDC_HS = false
+2024-01-15 14:28:04,879 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_HID_FS = false
+2024-01-15 14:28:04,879 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_HID_FS = false
+2024-01-15 14:28:04,879 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_HID_HS = false
+2024-01-15 14:28:04,879 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_HID_HS = false
+2024-01-15 14:28:04,879 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MSC_FS = false
+2024-01-15 14:28:04,879 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MSC_FS = false
+2024-01-15 14:28:04,879 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MSC_HS = false
+2024-01-15 14:28:04,879 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MSC_HS = false
+2024-01-15 14:28:04,879 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : ALL_SW_VBUS_DRIVE_FS = false
+2024-01-15 14:28:04,879 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : ALL_SW_VBUS_DRIVE_FS = false
+2024-01-15 14:28:04,879 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : ALL_SW_VBUS_DRIVE_HS = false
+2024-01-15 14:28:04,879 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : ALL_SW_VBUS_DRIVE_HS = false
+2024-01-15 14:28:04,879 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MTP_FS = false
+2024-01-15 14:28:04,879 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MTP_FS = false
+2024-01-15 14:28:04,879 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MTP_HS = false
+2024-01-15 14:28:04,879 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MTP_HS = false
+2024-01-15 14:28:04,888 [WARN] IP:2119 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2024-01-15 14:28:04,888 [WARN] IP:2119 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2024-01-15 14:28:04,889 [WARN] IP:2119 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2024-01-15 14:28:04,889 [WARN] IP:2119 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2024-01-15 14:28:07,728 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 448489536 Bytes (1073741824)
+2024-01-15 14:28:09,690 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 466315328 Bytes (1073741824)
+2024-01-15 14:28:12,926 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 526083344 Bytes (1073741824)
+2024-01-15 14:28:13,011 [INFO] ProjectBuilder:2346 - IP not ready for code generation: Clock
+2024-01-15 14:28:14,460 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: SPI
+2024-01-15 14:28:14,460 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: USB_OTG_FS
+2024-01-15 14:28:14,460 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: NVIC
+2024-01-15 14:28:14,460 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: USB_HOST
+2024-01-15 14:28:14,460 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: I2S
+2024-01-15 14:28:14,460 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: I2S
+2024-01-15 14:28:14,460 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: SYS
+2024-01-15 14:28:14,460 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: GPIO
+2024-01-15 14:28:14,460 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: RCC
+2024-01-15 14:28:14,460 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: I2C
+2024-01-15 14:28:14,461 [INFO] CodeGenerator:807 - code generatio: config db path: C:\ST\STM32CubeIDE_1.14.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.10.0.202311202037\\db\
+2024-01-15 14:28:14,462 [WARN] IP:2119 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2024-01-15 14:28:14,462 [WARN] IP:2119 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2024-01-15 14:28:14,519 [INFO] CodeEngine:255 - oldGeneratedFile, D:\STM32F411VE\Projects\Learn\HAL\MXTmpFiles\license.tmp_save
+2024-01-15 14:28:14,568 [INFO] CodeEngine:279 - Generated code: D:\STM32F411VE\Projects\Learn\HAL\MXTmpFiles\license.tmp
+2024-01-15 14:28:14,581 [INFO] CodeEngine:255 - oldGeneratedFile, D:\STM32F411VE\Projects\Learn\HAL\MXTmpFiles\gpio.tmp_save
+2024-01-15 14:28:14,642 [INFO] CodeEngine:279 - Generated code: D:\STM32F411VE\Projects\Learn\HAL\MXTmpFiles\gpio.tmp
+2024-01-15 14:28:14,670 [WARN] IPConfigManager:2946 - Warning: the RefConfig PWREx_EnableUSBVoltageDetector is not available in your config.xml file
+2024-01-15 14:28:14,674 [INFO] CodeEngine:255 - oldGeneratedFile, D:\STM32F411VE\Projects\Learn\HAL\MXTmpFiles\usb_otg_fs_vars.tmp_save
+2024-01-15 14:28:14,726 [INFO] CodeEngine:279 - Generated code: D:\STM32F411VE\Projects\Learn\HAL\MXTmpFiles\usb_otg_fs_vars.tmp
+2024-01-15 14:28:14,728 [INFO] CodeEngine:255 - oldGeneratedFile, D:\STM32F411VE\Projects\Learn\HAL\MXTmpFiles\usb_otg_fs_inc.tmp_save
+2024-01-15 14:28:14,756 [INFO] CodeEngine:279 - Generated code: D:\STM32F411VE\Projects\Learn\HAL\MXTmpFiles\usb_otg_fs_inc.tmp
+2024-01-15 14:28:14,757 [INFO] CodeEngine:255 - oldGeneratedFile, D:\STM32F411VE\Projects\Learn\HAL\MXTmpFiles\usb_otg_fs_HalInit.tmp_save
+2024-01-15 14:28:14,805 [INFO] CodeEngine:279 - Generated code: D:\STM32F411VE\Projects\Learn\HAL\MXTmpFiles\usb_otg_fs_HalInit.tmp
+2024-01-15 14:28:14,806 [INFO] CodeEngine:255 - oldGeneratedFile, D:\STM32F411VE\Projects\Learn\HAL\MXTmpFiles\usb_otg_fs_Msp.tmp_save
+2024-01-15 14:28:14,850 [INFO] CodeEngine:279 - Generated code: D:\STM32F411VE\Projects\Learn\HAL\MXTmpFiles\usb_otg_fs_Msp.tmp
+2024-01-15 14:28:14,978 [INFO] CodeEngine:255 - oldGeneratedFile, D:\STM32F411VE\Projects\Learn\HAL\USB_HOST\App\usb_host.c_save
+2024-01-15 14:28:15,037 [INFO] CodeEngine:279 - Generated code: D:\STM32F411VE\Projects\Learn\HAL\USB_HOST\App\usb_host.c
+2024-01-15 14:28:15,039 [INFO] CodeEngine:255 - oldGeneratedFile, D:\STM32F411VE\Projects\Learn\HAL\USB_HOST\App\usb_host.h_save
+2024-01-15 14:28:15,072 [INFO] CodeEngine:279 - Generated code: D:\STM32F411VE\Projects\Learn\HAL\USB_HOST\App\usb_host.h
+2024-01-15 14:28:15,073 [INFO] CodeEngine:255 - oldGeneratedFile, D:\STM32F411VE\Projects\Learn\HAL\USB_HOST\Target\usbh_conf.h_save
+2024-01-15 14:28:15,102 [INFO] CodeEngine:279 - Generated code: D:\STM32F411VE\Projects\Learn\HAL\USB_HOST\Target\usbh_conf.h
+2024-01-15 14:28:15,109 [INFO] CodeEngine:255 - oldGeneratedFile, D:\STM32F411VE\Projects\Learn\HAL\USB_HOST\Target\usbh_conf.c_save
+2024-01-15 14:28:15,160 [INFO] CodeEngine:279 - Generated code: D:\STM32F411VE\Projects\Learn\HAL\USB_HOST\Target\usbh_conf.c
+2024-01-15 14:28:15,163 [INFO] CodeEngine:255 - oldGeneratedFile, D:\STM32F411VE\Projects\Learn\HAL\USB_HOST\Target\usbh_platform.c_save
+2024-01-15 14:28:15,193 [INFO] CodeEngine:279 - Generated code: D:\STM32F411VE\Projects\Learn\HAL\USB_HOST\Target\usbh_platform.c
+2024-01-15 14:28:15,194 [INFO] CodeEngine:255 - oldGeneratedFile, D:\STM32F411VE\Projects\Learn\HAL\USB_HOST\Target\usbh_platform.h_save
+2024-01-15 14:28:15,220 [INFO] CodeEngine:279 - Generated code: D:\STM32F411VE\Projects\Learn\HAL\USB_HOST\Target\usbh_platform.h
+2024-01-15 14:28:15,229 [INFO] CodeEngine:255 - oldGeneratedFile, D:\STM32F411VE\Projects\Learn\HAL\Core\Src\stm32f4xx_it.c_save
+2024-01-15 14:28:15,288 [INFO] CodeEngine:279 - Generated code: D:\STM32F411VE\Projects\Learn\HAL\Core\Src\stm32f4xx_it.c
+2024-01-15 14:28:15,294 [INFO] CodeEngine:255 - oldGeneratedFile, D:\STM32F411VE\Projects\Learn\HAL\Core\Inc\stm32f4xx_it.h_save
+2024-01-15 14:28:15,319 [INFO] CodeEngine:279 - Generated code: D:\STM32F411VE\Projects\Learn\HAL\Core\Inc\stm32f4xx_it.h
+2024-01-15 14:28:15,328 [INFO] CodeEngine:255 - oldGeneratedFile, D:\STM32F411VE\Projects\Learn\HAL\Core\Src\stm32f4xx_hal_msp.c_save
+2024-01-15 14:28:15,409 [INFO] CodeEngine:279 - Generated code: D:\STM32F411VE\Projects\Learn\HAL\Core\Src\stm32f4xx_hal_msp.c
+2024-01-15 14:28:15,411 [INFO] CodeEngine:255 - oldGeneratedFile, D:\STM32F411VE\Projects\Learn\HAL\MXTmpFiles\system.tmp_save
+2024-01-15 14:28:15,435 [INFO] CodeEngine:279 - Generated code: D:\STM32F411VE\Projects\Learn\HAL\MXTmpFiles\system.tmp
+2024-01-15 14:28:15,446 [INFO] CodeEngine:311 - oldGeneratedFile, D:\STM32F411VE\Projects\Learn\HAL\Core\Inc\stm32f4xx_hal_conf.h_save
+2024-01-15 14:28:15,511 [INFO] CodeEngine:335 - Generated code: D:\STM32F411VE\Projects\Learn\HAL\Core\Inc\stm32f4xx_hal_conf.h
+2024-01-15 14:28:15,532 [INFO] CodeEngine:255 - oldGeneratedFile, D:\STM32F411VE\Projects\Learn\HAL\Core\Inc\main.h_save
+2024-01-15 14:28:15,579 [INFO] CodeEngine:279 - Generated code: D:\STM32F411VE\Projects\Learn\HAL\Core\Inc\main.h
+2024-01-15 14:28:15,585 [INFO] CodeEngine:255 - oldGeneratedFile, D:\STM32F411VE\Projects\Learn\HAL\Core\Src\main.c_save
+2024-01-15 14:28:15,648 [INFO] CodeEngine:279 - Generated code: D:\STM32F411VE\Projects\Learn\HAL\Core\Src\main.c
+2024-01-15 14:28:15,885 [INFO] ProjectBuilder:3076 - Time for Copy HAL[1] : 62mS.
+2024-01-15 14:28:15,887 [INFO] ProjectBuilder:4485 - Project Generator version: 4.2.0-B44
+2024-01-15 14:28:15,969 [INFO] ConfigFileManager:1495 - The Die is : DIE431
+2024-01-15 14:28:16,788 [INFO] ProjectBuilder:4747 - Time for Generating toolchain IDE Files: 901mS.
+2024-01-15 14:28:16,788 [INFO] ProjectBuilder:2947 - Time for Copy CMSIS : 0mS.
+2024-01-15 14:28:16,789 [INFO] ProjectBuilder:2947 - Time for Copy CMSIS : 0mS.
+2024-01-15 14:31:29,044 [INFO] MainUpdater:2873 - connection check result : 10
+2024-01-15 14:31:29,101 [INFO] McuFinderGlobals:76 - Set McuFinderConnectedMode to true
+2024-01-15 14:31:29,102 [INFO] MultiScanPanel:200 - Auto-refresh data requested => check proxy status ongoing
+2024-01-15 14:31:29,102 [INFO] FinderPluginLoader:95 - Searching for filters in installed packs
+2024-01-15 14:31:29,640 [INFO] LoadUrlFilesThread:185 - End of LoadServerUrlFiles without Thread
+2024-01-15 14:31:29,640 [INFO] DetailPanel:341 - Set advertising image to C:/Users/hutch/STM32Cube/Repository/\en.prom-stm32wl3-mcu-finder.jpg
+2024-01-15 14:31:37,849 [INFO] MultiScanPanel:200 - Auto-refresh data requested => check proxy status ongoing
+2024-01-15 14:31:37,882 [INFO] LoadUrlFilesThread:185 - End of LoadServerUrlFiles without Thread
+2024-01-15 14:31:37,882 [INFO] DetailPanel:341 - Set advertising image to C:/Users/hutch/STM32Cube/Repository/\en.prom-stm32wl3-mcu-finder.jpg
+2024-01-15 14:31:49,900 [INFO] McuFinderGlobals:76 - Set McuFinderConnectedMode to true
+2024-01-15 14:31:49,901 [INFO] ApiDb:448 - Save user favorites file C:\Users\hutch/.stm32cubeide/favorites.mcus.txt: 0 item(s)
+2024-01-15 14:31:49,901 [INFO] ApiDb:452 - User favorites MCUs=[]
+2024-01-15 14:31:49,902 [INFO] ApiDb:448 - Save user favorites file C:\Users\hutch/.stm32cubeide/favorites.boards.txt: 1 item(s)
+2024-01-15 14:31:49,902 [INFO] ApiDb:452 - User favorites Boards=[STM32F411E-DISCO]
+2024-01-15 15:35:21,256 [INFO] MainUpdater:2873 - connection check result : 10
+2024-01-15 15:35:21,256 [INFO] MainUpdater:2873 - connection check result : 10
+2024-01-15 15:35:21,263 [INFO] I2sManager:658 - 1.6E8
+2024-01-15 15:35:21,263 [INFO] I2sManager:195 - I2S Clock Value : 1.6E8
+2024-01-15 15:35:21,263 [INFO] I2sManager:553 - AudioClock : 96153Divider : 26Odd : 0
+2024-01-15 15:35:21,263 [INFO] I2sManager:658 - 1.6E8
+2024-01-15 15:35:21,263 [INFO] I2sManager:195 - I2S Clock Value : 1.6E8
+2024-01-15 15:35:21,263 [INFO] I2sManager:553 - AudioClock : 89285Divider : 3Odd : 1
+2024-01-15 15:35:21,268 [INFO] MicroXplorer:468 - Change Database Path : 
+2024-01-15 15:35:21,268 [INFO] MicroXplorer:498 - Change Database Version : DB.6.0.100
+2024-01-15 15:35:21,316 [ERROR] ProjectManagerView:394 - 
+java.lang.NullPointerException: Cannot invoke "javax.swing.JTextField.getText()" because the return value of "java.util.List.get(int)" is null
+	at com.st.microxplorer.plugins.projectmanager.gui.ProjectChoiceTab$10.caretUpdate(ProjectChoiceTab.java:2493) ~[filemanager.jar:?]
+	at javax.swing.text.JTextComponent.fireCaretUpdate(JTextComponent.java:412) ~[?:?]
+	at javax.swing.text.JTextComponent$MutableCaretEvent.fire(JTextComponent.java:4491) ~[?:?]
+	at javax.swing.text.JTextComponent$MutableCaretEvent.stateChanged(JTextComponent.java:4513) ~[?:?]
+	at javax.swing.text.DefaultCaret.fireStateChanged(DefaultCaret.java:842) ~[?:?]
+	at javax.swing.text.DefaultCaret.changeCaretPosition(DefaultCaret.java:1313) ~[?:?]
+	at javax.swing.text.DefaultCaret.handleSetDot(DefaultCaret.java:1212) ~[?:?]
+	at javax.swing.text.DefaultCaret.setDot(DefaultCaret.java:1193) ~[?:?]
+	at javax.swing.text.DefaultCaret$Handler.insertUpdate(DefaultCaret.java:1789) ~[?:?]
+	at javax.swing.text.AbstractDocument.fireInsertUpdate(AbstractDocument.java:226) ~[?:?]
+	at javax.swing.text.AbstractDocument.handleInsertString(AbstractDocument.java:780) ~[?:?]
+	at javax.swing.text.AbstractDocument.insertString(AbstractDocument.java:739) ~[?:?]
+	at javax.swing.text.PlainDocument.insertString(PlainDocument.java:131) ~[?:?]
+	at javax.swing.text.AbstractDocument.replace(AbstractDocument.java:698) ~[?:?]
+	at javax.swing.text.JTextComponent.setText(JTextComponent.java:1729) ~[?:?]
+	at com.st.microxplorer.plugins.projectmanager.gui.ProjectChoiceTab.createHeapStackFields(ProjectChoiceTab.java:933) ~[filemanager.jar:?]
+	at com.st.microxplorer.plugins.projectmanager.gui.ProjectChoiceTab.buildLinkSettingsPanel(ProjectChoiceTab.java:3426) ~[filemanager.jar:?]
+	at com.st.microxplorer.plugins.projectmanager.gui.ProjectChoiceTab.defineWindowsFields(ProjectChoiceTab.java:1813) ~[filemanager.jar:?]
+	at com.st.microxplorer.plugins.projectmanager.gui.ProjectChoiceTab.updateSettings(ProjectChoiceTab.java:533) ~[filemanager.jar:?]
+	at com.st.microxplorer.plugins.projectmanager.gui.ProjectSettingsPanel.UpdateDialog(ProjectSettingsPanel.java:244) ~[filemanager.jar:?]
+	at com.st.microxplorer.plugins.projectmanager.ProjectManagerView.propertyChange(ProjectManagerView.java:391) ~[filemanager.jar:?]
+	at java.beans.PropertyChangeSupport.fire(PropertyChangeSupport.java:343) ~[?:?]
+	at java.beans.PropertyChangeSupport.firePropertyChange(PropertyChangeSupport.java:335) ~[?:?]
+	at java.beans.PropertyChangeSupport.firePropertyChange(PropertyChangeSupport.java:268) ~[?:?]
+	at com.st.microxplorer.util.MXPropertyChangeSupport.firePropertyChange(MXPropertyChangeSupport.java:54) ~[STM32CubeMX.jar:?]
+	at com.st.microxplorer.mxsystem.MxSystem.closeConfig(MxSystem.java:900) ~[STM32CubeMX.jar:?]
+	at com.st.microxplorer.maingui.MainPanel.closeConfig(MainPanel.java:776) ~[STM32CubeMX.jar:?]
+	at com.st.microxplorer.plugins.filemanager.engine.OpenFileManager.loadConfigurationFile(OpenFileManager.java:245) ~[filemanager.jar:?]
+	at com.st.microxplorer.plugins.filemanager.engine.MainFileManager.userLoadConfig(MainFileManager.java:290) ~[filemanager.jar:?]
+	at com.st.microxplorer.plugins.filemanager.FileManagerView.getSpecificTask(FileManagerView.java:247) ~[filemanager.jar:?]
+	at com.st.stm32cube.common.mx.editor.CubeMxEditor.getMxTabbedPaneInstance(CubeMxEditor.java:1184) ~[com.st.stm32cube.common.mx_6.10.0.202311202037/:?]
+	at com.st.stm32cube.common.mx.editor.CubeMxEditor$12$1.createSwingComponent(CubeMxEditor.java:1065) ~[com.st.stm32cube.common.mx_6.10.0.202311202037/:?]
+	at com.st.stm32cube.common.mx.oss.core.awtswtbridge.EmbeddedSwingComposite.doComponentCreation(EmbeddedSwingComposite.java:492) ~[com.st.stm32cube.common.mx.oss_6.10.0.202311202037/:?]
+	at com.st.stm32cube.common.mx.oss.core.awtswtbridge.EmbeddedSwingComposite$4.run(EmbeddedSwingComposite.java:291) ~[com.st.stm32cube.common.mx.oss_6.10.0.202311202037/:?]
+	at com.st.stm32cube.common.mx.oss.core.awtswtbridge.AwtEnvironment$2.run(AwtEnvironment.java:166) ~[com.st.stm32cube.common.mx.oss_6.10.0.202311202037/:?]
+	at java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:318) ~[?:?]
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:773) ~[?:?]
+	at java.awt.EventQueue$4.run(EventQueue.java:720) ~[?:?]
+	at java.awt.EventQueue$4.run(EventQueue.java:714) ~[?:?]
+	at java.security.AccessController.doPrivileged(AccessController.java:399) ~[?:?]
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:86) ~[?:?]
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:742) ~[?:?]
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203) ~[?:?]
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124) ~[?:?]
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113) ~[?:?]
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109) ~[?:?]
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101) ~[?:?]
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:90) ~[?:?]
+2024-01-15 15:35:21,322 [WARN] ThirdParty:871 - waiting for thirdparty lock release [close project]
+2024-01-15 15:35:21,322 [INFO] ThirdParty:873 - entering critical section [close project]
+2024-01-15 15:35:21,322 [INFO] ThirdParty:883 - exiting critical section [close project]
+2024-01-15 15:35:21,323 [INFO] PinOutPanel:1499 - setPackage(No Configuration,No Configuration)
+2024-01-15 15:35:21,333 [WARN] IpParametersView:151 - Warning: This peripheral hasn't parameters
+2024-01-15 15:35:21,345 [WARN] MainPanel:272 - <html><b><center>Warning: This peripheral has no parameters to be configured<br></b></html>
+2024-01-15 15:35:21,353 [INFO] UtilMem:75 - Begin LoadConfig() Used Memory: 294055656 Bytes (877658112)
+2024-01-15 15:35:21,353 [INFO] MicroXplorer:468 - Change Database Path : 
+2024-01-15 15:35:21,353 [INFO] MicroXplorer:498 - Change Database Version : DB.6.0.100
+2024-01-15 15:35:21,353 [INFO] OpenFileManager:312 - Change cursor
+2024-01-15 15:35:21,366 [INFO] RulesReader:64 - Compatibility file has been processed (297 Rules)
+2024-01-15 15:35:21,373 [INFO] Mcu:2016 - Initializing MCU STM32F411V(C-E)Tx STM32F411VETx STM32F411VET6
+2024-01-15 15:35:21,923 [INFO] Context:659 - Trying to add GPIOservice into a context  which must be forbidden
+2024-01-15 15:35:22,043 [INFO] RtosManager:555 - Registered RTOS mode: class=CMSIS, group=RTOS, mode=CMSIS_V1, owner=FREERTOS
+2024-01-15 15:35:22,043 [INFO] RtosManager:555 - Registered RTOS mode: class=CMSIS, group=RTOS2, mode=CMSIS_V2, owner=FREERTOS
+2024-01-15 15:35:22,043 [INFO] RtosManager:555 - Registered RTOS mode: class=RTOS, group=Core, mode=CMSIS_V1, owner=FREERTOS
+2024-01-15 15:35:22,043 [INFO] RtosManager:555 - Registered RTOS mode: class=RTOS, group=Core, mode=CMSIS_V2, owner=FREERTOS
+2024-01-15 15:35:22,043 [WARN] ModelIntegratedComponent:184 - Missing modes for component STMicroelectronics:FreeRTOS:0.0.1:STMicroelectronics:RTOS:FreeRTOS:Core:::10.2.0:
+2024-01-15 15:35:22,044 [WARN] ModelIntegratedComponent:182 - Modes not found for component STMicroelectronics:USB_HOST:1.0.0:STMicroelectronics:USB::USB Host:Audio HS::1.0:USB_HOST_1_0_RESTRICTED_HS
+2024-01-15 15:35:22,044 [WARN] ModelIntegratedComponent:188 - Modes not found for component STMicroelectronics:USB_HOST:1.0.0:STMicroelectronics:USB::USB Host:Audio HS::1.0:USB_HOST_1_0_RESTRICTED_HS
+2024-01-15 15:35:22,044 [WARN] ModelIntegratedComponent:182 - Modes not found for component STMicroelectronics:USB_HOST:1.0.0:STMicroelectronics:USB::USB Host:CDC HS::1.0:USB_HOST_1_0_RESTRICTED_HS
+2024-01-15 15:35:22,044 [WARN] ModelIntegratedComponent:188 - Modes not found for component STMicroelectronics:USB_HOST:1.0.0:STMicroelectronics:USB::USB Host:CDC HS::1.0:USB_HOST_1_0_RESTRICTED_HS
+2024-01-15 15:35:22,044 [WARN] ModelIntegratedComponent:182 - Modes not found for component STMicroelectronics:USB_HOST:1.0.0:STMicroelectronics:USB::USB Host:MSC HS::1.0:USB_HOST_1_0_RESTRICTED_HS
+2024-01-15 15:35:22,044 [WARN] ModelIntegratedComponent:188 - Modes not found for component STMicroelectronics:USB_HOST:1.0.0:STMicroelectronics:USB::USB Host:MSC HS::1.0:USB_HOST_1_0_RESTRICTED_HS
+2024-01-15 15:35:22,044 [WARN] ModelIntegratedComponent:182 - Modes not found for component STMicroelectronics:USB_HOST:1.0.0:STMicroelectronics:USB::USB Host:HID HS::1.0:USB_HOST_1_0_RESTRICTED_HS
+2024-01-15 15:35:22,044 [WARN] ModelIntegratedComponent:188 - Modes not found for component STMicroelectronics:USB_HOST:1.0.0:STMicroelectronics:USB::USB Host:HID HS::1.0:USB_HOST_1_0_RESTRICTED_HS
+2024-01-15 15:35:22,044 [WARN] ModelIntegratedComponent:182 - Modes not found for component STMicroelectronics:USB_HOST:1.0.0:STMicroelectronics:USB::USB Host:MTP HS::1.0:USB_HOST_1_0_RESTRICTED_HS
+2024-01-15 15:35:22,044 [WARN] ModelIntegratedComponent:188 - Modes not found for component STMicroelectronics:USB_HOST:1.0.0:STMicroelectronics:USB::USB Host:MTP HS::1.0:USB_HOST_1_0_RESTRICTED_HS
+2024-01-15 15:35:22,046 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-01-15 15:35:22,046 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-01-15 15:35:22,046 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-01-15 15:35:22,046 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-01-15 15:35:22,046 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-01-15 15:35:22,046 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-01-15 15:35:22,046 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-01-15 15:35:22,046 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-01-15 15:35:22,046 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-01-15 15:35:22,046 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-01-15 15:35:22,046 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-01-15 15:35:22,046 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-01-15 15:35:22,046 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-01-15 15:35:22,046 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-01-15 15:35:22,046 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-01-15 15:35:22,046 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-01-15 15:35:22,046 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-01-15 15:35:22,046 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-01-15 15:35:22,046 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-01-15 15:35:22,046 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-01-15 15:35:22,046 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-01-15 15:35:22,046 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-01-15 15:35:22,046 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-01-15 15:35:22,046 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-01-15 15:35:22,046 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-01-15 15:35:22,046 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-01-15 15:35:22,046 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-01-15 15:35:22,046 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-01-15 15:35:22,046 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-01-15 15:35:22,046 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-01-15 15:35:22,046 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-01-15 15:35:22,046 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-01-15 15:35:22,046 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-01-15 15:35:22,078 [WARN] ModelIntegratedComponent:182 - Modes not found for component STMicroelectronics:USB_DEVICE:1.0.0:STMicroelectronics:USB::USB Device:Audio HS::1.0:USB_DEVICE_1_0_RESTRICTED_HS
+2024-01-15 15:35:22,078 [WARN] ModelIntegratedComponent:188 - Modes not found for component STMicroelectronics:USB_DEVICE:1.0.0:STMicroelectronics:USB::USB Device:Audio HS::1.0:USB_DEVICE_1_0_RESTRICTED_HS
+2024-01-15 15:35:22,078 [WARN] ModelIntegratedComponent:182 - Modes not found for component STMicroelectronics:USB_DEVICE:1.0.0:STMicroelectronics:USB::USB Device:CDC HS::1.0:USB_DEVICE_1_0_RESTRICTED_HS
+2024-01-15 15:35:22,078 [WARN] ModelIntegratedComponent:188 - Modes not found for component STMicroelectronics:USB_DEVICE:1.0.0:STMicroelectronics:USB::USB Device:CDC HS::1.0:USB_DEVICE_1_0_RESTRICTED_HS
+2024-01-15 15:35:22,078 [WARN] ModelIntegratedComponent:182 - Modes not found for component STMicroelectronics:USB_DEVICE:1.0.0:STMicroelectronics:USB::USB Device:DFU HS::1.0:USB_DEVICE_1_0_RESTRICTED_HS
+2024-01-15 15:35:22,078 [WARN] ModelIntegratedComponent:188 - Modes not found for component STMicroelectronics:USB_DEVICE:1.0.0:STMicroelectronics:USB::USB Device:DFU HS::1.0:USB_DEVICE_1_0_RESTRICTED_HS
+2024-01-15 15:35:22,078 [WARN] ModelIntegratedComponent:182 - Modes not found for component STMicroelectronics:USB_DEVICE:1.0.0:STMicroelectronics:USB::USB Device:HID HS::1.0:USB_DEVICE_1_0_RESTRICTED_HS
+2024-01-15 15:35:22,078 [WARN] ModelIntegratedComponent:188 - Modes not found for component STMicroelectronics:USB_DEVICE:1.0.0:STMicroelectronics:USB::USB Device:HID HS::1.0:USB_DEVICE_1_0_RESTRICTED_HS
+2024-01-15 15:35:22,078 [WARN] ModelIntegratedComponent:182 - Modes not found for component STMicroelectronics:USB_DEVICE:1.0.0:STMicroelectronics:USB::USB Device:Custom HID HS::1.0:USB_DEVICE_1_0_RESTRICTED_HS
+2024-01-15 15:35:22,078 [WARN] ModelIntegratedComponent:188 - Modes not found for component STMicroelectronics:USB_DEVICE:1.0.0:STMicroelectronics:USB::USB Device:Custom HID HS::1.0:USB_DEVICE_1_0_RESTRICTED_HS
+2024-01-15 15:35:22,078 [WARN] ModelIntegratedComponent:182 - Modes not found for component STMicroelectronics:USB_DEVICE:1.0.0:STMicroelectronics:USB::USB Device:MSC HS::1.0:USB_DEVICE_1_0_RESTRICTED_HS
+2024-01-15 15:35:22,078 [WARN] ModelIntegratedComponent:188 - Modes not found for component STMicroelectronics:USB_DEVICE:1.0.0:STMicroelectronics:USB::USB Device:MSC HS::1.0:USB_DEVICE_1_0_RESTRICTED_HS
+2024-01-15 15:35:22,083 [INFO] ThirdPartyModel:298 - Start build external matchings
+2024-01-15 15:35:22,224 [INFO] ThirdPartyModel:316 - End build external matchings
+2024-01-15 15:35:22,228 [INFO] ImportTextPane:194 - (OptionalMessage_ERROR) IP (RCC) : Parameter (PLLSourceVirtual) has invalid value (RCC_PLLSOURCE_HSI)
+2024-01-15 15:35:22,228 [INFO] ImportTextPane:194 - (OptionalMessage_ERROR) IP (RCC) : Parameter (RTCHSEDivFreq_Value) has invalid value (4000000)
+2024-01-15 15:35:22,391 [INFO] UtilMem:75 - End LoadConfig() Used Memory: 725276840 Bytes (877658112)
+2024-01-15 15:35:22,415 [INFO] MicroXplorer:468 - Change Database Path : 
+2024-01-15 15:35:22,415 [INFO] MicroXplorer:498 - Change Database Version : DB.6.0.100
+2024-01-15 15:35:22,415 [WARN] ThirdParty:833 - waiting for thirdparty lock release [change project]
+2024-01-15 15:35:22,415 [INFO] ThirdParty:835 - entering critical section [change project]
+2024-01-15 15:35:22,415 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics USBPD 4.1
+2024-01-15 15:35:22,415 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-GNSS1 6.0.0
+2024-01-15 15:35:22,415 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics USB_HOST 2.0.0
+2024-01-15 15:35:22,415 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-F4 1.1.0
+2024-01-15 15:35:22,415 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics LIBJPEG 8.0.0
+2024-01-15 15:35:22,415 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-SMBUS 2.1.0
+2024-01-15 15:35:22,415 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics USB_DEVICE 3.0.0
+2024-01-15 15:35:22,415 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-WB 2.0.0
+2024-01-15 15:35:22,415 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :wolfSSL I-CUBE-wolfSSL 5.6.6
+2024-01-15 15:35:22,415 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-TOUCHGFX 4.23.0
+2024-01-15 15:35:22,415 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-F7 1.1.0
+2024-01-15 15:35:22,415 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-L5 2.0.0
+2024-01-15 15:35:22,415 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics USB_DEVICE 2.0.0
+2024-01-15 15:35:22,415 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-EEPRMA1 4.2.0
+2024-01-15 15:35:22,415 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :ITTIA_DB I-CUBE-ITTIADB 8.8.0
+2024-01-15 15:35:22,415 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics FP-SNS-MOTENV1 4.3.2
+2024-01-15 15:35:22,415 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-ALGOBUILD 1.3.0
+2024-01-15 15:35:22,415 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics FreeRTOS 0.0.1
+2024-01-15 15:35:22,415 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-G0 1.1.0
+2024-01-15 15:35:22,415 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-NFC4 3.0.0
+2024-01-15 15:35:22,416 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-SUBG2 5.0.0
+2024-01-15 15:35:22,416 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics STM32_WPAN 1.0.0
+2024-01-15 15:35:22,416 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics lwIP 2.0.3
+2024-01-15 15:35:22,416 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics FP-SNS-FLIGHT1 5.0.2
+2024-01-15 15:35:22,416 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics USB_HOST 1.0.0
+2024-01-15 15:35:22,416 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-G4 2.0.0
+2024-01-15 15:35:22,416 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics PDM2PCM 3.1.0
+2024-01-15 15:35:22,416 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :Infineon AIROC-Wi-Fi-Bluetooth-STM32 1.5.1
+2024-01-15 15:35:22,416 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLEMGR 3.0.0
+2024-01-15 15:35:22,416 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics PDM2PCM 3.3.0
+2024-01-15 15:35:22,416 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-DISPLAY 3.0.0
+2024-01-15 15:35:22,416 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics FP-SNS-MOTENVWB1 1.3.1
+2024-01-15 15:35:22,416 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLE1 7.0.0
+2024-01-15 15:35:22,416 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics FP-ATR-SIGFOX1 3.2.0
+2024-01-15 15:35:22,416 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-ISPU 2.0.0
+2024-01-15 15:35:22,416 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics HAL Drivers 0.0.0
+2024-01-15 15:35:22,416 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics MBEDTLS 2.16.2
+2024-01-15 15:35:22,416 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :emotas I-CUBE-CANOPEN 1.3.0
+2024-01-15 15:35:22,416 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-MEMS1 10.0.0
+2024-01-15 15:35:22,416 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-FREERTOS 1.1.0
+2024-01-15 15:35:22,416 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-NFC7 1.0.1
+2024-01-15 15:35:22,416 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics MBEDTLS 2.14.1
+2024-01-15 15:35:22,416 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-NFC6 3.0.0
+2024-01-15 15:35:22,416 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :portGmbH I-Cube-SoM-uGOAL 1.1.0
+2024-01-15 15:35:22,416 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-ALS 1.0.1
+2024-01-15 15:35:22,416 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics ThreadX 1.0.0
+2024-01-15 15:35:22,416 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics FP-SNS-SMARTAG2 1.2.0
+2024-01-15 15:35:22,416 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-WL 2.0.0
+2024-01-15 15:35:22,416 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :SEGGER I-CUBE-embOS 1.3.1
+2024-01-15 15:35:22,416 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics USB_DEVICE 1.0.0
+2024-01-15 15:35:22,416 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AI 8.1.0
+2024-01-15 15:35:22,416 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-L4 2.0.0
+2024-01-15 15:35:22,416 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics ThreadX 0.0.2
+2024-01-15 15:35:22,416 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :WES I-CUBE-Cesium 1.3.0
+2024-01-15 15:35:22,416 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics FP-ATR-ASTRA1 2.0.0
+2024-01-15 15:35:22,416 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics lwIP 2.1.2
+2024-01-15 15:35:22,416 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-SFXS2LP1 4.0.0
+2024-01-15 15:35:22,416 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLE2 3.3.0
+2024-01-15 15:35:22,416 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-TOF1 3.4.0
+2024-01-15 15:35:22,416 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-H7 3.2.0
+2024-01-15 15:35:22,416 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics PDM2PCM 3.2.0
+2024-01-15 15:35:22,416 [INFO] ThirdParty:841 - exiting critical section [change project]
+2024-01-15 15:35:22,491 [INFO] PinOutPanel:1499 - setPackage(No Configuration,No Configuration)
+2024-01-15 15:35:22,491 [INFO] PinOutPanel:1499 - setPackage(STM32F411VETx,LQFP100)
+2024-01-15 15:35:22,632 [INFO] UtilMem:75 - Before build in PCC Used Memory: 346251400 Bytes (877658112)
+2024-01-15 15:35:22,759 [INFO] UtilMem:75 - After build in PCC Used Memory: 389243016 Bytes (877658112)
+2024-01-15 15:35:22,766 [INFO] ApiDbMcu:508 - Load IP Config File for USB_HOST
+2024-01-15 15:35:22,766 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_AUDIO_FS = false
+2024-01-15 15:35:22,766 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_AUDIO_FS = false
+2024-01-15 15:35:22,766 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_AUDIO_HS = false
+2024-01-15 15:35:22,766 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_AUDIO_HS = false
+2024-01-15 15:35:22,766 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 15:35:22,766 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 15:35:22,766 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 15:35:22,766 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_CDC_HS = false
+2024-01-15 15:35:22,766 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_CDC_HS = false
+2024-01-15 15:35:22,766 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_HID_FS = false
+2024-01-15 15:35:22,766 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_HID_FS = false
+2024-01-15 15:35:22,766 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_HID_HS = false
+2024-01-15 15:35:22,766 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_HID_HS = false
+2024-01-15 15:35:22,766 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MSC_FS = false
+2024-01-15 15:35:22,766 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MSC_FS = false
+2024-01-15 15:35:22,766 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MSC_HS = false
+2024-01-15 15:35:22,766 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MSC_HS = false
+2024-01-15 15:35:22,766 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : ALL_SW_VBUS_DRIVE_FS = false
+2024-01-15 15:35:22,766 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : ALL_SW_VBUS_DRIVE_FS = false
+2024-01-15 15:35:22,766 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : ALL_SW_VBUS_DRIVE_HS = false
+2024-01-15 15:35:22,766 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : ALL_SW_VBUS_DRIVE_HS = false
+2024-01-15 15:35:22,766 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MTP_FS = false
+2024-01-15 15:35:22,766 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MTP_FS = false
+2024-01-15 15:35:22,766 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MTP_HS = false
+2024-01-15 15:35:22,766 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MTP_HS = false
+2024-01-15 15:35:22,766 [WARN] BspModel:444 - BSP dependency skipped because of component: name='IOExpander', api='Unknown'
+2024-01-15 15:35:22,780 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-01-15 15:35:22,780 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-01-15 15:35:22,780 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-01-15 15:35:22,781 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-01-15 15:35:22,781 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-01-15 15:35:22,781 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-01-15 15:35:22,781 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-01-15 15:35:22,781 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-01-15 15:35:22,781 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-01-15 15:35:22,781 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-01-15 15:35:22,781 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-01-15 15:35:22,781 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-01-15 15:35:22,781 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-01-15 15:35:22,781 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-01-15 15:35:22,781 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-01-15 15:35:22,781 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-01-15 15:35:22,781 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-01-15 15:35:22,781 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-01-15 15:35:22,781 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-01-15 15:35:22,781 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-01-15 15:35:22,781 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-01-15 15:35:22,781 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-01-15 15:35:22,781 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-01-15 15:35:22,781 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-01-15 15:35:22,781 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-01-15 15:35:22,782 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-01-15 15:35:22,782 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-01-15 15:35:22,782 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-01-15 15:35:22,782 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-01-15 15:35:22,782 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-01-15 15:35:22,782 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-01-15 15:35:22,782 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-01-15 15:35:22,782 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-01-15 15:35:22,782 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-01-15 15:35:22,782 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-01-15 15:35:22,782 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-01-15 15:35:22,783 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-01-15 15:35:22,783 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-01-15 15:35:22,783 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-01-15 15:35:22,783 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-01-15 15:35:22,783 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-01-15 15:35:22,783 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-01-15 15:35:22,783 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-01-15 15:35:22,795 [INFO] ApiDbMcu:508 - Load IP Config File for PDM2PCM
+2024-01-15 15:35:22,796 [WARN] IP:2119 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2024-01-15 15:35:22,796 [WARN] IP:2119 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2024-01-15 15:35:22,798 [INFO] I2sManager:658 - 1.6E8
+2024-01-15 15:35:22,798 [INFO] I2sManager:195 - I2S Clock Value : 1.6E8
+2024-01-15 15:35:22,798 [INFO] I2sManager:553 - AudioClock : 96153Divider : 26Odd : 0
+2024-01-15 15:35:22,799 [INFO] I2sManager:658 - 1.6E8
+2024-01-15 15:35:22,799 [INFO] I2sManager:195 - I2S Clock Value : 1.6E8
+2024-01-15 15:35:22,799 [INFO] I2sManager:553 - AudioClock : 89285Divider : 3Odd : 1
+2024-01-15 15:35:22,828 [INFO] CADModel:165 - CPN selected for project levelSTM32F411VET6
+2024-01-15 15:35:22,828 [INFO] CADModel:114 - Register for checkConnection events
+2024-01-15 15:35:22,880 [INFO] OpenFileManager:343 - Restore cursor
+2024-01-15 15:35:22,946 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_AUDIO_FS = false
+2024-01-15 15:35:22,946 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_AUDIO_FS = false
+2024-01-15 15:35:22,946 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_AUDIO_HS = false
+2024-01-15 15:35:22,946 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_AUDIO_HS = false
+2024-01-15 15:35:22,946 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 15:35:22,946 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 15:35:22,946 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 15:35:22,946 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_CDC_HS = false
+2024-01-15 15:35:22,946 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_CDC_HS = false
+2024-01-15 15:35:22,946 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_HID_FS = false
+2024-01-15 15:35:22,946 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_HID_FS = false
+2024-01-15 15:35:22,946 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_HID_HS = false
+2024-01-15 15:35:22,946 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_HID_HS = false
+2024-01-15 15:35:22,946 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MSC_FS = false
+2024-01-15 15:35:22,946 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MSC_FS = false
+2024-01-15 15:35:22,946 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MSC_HS = false
+2024-01-15 15:35:22,946 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MSC_HS = false
+2024-01-15 15:35:22,946 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : ALL_SW_VBUS_DRIVE_FS = false
+2024-01-15 15:35:22,946 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : ALL_SW_VBUS_DRIVE_FS = false
+2024-01-15 15:35:22,946 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : ALL_SW_VBUS_DRIVE_HS = false
+2024-01-15 15:35:22,946 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : ALL_SW_VBUS_DRIVE_HS = false
+2024-01-15 15:35:22,946 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MTP_FS = false
+2024-01-15 15:35:22,946 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MTP_FS = false
+2024-01-15 15:35:22,946 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MTP_HS = false
+2024-01-15 15:35:22,946 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MTP_HS = false
+2024-01-15 15:35:22,958 [WARN] IP:2119 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2024-01-15 15:35:22,958 [WARN] IP:2119 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2024-01-15 15:35:22,959 [WARN] IP:2119 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2024-01-15 15:35:22,959 [WARN] IP:2119 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2024-01-15 15:35:34,205 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] Exception in thread "AWT-EventQueue-0" java.lang.ClassCastException: class sun.awt.windows.WEmbeddedFrame cannot be cast to class javax.swing.JFrame (sun.awt.windows.WEmbeddedFrame and javax.swing.JFrame are in module java.desktop of loader 'bootstrap')
+2024-01-15 15:35:34,206 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.clock.ClockConfigurationView.activatePlugin(ClockConfigurationView.java:425)
+2024-01-15 15:35:34,206 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at com.st.microxplorer.maingui.MainPanel$1.stateChanged(MainPanel.java:369)
+2024-01-15 15:35:34,206 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/javax.swing.JTabbedPane.fireStateChanged(JTabbedPane.java:444)
+2024-01-15 15:35:34,208 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/javax.swing.JTabbedPane$ModelListener.stateChanged(JTabbedPane.java:295)
+2024-01-15 15:35:34,209 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/javax.swing.DefaultSingleSelectionModel.fireStateChanged(DefaultSingleSelectionModel.java:148)
+2024-01-15 15:35:34,209 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/javax.swing.DefaultSingleSelectionModel.setSelectedIndex(DefaultSingleSelectionModel.java:79)
+2024-01-15 15:35:34,210 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/javax.swing.JTabbedPane.setSelectedIndexImpl(JTabbedPane.java:648)
+2024-01-15 15:35:34,210 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/javax.swing.JTabbedPane.setSelectedIndex(JTabbedPane.java:623)
+2024-01-15 15:35:34,211 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/javax.swing.plaf.basic.BasicTabbedPaneUI$Handler.mousePressed(BasicTabbedPaneUI.java:4101)
+2024-01-15 15:35:34,211 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/java.awt.Component.processMouseEvent(Component.java:6623)
+2024-01-15 15:35:34,211 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/javax.swing.JComponent.processMouseEvent(JComponent.java:3389)
+2024-01-15 15:35:34,212 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/java.awt.Component.processEvent(Component.java:6391)
+2024-01-15 15:35:34,212 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/java.awt.Container.processEvent(Container.java:2266)
+2024-01-15 15:35:34,213 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/java.awt.Component.dispatchEventImpl(Component.java:5001)
+2024-01-15 15:35:34,213 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2324)
+2024-01-15 15:35:34,213 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4833)
+2024-01-15 15:35:34,213 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4948)
+2024-01-15 15:35:34,214 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/java.awt.LightweightDispatcher.processMouseEvent(Container.java:4572)
+2024-01-15 15:35:34,214 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/java.awt.LightweightDispatcher.dispatchEvent(Container.java:4516)
+2024-01-15 15:35:34,215 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2310)
+2024-01-15 15:35:34,215 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4833)
+2024-01-15 15:35:34,216 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:775)
+2024-01-15 15:35:34,216 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:720)
+2024-01-15 15:35:34,216 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:714)
+2024-01-15 15:35:34,216 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.base/java.security.AccessController.doPrivileged(AccessController.java:399)
+2024-01-15 15:35:34,218 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:86)
+2024-01-15 15:35:34,218 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:97)
+2024-01-15 15:35:34,219 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:747)
+2024-01-15 15:35:34,219 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:745)
+2024-01-15 15:35:34,219 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.base/java.security.AccessController.doPrivileged(AccessController.java:399)
+2024-01-15 15:35:34,220 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:86)
+2024-01-15 15:35:34,220 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:744)
+2024-01-15 15:35:34,221 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
+2024-01-15 15:35:34,221 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
+2024-01-15 15:35:34,222 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
+2024-01-15 15:35:34,222 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
+2024-01-15 15:35:34,223 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+2024-01-15 15:35:34,223 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
+2024-01-15 15:35:43,012 [INFO] I2sManager:658 - 1.6E8
+2024-01-15 15:35:43,012 [INFO] I2sManager:195 - I2S Clock Value : 1.6E8
+2024-01-15 15:35:43,012 [INFO] I2sManager:553 - AudioClock : 96153Divider : 26Odd : 0
+2024-01-15 15:35:43,012 [INFO] I2sManager:658 - 1.6E8
+2024-01-15 15:35:43,012 [INFO] I2sManager:195 - I2S Clock Value : 1.6E8
+2024-01-15 15:35:43,013 [INFO] I2sManager:553 - AudioClock : 89285Divider : 3Odd : 1
+2024-01-15 15:35:43,052 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_AUDIO_FS = false
+2024-01-15 15:35:43,052 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_AUDIO_FS = false
+2024-01-15 15:35:43,052 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_AUDIO_HS = false
+2024-01-15 15:35:43,052 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_AUDIO_HS = false
+2024-01-15 15:35:43,052 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 15:35:43,052 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 15:35:43,052 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_CDC_FS = false
+2024-01-15 15:35:43,052 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_CDC_HS = false
+2024-01-15 15:35:43,052 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_CDC_HS = false
+2024-01-15 15:35:43,052 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_HID_FS = false
+2024-01-15 15:35:43,052 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_HID_FS = false
+2024-01-15 15:35:43,052 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_HID_HS = false
+2024-01-15 15:35:43,052 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_HID_HS = false
+2024-01-15 15:35:43,052 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MSC_FS = false
+2024-01-15 15:35:43,052 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MSC_FS = false
+2024-01-15 15:35:43,052 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MSC_HS = false
+2024-01-15 15:35:43,052 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MSC_HS = false
+2024-01-15 15:35:43,052 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : ALL_SW_VBUS_DRIVE_FS = false
+2024-01-15 15:35:43,052 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : ALL_SW_VBUS_DRIVE_FS = false
+2024-01-15 15:35:43,052 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : ALL_SW_VBUS_DRIVE_HS = false
+2024-01-15 15:35:43,052 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : ALL_SW_VBUS_DRIVE_HS = false
+2024-01-15 15:35:43,052 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MTP_FS = false
+2024-01-15 15:35:43,052 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_FS check condition success for : SW_VBUS_DRIVE_MTP_FS = false
+2024-01-15 15:35:43,052 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MTP_HS = false
+2024-01-15 15:35:43,052 [INFO] Middleware:617 - instanceName : USB_HOST bspName : Drive_VBUS_HS check condition success for : SW_VBUS_DRIVE_MTP_HS = false
+2024-01-15 15:35:43,062 [WARN] IP:2119 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2024-01-15 15:35:43,062 [WARN] IP:2119 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2024-01-15 15:35:43,062 [WARN] IP:2119 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2024-01-15 15:35:43,062 [WARN] IP:2119 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2024-01-15 16:55:43,351 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 
