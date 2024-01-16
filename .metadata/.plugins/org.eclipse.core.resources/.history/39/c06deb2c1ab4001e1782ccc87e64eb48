@@ -70,7 +70,6 @@ int main(void)
 	while(!(RCC->CFGR & RCC_CFGR_SWS_PLL)){}
 
 
-	//while(!(RCC->CFGR & RCC_CFGR_SWS)){}
 
 	SystemCoreClockUpdate();
     /* Loop forever */

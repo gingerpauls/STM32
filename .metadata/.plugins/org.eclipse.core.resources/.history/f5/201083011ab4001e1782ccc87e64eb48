@@ -66,11 +66,11 @@ int main(void)
 		GPIOD->ODR |= GPIO_ODR_OD15;
 	}
 
+
 	RCC->CFGR |= RCC_CFGR_PPRE1_2 | RCC_CFGR_SW_PLL;
 	while(!(RCC->CFGR & RCC_CFGR_SWS_PLL)){}
 
 
-	//while(!(RCC->CFGR & RCC_CFGR_SWS)){}
 
 	SystemCoreClockUpdate();
     /* Loop forever */

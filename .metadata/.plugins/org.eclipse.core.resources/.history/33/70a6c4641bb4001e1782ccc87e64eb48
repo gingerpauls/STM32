@@ -77,10 +77,12 @@ int main(void)
 	while(1){
 		GPIOD->ODR ^= 	GPIO_ODR_OD12;
 		delay(1000);
+		SystemCoreClockUpdate();
 	}
 }
 
 
 void delay(uint32_t timeMS){
 	for(uint32_t i = 0; i < timeMS * 1000; i++){}
+	RCC->CFGR &= ~RCC_CFGR_SW;
 }

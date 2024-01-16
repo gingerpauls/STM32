@@ -43,6 +43,10 @@ int main(void)
 //	  PLL.PLLP = RCC_PLLP_DIV4;
 //	  PLL.PLLQ = 8;
 
+	if(RCC->CR & ~RCC_CR_PLLRDY){
+		GPIOD->ODR |= 	GPIO_ODR_OD14;
+	}
+
 	RCC->PLLCFGR |= RCC_PLLCFGR_PLLQ_3;
 	RCC->PLLCFGR &= ~RCC_PLLCFGR_PLLQ_2;
 
@@ -56,11 +60,12 @@ int main(void)
 
 	PWR->CR |= PWR_CR_VOS;
 
-	FLASH->ACR |= FLASH_ACR_ICEN | FLASH_ACR_DCEN | FLASH_ACR_PRFTEN | FLASH_ACR_LATENCY_3WS;
+	FLASH->ACR |= FLASH_ACR_ICEN | FLASH_ACR_DCEN | FLASH_ACR_PRFTEN | FLASH_ACR_LATENCY_7WS;
 
 
 	RCC->CR |= RCC_CR_PLLON ; // add RCC_CR_PLLI2SON | RCC_CR_HSICAL_4 later?
 	while(!(RCC->CR & RCC_CR_PLLRDY)){}
+
 
 	if(RCC->CR & RCC_CR_PLLRDY){
 		GPIOD->ODR |= GPIO_ODR_OD15;
@@ -70,7 +75,8 @@ int main(void)
 	while(!(RCC->CFGR & RCC_CFGR_SWS_PLL)){}
 
 
-	//while(!(RCC->CFGR & RCC_CFGR_SWS)){}
+
+
 
 	SystemCoreClockUpdate();
     /* Loop forever */

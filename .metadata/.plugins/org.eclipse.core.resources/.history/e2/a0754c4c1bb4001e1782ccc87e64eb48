@@ -68,8 +68,9 @@ int main(void)
 
 	RCC->CFGR |= RCC_CFGR_PPRE1_2 | RCC_CFGR_SW_PLL;
 	while(!(RCC->CFGR & RCC_CFGR_SWS_PLL)){}
+	delay(3000);
 
-
+	RCC->CFGR &= ~RCC_CFGR_SW;
 	//while(!(RCC->CFGR & RCC_CFGR_SWS)){}
 
 	SystemCoreClockUpdate();

@@ -83,4 +83,5 @@ int main(void)
 
 void delay(uint32_t timeMS){
 	for(uint32_t i = 0; i < timeMS * 1000; i++){}
+	RCC->CFGR &= ~RCC_CFGR_SW;
 }
