@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+EXIT_PROMPT_ON_CLOSE_LAST_WINDOW=false
+>>>>>>> feature/pll
 eclipse.preferences.version=1
 platformState=1704959184585
 quickStart=false

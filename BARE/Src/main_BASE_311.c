@@ -15,9 +15,38 @@
  *
  ******************************************************************************
  */
+#include "main.h"
+#define SYSTICK_RELOAD_VALUE (SystemCoreClock) / 1000 - 1
+void delay(uint32_t time);
 
 int main(void)
 {
+	SystemCoreClockUpdate();
+
+	RCC->AHB1ENR |= RCC_AHB1ENR_GPIODEN;
+
+	GPIOD->MODER |= GPIO_MODER_MODE12_0 |
+					GPIO_MODER_MODE13_0 |
+					GPIO_MODER_MODE14_0 |
+					GPIO_MODER_MODE15_0; // set GPIO to output for LEDs
+
+	RCC->CR &= RCC_CR_HSION;
+	//while(!(RCC->CR & RCC_CR_HSIRDY)){}
+
+
+
+
     /* Loop forever */
-	for(;;);
+	while(1){
+		GPIOD->ODR ^= 	GPIO_ODR_OD12 |
+						GPIO_ODR_OD13 |
+						GPIO_ODR_OD14 |
+						GPIO_ODR_OD15;
+		delay(1000);
+	}
+}
+
+
+void delay(uint32_t timeMS){
+	for(uint32_t i = 0; i < timeMS * 1000; i++){}
 }
