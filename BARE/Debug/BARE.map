@@ -882,10 +882,10 @@ LOAD C:/ST/STM32CubeIDE_1.14.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
  .debug_macro   0x000000000000dbeb       0x6d ./Src/main.o
  .debug_macro   0x000000000000dc58       0xda ./Src/system_stm32f4xx.o
 
-.debug_line     0x0000000000000000      0xbf2
- .debug_line    0x0000000000000000      0x5d2 ./Src/main.o
- .debug_line    0x00000000000005d2      0x5a5 ./Src/system_stm32f4xx.o
- .debug_line    0x0000000000000b77       0x7b ./Startup/startup_stm32f411vetx.o
+.debug_line     0x0000000000000000      0xbf0
+ .debug_line    0x0000000000000000      0x5d0 ./Src/main.o
+ .debug_line    0x00000000000005d0      0x5a5 ./Src/system_stm32f4xx.o
+ .debug_line    0x0000000000000b75       0x7b ./Startup/startup_stm32f411vetx.o
 
 .debug_str      0x0000000000000000    0x4fea2
  .debug_str     0x0000000000000000    0x4fd6b ./Src/main.o

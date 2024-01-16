@@ -39,9 +39,9 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  17 .debug_macro  0000dd32  00000000  00000000  00020ccd  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_line   00000bf2  00000000  00000000  0002e9ff  2**0
+ 18 .debug_line   00000bf0  00000000  00000000  0002e9ff  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .debug_str    0004fea2  00000000  00000000  0002f5f1  2**0
+ 19 .debug_str    0004fea2  00000000  00000000  0002f5ef  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  20 .debug_frame  000000d8  00000000  00000000  0007f494  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
@@ -103,10 +103,10 @@ int main(void)
  80001f0:	4a33      	ldr	r2, [pc, #204]	; (80002c0 <main+0xe8>)
  80001f2:	f043 43aa 	orr.w	r3, r3, #1426063360	; 0x55000000
  80001f6:	6013      	str	r3, [r2, #0]
-//	  PLL.PLLM = 8;
-//	  PLL.PLLN = 192;
-//	  PLL.PLLP = RCC_PLLP_DIV4;
-//	  PLL.PLLQ = 8;
+					GPIO_MODER_MODE13_0 |
+					GPIO_MODER_MODE14_0 |
+					GPIO_MODER_MODE15_0; // set GPIO to output for LEDs
+
 
 	RCC->PLLCFGR |= RCC_PLLCFGR_PLLQ_3;
  80001f8:	4b30      	ldr	r3, [pc, #192]	; (80002bc <main+0xe4>)
@@ -161,7 +161,7 @@ int main(void)
  800024e:	6013      	str	r3, [r2, #0]
 
 
-	RCC->CR |= RCC_CR_PLLON ; // add RCC_CR_PLLI2SON | RCC_CR_HSICAL_4 later?
+	RCC->CR |= RCC_CR_PLLON; // add RCC_CR_PLLI2SON | RCC_CR_HSICAL_4 later?
  8000250:	4b1a      	ldr	r3, [pc, #104]	; (80002bc <main+0xe4>)
  8000252:	681b      	ldr	r3, [r3, #0]
  8000254:	4a19      	ldr	r2, [pc, #100]	; (80002bc <main+0xe4>)
@@ -174,6 +174,7 @@ int main(void)
  8000262:	f003 7300 	and.w	r3, r3, #33554432	; 0x2000000
  8000266:	2b00      	cmp	r3, #0
  8000268:	d0f9      	beq.n	800025e <main+0x86>
+
 
 	if(RCC->CR & RCC_CR_PLLRDY){
  800026a:	4b14      	ldr	r3, [pc, #80]	; (80002bc <main+0xe4>)
@@ -203,9 +204,6 @@ int main(void)
  8000298:	f003 0308 	and.w	r3, r3, #8
  800029c:	2b00      	cmp	r3, #0
  800029e:	d0f9      	beq.n	8000294 <main+0xbc>
-
-
-	//while(!(RCC->CFGR & RCC_CFGR_SWS)){}
 
 	SystemCoreClockUpdate();
  80002a0:	f000 f842 	bl	8000328 <SystemCoreClockUpdate>
@@ -239,7 +237,7 @@ void delay(uint32_t timeMS){
  80002d2:	b085      	sub	sp, #20
  80002d4:	af00      	add	r7, sp, #0
  80002d6:	6078      	str	r0, [r7, #4]
-	for(uint32_t i = 0; i < timeMS * 1000; i++){}
+	for(uint32_t i = 0; i < timeMS * 6000; i++){}
  80002d8:	2300      	movs	r3, #0
  80002da:	60fb      	str	r3, [r7, #12]
  80002dc:	e002      	b.n	80002e4 <delay+0x14>
@@ -247,7 +245,7 @@ void delay(uint32_t timeMS){
  80002e0:	3301      	adds	r3, #1
  80002e2:	60fb      	str	r3, [r7, #12]
  80002e4:	687b      	ldr	r3, [r7, #4]
- 80002e6:	f44f 727a 	mov.w	r2, #1000	; 0x3e8
+ 80002e6:	f241 7270 	movw	r2, #6000	; 0x1770
  80002ea:	fb02 f303 	mul.w	r3, r2, r3
  80002ee:	68fa      	ldr	r2, [r7, #12]
  80002f0:	429a      	cmp	r2, r3

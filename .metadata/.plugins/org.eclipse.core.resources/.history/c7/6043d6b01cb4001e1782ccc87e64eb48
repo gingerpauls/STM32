@@ -31,6 +31,18 @@ int main(void)
 					GPIO_MODER_MODE15_0; // set GPIO to output for LEDs
 
 
+	//while(!(RCC->CR & RCC_CR_HSIRDY)){}
+
+//	  OscillatorType = RCC_OSCILLATORTYPE_HSI;
+//	  HSIState = RCC_HSI_ON;
+//	  HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
+//	  PLL.PLLState = RCC_PLL_ON;
+//	  PLL.PLLSource = RCC_PLLSOURCE_HSI;
+//	  PLL.PLLM = 8;
+//	  PLL.PLLN = 192;
+//	  PLL.PLLP = RCC_PLLP_DIV4;
+//	  PLL.PLLQ = 8;
+
 	RCC->PLLCFGR |= RCC_PLLCFGR_PLLQ_3;
 	RCC->PLLCFGR &= ~RCC_PLLCFGR_PLLQ_2;
 
@@ -58,6 +70,10 @@ int main(void)
 	RCC->CFGR |= RCC_CFGR_PPRE1_2 | RCC_CFGR_SW_PLL;
 	while(!(RCC->CFGR & RCC_CFGR_SWS_PLL)){}
 
+	RCC->CFGR &= ~RCC_CFGR_SW_PLL;
+	while(!(RCC->CFGR & RCC_CFGR_SWS)){}
+
+
 	SystemCoreClockUpdate();
     /* Loop forever */
 	while(1){
@@ -68,5 +84,5 @@ int main(void)
 
 
 void delay(uint32_t timeMS){
-	for(uint32_t i = 0; i < timeMS * 6000; i++){}
+	for(uint32_t i = 0; i < timeMS * 1000; i++){}
 }
