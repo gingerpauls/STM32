@@ -30,23 +30,27 @@ int main(void)
 					GPIO_MODER_MODE14_0 |
 					GPIO_MODER_MODE15_0; // set GPIO to output for LEDs
 
-	RCC->CR &= RCC_CR_HSION;
+	//RCC->CR &= RCC_CR_HSION; // HSI on by default
 	//while(!(RCC->CR & RCC_CR_HSIRDY)){}
 
-
-
+	SysTick->LOAD |= 10000000; // this is about 1 second
+	//NVIC_SetPriority (SysTick_IRQn, (1UL << __NVIC_PRIO_BITS) - 1UL);
+	SysTick->VAL &= ~SysTick_VAL_CURRENT_Msk;
+	SysTick->CTRL |= 	SysTick_CTRL_CLKSOURCE_Msk 	|
+						SysTick_CTRL_TICKINT_Msk 	|
+						SysTick_CTRL_ENABLE_Msk;
 
     /* Loop forever */
 	while(1){
-		GPIOD->ODR ^= 	GPIO_ODR_OD12 |
-						GPIO_ODR_OD13 |
-						GPIO_ODR_OD14 |
-						GPIO_ODR_OD15;
-		delay(1000);
+		GPIOD->ODR |= GPIO_ODR_OD12; // 12 -> Green
 	}
 }
 
 
 void delay(uint32_t timeMS){
 	for(uint32_t i = 0; i < timeMS * 1000; i++){}
+}
+
+void SysTick_Handler(void){
+	GPIOD->ODR ^= GPIO_ODR_OD15; //15 -> Blue
 }
