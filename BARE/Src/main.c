@@ -90,6 +90,7 @@ int main(void)
 					GPIOD->ODR |= GPIO_ODR_OD12;
 				}
 				GPIOD->ODR &= ~GPIO_ODR_OD12;
+				CLEAR_BIT(GPIOD->ODR, GPIO_ODR_OD12);
 		    break;
 		  case 1:
 				if(GPIOA->IDR & GPIO_IDR_IDR_0){

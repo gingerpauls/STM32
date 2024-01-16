@@ -1,8 +1,0 @@
-<<<<<<< HEAD
-../Src/main.c:26:5:main	7
-../Src/main.c:101:6:delay	2
-=======
-../Src/main.c:22:5:main	1
-../Src/main.c:50:6:delay	2
-../Src/main.c:54:6:SysTick_Handler	1
->>>>>>> feature/systick
