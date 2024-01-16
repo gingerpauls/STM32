@@ -31,6 +31,14 @@ int main(void)
 
 	FLASH->ACR |= FLASH_ACR_ICEN | FLASH_ACR_DCEN | FLASH_ACR_PRFTEN | FLASH_ACR_LATENCY_3WS;
 
+
+	SysTick->LOAD |= 10000000; // this is about 1 second
+	//NVIC_SetPriority (SysTick_IRQn, (1UL << __NVIC_PRIO_BITS) - 1UL);
+	SysTick->VAL &= ~SysTick_VAL_CURRENT_Msk;
+	SysTick->CTRL |= 	SysTick_CTRL_CLKSOURCE_Msk 	|
+						SysTick_CTRL_TICKINT_Msk 	|
+						SysTick_CTRL_ENABLE_Msk;
+
 	RCC->AHB1ENR |= RCC_AHB1ENR_GPIOAEN | RCC_AHB1ENR_GPIODEN;
 
 	GPIOD->MODER |= GPIO_MODER_MODE12_0 |
@@ -93,6 +101,12 @@ int main(void)
 			  GPIOD->ODR ^= GPIO_ODR_OD12;
 			  delay(200);
 		}
+
+
+
+    /* Loop forever */
+	while(1){
+		GPIOD->ODR |= GPIO_ODR_OD12; // 12 -> Green
 	}
 
 }
@@ -102,3 +116,6 @@ void delay(uint32_t timeMS){
 	for(uint32_t i = 0; i < timeMS * 7059; i++){} //7059 is from experimentation
 }
 
+void SysTick_Handler(void){
+	GPIOD->ODR ^= GPIO_ODR_OD15; //15 -> Blue
+}
