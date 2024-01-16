@@ -30,18 +30,58 @@ int main(void)
 					GPIO_MODER_MODE14_0 |
 					GPIO_MODER_MODE15_0; // set GPIO to output for LEDs
 
-	RCC->CR &= RCC_CR_HSION;
+
 	//while(!(RCC->CR & RCC_CR_HSIRDY)){}
 
+//	  OscillatorType = RCC_OSCILLATORTYPE_HSI;
+//	  HSIState = RCC_HSI_ON;
+//	  HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
+//	  PLL.PLLState = RCC_PLL_ON;
+//	  PLL.PLLSource = RCC_PLLSOURCE_HSI;
+//	  PLL.PLLM = 8;
+//	  PLL.PLLN = 192;
+//	  PLL.PLLP = RCC_PLLP_DIV4;
+//	  PLL.PLLQ = 8;
+
+	if(RCC->CR & ~RCC_CR_PLLRDY){
+		GPIOD->ODR |= 	GPIO_ODR_OD14;
+	}
+
+	RCC->PLLCFGR |= RCC_PLLCFGR_PLLQ_3;
+	RCC->PLLCFGR &= ~RCC_PLLCFGR_PLLQ_2;
+
+	RCC->PLLCFGR |= RCC_PLLCFGR_PLLM_3;
+	RCC->PLLCFGR &= ~RCC_PLLCFGR_PLLM_4;
+
+	RCC->PLLCFGR |=  (	RCC_PLLCFGR_PLLQ_3 				|
+						RCC_PLLCFGR_PLLP_0 				|
+						//(0xC0<<RCC_PLLCFGR_PLLN_Pos) 	|
+						RCC_PLLCFGR_PLLM_3				);
+
+	PWR->CR |= PWR_CR_VOS;
+
+	FLASH->ACR |= FLASH_ACR_ICEN | FLASH_ACR_DCEN | FLASH_ACR_PRFTEN | FLASH_ACR_LATENCY_7WS;
+
+
+	RCC->CR |= RCC_CR_PLLON ; // add RCC_CR_PLLI2SON | RCC_CR_HSICAL_4 later?
+	while(!(RCC->CR & RCC_CR_PLLRDY)){}
+
+
+	if(RCC->CR & RCC_CR_PLLRDY){
+		GPIOD->ODR |= GPIO_ODR_OD15;
+	}
+
+	RCC->CFGR |= RCC_CFGR_PPRE1_2 | RCC_CFGR_SW_PLL;
+	while(!(RCC->CFGR & RCC_CFGR_SWS_PLL)){}
 
 
 
+
+
+	SystemCoreClockUpdate();
     /* Loop forever */
 	while(1){
-		GPIOD->ODR ^= 	GPIO_ODR_OD12 |
-						GPIO_ODR_OD13 |
-						GPIO_ODR_OD14 |
-						GPIO_ODR_OD15;
+		GPIOD->ODR ^= 	GPIO_ODR_OD12;
 		delay(1000);
 	}
 }
