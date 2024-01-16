@@ -30,44 +30,43 @@ int main(void)
 					GPIO_MODER_MODE14_0 |
 					GPIO_MODER_MODE15_0; // set GPIO to output for LEDs
 
-<<<<<<< HEAD
+
 	RCC->CR |= RCC_CR_HSEON;
 	while(!(RCC->CR & RCC_CR_HSERDY)){}
 
 	RCC->CFGR |= RCC_CFGR_SW_HSE;
-=======
+
 
 	RCC->PLLCFGR |= RCC_PLLCFGR_PLLQ_3;
 	RCC->PLLCFGR &= ~RCC_PLLCFGR_PLLQ_2;
 
-	RCC->PLLCFGR |= RCC_PLLCFGR_PLLM_3;
+	RCC->PLLCFGR |= RCC_PLLCFGR_PLLM_2;
 	RCC->PLLCFGR &= ~RCC_PLLCFGR_PLLM_4;
 
-	RCC->PLLCFGR |=  (	RCC_PLLCFGR_PLLQ_3 				|
-						RCC_PLLCFGR_PLLP_0 				|
-						//(0xC0<<RCC_PLLCFGR_PLLN_Pos) 	|
-						RCC_PLLCFGR_PLLM_3				);
+	RCC->PLLCFGR |= RCC_PLLCFGR_PLLP_0;
+	RCC->PLLCFGR |= RCC_PLLCFGR_PLLSRC_HSE;
+
 
 	PWR->CR |= PWR_CR_VOS;
 
 	FLASH->ACR |= FLASH_ACR_ICEN | FLASH_ACR_DCEN | FLASH_ACR_PRFTEN | FLASH_ACR_LATENCY_3WS;
 
->>>>>>> feature/pll
+
 
 	RCC->CR |= RCC_CR_PLLON; // add RCC_CR_PLLI2SON | RCC_CR_HSICAL_4 later?
 	while(!(RCC->CR & RCC_CR_PLLRDY)){}
 
 
-<<<<<<< HEAD
-=======
+
 	if(RCC->CR & RCC_CR_PLLRDY){
 		GPIOD->ODR |= GPIO_ODR_OD15;
 	}
 
+	RCC->CFGR &= ~RCC_CFGR_SW_HSE;
 	RCC->CFGR |= RCC_CFGR_PPRE1_2 | RCC_CFGR_SW_PLL;
 	while(!(RCC->CFGR & RCC_CFGR_SWS_PLL)){}
 
->>>>>>> feature/pll
+
 	SystemCoreClockUpdate();
     /* Loop forever */
 	while(1){

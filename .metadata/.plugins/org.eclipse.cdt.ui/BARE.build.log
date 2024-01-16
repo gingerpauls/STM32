@@ -1,22 +1,10 @@
-<<<<<<< HEAD
-19:53:52 **** Incremental Build of configuration Debug for project BARE ****
-=======
-19:42:48 **** Incremental Build of configuration Debug for project BARE ****
->>>>>>> feature/pll
+20:24:01 **** Incremental Build of configuration Debug for project BARE ****
 make -j20 all 
 arm-none-eabi-size  BARE.elf 
    text	   data	    bss	    dec	    hex	filename
-<<<<<<< HEAD
-   1116	     12	   1564	   2692	    a84	BARE.elf
-=======
-   1260	     12	   1564	   2836	    b14	BARE.elf
->>>>>>> feature/pll
+   1316	     12	   1564	   2892	    b4c	BARE.elf
 Finished building: default.size.stdout
  
 
-<<<<<<< HEAD
-19:53:52 Build Finished. 0 errors, 0 warnings. (took 403ms)
-=======
-19:42:48 Build Finished. 0 errors, 0 warnings. (took 104ms)
->>>>>>> feature/pll
+20:24:01 Build Finished. 0 errors, 0 warnings. (took 101ms)
 
