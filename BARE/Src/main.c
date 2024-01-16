@@ -16,7 +16,11 @@
  ******************************************************************************
  */
 #include "main.h"
+
 #define SYSTICK_RELOAD_VALUE (SystemCoreClock) / 1000 - 1
+#define BUTTON_MODE 0 										//0-HOLD 1-TOGGLE
+
+
 void delay(uint32_t time);
 
 int main(void)
@@ -27,7 +31,7 @@ int main(void)
 
 	FLASH->ACR |= FLASH_ACR_ICEN | FLASH_ACR_DCEN | FLASH_ACR_PRFTEN | FLASH_ACR_LATENCY_3WS;
 
-	RCC->AHB1ENR |= RCC_AHB1ENR_GPIODEN;
+	RCC->AHB1ENR |= RCC_AHB1ENR_GPIOAEN | RCC_AHB1ENR_GPIODEN;
 
 	GPIOD->MODER |= GPIO_MODER_MODE12_0 |
 					GPIO_MODER_MODE13_0 |
@@ -70,14 +74,31 @@ int main(void)
 	}
 
 	SystemCoreClockUpdate();
-    /* Loop forever */
+
 	while(1){
-		GPIOD->ODR ^= 	GPIO_ODR_OD12;
-		delay(1000);
+		switch (BUTTON_MODE) {
+		  case 0: //
+				while(GPIOA->IDR & GPIO_IDR_IDR_0){
+					GPIOD->ODR |= GPIO_ODR_OD12;
+				}
+				GPIOD->ODR &= ~GPIO_ODR_OD12;
+		    break;
+		  case 1:
+				if(GPIOA->IDR & GPIO_IDR_IDR_0){
+					GPIOD->ODR ^= GPIO_ODR_OD12;
+					delay(200); //de-bounce
+				}
+		    break;
+		  default:
+			  GPIOD->ODR ^= GPIO_ODR_OD12;
+			  delay(200);
+		}
 	}
+
 }
 
 
 void delay(uint32_t timeMS){
-	for(uint32_t i = 0; i < timeMS * 6000; i++){}
+	for(uint32_t i = 0; i < timeMS * 7059; i++){} //7059 is from experimentation
 }
+

@@ -37,15 +37,15 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  16 .debug_rnglists 0000004d  00000000  00000000  00020c80  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_macro  0000dd32  00000000  00000000  00020ccd  2**0
+ 17 .debug_macro  0000dd38  00000000  00000000  00020ccd  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_line   00000c21  00000000  00000000  0002e9ff  2**0
+ 18 .debug_line   00000c19  00000000  00000000  0002ea05  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .debug_str    0004fea1  00000000  00000000  0002f620  2**0
+ 19 .debug_str    0004feb0  00000000  00000000  0002f61e  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 20 .debug_frame  000000d8  00000000  00000000  0007f4c4  2**2
+ 20 .debug_frame  000000d8  00000000  00000000  0007f4d0  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 21 .debug_line_str 0000004c  00000000  00000000  0007f59c  2**0
+ 21 .debug_line_str 0000004c  00000000  00000000  0007f5a8  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -79,8 +79,8 @@ Disassembly of section .text:
  80001d4:	08000520 	.word	0x08000520
 
 080001d8 <main>:
-#include "main.h"
-#define SYSTICK_RELOAD_VALUE (SystemCoreClock) / 1000 - 1
+
+
 void delay(uint32_t time);
 
 int main(void)
@@ -105,11 +105,11 @@ int main(void)
  80001f6:	f043 0303 	orr.w	r3, r3, #3
  80001fa:	6013      	str	r3, [r2, #0]
 
-	RCC->AHB1ENR |= RCC_AHB1ENR_GPIODEN;
+	RCC->AHB1ENR |= RCC_AHB1ENR_GPIOAEN | RCC_AHB1ENR_GPIODEN;
  80001fc:	4b49      	ldr	r3, [pc, #292]	; (8000324 <main+0x14c>)
  80001fe:	6b1b      	ldr	r3, [r3, #48]	; 0x30
  8000200:	4a48      	ldr	r2, [pc, #288]	; (8000324 <main+0x14c>)
- 8000202:	f043 0308 	orr.w	r3, r3, #8
+ 8000202:	f043 0309 	orr.w	r3, r3, #9
  8000206:	6313      	str	r3, [r2, #48]	; 0x30
 
 	GPIOD->MODER |= GPIO_MODER_MODE12_0 |
@@ -258,19 +258,23 @@ int main(void)
 
 	SystemCoreClockUpdate();
  8000302:	f000 f83f 	bl	8000384 <SystemCoreClockUpdate>
-    /* Loop forever */
-	while(1){
-		GPIOD->ODR ^= 	GPIO_ODR_OD12;
+					GPIOD->ODR ^= GPIO_ODR_OD12;
+					delay(200); //de-bounce
+				}
+		    break;
+		  default:
+			  GPIOD->ODR ^= GPIO_ODR_OD12;
  8000306:	4b08      	ldr	r3, [pc, #32]	; (8000328 <main+0x150>)
  8000308:	695b      	ldr	r3, [r3, #20]
  800030a:	4a07      	ldr	r2, [pc, #28]	; (8000328 <main+0x150>)
  800030c:	f483 5380 	eor.w	r3, r3, #4096	; 0x1000
  8000310:	6153      	str	r3, [r2, #20]
-		delay(1000);
- 8000312:	f44f 707a 	mov.w	r0, #1000	; 0x3e8
- 8000316:	f000 f809 	bl	800032c <delay>
-		GPIOD->ODR ^= 	GPIO_ODR_OD12;
- 800031a:	e7f4      	b.n	8000306 <main+0x12e>
+			  delay(200);
+ 8000312:	20c8      	movs	r0, #200	; 0xc8
+ 8000314:	f000 f80a 	bl	800032c <delay>
+		switch (BUTTON_MODE) {
+ 8000318:	e7f5      	b.n	8000306 <main+0x12e>
+ 800031a:	bf00      	nop
  800031c:	40007000 	.word	0x40007000
  8000320:	40023c00 	.word	0x40023c00
  8000324:	40023800 	.word	0x40023800
@@ -278,6 +282,7 @@ int main(void)
 
 0800032c <delay>:
 	}
+
 }
 
 
@@ -286,7 +291,7 @@ void delay(uint32_t timeMS){
  800032e:	b085      	sub	sp, #20
  8000330:	af00      	add	r7, sp, #0
  8000332:	6078      	str	r0, [r7, #4]
-	for(uint32_t i = 0; i < timeMS * 6000; i++){}
+	for(uint32_t i = 0; i < timeMS * 7059; i++){} //7059 is from experimentation
  8000334:	2300      	movs	r3, #0
  8000336:	60fb      	str	r3, [r7, #12]
  8000338:	e002      	b.n	8000340 <delay+0x14>
@@ -294,7 +299,7 @@ void delay(uint32_t timeMS){
  800033c:	3301      	adds	r3, #1
  800033e:	60fb      	str	r3, [r7, #12]
  8000340:	687b      	ldr	r3, [r7, #4]
- 8000342:	f241 7270 	movw	r2, #6000	; 0x1770
+ 8000342:	f641 3293 	movw	r2, #7059	; 0x1b93
  8000346:	fb02 f303 	mul.w	r3, r2, r3
  800034a:	68fa      	ldr	r2, [r7, #12]
  800034c:	429a      	cmp	r2, r3
