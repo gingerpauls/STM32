@@ -17,9 +17,14 @@
  */
 #include "main.h"
 
-#define SYSTICK_RELOAD_VALUE (SystemCoreClock) / 1000 - 1
+#define SYSTICK_RELOAD_VALUE ((SystemCoreClock) / 1000 - 1)
+
 #define BUTTON_MODE 0 										//0-HOLD 1-TOGGLE
 
+#define LED_GREEN GPIO_ODR_OD12
+#define LED_ORANGE GPIO_ODR_OD13
+#define LED_RED GPIO_ODR_OD14
+#define LED_BLUE GPIO_ODR_OD15
 
 void delay(uint32_t time);
 
@@ -27,24 +32,50 @@ int main(void)
 {
 	SystemCoreClockUpdate();
 
+
 	PWR->CR |= PWR_CR_VOS;
+
 
 	FLASH->ACR |= FLASH_ACR_ICEN | FLASH_ACR_DCEN | FLASH_ACR_PRFTEN | FLASH_ACR_LATENCY_3WS;
 
 
-	SysTick->LOAD |= 10000000; // this is about 1 second
-	//NVIC_SetPriority (SysTick_IRQn, (1UL << __NVIC_PRIO_BITS) - 1UL);
+	SysTick->LOAD &= SysTick_LOAD_RELOAD_Msk; // this is about 1 second
+	NVIC_SetPriority (SysTick_IRQn, (1UL << __NVIC_PRIO_BITS) - 1UL);
 	SysTick->VAL &= ~SysTick_VAL_CURRENT_Msk;
 	SysTick->CTRL |= 	SysTick_CTRL_CLKSOURCE_Msk 	|
 						SysTick_CTRL_TICKINT_Msk 	|
 						SysTick_CTRL_ENABLE_Msk;
 
+
 	RCC->AHB1ENR |= RCC_AHB1ENR_GPIOAEN | RCC_AHB1ENR_GPIODEN;
+
+	// TIM2 clocked by pre-scaler output "CK_CNT"
+	// enable CEN before CK_CNT
+	RCC->APB1ENR |= RCC_APB1ENR_TIM2EN | RCC_APB1ENR_PWREN;
+	//TIM2->ARR &= ~TIM_ARR_ARR;
+	//TIM2->ARR = 0x1F4;
+	//NVIC->ISER
+	//NVIC_SetPriority (TIM2_IRQn, (1UL << __NVIC_PRIO_BITS) - 1UL);
+	//TIM2->CNT &= ~TIM_CNT_CNT;
+	//TIM2->EGR |= TIM_EGR_UG;
+	//TIM2->SMCR |= TIM_SMCR_ECE; // external clock enable?? does this mean HSE or a pin
+	//TIM2->DIER |= TIM_DIER_TIE | TIM_DIER_UIE;
+	//TIM2->PSC = 0xC350;
+	__NVIC_EnableIRQ(TIM2_IRQn);
+	TIM2->CR1 |= TIM_CR1_CEN;
+
+
+
+
+
+
+
 
 	GPIOD->MODER |= GPIO_MODER_MODE12_0 |
 					GPIO_MODER_MODE13_0 |
 					GPIO_MODER_MODE14_0 |
 					GPIO_MODER_MODE15_0; // set GPIO to "output" mode for LEDs
+
 
 	RCC->PLLCFGR |= RCC_PLLCFGR_PLLQ_3;
 	RCC->PLLCFGR &= ~(	RCC_PLLCFGR_PLLQ_0 	|
@@ -63,51 +94,45 @@ int main(void)
 						RCC_PLLCFGR_PLLM_4 	|
 						RCC_PLLCFGR_PLLM_5	);
 
+
 	RCC->CR |= RCC_CR_HSEON;
 	while(!(RCC->CR & RCC_CR_HSERDY)){}
-	if(RCC->CR & RCC_CR_HSERDY){
-		GPIOD->ODR |= GPIO_ODR_OD15;
-	}
 
 	RCC->CR |= RCC_CR_PLLON;
 	while(!(RCC->CR & RCC_CR_PLLRDY)){}
-	if(RCC->CR & RCC_CR_PLLRDY){
-		GPIOD->ODR |= GPIO_ODR_OD14;
-	}
+
 
 	RCC->CFGR |= RCC_CFGR_PPRE1_2 | RCC_CFGR_SW_PLL;
 	while(!(RCC->CFGR & RCC_CFGR_SWS_PLL)){}
-	if(RCC->CFGR & RCC_CFGR_SWS_PLL){
-		GPIOD->ODR |= GPIO_ODR_OD13;
-	}
+
 
 	SystemCoreClockUpdate();
 
+
+	SysTick->LOAD |= 0xFFFFFF;
+
+
 	while(1){
-		switch (BUTTON_MODE) {
-		  case 0: //
-				while(GPIOA->IDR & GPIO_IDR_IDR_0){
-					GPIOD->ODR |= GPIO_ODR_OD12;
-				}
-				GPIOD->ODR &= ~GPIO_ODR_OD12;
-				CLEAR_BIT(GPIOD->ODR, GPIO_ODR_OD12);
-		    break;
-		  case 1:
-				if(GPIOA->IDR & GPIO_IDR_IDR_0){
-					GPIOD->ODR ^= GPIO_ODR_OD12;
-					delay(200); //de-bounce
-				}
-		    break;
-		  default:
-			  GPIOD->ODR ^= GPIO_ODR_OD12;
-			  delay(200);
-		}
+//		switch (BUTTON_MODE) {
+//		  case 0: //
+//				while(GPIOA->IDR & GPIO_IDR_IDR_0){
+//					GPIOD->ODR |= LED_GREEN;
+//				}
+//				GPIOD->ODR &= ~LED_GREEN;
+//		    break;
+//		  case 1:
+//				if(GPIOA->IDR & GPIO_IDR_IDR_0){
+//					GPIOD->ODR ^= LED_GREEN;
+//					delay(200); //de-bounce
+//				}
+//		    break;
+//		  default:
+//		}
 
-
-
-    /* Loop forever */
-	while(1){
-		GPIOD->ODR |= GPIO_ODR_OD12; // 12 -> Green
+//		uint32_t timerCount = TIM2->CNT;
+//		if(timerCount = (0xFFFFFFF0)){
+//			GPIOD->ODR ^= LED_BLUE;
+//		}
 	}
 
 }
@@ -118,5 +143,9 @@ void delay(uint32_t timeMS){
 }
 
 void SysTick_Handler(void){
-	GPIOD->ODR ^= GPIO_ODR_OD15; //15 -> Blue
+	//GPIOD->ODR |= LED_BLUE;
+}
+
+void TIM2_IRQHandler(void){
+	GPIOD->ODR |= LED_BLUE;
 }
