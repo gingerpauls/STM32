@@ -54,18 +54,18 @@ int main(void)
 
 	// TIM2 clocked by pre-scaler output "CK_CNT"
 	// enable CEN before CK_CNT
-	//RCC->APB1ENR |= RCC_APB1ENR_TIM2EN | RCC_APB1ENR_PWREN;
-	//TIM2->ARR &= ~TIM_ARR_ARR;
-	//TIM2->ARR = 0x1F4;
+	RCC->APB1ENR |= RCC_APB1ENR_TIM2EN | RCC_APB1ENR_PWREN;
+	TIM2->ARR &= ~TIM_ARR_ARR;
+	TIM2->ARR = 0x1F4;
 	//NVIC->ISER
-	//NVIC_SetPriority (TIM2_IRQn, (1UL << __NVIC_PRIO_BITS) - 1UL);
-	//TIM2->CNT &= ~TIM_CNT_CNT;
-	//TIM2->EGR |= TIM_EGR_UG;
-	//TIM2->SMCR |= TIM_SMCR_ECE; // external clock enable?? does this mean HSE or a pin
-	//TIM2->DIER |= TIM_DIER_TIE | TIM_DIER_UIE;
-	//TIM2->PSC = 0xC350;
-	//__NVIC_EnableIRQ(TIM2_IRQn);
-	//TIM2->CR1 |= TIM_CR1_CEN;
+	NVIC_SetPriority (TIM2_IRQn, (1UL << __NVIC_PRIO_BITS) - 1UL);
+	TIM2->CNT &= ~TIM_CNT_CNT;
+	TIM2->EGR |= TIM_EGR_UG;
+	TIM2->SMCR |= TIM_SMCR_ECE; // external clock enable?? does this mean HSE or a pin
+	TIM2->DIER |= TIM_DIER_TIE | TIM_DIER_UIE;
+	TIM2->PSC = 0xC350;
+	__NVIC_EnableIRQ(TIM2_IRQn);
+	TIM2->CR1 |= TIM_CR1_CEN;
 
 
 	GPIOD->MODER |= GPIO_MODER_MODE12_0 |
@@ -182,9 +182,9 @@ void delay(uint32_t timeMS){
 }
 
 void SysTick_Handler(void){
-	GPIOD->ODR ^= LED_BLUE;
+	//GPIOD->ODR ^= LED_BLUE;
 }
 
 void TIM2_IRQHandler(void){
-	//GPIOD->ODR |= LED_BLUE;
+	GPIOD->ODR |= LED_BLUE;
 }
