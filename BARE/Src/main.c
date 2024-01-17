@@ -43,7 +43,7 @@ int main(void)
 	SYSTICK_CONFIG();
 	GPIO_CONFIG();
 	HSI_PLL_CLK_EN();
-	//TIM2_CONFIG();
+	TIM2_CONFIG();
 
 	RCC->CR |= RCC_CR_PLLON;
 	while(!(RCC->CR & RCC_CR_PLLRDY)){}
@@ -73,10 +73,10 @@ int main(void)
 //		  default:
 //		}
 
-//		uint32_t timerCount = TIM2->CNT;
-//		if(timerCount = (0xFFFFFFF0)){
-//			GPIOD->ODR ^= LED_BLUE;
-//		}
+		uint32_t timerCount = (TIM2->SR & TIM_SR_UIF);
+		if(timerCount){
+			GPIOD->ODR ^= LED_RED;
+		}
 		GPIOD->ODR |= LED_GREEN;
 	}
 }
@@ -104,15 +104,15 @@ void TIM2_CONFIG(void){
 	// TIM2 clocked by pre-scaler output "CK_CNT"
 	// enable CEN before CK_CNT
 	RCC->APB1ENR |= RCC_APB1ENR_TIM2EN | RCC_APB1ENR_PWREN;
-	//TIM2->ARR &= ~TIM_ARR_ARR;
-	//TIM2->ARR = 0x1F4;
+	TIM2->ARR &= ~TIM_ARR_ARR;
+	TIM2->ARR = 0x1F4;
 	//NVIC->ISER
-	//NVIC_SetPriority (TIM2_IRQn, (1UL << __NVIC_PRIO_BITS) - 1UL);
-	//TIM2->CNT &= ~TIM_CNT_CNT;
+	NVIC_SetPriority (TIM2_IRQn, (1UL << __NVIC_PRIO_BITS) - 1UL);
+	TIM2->CNT &= ~TIM_CNT_CNT;
 	TIM2->EGR |= TIM_EGR_UG;
-	//TIM2->SMCR |= TIM_SMCR_ECE; // external clock enable?? does this mean HSE or a pin
-	//TIM2->DIER |= TIM_DIER_TIE | TIM_DIER_UIE;
-	//TIM2->PSC = 0xC350;
+	TIM2->SMCR |= TIM_SMCR_ECE; // external clock enable?? does this mean HSE or a pin
+	TIM2->DIER |= TIM_DIER_TIE | TIM_DIER_UIE;
+	TIM2->PSC = 0x0;
 	__NVIC_EnableIRQ(TIM2_IRQn);
 	TIM2->CR1 |= TIM_CR1_CEN;
 }
@@ -183,5 +183,6 @@ void SysTick_Handler(void){
 }
 
 void TIM2_IRQHandler(void){
-	GPIOD->ODR |= LED_ORANGE;
+	GPIOD->ODR ^= LED_ORANGE;
+	__NVIC_DisableIRQ(TIM2_IRQn);
 }
