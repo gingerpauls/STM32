@@ -36,6 +36,8 @@ void HSE_PLL_CLK_EN(void);
 
 void TIM2_CONFIG(void);
 
+void TIM10_CONFIG(void);
+
 void delay(uint32_t cycles);
 
 int main(void)
@@ -47,11 +49,16 @@ int main(void)
 	GPIO_CONFIG();
 	HSE_PLL_CLK_EN();
 	TIM2_CONFIG();
+	TIM10_CONFIG();
 
 	SystemCoreClockUpdate();
 
 	while(1){
-		//GPIOD->ODR |= LED_GREEN;
+//		if (TIM10->SR & TIM_SR_UIF){
+//			TIM10->SR &= ~TIM_SR_UIF;
+//			GPIOD->ODR ^= LED_GREEN;
+//		}
+
 	}
 }
 
@@ -82,11 +89,23 @@ void TIM2_CONFIG(void){
 	SystemCoreClockUpdate();
 	RCC->APB1ENR |= RCC_APB1ENR_TIM2EN | RCC_APB1ENR_PWREN;
 	TIM2->ARR = 1000; // 1000 * 1ms = 1s
-	TIM2->PSC = ((SystemCoreClock / 2) / 1000) - 1;
+	TIM2->PSC = ((SystemCoreClock / 2) / 1000) - 1; // 1ms
 	TIM2->DIER |= TIM_DIER_UIE;
 	TIM2->CR1 |= TIM_CR1_CEN;
 	//__NVIC_EnableIRQ(TIM2_IRQn); //
-	NVIC->ISER[0] |= 0x10000000; // IRQn of TIM2 => 0x10000000 = '28' (bit 28)
+	NVIC->ISER[0] |= 1 << TIM2_IRQn; // IRQn of TIM2 => 0x10000000 = '28' (bit 28)
+}
+
+void TIM10_CONFIG(void){
+	SystemCoreClockUpdate();
+
+	RCC->APB2ENR |= RCC_APB2ENR_TIM10EN;
+	TIM10->ARR = 1000;
+	TIM10->PSC = ((SystemCoreClock / 2) / 1000) - 1;
+	TIM10->DIER |= TIM_DIER_UIE;
+	TIM10->CR1 |= TIM_CR1_CEN;
+	//__NVIC_EnableIRQ(TIM1_UP_TIM10_IRQn);
+	NVIC->ISER[0] |= 1 << TIM1_UP_TIM10_IRQn; // IRQn of TIM2 = 25
 }
 
 void HSI_PLL_CLK_EN(void){
@@ -172,6 +191,11 @@ void SysTick_Handler(void){
 void TIM2_IRQHandler(void){
 	TIM2->SR &= ~TIM_SR_UIF;
 	GPIOD->ODR ^= LED_ORANGE;
+}
+
+void TIM1_UP_TIM10_IRQHandler(void){
+	TIM10->SR &= ~TIM_SR_UIF; // Clear the update interrupt flag
+	GPIOD->ODR ^= LED_GREEN; // Toggle the green LED
 }
 
 //		switch (BUTTON_MODE) {
