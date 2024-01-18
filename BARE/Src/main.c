@@ -17,8 +17,6 @@
  */
 #include "main.h"
 
-#define SYSTICK_RELOAD_VALUE ((SystemCoreClock) / 1000 - 1)
-
 #define BUTTON_MODE 0 										//0-HOLD 1-TOGGLE
 
 #define LED_GREEN GPIO_ODR_OD12
@@ -81,13 +79,14 @@ void GPIO_CONFIG(void){
 }
 
 void TIM2_CONFIG(void){
+	SystemCoreClockUpdate();
 	RCC->APB1ENR |= RCC_APB1ENR_TIM2EN | RCC_APB1ENR_PWREN;
-	TIM2->ARR = 0x3E8;
-	TIM2->PSC = 0xBB80;
-	TIM2->DIER |= TIM_DIER_UIE; // TIM_DIER_TIE not sure what it does
+	TIM2->ARR = 1000; // 1000 * 1ms = 1s
+	TIM2->PSC = ((SystemCoreClock / 2) / 1000) - 1;
+	TIM2->DIER |= TIM_DIER_UIE;
 	TIM2->CR1 |= TIM_CR1_CEN;
 	//__NVIC_EnableIRQ(TIM2_IRQn); //
-	NVIC->ISER[0] |= 0x10000000; // IRQn of TIM2 => 0x10000000 = '28'
+	NVIC->ISER[0] |= 0x10000000; // IRQn of TIM2 => 0x10000000 = '28' (bit 28)
 }
 
 void HSI_PLL_CLK_EN(void){
