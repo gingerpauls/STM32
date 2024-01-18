@@ -27,11 +27,13 @@
 #define LED_BLUE GPIO_ODR_OD15
 
 void HSI_PLL_CLK_EN(void);
+
 void HSE_PLL_CLK_EN(void);
 
 void TIM2_CONFIG(void);
 
 void SYSTICK_CONFIG(void);
+
 void GPIO_CONFIG(void);
 
 void delay(uint32_t time);
@@ -48,15 +50,7 @@ int main(void)
 	HSI_PLL_CLK_EN();
 	//TIM2_CONFIG();
 
-	RCC->CR |= RCC_CR_PLLON;
-	while(!(RCC->CR & RCC_CR_PLLRDY)){}
-
-	RCC->CFGR |= RCC_CFGR_SW_PLL;
-	while(!(RCC->CFGR & RCC_CFGR_SWS_PLL)){}
-
 	SystemCoreClockUpdate();
-
-	SysTick->LOAD |= SysTick_LOAD_RELOAD_Msk;
 
 	while(1){
 		GPIOD->ODR |= LED_GREEN;
@@ -64,8 +58,7 @@ int main(void)
 }
 
 void SYSTICK_CONFIG(void){
-
-	SysTick->LOAD &= SysTick_LOAD_RELOAD_Msk; // this is about 1 second
+	SysTick->LOAD |= SysTick_LOAD_RELOAD_Msk;
 	//NVIC_SetPriority (SysTick_IRQn, (1UL << __NVIC_PRIO_BITS) - 1UL);
 	SysTick->VAL &= ~SysTick_VAL_CURRENT_Msk;
 	SysTick->CTRL |= 	SysTick_CTRL_CLKSOURCE_Msk 	|
@@ -134,12 +127,18 @@ void HSI_PLL_CLK_EN(void){
 						RCC_PLLCFGR_PLLM_4 	|
 						RCC_PLLCFGR_PLLM_5	);
 
-	RCC->CFGR |= RCC_CFGR_PPRE1_DIV4;
-
 	RCC->PLLCFGR |= RCC_PLLCFGR_PLLSRC_HSI;
+
+	RCC->CFGR |= RCC_CFGR_PPRE1_DIV4;
 
 	RCC->CR |= RCC_CR_HSION;
 	while(!(RCC->CR & RCC_CR_HSIRDY)){}
+
+	RCC->CR |= RCC_CR_PLLON;
+	while(!(RCC->CR & RCC_CR_PLLRDY)){}
+
+	RCC->CFGR |= RCC_CFGR_SW_PLL;
+	while(!(RCC->CFGR & RCC_CFGR_SWS_PLL)){}
 
 }
 
@@ -165,12 +164,19 @@ void HSE_PLL_CLK_EN(void){
 						RCC_PLLCFGR_PLLM_4 	|
 						RCC_PLLCFGR_PLLM_5	);
 
-	RCC->CFGR |= RCC_CFGR_PPRE1_DIV4;
-
 	RCC->PLLCFGR |= RCC_PLLCFGR_PLLSRC_HSE;
+
+	RCC->CFGR |= RCC_CFGR_PPRE1_DIV4;
 
 	RCC->CR |= RCC_CR_HSEON;
 	while(!(RCC->CR & RCC_CR_HSERDY)){}
+
+	RCC->CR |= RCC_CR_PLLON;
+	while(!(RCC->CR & RCC_CR_PLLRDY)){}
+
+	RCC->CFGR |= RCC_CFGR_SW_PLL;
+	while(!(RCC->CFGR & RCC_CFGR_SWS_PLL)){}
+	//RCC->CR &= ~RCC_CR_HSEBYP;
 }
 
 void delay(uint32_t timeMS){
