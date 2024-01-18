@@ -34,9 +34,9 @@ void HSI_PLL_CLK_EN(void);
 
 void HSE_PLL_CLK_EN(void);
 
-void TIM2_CONFIG(void);
+void TIM2_CONFIG(uint32_t timeMilliSeconds);
 
-void TIM10_CONFIG(void);
+void TIM10_CONFIG(uint32_t frequency);
 
 void delay(uint32_t cycles);
 
@@ -48,16 +48,12 @@ int main(void)
 	SYSTICK_CONFIG();
 	GPIO_CONFIG();
 	HSE_PLL_CLK_EN();
-	TIM2_CONFIG();
-	TIM10_CONFIG();
+	TIM2_CONFIG(1000); 			// ms
+	TIM10_CONFIG(30.5); 		// Hz [30.5Hz to 500kHz]
 
 	SystemCoreClockUpdate();
 
 	while(1){
-//		if (TIM10->SR & TIM_SR_UIF){
-//			TIM10->SR &= ~TIM_SR_UIF;
-//			GPIOD->ODR ^= LED_GREEN;
-//		}
 
 	}
 }
@@ -83,12 +79,17 @@ void GPIO_CONFIG(void){
 					GPIO_MODER_MODE13_0 |
 					GPIO_MODER_MODE14_0 |
 					GPIO_MODER_MODE15_0; // set GPIO to "output" mode for LEDs
+
+//	GPIOD->OSPEEDR |= 	GPIO_OSPEEDER_OSPEEDR12 |
+//						GPIO_OSPEEDER_OSPEEDR13 |
+//						GPIO_OSPEEDER_OSPEEDR14 |
+//						GPIO_OSPEEDER_OSPEEDR15;
 }
 
-void TIM2_CONFIG(void){
+void TIM2_CONFIG(uint32_t timeMilliSeconds){
 	SystemCoreClockUpdate();
 	RCC->APB1ENR |= RCC_APB1ENR_TIM2EN | RCC_APB1ENR_PWREN;
-	TIM2->ARR = 1000; // 1000 * 1ms = 1s
+	TIM2->ARR = timeMilliSeconds; // 1000 * 1ms = 1s
 	TIM2->PSC = ((SystemCoreClock / 2) / 1000) - 1; // 1ms
 	TIM2->DIER |= TIM_DIER_UIE;
 	TIM2->CR1 |= TIM_CR1_CEN;
@@ -96,12 +97,12 @@ void TIM2_CONFIG(void){
 	NVIC->ISER[0] |= 1 << TIM2_IRQn; // IRQn of TIM2 => 0x10000000 = '28' (bit 28)
 }
 
-void TIM10_CONFIG(void){
+void TIM10_CONFIG(uint32_t frequency){
 	SystemCoreClockUpdate();
 
 	RCC->APB2ENR |= RCC_APB2ENR_TIM10EN;
-	TIM10->ARR = 1000;
-	TIM10->PSC = ((SystemCoreClock / 2) / 1000) - 1;
+	TIM10->ARR = (1000000/(2*frequency)); // set in us
+	TIM10->PSC = (SystemCoreClock / 1000000) - 1; //1 us
 	TIM10->DIER |= TIM_DIER_UIE;
 	TIM10->CR1 |= TIM_CR1_CEN;
 	//__NVIC_EnableIRQ(TIM1_UP_TIM10_IRQn);
@@ -197,26 +198,3 @@ void TIM1_UP_TIM10_IRQHandler(void){
 	TIM10->SR &= ~TIM_SR_UIF; // Clear the update interrupt flag
 	GPIOD->ODR ^= LED_GREEN; // Toggle the green LED
 }
-
-//		switch (BUTTON_MODE) {
-//		  case 0: //
-//				while(GPIOA->IDR & GPIO_IDR_IDR_0){
-//					GPIOD->ODR |= LED_GREEN;
-//				}
-//				GPIOD->ODR &= ~LED_GREEN;
-//		    break;
-//		  case 1:
-//				if(GPIOA->IDR & GPIO_IDR_IDR_0){
-//					GPIOD->ODR ^= LED_GREEN;
-//					delay(200); //de-bounce
-//				}
-//		    break;
-//		  default:
-//		}
-//				if(GPIOA->IDR & GPIO_IDR_IDR_0){
-//					GPIOD->ODR ^= LED_GREEN;
-//					delay(200); //de-bounce
-//				}
-//		    break;
-//		  default:
-//		}
