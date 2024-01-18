@@ -34,9 +34,13 @@ void HSI_PLL_CLK_EN(void);
 
 void HSE_PLL_CLK_EN(void);
 
+void PPLI2S_CONFIG(void);
+
 void TIM2_CONFIG(uint32_t timeMilliSeconds);
 
 void TIM10_CONFIG(uint32_t frequency);
+
+void I2C_CONFIG(void);
 
 void delay(uint32_t cycles);
 
@@ -48,8 +52,10 @@ int main(void)
 	SYSTICK_CONFIG();
 	GPIO_CONFIG();
 	HSE_PLL_CLK_EN();
+	PPLI2S_CONFIG();
 	TIM2_CONFIG(1000); 			// ms
 	TIM10_CONFIG(30.5); 		// Hz [30.5Hz to 500kHz]
+	I2C_CONFIG();
 
 	SystemCoreClockUpdate();
 
@@ -145,6 +151,26 @@ void HSI_PLL_CLK_EN(void){
 	while(!(RCC->CFGR & RCC_CFGR_SWS_PLL)){}
 }
 
+void PPLI2S_CONFIG(void){
+	// PLLI2S	M-5	| N-200	| R-2
+	RCC->PLLI2SCFGR |= (	RCC_PLLI2SCFGR_PLLI2SN_7 |
+							RCC_PLLI2SCFGR_PLLI2SN_6 |
+							RCC_PLLI2SCFGR_PLLI2SN_3 );
+	RCC->PLLI2SCFGR &= ~(	RCC_PLLI2SCFGR_PLLI2SN_8 |
+							RCC_PLLI2SCFGR_PLLI2SN_5 |
+							RCC_PLLI2SCFGR_PLLI2SN_4 |
+							RCC_PLLI2SCFGR_PLLI2SN_2 |
+							RCC_PLLI2SCFGR_PLLI2SN_1 |
+							RCC_PLLI2SCFGR_PLLI2SN_0 );
+
+	RCC->PLLI2SCFGR |= (	RCC_PLLI2SCFGR_PLLI2SM_2 |
+							RCC_PLLI2SCFGR_PLLI2SM_0 );
+	RCC->PLLI2SCFGR &= ~(	RCC_PLLI2SCFGR_PLLI2SM_5 |
+							RCC_PLLI2SCFGR_PLLI2SM_4 |
+							RCC_PLLI2SCFGR_PLLI2SM_3 |
+							RCC_PLLI2SCFGR_PLLI2SM_1 );
+}
+
 void HSE_PLL_CLK_EN(void){
 	/* PLL 		M-4 	| N-192 	| P-4 	| Q-8
 	 * PLLI2S	M-5	| N-200		| R-2
@@ -181,8 +207,28 @@ void HSE_PLL_CLK_EN(void){
 	while(!(RCC->CFGR & RCC_CFGR_SWS_PLL)){}
 }
 
+void I2C_CONFIG(void){
+	/* DAC - CS43L22
+	 *
+	 * SDA 		-> Audio_SDA 		-> PB9
+	 * SCL 		-> Audio_SCL 		-> PB6
+	 *
+	 * MCLK 	-> I2S3_MCK 		-> PC7
+	 * SCLK 	-> I2S3_SCLK		-> PC10
+	 * SDIN 	-> I2S3_SD			-> PC12
+	 * LRCK		-> I2S3_WS			-> PA4
+	 * !RESET 	-> Audio_RST		-> PD4
+	 *
+	 * AIN1A/B	-> Audio_DAC_OUT	-> PA4
+	 * AIN4A/B	-> PDM_OUT			-> PC3 (maybe PC4 too?)
+	 *
+	 *
+	 * APB1 is IS23 bus
+	*/
+}
+
 void delay(uint32_t cycles){
-	for(uint32_t i = 0; i < cycles; i++){} //7059 is from experimentation
+	for(uint32_t i = 0; i < cycles; i++){}
 }
 
 void SysTick_Handler(void){
