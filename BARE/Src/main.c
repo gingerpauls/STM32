@@ -26,6 +26,8 @@
 #define LED_RED GPIO_ODR_OD14
 #define LED_BLUE GPIO_ODR_OD15
 
+void FLASH_AND_POWER_CONFIG(void);
+
 void SYSTICK_CONFIG(void);
 
 void GPIO_CONFIG(void);
@@ -42,19 +44,11 @@ int main(void)
 {
 	SystemCoreClockUpdate();
 
-	PWR->CR |= PWR_CR_VOS;
-	FLASH->ACR |= FLASH_ACR_ICEN | FLASH_ACR_DCEN | FLASH_ACR_PRFTEN | FLASH_ACR_LATENCY_3WS;
-
+	FLASH_AND_POWER_CONFIG();
 	//SYSTICK_CONFIG();
 	GPIO_CONFIG();
 	HSE_PLL_CLK_EN();
 	TIM2_CONFIG();
-
-	RCC->CR |= RCC_CR_PLLON;
-	while(!(RCC->CR & RCC_CR_PLLRDY)){}
-
-	RCC->CFGR |= RCC_CFGR_SW_PLL;
-	while(!(RCC->CFGR & RCC_CFGR_SWS_PLL)){}
 
 	SystemCoreClockUpdate();
 
@@ -63,9 +57,14 @@ int main(void)
 	}
 }
 
+void FLASH_AND_POWER_CONFIG(void){
+	PWR->CR |= PWR_CR_VOS;
+	FLASH->ACR |= FLASH_ACR_ICEN | FLASH_ACR_DCEN | FLASH_ACR_PRFTEN | FLASH_ACR_LATENCY_3WS;
+}
+
 void SYSTICK_CONFIG(void){
 	SysTick->LOAD |= SysTick_LOAD_RELOAD_Msk; // this is about 1 second
-	NVIC_SetPriority (SysTick_IRQn, (1UL << __NVIC_PRIO_BITS) - 1UL);
+	//NVIC_SetPriority (SysTick_IRQn, (1UL << __NVIC_PRIO_BITS) - 1UL);
 	SysTick->VAL &= ~SysTick_VAL_CURRENT_Msk;
 	SysTick->CTRL |= 	SysTick_CTRL_CLKSOURCE_Msk 	|
 						SysTick_CTRL_TICKINT_Msk 	|
@@ -87,7 +86,8 @@ void TIM2_CONFIG(void){
 	TIM2->PSC = 0xBB80;
 	TIM2->DIER |= TIM_DIER_UIE; // TIM_DIER_TIE not sure what it does
 	TIM2->CR1 |= TIM_CR1_CEN;
-	__NVIC_EnableIRQ(TIM2_IRQn);
+	//__NVIC_EnableIRQ(TIM2_IRQn); //
+	NVIC->ISER[0] |= 0x10000000; // IRQn of TIM2 => 0x10000000 = '28'
 }
 
 void HSI_PLL_CLK_EN(void){
@@ -119,6 +119,11 @@ void HSI_PLL_CLK_EN(void){
 	RCC->CR |= RCC_CR_HSION;
 	while(!(RCC->CR & RCC_CR_HSIRDY)){}
 
+	RCC->CR |= RCC_CR_PLLON;
+	while(!(RCC->CR & RCC_CR_PLLRDY)){}
+
+	RCC->CFGR |= RCC_CFGR_SW_PLL;
+	while(!(RCC->CFGR & RCC_CFGR_SWS_PLL)){}
 }
 
 void HSE_PLL_CLK_EN(void){
@@ -149,6 +154,12 @@ void HSE_PLL_CLK_EN(void){
 
 	RCC->CR |= RCC_CR_HSEON;
 	while(!(RCC->CR & RCC_CR_HSERDY)){}
+
+	RCC->CR |= RCC_CR_PLLON;
+	while(!(RCC->CR & RCC_CR_PLLRDY)){}
+
+	RCC->CFGR |= RCC_CFGR_SW_PLL;
+	while(!(RCC->CFGR & RCC_CFGR_SWS_PLL)){}
 }
 
 void delay(uint32_t cycles){
@@ -160,12 +171,8 @@ void SysTick_Handler(void){
 }
 
 void TIM2_IRQHandler(void){
-
 	TIM2->SR &= ~TIM_SR_UIF;
-
 	GPIOD->ODR ^= LED_ORANGE;
-	//__NVIC_DisableIRQ(TIM2_IRQn);
-	//__disable_irq();
 }
 
 //		switch (BUTTON_MODE) {
