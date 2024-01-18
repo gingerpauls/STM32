@@ -44,8 +44,8 @@ int main(void)
 {
 	SystemCoreClockUpdate();
 
-	FLASH_AND_POWER_CONFIG();
-	//SYSTICK_CONFIG();
+	FLASH_AND_POWER_CONFIG(); // for HCLK = 96MHz
+	SYSTICK_CONFIG();
 	GPIO_CONFIG();
 	HSE_PLL_CLK_EN();
 	TIM2_CONFIG();
