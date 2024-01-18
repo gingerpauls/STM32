@@ -24,7 +24,11 @@
 #define LED_GREEN GPIO_ODR_OD12
 #define LED_ORANGE GPIO_ODR_OD13
 #define LED_RED GPIO_ODR_OD14
-#define LED_BLUE GPIO_ODR_OD15
+#define LED_BLUE GPIO_ODR_OD15\
+
+void SYSTICK_CONFIG(void);
+
+void GPIO_CONFIG(void);
 
 void HSI_PLL_CLK_EN(void);
 
@@ -32,11 +36,7 @@ void HSE_PLL_CLK_EN(void);
 
 void TIM2_CONFIG(void);
 
-void SYSTICK_CONFIG(void);
-
-void GPIO_CONFIG(void);
-
-void delay(uint32_t time);
+void delay(uint32_t cycles);
 
 int main(void)
 {
@@ -47,19 +47,25 @@ int main(void)
 
 	SYSTICK_CONFIG();
 	GPIO_CONFIG();
-	HSI_PLL_CLK_EN();
+	HSE_PLL_CLK_EN();
 	//TIM2_CONFIG();
+
+	RCC->CR |= RCC_CR_PLLON;
+	while(!(RCC->CR & RCC_CR_PLLRDY)){}
+
+	RCC->CFGR |= RCC_CFGR_SW_PLL;
+	while(!(RCC->CFGR & RCC_CFGR_SWS_PLL)){}
 
 	SystemCoreClockUpdate();
 
 	while(1){
-		GPIOD->ODR |= LED_GREEN;
+		//GPIOD->ODR |= LED_GREEN;
 	}
 }
 
 void SYSTICK_CONFIG(void){
-	SysTick->LOAD |= SysTick_LOAD_RELOAD_Msk;
-	//NVIC_SetPriority (SysTick_IRQn, (1UL << __NVIC_PRIO_BITS) - 1UL);
+	SysTick->LOAD |= SysTick_LOAD_RELOAD_Msk; // this is about 1 second
+	NVIC_SetPriority (SysTick_IRQn, (1UL << __NVIC_PRIO_BITS) - 1UL);
 	SysTick->VAL &= ~SysTick_VAL_CURRENT_Msk;
 	SysTick->CTRL |= 	SysTick_CTRL_CLKSOURCE_Msk 	|
 						SysTick_CTRL_TICKINT_Msk 	|
@@ -82,7 +88,7 @@ void TIM2_CONFIG(void){
 
 	RCC->APB1ENR |= RCC_APB1ENR_TIM2EN | RCC_APB1ENR_PWREN;
 	//TIM2->ARR &= ~TIM_ARR_ARR;
-	TIM2->ARR = 0x31;
+	TIM2->ARR = 0x3E8;
 	NVIC_SetPriority (TIM2_IRQn, (1UL << __NVIC_PRIO_BITS) - 1UL);
 
 
@@ -90,7 +96,7 @@ void TIM2_CONFIG(void){
 
 	//TIM2->SMCR |= TIM_SMCR_ECE; // external clock enable?? does this mean HSE or a pin
 	TIM2->DIER |= TIM_DIER_UIE; // TIM_DIER_TIE not sure what it does
-	TIM2->PSC = 0xBB7F;
+	TIM2->PSC = 0xBB80;
 
 	TIM2->CR1 |= TIM_CR1_CEN;
 
@@ -127,18 +133,12 @@ void HSI_PLL_CLK_EN(void){
 						RCC_PLLCFGR_PLLM_4 	|
 						RCC_PLLCFGR_PLLM_5	);
 
-	RCC->PLLCFGR |= RCC_PLLCFGR_PLLSRC_HSI;
-
 	RCC->CFGR |= RCC_CFGR_PPRE1_DIV4;
+
+	RCC->PLLCFGR |= RCC_PLLCFGR_PLLSRC_HSI;
 
 	RCC->CR |= RCC_CR_HSION;
 	while(!(RCC->CR & RCC_CR_HSIRDY)){}
-
-	RCC->CR |= RCC_CR_PLLON;
-	while(!(RCC->CR & RCC_CR_PLLRDY)){}
-
-	RCC->CFGR |= RCC_CFGR_SW_PLL;
-	while(!(RCC->CFGR & RCC_CFGR_SWS_PLL)){}
 
 }
 
@@ -164,23 +164,16 @@ void HSE_PLL_CLK_EN(void){
 						RCC_PLLCFGR_PLLM_4 	|
 						RCC_PLLCFGR_PLLM_5	);
 
-	RCC->PLLCFGR |= RCC_PLLCFGR_PLLSRC_HSE;
-
 	RCC->CFGR |= RCC_CFGR_PPRE1_DIV4;
+
+	RCC->PLLCFGR |= RCC_PLLCFGR_PLLSRC_HSE;
 
 	RCC->CR |= RCC_CR_HSEON;
 	while(!(RCC->CR & RCC_CR_HSERDY)){}
-
-	RCC->CR |= RCC_CR_PLLON;
-	while(!(RCC->CR & RCC_CR_PLLRDY)){}
-
-	RCC->CFGR |= RCC_CFGR_SW_PLL;
-	while(!(RCC->CFGR & RCC_CFGR_SWS_PLL)){}
-	//RCC->CR &= ~RCC_CR_HSEBYP;
 }
 
-void delay(uint32_t timeMS){
-	for(uint32_t i = 0; i < timeMS * 7059; i++){} //7059 is from experimentation
+void delay(uint32_t cycles){
+	for(uint32_t i = 0; i < cycles; i++){} //7059 is from experimentation
 }
 
 void SysTick_Handler(void){
@@ -203,6 +196,13 @@ void TIM2_IRQHandler(void){
 //				GPIOD->ODR &= ~LED_GREEN;
 //		    break;
 //		  case 1:
+//				if(GPIOA->IDR & GPIO_IDR_IDR_0){
+//					GPIOD->ODR ^= LED_GREEN;
+//					delay(200); //de-bounce
+//				}
+//		    break;
+//		  default:
+//		}
 //				if(GPIOA->IDR & GPIO_IDR_IDR_0){
 //					GPIOD->ODR ^= LED_GREEN;
 //					delay(200); //de-bounce
