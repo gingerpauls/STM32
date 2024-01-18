@@ -24,7 +24,7 @@
 #define LED_GREEN GPIO_ODR_OD12
 #define LED_ORANGE GPIO_ODR_OD13
 #define LED_RED GPIO_ODR_OD14
-#define LED_BLUE GPIO_ODR_OD15\
+#define LED_BLUE GPIO_ODR_OD15
 
 void SYSTICK_CONFIG(void);
 
@@ -45,10 +45,10 @@ int main(void)
 	PWR->CR |= PWR_CR_VOS;
 	FLASH->ACR |= FLASH_ACR_ICEN | FLASH_ACR_DCEN | FLASH_ACR_PRFTEN | FLASH_ACR_LATENCY_3WS;
 
-	SYSTICK_CONFIG();
+	//SYSTICK_CONFIG();
 	GPIO_CONFIG();
 	HSE_PLL_CLK_EN();
-	//TIM2_CONFIG();
+	TIM2_CONFIG();
 
 	RCC->CR |= RCC_CR_PLLON;
 	while(!(RCC->CR & RCC_CR_PLLRDY)){}
@@ -82,32 +82,11 @@ void GPIO_CONFIG(void){
 }
 
 void TIM2_CONFIG(void){
-	// TIM2 clocked by pre-scaler output "CK_CNT"
-	// enable CEN before CK_CNT
-
-
 	RCC->APB1ENR |= RCC_APB1ENR_TIM2EN | RCC_APB1ENR_PWREN;
-	//TIM2->ARR &= ~TIM_ARR_ARR;
 	TIM2->ARR = 0x3E8;
-	NVIC_SetPriority (TIM2_IRQn, (1UL << __NVIC_PRIO_BITS) - 1UL);
-
-
-	TIM2->EGR |= TIM_EGR_UG; // this sets TIM_SR_UIF & required for IRQ
-
-	//TIM2->SMCR |= TIM_SMCR_ECE; // external clock enable?? does this mean HSE or a pin
-	TIM2->DIER |= TIM_DIER_UIE; // TIM_DIER_TIE not sure what it does
 	TIM2->PSC = 0xBB80;
-
+	TIM2->DIER |= TIM_DIER_UIE; // TIM_DIER_TIE not sure what it does
 	TIM2->CR1 |= TIM_CR1_CEN;
-
-	//while(!(TIM2->CR1 &= ~TIM_CR1_CEN));
-
-	//TIM2->CNT &= ~TIM_CNT_CNT;
-
-	if(TIM2->SR & TIM_SR_UIF){
-		GPIOD->ODR ^= LED_RED;
-	}
-
 	__NVIC_EnableIRQ(TIM2_IRQn);
 }
 
@@ -181,11 +160,12 @@ void SysTick_Handler(void){
 }
 
 void TIM2_IRQHandler(void){
-	//TIM2->SR &= ~TIM_SR_UIF;
+
+	TIM2->SR &= ~TIM_SR_UIF;
 
 	GPIOD->ODR ^= LED_ORANGE;
 	//__NVIC_DisableIRQ(TIM2_IRQn);
-	__disable_irq();
+	//__disable_irq();
 }
 
 //		switch (BUTTON_MODE) {
