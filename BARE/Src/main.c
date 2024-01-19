@@ -60,7 +60,11 @@ int main(void)
 	SystemCoreClockUpdate();
 
 	while(1){
-
+//		uint32_t firstrun = 1;
+//		if (firstrun == 1){
+//			GPIOD->ODR |= LED_RED;
+//			firstrun++;
+//		}
 	}
 }
 
@@ -210,21 +214,73 @@ void HSE_PLL_CLK_EN(void){
 void I2C_CONFIG(void){
 	/* DAC - CS43L22
 	 *
-	 * SDA 		-> Audio_SDA 		-> PB9
-	 * SCL 		-> Audio_SCL 		-> PB6
+	 * CS43		??		 		Pin			Alternate function
+	 * -------------------------------------------------------
+	 * SDA 		Audio_SDA 		PB9			I2C1_SDA
+	 * SCL 		Audio_SCL 		PB6			I2C1_SCL
 	 *
-	 * MCLK 	-> I2S3_MCK 		-> PC7
-	 * SCLK 	-> I2S3_SCLK		-> PC10
-	 * SDIN 	-> I2S3_SD			-> PC12
-	 * LRCK		-> I2S3_WS			-> PA4
-	 * !RESET 	-> Audio_RST		-> PD4
+	 * MCLK 	I2S3_MCK 		PC7			I2S3_MCK
+	 * SCLK 	I2S3_SCK		PC10		I2S3_CK
+	 * SDIN 	I2S3_SD			PC12		I2S3_SD
+	 * LRCK		I2S3_WS			PA4			I2S3_WS
+	 * RESET 	Audio_RST		PD4			n/a
 	 *
-	 * AIN1A/B	-> Audio_DAC_OUT	-> PA4
-	 * AIN4A/B	-> PDM_OUT			-> PC3 (maybe PC4 too?)
+	 * AIN1A/B	Audio_DAC_OUT	PA4
+	 * AIN4A/B	PDM_OUT			PC3(4 too?)	I2S2_SD
 	 *
-	 *
-	 * APB1 is IS23 bus
+	 * APB1 => I2C1 & IS23 bus
+	 * APB2 frequency = 24MHz
 	*/
+
+	RCC->APB1ENR |= RCC_APB1ENR_I2C1EN;
+
+	//GPIOB->MODER |= GPIO_MODER_MODE6_0 | GPIO_MODER_MODE9_0; // gen purpose output
+	GPIOB->MODER |= GPIO_MODER_MODE6_1 | GPIO_MODER_MODE9_1; // alt function
+	GPIOB->PUPDR |= GPIO_PUPDR_PUPD6_0 | GPIO_PUPDR_PUPD9_0; // pull up
+	//GPIOB->OSPEEDR |= GPIO_OSPEEDR_OSPEED6 | GPIO_OSPEEDR_OSPEED9; // high speed
+
+	GPIOD->MODER |= GPIO_MODER_MODE4_0; // output to RESET
+	//GPIOD->MODER |= GPIO_MODER_MODE4_1; // alt function to RESET
+
+
+	// starts in slave, generate START => master mode (automatically?)
+	// sequence start
+	I2C1->CR2 |= 0x16E3600; // 24 MHz
+
+	I2C1->CCR |= 0x78; // CCR = Thigh / Tpclk1 = 5us/41.666ns = 120
+
+	I2C1->TRISE |= 0x3E9; // mode + 1 => sm mode = 1000ns | fm mode = 300 ns
+	I2C1->TRISE &= ~(0x2<<I2C_TRISE_TRISE_Pos);
+
+	I2C1->CR1 |= I2C_CR1_PE; // Enables I2C
+	I2C1->CR1 |= I2C_CR1_START; // starts master mode?
+	I2C1->SR1 |= I2C_SR1_SB; // clears by reading SR1 followed by writing DR reg with address
+	I2C1->DR = 0b10010100; // chip address always starts with '0b100101'
+	I2C1->DR = 0x2; // address of Power Ctl. 1
+
+	// sequence end
+
+	// DAC Power Up Sequence
+	// supposed to hold RESET low until power supplies are stable?
+	GPIOD->ODR = GPIO_ODR_OD14; // Sets RESET high
+	// load Power Ctl. 1 (0x02) to 0x01
+	// write 0x99 to register 0x00
+	// write 0x80 to register 0x47
+	// write '1'b to bit 7 in register 0x32
+	// write '0'b to bit 7 in register 0x32
+	// write 0x00 to register 0x00
+	// apply MCLK at appropriate freq
+
+
+	I2C1->DR = 0x1C; // Beep address
+	I2C1->DR = 0x0F; // beep frequency (260Hz) & time (5.2s)
+
+	I2C1->DR = 0x1E; // beep & tone configuration address
+	I2C1->DR |= 0x80;
+
+
+	//while(!(I2C1->SR1 & I2C_SR1_ADDR)){} // idk if this is correct
+
 }
 
 void delay(uint32_t cycles){
