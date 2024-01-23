@@ -38,6 +38,8 @@ void TIM2_CONFIG(uint32_t timeMilliSeconds);
 
 void TIM10_CONFIG(uint32_t frequency);
 
+void USART2_CONFIG(void);
+
 void delay(uint32_t cycles);
 
 int main(void)
@@ -45,11 +47,12 @@ int main(void)
 	SystemCoreClockUpdate();
 
 	FLASH_AND_POWER_CONFIG(); // for HCLK = 96MHz
-	SYSTICK_CONFIG();
+	//SYSTICK_CONFIG();
 	GPIO_CONFIG();
 	HSE_PLL_CLK_EN();
-	TIM2_CONFIG(1000); 			// ms
-	TIM10_CONFIG(30.5); 		// Hz [30.5Hz to 500kHz]
+	//TIM2_CONFIG(1000); 			// ms
+	//TIM10_CONFIG(30.5); 		// Hz [30.5Hz to 500kHz]
+	USART2_CONFIG();
 
 	SystemCoreClockUpdate();
 
@@ -107,6 +110,38 @@ void TIM10_CONFIG(uint32_t frequency){
 	TIM10->CR1 |= TIM_CR1_CEN;
 	//__NVIC_EnableIRQ(TIM1_UP_TIM10_IRQn);
 	NVIC->ISER[0] |= 1 << TIM1_UP_TIM10_IRQn; // IRQn of TIM2 = 25
+}
+
+void USART2_CONFIG(void){
+	/* 	USART2_TX -> PA2 (alternate function) uses AHB
+	 *	LCD:
+	 *		5V TTL
+	 *		9600 baud
+	 *		8 bits
+	 *		1 stop
+	 *		no parity
+	 *
+	*/
+
+	// Since 153600 has no fraction, only mantissa is required?
+	// DIV = AHBCLK / ((BAUD)*(16)) = 153600 = 0x25800 [note: OVER8 = 1]
+	USART2->BRR |= (0x25800<<USART_BRR_DIV_Mantissa_Pos);
+
+	// wait 1 bit?
+	USART2->CR1 |= USART_CR1_UE; 		// Enables USART
+
+	USART2->CR1 |= USART_CR1_TE; 		// Transmitter enabled
+	USART2->DR |= 'a';
+
+	//USART2->CR2 |= USART_CR2_STOP;		// Stop bit: 0b00 is 1 stop bit by default
+
+
+
+	//if (USART2->SR & USART_SR_TXE); 	// if Transmit data register empty
+	if (USART2->SR & USART_SR_TC){
+		GPIOD->ODR |= LED_GREEN; 	// if transmission complete
+	}
+
 }
 
 void HSI_PLL_CLK_EN(void){
