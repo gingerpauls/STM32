@@ -231,8 +231,8 @@ void I2C_CONFIG(void){
 	 * APB2 frequency = 24MHz
 	*/
 
-
-	RCC->AHB1ENR |= RCC_AHB1ENR_GPIOBEN | RCC_AHB1ENR_GPIODEN; // GPIOD is redundant if GPIO_CONFIG() is run
+	RCC->APB1ENR |= RCC_APB1ENR_I2C1EN; // RCC_APB1ENR_PWREN? "Power interface clock enable"
+	RCC->AHB1ENR |= RCC_AHB1ENR_GPIOBEN | RCC_AHB1ENR_GPIOCEN;
 
 	GPIOB->MODER |= GPIO_MODER_MODE6_1; // alt function
 	GPIOB->AFR[0] |= 0x4<<24; // AFR[0] is lower; 0x4 is AF4; 24 is bit position of Pin 6
@@ -241,58 +241,48 @@ void I2C_CONFIG(void){
 	GPIOB->PUPDR |= GPIO_PUPDR_PUPD6_0 | GPIO_PUPDR_PUPD9_0; // pull up
 	GPIOB->OTYPER |= GPIO_OTYPER_OT6 | GPIO_OTYPER_OT9; // open drain - is this correct config for I2C?
 
-	//GPIOD->MODER |= GPIO_MODER_MODE4_0; // output to RESET
-	GPIOD->MODER |= GPIO_MODER_MODE4_1; // alt function to RESET
-	GPIOD->AFR[0] |= 0x4<<16; // AFR[0] is lower; 0x4 is AF4; 16 is bit position of Pin 4
 
-	//GPIOD->ODR |= GPIO_ODR_OD4; // Sets RESET high
-	//GPIOD->ODR &= ~GPIO_ODR_OD4; // Sets RESET low
+	GPIOD->MODER |= GPIO_MODER_MODE4_0; // output to RESET
+	//GPIOD->MODER |= GPIO_MODER_MODE4_1; // alt function to RESET
+	//GPIOD->AFR[0] |= 0x4<<16; // AFR[0] is lower; 0x4 is AF4; 16 is bit position of Pin 4
+	GPIOD->ODR |= GPIO_ODR_OD4; // Sets RESET high (device is powered on)
 
-	RCC->APB1ENR |= RCC_APB1ENR_I2C1EN;
-	//I2C1->CR1 |= I2C_CR1_SWRST; // this will clear the BUSY flag in SR2
+	//while(I2C1->SR2 & I2C_SR2_BUSY){} // wait for bus to not be busy
+	I2C1->CR1 |= I2C_CR1_SWRST; // this will clear the BUSY flag in SR2
+	I2C1->CR1 &= ~I2C_CR1_SWRST; // this will clear the BUSY flag in SR2
 
 	// starts in slave, generate START => master mode (automatically?)
 	// sequence start
-	I2C1->CR2 |= 0x16E3600; // 24 MHz
+	I2C1->CR2 |= 0x18; // 24 MHz
 	I2C1->CCR |= 0x78; // CCR = Thigh / Tpclk1 = 5us/41.666ns = 120
 	I2C1->TRISE |= 0x3E9; // mode + 1 => sm mode = 1000ns | fm mode = 300 ns
 	I2C1->TRISE &= ~(0x2<<I2C_TRISE_TRISE_Pos);
-	I2C1->CR1 |= I2C_CR1_PE; // Enables I2C
+	I2C1->CR1 |= I2C_CR1_ACK; // ACK on
+
+	I2C1->CR1 |= I2C_CR1_PE; // Peripheral Enable I2C
+
 	I2C1->CR1 |= I2C_CR1_START; // starts master mode from default
 	while(!(I2C1->SR1 & I2C_SR1_SB)){} // wait for start bit to go high
-	//while(I2C1->SR2 & I2C_SR2_BUSY){} // wait for bus to not be busy
+	while(!(I2C1->SR1 & I2C_SR1_TXE)){}
 
-//	if(I2C1->SR1 & I2C_SR1_BERR){ // bus error = 1 if misplaced start or stop condition
-//		//GPIOD->ODR |= LED_RED;
-//	}
-
-	if(!(I2C1->SR2 & I2C_SR2_MSL)){ // check if master mode
-		//GPIOD->ODR |= LED_RED;
-	}
-	//0x94
-	I2C1->DR = 0x94; // chip address always starts with '0b100101' AD0 is always 0 (connected to DGND) I think...
-	// ACK failure goes high after line above
-	if (I2C1->SR1 & I2C_SR1_AF){
-		//GPIOD->ODR |= LED_RED;
-	}
-	// goes high when address is sent, after the ACK bit // not set after NACK reception
-	if (I2C1->SR1 & I2C_SR1_ADDR){ //if ADDR is not matched, fail
+	// chip address always starts with '0b1001010x' (0x94) AD0 is always 0 (connected to DGND) I think...
+	I2C1->DR = 0x0;
+	if (I2C1->SR1 & I2C_SR1_AF){		//
 		GPIOD->ODR |= LED_RED;
 	}
+	while(I2C1->SR1 & I2C_SR1_ADDR); 	// while not end of transmission
+	if (I2C1->SR2 & I2C_SR2_MSL);		// read SR2 to clear ADDR
 
-	// reading SR1 & SR2 are supposed to clear ADDR bit
-	//if (I2C1->SR1 & I2C_SR1_ADDR);
-	//if (I2C1->SR2 & I2C_SR2_MSL);
 
-	I2C1->DR = 0x2; // address of Power Ctl. 1
-	while(!(I2C1->SR1 & I2C_SR1_TXE)){}
+	I2C1->CR1 |= I2C_CR1_STOP;
+	//while(!(I2C1->SR1 & I2C_SR1_TXE)){}
 	// sequence end
 
 	//I2C1->CR1 |= I2C_CR1_STOP;
 
 	// DAC Power Up Sequence
 	// supposed to hold RESET low until power supplies are stable?
-	GPIOD->ODR |= GPIO_ODR_OD4; // Sets RESET high
+
 	// load Power Ctl. 1 (0x02) to 0x01
 	// write 0x99 to register 0x00
 	// write 0x80 to register 0x47
@@ -307,7 +297,7 @@ void I2C_CONFIG(void){
 
 	I2C1->DR = 0x1E; // beep & tone configuration address
 	I2C1->DR |= 0x80;
-	//I2C1->CR1 |= I2C_CR1_STOP;
+
 
 }
 
