@@ -47,12 +47,12 @@ void Clear_Display(void);
 
 void Write_Character(char);
 
-void Write_String(char []);
+void Write_String(char*);
 
 int main(void)
 {
 	//uint32_t stringlength = 0;
-	//char word[] = "Hello World!";
+	char* word = "Hello World!";
 
 	SystemCoreClockUpdate();
 
@@ -66,26 +66,27 @@ int main(void)
 
 	SystemCoreClockUpdate();
 	Clear_Display();
-	delay(999999);
 
-	Write_Character('H');
-	Write_Character('e');
-	Write_Character('l');
-	Write_Character('l');
-	Write_Character('o');
-	Write_Character(' ');
-	Write_Character('W');
-	Write_Character('o');
-	Write_Character('r');
-	Write_Character('l');
-	Write_Character('d');
-	Write_Character('!');
+//	Write_Character('H');
+//	Write_Character('e');
+//	Write_Character('l');
+//	Write_Character('l');
+//	Write_Character('o');
+//	Write_Character(' ');
+//	Write_Character('W');
+//	Write_Character('o');
+//	Write_Character('r');
+//	Write_Character('l');
+//	Write_Character('d');
+//	Write_Character('!');
+//	while(!(USART2->SR & USART_SR_TC));
 
-	//Write_String(word);
-	//for(int i; i < 10; i++){
-	//USART2->DR |= 'a';
-	//while(!(USART2->SR & USART_SR_TXE));
-	//}
+//	Clear_Display();
+//	delay(999999);
+
+
+	Write_String(word);
+	while(!(USART2->SR & USART_SR_TC));
 
 	RCC->APB1ENR &= ~RCC_APB1ENR_USART2EN;
 	USART2->CR1 &= ~USART_CR1_TE;
@@ -272,13 +273,16 @@ void Clear_Display(void){
 void Write_Character(char letter){
 	USART2->DR |= letter;
 	while(!(USART2->SR & USART_SR_TXE));
-	while(!(USART2->SR & USART_SR_TC));
 }
 
-void Write_String(char word[]){
-	for(int i; i < strlen(&word); i++){
-		USART2->DR |= word[i];
+void Write_String(char* word){
+//	for(int i = 0; i < strlen(*(word); i++){
+//		USART2->DR |= *word[i];
+//		while(!(USART2->SR & USART_SR_TXE));
+//	}
+	while (*word != '\0'){
+		USART2->DR |= *word;
 		while(!(USART2->SR & USART_SR_TXE));
-		while(!(USART2->SR & USART_SR_TC));
+		word++;
 	}
 }
