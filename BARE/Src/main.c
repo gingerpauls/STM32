@@ -16,6 +16,7 @@
  ******************************************************************************
  */
 #include "main.h"
+#include "string.h"
 
 #define BUTTON_MODE 0 										//0-HOLD 1-TOGGLE
 
@@ -42,8 +43,17 @@ void USART2_CONFIG(void);
 
 void delay(uint32_t cycles);
 
+void Clear_Display(void);
+
+void Write_Character(char);
+
+void Write_String(char []);
+
 int main(void)
 {
+	//uint32_t stringlength = 0;
+	//char word[] = "Hello World!";
+
 	SystemCoreClockUpdate();
 
 	FLASH_AND_POWER_CONFIG(); // for HCLK = 96MHz
@@ -55,10 +65,31 @@ int main(void)
 	USART2_CONFIG();
 
 	SystemCoreClockUpdate();
+	Clear_Display();
+	delay(999999);
 
-	while(1){
+	Write_Character('H');
+	Write_Character('e');
+	Write_Character('l');
+	Write_Character('l');
+	Write_Character('o');
+	Write_Character(' ');
+	Write_Character('W');
+	Write_Character('o');
+	Write_Character('r');
+	Write_Character('l');
+	Write_Character('d');
+	Write_Character('!');
 
-	}
+	//Write_String(word);
+	//for(int i; i < 10; i++){
+	//USART2->DR |= 'a';
+	//while(!(USART2->SR & USART_SR_TXE));
+	//}
+
+	RCC->APB1ENR &= ~RCC_APB1ENR_USART2EN;
+	USART2->CR1 &= ~USART_CR1_TE;
+
 }
 
 void FLASH_AND_POWER_CONFIG(void){
@@ -114,6 +145,7 @@ void TIM10_CONFIG(uint32_t frequency){
 
 void USART2_CONFIG(void){
 	/* 	USART2_TX -> PA2 (alternate function) uses AHB
+	 *	USART on PA2 -> AF7
 	 *	LCD:
 	 *		5V TTL
 	 *		9600 baud
@@ -122,26 +154,22 @@ void USART2_CONFIG(void){
 	 *		no parity
 	 *
 	*/
+	RCC->APB1ENR |= RCC_APB1ENR_USART2EN; // APB1 PERIPH CLK = 24MHz
+	GPIOA->MODER |= GPIO_MODER_MODE2_1; // Alternate function
+	GPIOA->AFR[0] |= (	GPIO_AFRL_AFRL2_0 |
+						GPIO_AFRL_AFRL2_1 |
+						GPIO_AFRL_AFRL2_2 );
+	//GPIOA->PUPDR |= GPIO_PUPDR_PUPD2_0; // pull-up
+	//USART2->CR2 |= USART_CR2_STOP;	// Stop bit: 0b00 is 1 stop bit by default
+	USART2->CR1 |= USART_CR1_UE; 		// Enables USART
 
 	// Since 153600 has no fraction, only mantissa is required?
 	// DIV = AHBCLK / ((BAUD)*(16)) = 153600 = 0x25800 [note: OVER8 = 1]
-	USART2->BRR |= (0x25800<<USART_BRR_DIV_Mantissa_Pos);
+	USART2->BRR |= (0x9C<<USART_BRR_DIV_Mantissa_Pos);
+	USART2->BRR &= ~USART_BRR_DIV_Fraction_Msk;
 
-	// wait 1 bit?
-	USART2->CR1 |= USART_CR1_UE; 		// Enables USART
 
 	USART2->CR1 |= USART_CR1_TE; 		// Transmitter enabled
-	USART2->DR |= 'a';
-
-	//USART2->CR2 |= USART_CR2_STOP;		// Stop bit: 0b00 is 1 stop bit by default
-
-
-
-	//if (USART2->SR & USART_SR_TXE); 	// if Transmit data register empty
-	if (USART2->SR & USART_SR_TC){
-		GPIOD->ODR |= LED_GREEN; 	// if transmission complete
-	}
-
 }
 
 void HSI_PLL_CLK_EN(void){
@@ -232,4 +260,25 @@ void TIM2_IRQHandler(void){
 void TIM1_UP_TIM10_IRQHandler(void){
 	TIM10->SR &= ~TIM_SR_UIF; // Clear the update interrupt flag
 	GPIOD->ODR ^= LED_GREEN; // Toggle the green LED
+}
+
+void Clear_Display(void){
+	USART2->DR |= 0xFE; // 0xFE and 0x7C are special commands
+	while(!(USART2->SR & USART_SR_TXE));
+	USART2->DR |= 0x01; // Clear display
+	while(!(USART2->SR & USART_SR_TXE));
+}
+
+void Write_Character(char letter){
+	USART2->DR |= letter;
+	while(!(USART2->SR & USART_SR_TXE));
+	while(!(USART2->SR & USART_SR_TC));
+}
+
+void Write_String(char word[]){
+	for(int i; i < strlen(&word); i++){
+		USART2->DR |= word[i];
+		while(!(USART2->SR & USART_SR_TXE));
+		while(!(USART2->SR & USART_SR_TC));
+	}
 }
