@@ -49,10 +49,23 @@ void Write_Character(char);
 
 void Write_String(char*);
 
+void LCD_Scroll_Right(void);
+
+void LCD_Scroll_Left(void);
+
+void LCD_Blink_Cursor(void);
+
+void Change_Baud_Rate(void);
+void Reset_Baud_Rate(void);
+void LCD_Backlight_OFF(void);
+void LCD_Backlight_ON(void);
+
 int main(void)
 {
 	//uint32_t stringlength = 0;
-	char* word = "Hello World!";
+	char* word = "Hello World!     ";
+	char* wordtwo = "     678901";
+	int cycles = 2000000;
 
 	SystemCoreClockUpdate();
 
@@ -63,34 +76,23 @@ int main(void)
 	//TIM2_CONFIG(1000); 			// ms
 	//TIM10_CONFIG(30.5); 		// Hz [30.5Hz to 500kHz]
 	USART2_CONFIG();
-
 	SystemCoreClockUpdate();
+	//Reset_Baud_Rate();
+	//Change_Baud_Rate();
+	LCD_Blink_Cursor();
+	//LCD_Backlight_OFF();
+	//LCD_Backlight_ON();
+
 	Clear_Display();
-
-//	Write_Character('H');
-//	Write_Character('e');
-//	Write_Character('l');
-//	Write_Character('l');
-//	Write_Character('o');
-//	Write_Character(' ');
-//	Write_Character('W');
-//	Write_Character('o');
-//	Write_Character('r');
-//	Write_Character('l');
-//	Write_Character('d');
-//	Write_Character('!');
-//	while(!(USART2->SR & USART_SR_TC));
-
-//	Clear_Display();
-//	delay(999999);
-
-
 	Write_String(word);
-	while(!(USART2->SR & USART_SR_TC));
-
+	Write_String(wordtwo);
+	while (1) {
+		LCD_Scroll_Right();
+		delay(cycles);
+	}
+	
 	RCC->APB1ENR &= ~RCC_APB1ENR_USART2EN;
 	USART2->CR1 &= ~USART_CR1_TE;
-
 }
 
 void FLASH_AND_POWER_CONFIG(void){
@@ -156,19 +158,23 @@ void USART2_CONFIG(void){
 	 *
 	*/
 	RCC->APB1ENR |= RCC_APB1ENR_USART2EN; // APB1 PERIPH CLK = 24MHz
+
 	GPIOA->MODER |= GPIO_MODER_MODE2_1; // Alternate function
 	GPIOA->AFR[0] |= (	GPIO_AFRL_AFRL2_0 |
 						GPIO_AFRL_AFRL2_1 |
 						GPIO_AFRL_AFRL2_2 );
 	//GPIOA->PUPDR |= GPIO_PUPDR_PUPD2_0; // pull-up
+	
 	//USART2->CR2 |= USART_CR2_STOP;	// Stop bit: 0b00 is 1 stop bit by default
 	USART2->CR1 |= USART_CR1_UE; 		// Enables USART
+	//USART2->CR1 |= USART_CR1_OVER8; 		// Enables USART
 
 	// Since 153600 has no fraction, only mantissa is required?
-	// DIV = AHBCLK / ((BAUD)*(16)) = 153600 = 0x25800 [note: OVER8 = 1]
-	USART2->BRR |= (0x9C<<USART_BRR_DIV_Mantissa_Pos);
+	// DIV = AHBCLK / ((BAUD)*(16)) = 0x9C [note: OVER8 = 0]
+	USART2->BRR |= (0x9C<<USART_BRR_DIV_Mantissa_Pos);		// 9600 Baud
+	//USART2->BRR |= (0x27<<USART_BRR_DIV_Mantissa_Pos);	// 38400 Baud
+	//USART2->BRR |= (0x4E<<USART_BRR_DIV_Mantissa_Pos);	// 19200 Baud
 	USART2->BRR &= ~USART_BRR_DIV_Fraction_Msk;
-
 
 	USART2->CR1 |= USART_CR1_TE; 		// Transmitter enabled
 }
@@ -273,6 +279,7 @@ void Clear_Display(void){
 void Write_Character(char letter){
 	USART2->DR |= letter;
 	while(!(USART2->SR & USART_SR_TXE));
+
 }
 
 void Write_String(char* word){
@@ -285,4 +292,59 @@ void Write_String(char* word){
 		while(!(USART2->SR & USART_SR_TXE));
 		word++;
 	}
+	while (!(USART2->SR & USART_SR_TC));
+}
+
+void LCD_Scroll_Right(void) {
+	USART2->DR |= 0xFE;
+	while (!(USART2->SR & USART_SR_TXE));
+	USART2->DR |= 0x1C;
+	while (!(USART2->SR & USART_SR_TXE));
+	while (!(USART2->SR & USART_SR_TC));
+}
+
+void LCD_Scroll_Left(void) {
+	USART2->DR |= 0xFE;
+	while (!(USART2->SR & USART_SR_TXE));
+	USART2->DR |= 0x18;
+	while (!(USART2->SR & USART_SR_TXE));
+	while (!(USART2->SR & USART_SR_TC));
+}
+
+void LCD_Blink_Cursor(void) {
+	USART2->DR |= 0xFE;
+	while (!(USART2->SR & USART_SR_TXE));
+	USART2->DR |= 0x0D;
+	while (!(USART2->SR & USART_SR_TXE));
+	while (!(USART2->SR & USART_SR_TC));
+}
+
+void Change_Baud_Rate(void) {
+	USART2->DR |= 0x7C;
+	while (!(USART2->SR & USART_SR_TXE));
+	USART2->DR |= 0x0D; //0x10 for 38400; 0x0D for 9600; 0x0F for 19200
+	while (!(USART2->SR & USART_SR_TXE));
+	while (!(USART2->SR & USART_SR_TC));
+}
+
+void Reset_Baud_Rate(void) {
+	USART2->DR |= 0x12;
+	while (!(USART2->SR & USART_SR_TXE));
+	while (!(USART2->SR & USART_SR_TC));
+}
+
+void LCD_Backlight_OFF(void) {
+	USART2->DR |= 0x7C;
+	while (!(USART2->SR & USART_SR_TXE));
+	USART2->DR |= 0x80;
+	while (!(USART2->SR & USART_SR_TXE));
+	while (!(USART2->SR & USART_SR_TC));
+}
+
+void LCD_Backlight_ON(void) {
+	USART2->DR |= 0x7C;
+	while (!(USART2->SR & USART_SR_TXE));
+	USART2->DR |= 0x9D;
+	while (!(USART2->SR & USART_SR_TXE));
+	while (!(USART2->SR & USART_SR_TC));
 }
