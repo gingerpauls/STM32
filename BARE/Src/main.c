@@ -56,8 +56,11 @@ void LCD_Scroll_Left(void);
 void LCD_Blink_Cursor(void);
 
 void Change_Baud_Rate(void);
+
 void Reset_Baud_Rate(void);
+
 void LCD_Backlight_OFF(void);
+
 void LCD_Backlight_ON(void);
 
 int main(void)
@@ -65,49 +68,30 @@ int main(void)
 	//uint32_t stringlength = 0;
 	char* word = "Hello World!     ";
 	char* wordtwo = "     678901";
-	int cycles = 5000000;
+	int cycles = 9600000;
 
 	SystemCoreClockUpdate();
 
 	FLASH_AND_POWER_CONFIG(); // for HCLK = 96MHz
-	//SYSTICK_CONFIG();
+
 	GPIO_CONFIG();
 	HSE_PLL_CLK_EN();
-	//TIM2_CONFIG(1000); 			// ms
-	//TIM10_CONFIG(30.5); 		// Hz [30.5Hz to 500kHz]
+
 	USART2_CONFIG();
 	SystemCoreClockUpdate();
-	//Reset_Baud_Rate();
-	//Change_Baud_Rate();
+	Reset_Baud_Rate();
+
 	LCD_Blink_Cursor();
-	//LCD_Backlight_OFF();
-	//LCD_Backlight_ON();
 
-	Clear_Display();
-	delay(cycles);
-	Write_String(word);
-	GPIOD->ODR |= LED_GREEN;
-	delay(cycles);
-	Clear_Display();
-	delay(cycles);
-	Write_String(word);
-	GPIOD->ODR |= LED_BLUE;
-
-	USART2->DR |= 0x7C;
-	while (!(USART2->SR & USART_SR_TXE));
-	USART2->DR |= 0x0D; //0x10 for 38400; 0x0D for 9600; 0x0F for 19200
-	while (!(USART2->SR & USART_SR_TXE));
-	while (!(USART2->SR & USART_SR_TC));
-
-	Clear_Display();
-	delay(cycles);
-	Write_String(word);
-	GPIOD->ODR |= LED_ORANGE;
-	delay(cycles);
-	Clear_Display();
-	delay(cycles);
-	Write_String(word);
-	GPIOD->ODR |= LED_RED;
+	for (int i = 0; i < 4; i++){
+		Clear_Display();
+		delay(cycles);
+		GPIOD->ODR |= LED_GREEN;
+		Write_String(word);
+		delay(cycles);
+		GPIOD->ODR &= ~LED_GREEN;
+		Clear_Display();
+	}
 
 	RCC->APB1ENR &= ~RCC_APB1ENR_USART2EN;
 	USART2->CR1 &= ~USART_CR1_TE;
@@ -190,9 +174,7 @@ void USART2_CONFIG(void){
 	// Since 153600 has no fraction, only mantissa is required?
 	// DIV = AHBCLK / ((BAUD)*(16)) = 0x9C [note: OVER8 = 0]
 	USART2->BRR |= (0x9C<<USART_BRR_DIV_Mantissa_Pos);		// 9600 Baud
-	//USART2->BRR |= (0x27<<USART_BRR_DIV_Mantissa_Pos);	// 38400 Baud
-	//USART2->BRR |= (0x4E<<USART_BRR_DIV_Mantissa_Pos);	// 19200 Baud
-	USART2->BRR &= ~USART_BRR_DIV_Fraction_Msk;
+	USART2->BRR |= (0x4<<USART_BRR_DIV_Fraction_Msk);
 
 	USART2->CR1 |= USART_CR1_TE; 		// Transmitter enabled
 }
@@ -340,7 +322,7 @@ void LCD_Blink_Cursor(void) {
 void Change_Baud_Rate(void) {
 	USART2->DR |= 0x7C;
 	while (!(USART2->SR & USART_SR_TXE));
-	USART2->DR |= 0x0D; //0x10 for 38400; 0x0D for 9600; 0x0F for 19200
+	USART2->DR |= 0x10; //0x10 for 38400; 0x0D for 9600; 0x0F for 19200
 	while (!(USART2->SR & USART_SR_TXE));
 	while (!(USART2->SR & USART_SR_TC));
 }
