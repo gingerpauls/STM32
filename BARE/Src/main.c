@@ -49,41 +49,36 @@ void Write_Character(char);
 
 void Write_String(char*);
 
-void LCD_Scroll_Right(void);
+void Scroll_Right(void);
 
-void LCD_Scroll_Left(void);
+void Scroll_Left(void);
 
-void LCD_Blink_Cursor(void);
+void Blink_Cursor(void);
 
 void Change_Baud_Rate(uint8_t);
 
 void Reset_Baud_Rate(void);
 
-void LCD_Backlight_OFF(void);
+void Backlight_OFF(void);
 
-void LCD_Backlight_ON(void);
+void Backlight_ON(void);
 
-int main(void)
-{
-	//uint32_t stringlength = 0;
-	char* word = "Hello World!     ";
-	char* wordtwo = "     678901";
+int main(void) {
+	char *word = "Hello World!     ";
 	int cycles = 9600000;
 
 	FLASH_AND_POWER_CONFIG(); // for HCLK = 96MHz
 	GPIO_CONFIG();
 	HSE_PLL_CLK_EN();
 	//Reset_Baud_Rate(); // MUST REMOVE AFTER RESETTING
-	USART2_CONFIG(0x9C, 0x4, USART_CR2_STOP_0); 		// 9600
+	USART2_CONFIG(0x9C, 0x4, 0x0); 		// 9600
 	//Change_Baud_Rate(0x0D); 		// 9600
 	//Change_Baud_Rate(0x0C);			// 4800
 	//USART2_CONFIG(0x138, 0x8, USART_CR2_STOP_Msk); 		// 4800
 
-
-
-	//LCD_Blink_Cursor();
+	//Blink_Cursor();
 	delay(cycles);
-	for (int i = 0; i < 4; i++){
+	for (int i = 0; i < 4; i++) {
 		Clear_Display();
 		delay(cycles);
 		GPIOD->ODR |= LED_GREEN;
@@ -97,27 +92,30 @@ int main(void)
 	USART2->CR1 &= ~USART_CR1_TE;
 }
 
-void FLASH_AND_POWER_CONFIG(void){
+void FLASH_AND_POWER_CONFIG(void) {
 	PWR->CR |= PWR_CR_VOS;
-	FLASH->ACR |= FLASH_ACR_ICEN | FLASH_ACR_DCEN | FLASH_ACR_PRFTEN | FLASH_ACR_LATENCY_3WS;
+	FLASH->ACR |= 	FLASH_ACR_ICEN 			|
+					FLASH_ACR_DCEN			|
+					FLASH_ACR_PRFTEN 		|
+					FLASH_ACR_LATENCY_3WS	;
 }
 
-void SYSTICK_CONFIG(void){
+void SYSTICK_CONFIG(void) {
 	SysTick->LOAD |= SysTick_LOAD_RELOAD_Msk; // this is about 1 second
 	//NVIC_SetPriority (SysTick_IRQn, (1UL << __NVIC_PRIO_BITS) - 1UL);
 	SysTick->VAL &= ~SysTick_VAL_CURRENT_Msk;
 	SysTick->CTRL |= 	SysTick_CTRL_CLKSOURCE_Msk 	|
 						SysTick_CTRL_TICKINT_Msk 	|
-						SysTick_CTRL_ENABLE_Msk;
+						SysTick_CTRL_ENABLE_Msk		;
 }
 
-void GPIO_CONFIG(void){
+void GPIO_CONFIG(void) {
 	RCC->AHB1ENR |= RCC_AHB1ENR_GPIOAEN | RCC_AHB1ENR_GPIODEN;
 
-	GPIOD->MODER |= GPIO_MODER_MODE12_0 |
-					GPIO_MODER_MODE13_0 |
-					GPIO_MODER_MODE14_0 |
-					GPIO_MODER_MODE15_0; // set GPIO to "output" mode for LEDs
+	GPIOD->MODER |= 	GPIO_MODER_MODE12_0 |
+						GPIO_MODER_MODE13_0 |
+						GPIO_MODER_MODE14_0 |
+						GPIO_MODER_MODE15_0	; // set GPIO to "output" mode for LEDs
 
 //	GPIOD->OSPEEDR |= 	GPIO_OSPEEDER_OSPEEDR12 |
 //						GPIO_OSPEEDER_OSPEEDR13 |
@@ -125,7 +123,7 @@ void GPIO_CONFIG(void){
 //						GPIO_OSPEEDER_OSPEEDR15;
 }
 
-void TIM2_CONFIG(uint32_t timeMilliSeconds){
+void TIM2_CONFIG(uint32_t timeMilliSeconds) {
 	SystemCoreClockUpdate();
 	RCC->APB1ENR |= RCC_APB1ENR_TIM2EN | RCC_APB1ENR_PWREN;
 	TIM2->ARR = timeMilliSeconds; // 1000 * 1ms = 1s
@@ -136,11 +134,11 @@ void TIM2_CONFIG(uint32_t timeMilliSeconds){
 	NVIC->ISER[0] |= 1 << TIM2_IRQn; // IRQn of TIM2 => 0x10000000 = '28' (bit 28)
 }
 
-void TIM10_CONFIG(uint32_t frequency){
+void TIM10_CONFIG(uint32_t frequency) {
 	SystemCoreClockUpdate();
 
 	RCC->APB2ENR |= RCC_APB2ENR_TIM10EN;
-	TIM10->ARR = (1000000/(2*frequency)); // set in us
+	TIM10->ARR = (1000000 / (2 * frequency)); // set in us
 	TIM10->PSC = (SystemCoreClock / 1000000) - 1; //1 us
 	TIM10->DIER |= TIM_DIER_UIE;
 	TIM10->CR1 |= TIM_CR1_CEN;
@@ -148,7 +146,7 @@ void TIM10_CONFIG(uint32_t frequency){
 	NVIC->ISER[0] |= 1 << TIM1_UP_TIM10_IRQn; // IRQn of TIM2 = 25
 }
 
-void USART2_CONFIG(uint32_t mantissa, uint32_t fraction, uint32_t stop){
+void USART2_CONFIG(uint32_t mantissa, uint32_t fraction, uint32_t stop) {
 	/* 	USART2_TX -> PA2 (alternate function) uses AHB
 	 *	USART on PA2 -> AF7
 	 *	LCD:
@@ -158,31 +156,29 @@ void USART2_CONFIG(uint32_t mantissa, uint32_t fraction, uint32_t stop){
 	 *		1 stop
 	 *		no parity
 	 *
-	*/
+	 */
 	RCC->APB1ENR |= RCC_APB1ENR_USART2EN; // APB1 PERIPH CLK = 24MHz
 
 	GPIOA->MODER |= GPIO_MODER_MODE2_1; // Alternate function
-	GPIOA->AFR[0] |= (	GPIO_AFRL_AFRL2_0 |
-						GPIO_AFRL_AFRL2_1 |
-						GPIO_AFRL_AFRL2_2 );
+	GPIOA->AFR[0] |= ( 	GPIO_AFRL_AFRL2_0 	|
+						GPIO_AFRL_AFRL2_1 	|
+						GPIO_AFRL_AFRL2_2	);
 	//GPIOA->PUPDR |= GPIO_PUPDR_PUPD2_0; // pull-up
-	
-	//USART2->CR2 |= USART_CR2_STOP;	// Stop bit: 0b00 is 1 stop bit by default
-	USART2->CR1 |= USART_CR1_UE; 		// Enables USART
-	//USART2->CR1 |= USART_CR1_OVER8; 		// Enables USART
 
-	// Since 153600 has no fraction, only mantissa is required?
-	// DIV = AHBCLK / ((BAUD)*(16)) = 0x9C [note: OVER8 = 0]
+	USART2->CR2 |= (stop << USART_CR2_STOP_Pos);// Stop bit: 0b00 is 1 stop bit by default
+	USART2->CR1 |= USART_CR1_UE; 		// Enables USART
+	//USART2->CR1 |= USART_CR1_OVER8; 		// if 0-> 16x over-sampling; if 1-> 8x over-sampling
+
 	USART2->BRR &= ~USART_BRR_DIV_Mantissa_Msk;		// 9600 Baud
 	USART2->BRR &= ~USART_BRR_DIV_Fraction_Msk;
 
-	USART2->BRR |= (mantissa<<USART_BRR_DIV_Mantissa_Pos);		// 9600 Baud
-	USART2->BRR |= (fraction<<USART_BRR_DIV_Fraction_Pos);
+	USART2->BRR |= (mantissa << USART_BRR_DIV_Mantissa_Pos);		// 9600 Baud
+	USART2->BRR |= (fraction << USART_BRR_DIV_Fraction_Pos);
 
 	USART2->CR1 |= USART_CR1_TE; 		// Transmitter enabled
 }
 
-void HSI_PLL_CLK_EN(void){
+void HSI_PLL_CLK_EN(void) {
 	/* PLL 		M-8 	| N-192 	| P-4 	| Q-8
 	 * PLLI2S	M-10	| N-200		| R-2
 	 * AHB		1
@@ -190,7 +186,7 @@ void HSI_PLL_CLK_EN(void){
 	 * APB2		1
 	 * */
 	RCC->PLLCFGR |= RCC_PLLCFGR_PLLQ_3;
-	RCC->PLLCFGR &= ~(	RCC_PLLCFGR_PLLQ_0 	|
+	RCC->PLLCFGR &= ~( 	RCC_PLLCFGR_PLLQ_0 	|
 						RCC_PLLCFGR_PLLQ_1 	|
 						RCC_PLLCFGR_PLLQ_2	);
 
@@ -198,7 +194,7 @@ void HSI_PLL_CLK_EN(void){
 	RCC->PLLCFGR &= ~(RCC_PLLCFGR_PLLP_1);
 
 	RCC->PLLCFGR |= RCC_PLLCFGR_PLLM_3;
-	RCC->PLLCFGR &= ~(	RCC_PLLCFGR_PLLM_0	|
+	RCC->PLLCFGR &= ~( 	RCC_PLLCFGR_PLLM_0 	|
 						RCC_PLLCFGR_PLLM_1 	|
 						RCC_PLLCFGR_PLLM_2 	|
 						RCC_PLLCFGR_PLLM_4 	|
@@ -209,16 +205,16 @@ void HSI_PLL_CLK_EN(void){
 	RCC->PLLCFGR |= RCC_PLLCFGR_PLLSRC_HSI;
 
 	RCC->CR |= RCC_CR_HSION;
-	while(!(RCC->CR & RCC_CR_HSIRDY)){}
+	while (!(RCC->CR & RCC_CR_HSIRDY)) {}
 
 	RCC->CR |= RCC_CR_PLLON;
-	while(!(RCC->CR & RCC_CR_PLLRDY)){}
+	while (!(RCC->CR & RCC_CR_PLLRDY)) {}
 
 	RCC->CFGR |= RCC_CFGR_SW_PLL;
-	while(!(RCC->CFGR & RCC_CFGR_SWS_PLL)){}
+	while (!(RCC->CFGR & RCC_CFGR_SWS_PLL)) {}
 }
 
-void HSE_PLL_CLK_EN(void){
+void HSE_PLL_CLK_EN(void) {
 	/* PLL 		M-4 	| N-192 	| P-4 	| Q-8
 	 * PLLI2S	M-5	| N-200		| R-2
 	 * AHB		1
@@ -226,79 +222,79 @@ void HSE_PLL_CLK_EN(void){
 	 * APB2		1
 	 * */
 	RCC->PLLCFGR |= RCC_PLLCFGR_PLLQ_3;
-	RCC->PLLCFGR &= ~(	RCC_PLLCFGR_PLLQ_0 	|
-						RCC_PLLCFGR_PLLQ_1 	|
-						RCC_PLLCFGR_PLLQ_2	);
+	RCC->PLLCFGR &= ~( 	RCC_PLLCFGR_PLLQ_0 |
+						RCC_PLLCFGR_PLLQ_1 |
+						RCC_PLLCFGR_PLLQ_2);
 
 	RCC->PLLCFGR |= RCC_PLLCFGR_PLLP_0;
 	RCC->PLLCFGR &= ~(RCC_PLLCFGR_PLLP_1);
 
 	RCC->PLLCFGR |= RCC_PLLCFGR_PLLM_2;
-	RCC->PLLCFGR &= ~(	RCC_PLLCFGR_PLLM_0	|
-						RCC_PLLCFGR_PLLM_1 	|
-						RCC_PLLCFGR_PLLM_3 	|
-						RCC_PLLCFGR_PLLM_4 	|
-						RCC_PLLCFGR_PLLM_5	);
+	RCC->PLLCFGR &= ~( 	RCC_PLLCFGR_PLLM_0 |
+						RCC_PLLCFGR_PLLM_1 |
+						RCC_PLLCFGR_PLLM_3 |
+						RCC_PLLCFGR_PLLM_4 |
+						RCC_PLLCFGR_PLLM_5);
 
 	RCC->CFGR |= RCC_CFGR_PPRE1_DIV4;
 
 	RCC->PLLCFGR |= RCC_PLLCFGR_PLLSRC_HSE;
 
 	RCC->CR |= RCC_CR_HSEON;
-	while(!(RCC->CR & RCC_CR_HSERDY)){}
+	while (!(RCC->CR & RCC_CR_HSERDY)) {}
 
 	RCC->CR |= RCC_CR_PLLON;
-	while(!(RCC->CR & RCC_CR_PLLRDY)){}
+	while (!(RCC->CR & RCC_CR_PLLRDY)) {}
 
 	RCC->CFGR |= RCC_CFGR_SW_PLL;
-	while(!(RCC->CFGR & RCC_CFGR_SWS_PLL)){}
+	while (!(RCC->CFGR & RCC_CFGR_SWS_PLL)) {}
 }
 
-void delay(uint32_t cycles){
-	for(uint32_t i = 0; i < cycles; i++){} //7059 is from experimentation
+void delay(uint32_t cycles) {
+	for (uint32_t i = 0; i < cycles; i++) {} //7059 is from experimentation
 }
 
-void SysTick_Handler(void){
+void SysTick_Handler(void) {
 	GPIOD->ODR ^= LED_BLUE;
 }
 
-void TIM2_IRQHandler(void){
+void TIM2_IRQHandler(void) {
 	TIM2->SR &= ~TIM_SR_UIF;
 	GPIOD->ODR ^= LED_ORANGE;
 }
 
-void TIM1_UP_TIM10_IRQHandler(void){
+void TIM1_UP_TIM10_IRQHandler(void) {
 	TIM10->SR &= ~TIM_SR_UIF; // Clear the update interrupt flag
 	GPIOD->ODR ^= LED_GREEN; // Toggle the green LED
 }
 
-void Clear_Display(void){
+void Clear_Display(void) {
 	USART2->DR |= 0xFE; // 0xFE and 0x7C are special commands
-	while(!(USART2->SR & USART_SR_TXE));
+	while (!(USART2->SR & USART_SR_TXE));
 	USART2->DR |= 0x01; // Clear display
-	while(!(USART2->SR & USART_SR_TXE));
+	while (!(USART2->SR & USART_SR_TXE));
 }
 
-void Write_Character(char letter){
+void Write_Character(char letter) {
 	USART2->DR |= letter;
-	while(!(USART2->SR & USART_SR_TXE));
+	while (!(USART2->SR & USART_SR_TXE));
 
 }
 
-void Write_String(char* word){
+void Write_String(char *word) {
 //	for(int i = 0; i < strlen(*(word); i++){
 //		USART2->DR |= *word[i];
 //		while(!(USART2->SR & USART_SR_TXE));
 //	}
-	while (*word != '\0'){
+	while (*word != '\0') {
 		USART2->DR |= *word;
-		while(!(USART2->SR & USART_SR_TXE));
+		while (!(USART2->SR & USART_SR_TXE));
 		word++;
 	}
 	while (!(USART2->SR & USART_SR_TC));
 }
 
-void LCD_Scroll_Right(void) {
+void Scroll_Right(void) {
 	USART2->DR |= 0xFE;
 	while (!(USART2->SR & USART_SR_TXE));
 	USART2->DR |= 0x1C;
@@ -306,7 +302,7 @@ void LCD_Scroll_Right(void) {
 	while (!(USART2->SR & USART_SR_TC));
 }
 
-void LCD_Scroll_Left(void) {
+void Scroll_Left(void) {
 	USART2->DR |= 0xFE;
 	while (!(USART2->SR & USART_SR_TXE));
 	USART2->DR |= 0x18;
@@ -314,7 +310,7 @@ void LCD_Scroll_Left(void) {
 	while (!(USART2->SR & USART_SR_TC));
 }
 
-void LCD_Blink_Cursor(void) {
+void Blink_Cursor(void) {
 	USART2->DR |= 0xFE;
 	while (!(USART2->SR & USART_SR_TXE));
 	USART2->DR |= 0x0D;
@@ -336,7 +332,7 @@ void Reset_Baud_Rate(void) {
 	while (!(USART2->SR & USART_SR_TC));
 }
 
-void LCD_Backlight_OFF(void) {
+void Backlight_OFF(void) {
 	USART2->DR |= 0x7C;
 	while (!(USART2->SR & USART_SR_TXE));
 	USART2->DR |= 0x80;
@@ -344,7 +340,7 @@ void LCD_Backlight_OFF(void) {
 	while (!(USART2->SR & USART_SR_TC));
 }
 
-void LCD_Backlight_ON(void) {
+void Backlight_ON(void) {
 	USART2->DR |= 0x7C;
 	while (!(USART2->SR & USART_SR_TXE));
 	USART2->DR |= 0x9D;
