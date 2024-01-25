@@ -57,10 +57,11 @@ int main(void)
 	I2C_CONFIG();
 	DAC_POWER_UP();
 
-	I2C_WRITE(0x1C, 0x7F);// Beep address; beep frequency (260Hz) & time (5.2s)
-	I2C_WRITE(0x1E, 0xC0);// beep & tone configuration address
-	I2C_WRITE(0x04, 0x2);// headphones always on
-	I2C_WRITE(0x05, 0x1);// headphones always on
+
+	I2C_WRITE(0x1C, 0x7F);	// Beep address; beep frequency (260Hz) & time (5.2s)
+	I2C_WRITE(0x1E, 0xC0);	// beep & tone configuration address
+	I2C_WRITE(0x04, 0x2);	// headphones always on
+	I2C_WRITE(0x05, 0x1);	// auto detect clock when CS43L22 is slave
 
 	GPIOD->ODR |= LED_GREEN;
 
@@ -246,12 +247,11 @@ void I2C_CONFIG(void){
 	RCC->AHB1ENR |= RCC_AHB1ENR_GPIOBEN | RCC_AHB1ENR_GPIOCEN;
 
 	GPIOB->MODER |= GPIO_MODER_MODE6_1; // alt function
-	GPIOB->AFR[0] |= 0x4<<24; // AFR[0] is lower; 0x4 is AF4; 24 is bit position of Pin 6
+	GPIOB->AFR[0] |= (0x4<<24); // AFR[0] is lower; 0x4 is AF4; 24 is bit position of Pin 6
 	GPIOB->MODER |= GPIO_MODER_MODE9_1; // alt function
-	GPIOB->AFR[1] |= 0x4<<4; // AFR[1] is higher; 0x4 is AF4; 4 is bit position of Pin 9
+	GPIOB->AFR[1] |= (0x4<<4); // AFR[1] is higher; 0x4 is AF4; 4 is bit position of Pin 9
 	GPIOB->PUPDR |= GPIO_PUPDR_PUPD6_0 | GPIO_PUPDR_PUPD9_0; // pull up
 	GPIOB->OTYPER |= GPIO_OTYPER_OT6 | GPIO_OTYPER_OT9; // open drain - is this correct config for I2C?
-
 
 	GPIOD->MODER |= GPIO_MODER_MODE4_0; // output to RESET
 	//GPIOD->MODER |= GPIO_MODER_MODE4_1; // alt function to RESET
@@ -276,14 +276,14 @@ void I2C_WRITE(uint8_t regaddress, uint8_t data){
 	// chip address always starts with '0b1001010x' (0x94) AD0 is always 0 (connected to DGND) I think...
 	I2C1->DR = 0x94; // address phase
 	while(!(I2C1->SR1 & I2C_SR1_ADDR)){}
-
+	//dummy = I2C1->SR1 | I2C1->SR2; // this clears ADDR
+	I2C1->SR1 | I2C1->SR2;
 	I2C1->DR = regaddress;
-	while(!(I2C1->SR1 & I2C_SR1_AF)){}
-	//while(!(I2C1->SR1 & I2C_SR1_TXE)){}
-	//while(!(I2C1->SR1 & I2C_SR1_BTF)){}
+	//while(!(I2C1->SR1 & I2C_SR1_AF)){}
+	while(!(I2C1->SR1 & I2C_SR1_TXE)){}
 	I2C1->DR = data;
-	//while(!(I2C1->SR1 & I2C_SR1_TXE)){}
-	//while(!(I2C1->SR1 & I2C_SR1_BTF)){}
+	while(!(I2C1->SR1 & I2C_SR1_TXE)){}
+	while(!(I2C1->SR1 & I2C_SR1_BTF)){}
 	I2C_STOP();
 }
 void I2C_START(void){
