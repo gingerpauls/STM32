@@ -65,7 +65,7 @@ int main(void)
 	//uint32_t stringlength = 0;
 	char* word = "Hello World!     ";
 	char* wordtwo = "     678901";
-	int cycles = 2000000;
+	int cycles = 5000000;
 
 	SystemCoreClockUpdate();
 
@@ -84,13 +84,31 @@ int main(void)
 	//LCD_Backlight_ON();
 
 	Clear_Display();
+	delay(cycles);
 	Write_String(word);
-	Write_String(wordtwo);
-	while (1) {
-		LCD_Scroll_Right();
-		delay(cycles);
-	}
-	
+	GPIOD->ODR |= LED_GREEN;
+	delay(cycles);
+	Clear_Display();
+	delay(cycles);
+	Write_String(word);
+	GPIOD->ODR |= LED_BLUE;
+
+	USART2->DR |= 0x7C;
+	while (!(USART2->SR & USART_SR_TXE));
+	USART2->DR |= 0x0D; //0x10 for 38400; 0x0D for 9600; 0x0F for 19200
+	while (!(USART2->SR & USART_SR_TXE));
+	while (!(USART2->SR & USART_SR_TC));
+
+	Clear_Display();
+	delay(cycles);
+	Write_String(word);
+	GPIOD->ODR |= LED_ORANGE;
+	delay(cycles);
+	Clear_Display();
+	delay(cycles);
+	Write_String(word);
+	GPIOD->ODR |= LED_RED;
+
 	RCC->APB1ENR &= ~RCC_APB1ENR_USART2EN;
 	USART2->CR1 &= ~USART_CR1_TE;
 }
