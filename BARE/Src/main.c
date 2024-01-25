@@ -39,7 +39,7 @@ void TIM2_CONFIG(uint32_t timeMilliSeconds);
 
 void TIM10_CONFIG(uint32_t frequency);
 
-void USART2_CONFIG(void);
+void USART2_CONFIG(uint32_t, uint32_t, uint32_t);
 
 void delay(uint32_t cycles);
 
@@ -55,7 +55,7 @@ void LCD_Scroll_Left(void);
 
 void LCD_Blink_Cursor(void);
 
-void Change_Baud_Rate(void);
+void Change_Baud_Rate(uint8_t);
 
 void Reset_Baud_Rate(void);
 
@@ -70,19 +70,19 @@ int main(void)
 	char* wordtwo = "     678901";
 	int cycles = 9600000;
 
-	SystemCoreClockUpdate();
-
 	FLASH_AND_POWER_CONFIG(); // for HCLK = 96MHz
-
 	GPIO_CONFIG();
 	HSE_PLL_CLK_EN();
+	//Reset_Baud_Rate(); // MUST REMOVE AFTER RESETTING
+	USART2_CONFIG(0x9C, 0x4, USART_CR2_STOP_0); 		// 9600
+	//Change_Baud_Rate(0x0D); 		// 9600
+	//Change_Baud_Rate(0x0C);			// 4800
+	//USART2_CONFIG(0x138, 0x8, USART_CR2_STOP_Msk); 		// 4800
 
-	USART2_CONFIG();
-	SystemCoreClockUpdate();
-	Reset_Baud_Rate();
 
-	LCD_Blink_Cursor();
 
+	//LCD_Blink_Cursor();
+	delay(cycles);
 	for (int i = 0; i < 4; i++){
 		Clear_Display();
 		delay(cycles);
@@ -148,7 +148,7 @@ void TIM10_CONFIG(uint32_t frequency){
 	NVIC->ISER[0] |= 1 << TIM1_UP_TIM10_IRQn; // IRQn of TIM2 = 25
 }
 
-void USART2_CONFIG(void){
+void USART2_CONFIG(uint32_t mantissa, uint32_t fraction, uint32_t stop){
 	/* 	USART2_TX -> PA2 (alternate function) uses AHB
 	 *	USART on PA2 -> AF7
 	 *	LCD:
@@ -173,8 +173,11 @@ void USART2_CONFIG(void){
 
 	// Since 153600 has no fraction, only mantissa is required?
 	// DIV = AHBCLK / ((BAUD)*(16)) = 0x9C [note: OVER8 = 0]
-	USART2->BRR |= (0x9C<<USART_BRR_DIV_Mantissa_Pos);		// 9600 Baud
-	USART2->BRR |= (0x4<<USART_BRR_DIV_Fraction_Msk);
+	USART2->BRR &= ~USART_BRR_DIV_Mantissa_Msk;		// 9600 Baud
+	USART2->BRR &= ~USART_BRR_DIV_Fraction_Msk;
+
+	USART2->BRR |= (mantissa<<USART_BRR_DIV_Mantissa_Pos);		// 9600 Baud
+	USART2->BRR |= (fraction<<USART_BRR_DIV_Fraction_Pos);
 
 	USART2->CR1 |= USART_CR1_TE; 		// Transmitter enabled
 }
@@ -319,10 +322,10 @@ void LCD_Blink_Cursor(void) {
 	while (!(USART2->SR & USART_SR_TC));
 }
 
-void Change_Baud_Rate(void) {
+void Change_Baud_Rate(uint8_t lcdbaudrate) {
 	USART2->DR |= 0x7C;
 	while (!(USART2->SR & USART_SR_TXE));
-	USART2->DR |= 0x10; //0x10 for 38400; 0x0D for 9600; 0x0F for 19200
+	USART2->DR |= lcdbaudrate; //0x10 for 38400; 0x0D for 9600; 0x0F for 19200
 	while (!(USART2->SR & USART_SR_TXE));
 	while (!(USART2->SR & USART_SR_TC));
 }
