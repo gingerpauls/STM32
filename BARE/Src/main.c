@@ -26,44 +26,44 @@
 
 void FLASH_AND_POWER_CONFIG(void);
 
-void SYSTICK_CONFIG(void);
-
 void GPIO_CONFIG(void);
 
 void HSI_PLL_CLK_EN(void);
-
 void HSE_PLL_CLK_EN(void);
-
 void PPLI2S_CONFIG(void);
 
+void SYSTICK_CONFIG(void);
 void TIM2_CONFIG(uint32_t timeMilliSeconds);
-
 void TIM10_CONFIG(uint32_t frequency);
 
 void I2C_CONFIG(void);
+void I2C_START(void);
+void I2C_STOP(void);
+void I2C_WRITE(uint8_t, uint8_t);
+void DAC_POWER_UP(void);
 
 void delay(uint32_t cycles);
 
 int main(void)
 {
+
 	SystemCoreClockUpdate();
 
 	FLASH_AND_POWER_CONFIG(); // for HCLK = 96MHz
-	//SYSTICK_CONFIG();
 	GPIO_CONFIG();
 	HSE_PLL_CLK_EN();
 	PPLI2S_CONFIG();
-	//TIM2_CONFIG(1000); 			// ms
-	//TIM10_CONFIG(30.5); 		// Hz [30.5Hz to 500kHz]
-	I2C_CONFIG();
-
 	SystemCoreClockUpdate();
+	I2C_CONFIG();
+	DAC_POWER_UP();
 
-	while(1){
+	I2C_WRITE(0x1C, 0x7F);// Beep address; beep frequency (260Hz) & time (5.2s)
+	I2C_WRITE(0x1E, 0xC0);// beep & tone configuration address
+	I2C_WRITE(0x04, 0x2);// headphones always on
+	I2C_WRITE(0x05, 0x1);// headphones always on
 
-		GPIOD->ODR |= LED_GREEN;
+	GPIOD->ODR |= LED_GREEN;
 
-	}
 }
 
 void FLASH_AND_POWER_CONFIG(void){
@@ -104,7 +104,6 @@ void TIM2_CONFIG(uint32_t timeMilliSeconds){
 	//__NVIC_EnableIRQ(TIM2_IRQn); //
 	NVIC->ISER[0] |= 1 << TIM2_IRQn; // IRQn of TIM2 => 0x10000000 = '28' (bit 28)
 }
-
 void TIM10_CONFIG(uint32_t frequency){
 	SystemCoreClockUpdate();
 
@@ -115,6 +114,20 @@ void TIM10_CONFIG(uint32_t frequency){
 	TIM10->CR1 |= TIM_CR1_CEN;
 	//__NVIC_EnableIRQ(TIM1_UP_TIM10_IRQn);
 	NVIC->ISER[0] |= 1 << TIM1_UP_TIM10_IRQn; // IRQn of TIM2 = 25
+}
+void delay(uint32_t cycles){
+	for(uint32_t i = 0; i < cycles; i++){}
+}
+void SysTick_Handler(void){
+	//GPIOD->ODR ^= LED_BLUE;
+}
+void TIM2_IRQHandler(void){
+	TIM2->SR &= ~TIM_SR_UIF;
+	//GPIOD->ODR ^= LED_ORANGE;
+}
+void TIM1_UP_TIM10_IRQHandler(void){
+	TIM10->SR &= ~TIM_SR_UIF; // Clear the update interrupt flag
+	//GPIOD->ODR ^= LED_GREEN; // Toggle the green LED
 }
 
 void HSI_PLL_CLK_EN(void){
@@ -152,7 +165,6 @@ void HSI_PLL_CLK_EN(void){
 	RCC->CFGR |= RCC_CFGR_SW_PLL;
 	while(!(RCC->CFGR & RCC_CFGR_SWS_PLL)){}
 }
-
 void PPLI2S_CONFIG(void){
 	// PLLI2S	M-5	| N-200	| R-2
 	RCC->PLLI2SCFGR |= (	RCC_PLLI2SCFGR_PLLI2SN_7 |
@@ -172,7 +184,6 @@ void PPLI2S_CONFIG(void){
 							RCC_PLLI2SCFGR_PLLI2SM_3 |
 							RCC_PLLI2SCFGR_PLLI2SM_1 );
 }
-
 void HSE_PLL_CLK_EN(void){
 	/* PLL 		M-4 	| N-192 	| P-4 	| Q-8
 	 * PLLI2S	M-5	| N-200		| R-2
@@ -247,7 +258,6 @@ void I2C_CONFIG(void){
 	//GPIOD->AFR[0] |= 0x4<<16; // AFR[0] is lower; 0x4 is AF4; 16 is bit position of Pin 4
 	GPIOD->ODR |= GPIO_ODR_OD4; // Sets RESET high (device is powered on)
 
-	//while(I2C1->SR2 & I2C_SR2_BUSY){} // wait for bus to not be busy
 	I2C1->CR1 |= I2C_CR1_SWRST; // this will clear the BUSY flag in SR2
 	I2C1->CR1 &= ~I2C_CR1_SWRST; // this will clear the BUSY flag in SR2
 
@@ -255,66 +265,49 @@ void I2C_CONFIG(void){
 	// sequence start
 	I2C1->CR2 |= 0x18; // 24 MHz
 	I2C1->CCR |= 0x78; // CCR = Thigh / Tpclk1 = 5us/41.666ns = 120
-	I2C1->TRISE |= 0x3E9; // mode + 1 => sm mode = 1000ns | fm mode = 300 ns
-	I2C1->TRISE &= ~(0x2<<I2C_TRISE_TRISE_Pos);
+	I2C1->TRISE &= ~(I2C_TRISE_TRISE_Msk);
+	//I2C1->TRISE |= 0x19; // (1000 ns / (1 / 24 MHz))
+	I2C1->TRISE |= (25<<0); // (1000 ns / (1 / 24 MHz))
 	I2C1->CR1 |= I2C_CR1_ACK; // ACK on
-
 	I2C1->CR1 |= I2C_CR1_PE; // Peripheral Enable I2C
+}
+void I2C_WRITE(uint8_t regaddress, uint8_t data){
+	I2C_START();
+	// chip address always starts with '0b1001010x' (0x94) AD0 is always 0 (connected to DGND) I think...
+	I2C1->DR = 0x94; // address phase
+	while(!(I2C1->SR1 & I2C_SR1_ADDR)){}
 
+	I2C1->DR = regaddress;
+	while(!(I2C1->SR1 & I2C_SR1_AF)){}
+	//while(!(I2C1->SR1 & I2C_SR1_TXE)){}
+	//while(!(I2C1->SR1 & I2C_SR1_BTF)){}
+	I2C1->DR = data;
+	//while(!(I2C1->SR1 & I2C_SR1_TXE)){}
+	//while(!(I2C1->SR1 & I2C_SR1_BTF)){}
+	I2C_STOP();
+}
+void I2C_START(void){
 	I2C1->CR1 |= I2C_CR1_START; // starts master mode from default
 	while(!(I2C1->SR1 & I2C_SR1_SB)){} // wait for start bit to go high
-	while(!(I2C1->SR1 & I2C_SR1_TXE)){}
-
-	// chip address always starts with '0b1001010x' (0x94) AD0 is always 0 (connected to DGND) I think...
-	I2C1->DR = 0x0;
-	if (I2C1->SR1 & I2C_SR1_AF){		//
-		GPIOD->ODR |= LED_RED;
-	}
-	while(I2C1->SR1 & I2C_SR1_ADDR); 	// while not end of transmission
-	if (I2C1->SR2 & I2C_SR2_MSL);		// read SR2 to clear ADDR
-
-
+}
+void I2C_STOP(void){
 	I2C1->CR1 |= I2C_CR1_STOP;
-	//while(!(I2C1->SR1 & I2C_SR1_TXE)){}
-	// sequence end
-
-	//I2C1->CR1 |= I2C_CR1_STOP;
-
-	// DAC Power Up Sequence
-	// supposed to hold RESET low until power supplies are stable?
-
-	// load Power Ctl. 1 (0x02) to 0x01
+	while(!(I2C1->SR2 & I2C_SR2_BUSY));
+}
+void DAC_POWER_UP(void){
 	// write 0x99 to register 0x00
+	I2C_WRITE(0x00, 0x99);
 	// write 0x80 to register 0x47
+	I2C_WRITE(0x47, 0x80);
 	// write '1'b to bit 7 in register 0x32
+	I2C_WRITE(0x32, (0x1<<7));
 	// write '0'b to bit 7 in register 0x32
+	I2C_WRITE(0x32, (0x0<<7));
 	// write 0x00 to register 0x00
+	I2C_WRITE(0x00,0x00);
 	// apply MCLK at appropriate freq
 
-
-	I2C1->DR = 0x1C; // Beep address
-	I2C1->DR = 0x0F; // beep frequency (260Hz) & time (5.2s)
-
-	I2C1->DR = 0x1E; // beep & tone configuration address
-	I2C1->DR |= 0x80;
-
-
+	// Power Ctl.1 'Powered Up'
+	I2C_WRITE(0x02,0x9E);
 }
 
-void delay(uint32_t cycles){
-	for(uint32_t i = 0; i < cycles; i++){}
-}
-
-void SysTick_Handler(void){
-	//GPIOD->ODR ^= LED_BLUE;
-}
-
-void TIM2_IRQHandler(void){
-	TIM2->SR &= ~TIM_SR_UIF;
-	//GPIOD->ODR ^= LED_ORANGE;
-}
-
-void TIM1_UP_TIM10_IRQHandler(void){
-	TIM10->SR &= ~TIM_SR_UIF; // Clear the update interrupt flag
-	//GPIOD->ODR ^= LED_GREEN; // Toggle the green LED
-}
