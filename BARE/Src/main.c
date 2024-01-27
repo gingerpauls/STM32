@@ -34,7 +34,7 @@ int main(void) {
 	int cycles = 9600000;
 	volatile uint32_t timercount = 0;
 	char *word = "Hello World!";
-	volatile char timerword[32];
+	char timerword[32];
 
 	FLASH_AND_POWER_CONFIG(); // for HCLK = 96MHz
 	HSE_PLL_CLK_EN();
@@ -52,7 +52,7 @@ int main(void) {
 		GPIOD->ODR ^= LED_GREEN;
 
 		timercount = ((TIM2->CNT*1e6)/96e6); // converts to microseconds
-		sprintf(timerword, "%d", timercount);
+		sprintf(timerword, "%d", (int)timercount);
 		TIM2->CNT = 0;
 		Clear_Display();
 		Write_String(timerword);
