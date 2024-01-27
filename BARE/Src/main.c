@@ -52,28 +52,21 @@ int main(void) {
 	RCC->PLLCFGR &= ~( 	RCC_PLLCFGR_PLLQ_0 |
 						RCC_PLLCFGR_PLLQ_1 |
 						RCC_PLLCFGR_PLLQ_2);
-
 	RCC->PLLCFGR |= RCC_PLLCFGR_PLLP_0;
 	RCC->PLLCFGR &= ~(RCC_PLLCFGR_PLLP_1);
-
 	RCC->PLLCFGR |= RCC_PLLCFGR_PLLM_2;
 	RCC->PLLCFGR &= ~( 	RCC_PLLCFGR_PLLM_0 |
 						RCC_PLLCFGR_PLLM_1 |
 						RCC_PLLCFGR_PLLM_3 |
 						RCC_PLLCFGR_PLLM_4 |
 						RCC_PLLCFGR_PLLM_5);
-
 	RCC->CFGR |= RCC_CFGR_PPRE1_DIV4;
 	RCC->DCKCFGR |= RCC_DCKCFGR_TIMPRE;
-
 	RCC->PLLCFGR |= RCC_PLLCFGR_PLLSRC_HSE;
-
 	RCC->CR |= RCC_CR_HSEON;
 	while (!(RCC->CR & RCC_CR_HSERDY)) {}
-
 	RCC->CR |= RCC_CR_PLLON;
 	while (!(RCC->CR & RCC_CR_PLLRDY)) {}
-
 	RCC->CFGR |= RCC_CFGR_SW_PLL;
 	while (!(RCC->CFGR & RCC_CFGR_SWS_PLL)) {}
 
@@ -96,12 +89,11 @@ int main(void) {
 	 */
 
 	RCC->AHB1ENR |= RCC_AHB1ENR_GPIOAEN;
-	RCC->APB1ENR |= RCC_APB1ENR_USART2EN; // APB1 PERIPH CLK = 24MHz
+	RCC->APB1ENR |= RCC_APB1ENR_USART2EN;
 	GPIOA->MODER |= GPIO_MODER_MODE2_1; // Alternate function
 	GPIOA->AFR[0] |= ( 	GPIO_AFRL_AFRL2_0 	|
 						GPIO_AFRL_AFRL2_1 	|
 						GPIO_AFRL_AFRL2_2	);
-	//GPIOA->PUPDR |= GPIO_PUPDR_PUPD2_0; // pull-up
 	USART2->CR2 |= (0x0 << USART_CR2_STOP_Pos);// Stop bit: 0b00 is 1 stop bit by default
 	USART2->CR1 |= USART_CR1_UE; 		// Enables USART
 	//USART2->CR1 |= USART_CR1_OVER8; 		// if 0-> 16x over-sampling; if 1-> 8x over-sampling
@@ -174,7 +166,3 @@ void TIM2_STOP(void){
 void delay(uint32_t cycles) {
 	for (volatile uint32_t i = 0; i < cycles; i++) {}
 }
-
-
-
-
