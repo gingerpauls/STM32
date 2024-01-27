@@ -48,11 +48,14 @@ int main(void) {
 		TIM2_START();
 		Clear_Display();
 		Write_String(word);
+
+
 		TIM2_STOP();
 		GPIOD->ODR ^= LED_GREEN;
 
-		timercount = ((TIM2->CNT*1e6)/96e6); // converts to microseconds
-		sprintf(timerword, "%d", (int)timercount);
+		//timercount = ((TIM2->CNT*1e9)/96e6); // converts count to nanoseconds 	(PSC = 0 96MHz
+		timercount = (TIM2->CNT*1e3); // converts count to nanoseconds		(PSC = 95)
+		sprintf(timerword, "%d ns", (int)timercount);
 		TIM2->CNT = 0;
 		Clear_Display();
 		Write_String(timerword);
@@ -185,8 +188,8 @@ void TIM2_CONFIG(uint32_t cycles) {
 	SystemCoreClockUpdate();
 	RCC->APB1ENR |= RCC_APB1ENR_TIM2EN | RCC_APB1ENR_PWREN;
 	TIM2->ARR = cycles; // 1000000 * 1us = 1s
-	//TIM2->PSC = (SystemCoreClock / 1e6) - 1; // 1us
-	TIM2->PSC = 0;
+	TIM2->PSC = (SystemCoreClock / 1e6) - 1; // 1us
+	//TIM2->PSC = 0;
 
 	TIM2->EGR |= TIM_EGR_UG;
 //	TIM2->DIER |= TIM_DIER_UIE;
