@@ -33,9 +33,9 @@ void delay(uint32_t cycles);
 
 int main(void) {
 	int cycles = 9600000;
-	int timercount = 0;
+	volatile uint32_t timercount = 0;
 	char *word = "Hello World!";
-	char timerword[16];
+	volatile char timerword[16];
 
 	FLASH_AND_POWER_CONFIG(); // for HCLK = 96MHz
 	HSE_PLL_CLK_EN();
@@ -43,27 +43,37 @@ int main(void) {
 	//Reset_Baud_Rate();
 	USART2_CONFIG(0x9C, 0x4, 0x0); 	// 9600
 	TIM2_CONFIG(TIM_ARR_ARR); // loads max counter value
-	srand((unsigned) time(0));
+	//srand((unsigned) time(0));
+
+//	while(1){
+//		GPIOD->ODR ^= LED_BLUE;
+//		TIM2_START();
+//		Clear_Display();
+//		Write_String(word);
+//		TIM2_STOP();
+//		GPIOD->ODR ^= LED_GREEN;
+//
+//		timercount = ((TIM2->CNT));
+//		//timercount = ((TIM2->CNT));
+//		sprintf(timerword, "%d", timercount);
+//		TIM2->CNT = 0;
+//		Clear_Display();
+//		Write_String(timerword);
+//		delay(cycles);
+//		GPIOD->ODR &= ~LED_BLUE;
+//		GPIOD->ODR &= ~LED_GREEN;
+//		delay(cycles);
+//	}
+
+
 
 	while(1){
 		GPIOD->ODR ^= LED_BLUE;
+		Clear_Display();
 		TIM2_START();
-		Clear_Display();
-		Write_String(word);
-
-		//delay(((uint32_t)rand()/1000));
-		TIM2_STOP();
-		GPIOD->ODR ^= LED_GREEN;
-		timercount = ((TIM2->CNT*10.4166)/1e3);
-
-		sprintf(timerword, "TIM2: %d us", timercount);
-		TIM2->CNT = 0;
-		Clear_Display();
+		timercount = ((TIM2->CNT));
+		sprintf(timerword, "%d", timercount);
 		Write_String(timerword);
-		delay(cycles);
-		GPIOD->ODR &= ~LED_BLUE;
-		GPIOD->ODR &= ~LED_GREEN;
-		delay(cycles);
 	}
 
 	return 0;
@@ -180,11 +190,13 @@ void TIM2_CONFIG(uint32_t cycles) {
 	SystemCoreClockUpdate();
 	RCC->APB1ENR |= RCC_APB1ENR_TIM2EN | RCC_APB1ENR_PWREN;
 	TIM2->ARR = cycles; // 1000000 * 1us = 1s
-//	TIM2->PSC = (SystemCoreClock / 1000000) - 1; // 1us; (SysClk/PPRE1)*2 for APB1 Timer clock freq.
-	TIM2->PSC = SystemCoreClock;
-	TIM2->DIER |= TIM_DIER_UIE;
-	//__NVIC_EnableIRQ(TIM2_IRQn);
-	//NVIC->ISER[0] |= 1 << TIM2_IRQn; // IRQn of TIM2 => 0x10000000 = '28' (bit 28)
+	//TIM2->PSC = (SystemCoreClock / 1e6) - 1; // 1us; (SysClk/PPRE1)*2 for APB1 Timer clock freq.
+	TIM2->PSC = 0;
+
+	TIM2->EGR |= TIM_EGR_UG;
+//	TIM2->DIER |= TIM_DIER_UIE;
+//	__NVIC_EnableIRQ(TIM2_IRQn);
+//	NVIC->ISER[0] |= 1 << TIM2_IRQn; // IRQn of TIM2 => 0x10000000 = '28' (bit 28)
 }
 void TIM2_IRQHandler(void) {
 	TIM2->SR &= ~TIM_SR_UIF;
