@@ -5,7 +5,7 @@
 
 void Clear_Display(void);
 void Write_Character(char);
-void Write_String(char*);
+void Write_String(volatile char*);
 void Scroll_Right(void);
 void Scroll_Left(void);
 void Blink_Cursor(void);

@@ -1,6 +1,7 @@
 #include "main.h"
 #include "string.h"
 #include "lcd.h"
+#include "stdio.h"
 
 #define BUTTON_MODE 0 										//0-HOLD 1-TOGGLE
 
@@ -21,44 +22,48 @@ void GPIO_CONFIG(void);
 void TIM2_CONFIG(uint32_t cycles);
 void TIM2_START(void);
 void TIM2_STOP(void);
-uint32_t TIM2_GETCURRENTVALUE(void);
 
-void TIM10_CONFIG(uint32_t cycles);
+
+void TIM10_CONFIG(uint32_t maxcount);
 
 void USART2_CONFIG(uint32_t, uint32_t, uint32_t);
 
-void delay(uint32_t cycles);
+void delay(const uint32_t cycles);
 
 
 int main(void) {
-	char *word = "Hello Dad!     ";
-	int cycles = 9600000;
-	uint32_t timercount = 0;
+	const int cycles = 9600000;
+	volatile int timercount = 0;
+	volatile char *word = "Hello World!";
+	volatile char timerword[16];
 
 	FLASH_AND_POWER_CONFIG(); // for HCLK = 96MHz
-	GPIO_CONFIG();
 	HSE_PLL_CLK_EN();
+	GPIO_CONFIG();
+	//Reset_Baud_Rate();
 	USART2_CONFIG(0x9C, 0x4, 0x0); 	// 9600
-	TIM2_CONFIG(TIM_ARR_ARR); // loads max counter value
-	SystemCoreClockUpdate();
+	TIM2_CONFIG(1000000); // loads max counter value
 
 	while(1){
-	GPIOD->ODR |= LED_ORANGE;
-	TIM2_START();
+		GPIOD->ODR ^= LED_BLUE;
+		TIM2_START();
+		Clear_Display();
+		Write_String(word);
+		TIM2_STOP();
+		GPIOD->ODR ^= LED_GREEN;
+		timercount = TIM2->CNT;
 
-	Clear_Display();
-	Write_String(word);
-
-	//delay(96);
-	TIM2_STOP();
-	GPIOD->ODR |= LED_GREEN;
-
-	timercount = TIM2->CNT;
-	//sscanf(timercount, "%")
-	//Write_String(timercount);
+		sprintf(timerword, "TIM2: %d", timercount);
+		TIM2->CNT = 0;
+		Clear_Display();
+		Write_String(timerword);
+		delay(cycles);
+		GPIOD->ODR &= ~LED_BLUE;
+		GPIOD->ODR &= ~LED_GREEN;
+		delay(cycles);
 	}
 
-	// reset timer
+	return 0;
 }
 
 
@@ -140,6 +145,7 @@ void HSE_PLL_CLK_EN(void) {
 						RCC_PLLCFGR_PLLM_5);
 
 	RCC->CFGR |= RCC_CFGR_PPRE1_DIV4;
+	RCC->DCKCFGR |= RCC_DCKCFGR_TIMPRE;
 
 	RCC->PLLCFGR |= RCC_PLLCFGR_PLLSRC_HSE;
 
@@ -171,33 +177,27 @@ void TIM2_CONFIG(uint32_t cycles) {
 	SystemCoreClockUpdate();
 	RCC->APB1ENR |= RCC_APB1ENR_TIM2EN | RCC_APB1ENR_PWREN;
 	TIM2->ARR = cycles; // 1000000 * 1us = 1s
-	TIM2->PSC = ((SystemCoreClock / 2) / 1000000) - 1; // 1us; divide by two for APB1 Timer clock freq.
+	TIM2->PSC = (SystemCoreClock / 1000000) - 1; // 1us; (SysClk/PPRE1)*2 for APB1 Timer clock freq.
 	TIM2->DIER |= TIM_DIER_UIE;
-	__NVIC_EnableIRQ(TIM2_IRQn); //
-	NVIC->ISER[0] |= 1 << TIM2_IRQn; // IRQn of TIM2 => 0x10000000 = '28' (bit 28)
+	//__NVIC_EnableIRQ(TIM2_IRQn);
+	//NVIC->ISER[0] |= 1 << TIM2_IRQn; // IRQn of TIM2 => 0x10000000 = '28' (bit 28)
 }
-
+void TIM2_IRQHandler(void) {
+	TIM2->SR &= ~TIM_SR_UIF;
+	GPIOD->ODR ^= LED_RED;
+}
 void TIM2_START(void){
 	TIM2->CR1 |= TIM_CR1_CEN;
 }
-
 void TIM2_STOP(void){
 	TIM2->CR1 &= ~TIM_CR1_CEN;
 }
 
-uint32_t TIM2_GETCURRENTVALUE(void){
-	return TIM2->CNT;
-}
-
-void TIM2_IRQHandler(void) {
-	TIM2->SR &= ~TIM_SR_UIF;
-	GPIOD->ODR |= LED_RED;
-}
-void TIM10_CONFIG(uint32_t cycles) {
+void TIM10_CONFIG(uint32_t maxcount) {
 	SystemCoreClockUpdate();
 
 	RCC->APB2ENR |= RCC_APB2ENR_TIM10EN;
-	TIM10->ARR = cycles; // set in us
+	TIM10->ARR = maxcount; // set in us
 	TIM10->PSC = (SystemCoreClock / 1000000) - 1; //1 us
 	TIM10->DIER |= TIM_DIER_UIE;
 	TIM10->CR1 |= TIM_CR1_CEN;
@@ -235,14 +235,14 @@ void USART2_CONFIG(uint32_t mantissa, uint32_t fraction, uint32_t stopbits) {
 	USART2->BRR &= ~USART_BRR_DIV_Mantissa_Msk;		// 9600 Baud
 	USART2->BRR &= ~USART_BRR_DIV_Fraction_Msk;
 
-	USART2->BRR |= (mantissa << USART_BRR_DIV_Mantissa_Pos);		// 9600 Baud
+	USART2->BRR |= (mantissa << USART_BRR_DIV_Mantissa_Pos);
 	USART2->BRR |= (fraction << USART_BRR_DIV_Fraction_Pos);
 
 	USART2->CR1 |= USART_CR1_TE; 		// Transmitter enabled
 }
 
-void delay(uint32_t cycles) {
-	for (uint32_t i = 0; i < cycles; i++) {} //7059 is from experimentation
+void delay(const uint32_t cycles) {
+	for (uint32_t i = 0; i < cycles; i++) {}
 }
 
 

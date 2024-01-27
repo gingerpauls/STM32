@@ -14,7 +14,7 @@ void Write_Character(char letter) {
 
 }
 
-void Write_String(char *word) {
+void Write_String(volatile char *word) {
 //	for(int i = 0; i < strlen(*(word); i++){
 //		USART2->DR |= *word[i];
 //		while(!(USART2->SR & USART_SR_TXE));
