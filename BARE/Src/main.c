@@ -60,80 +60,6 @@ int main(void) {
 	sentence1b.sentence = " ";
 	sentence2b.sentence = " ";
 
-/*
-	{
-		integer1 = rand();
-		integer2 = rand();
-		int_result = integer1 + integer2;
-	}
-*/
-
-/*
-	{
-		longlong1 = rand() + rand();
-		longlong2 = rand() + rand();
-		longlong_result = longlong1 + longlong2;
-	}
-*/
-
-/*
-
-	{
-		integer1 = rand();
-		integer2 = rand();
-		int_result = integer1 * integer2;
-	}
-
-*/
-
-/*
-	{
-		longlong1 = rand() + rand();
-		longlong2 = rand() + rand();
-		longlong_result = longlong1 * longlong2;
-	}
-
-*/
-
-/*
-
-	{
-		integer1 = rand();
-		integer2 = rand();
-		if(integer2 > 0){
-			int_result = (float)integer1 / (float)integer2;
-		}
-		else{
-			fprintf(stderr, "Cannot divide by zero\n");
-		}
-	}
-
-*/
-
-/*
-
-	{
-		longlong1 = rand() + rand();
-		longlong2 = rand() + rand();
-		if(longlong2 > 0){
-			longlong_result = (float)longlong1 / (float)longlong2;
-		}
-		else{
-			fprintf(stderr, "Cannot divide by zero\n");
-		}
-	}
-*/
-
-/*
-
-	{
-		letter2.letter = letter1.letter;
-		sentence1b.sentence = sentence1a.sentence;
-		sentence2b.sentence = sentence2a.sentence;
-	}
-*/
-
-
 	/* FLASH AND POWER */
 	{
 		PWR->CR |= PWR_CR_VOS;
@@ -142,18 +68,6 @@ int main(void) {
 						FLASH_ACR_PRFTEN 		|
 						FLASH_ACR_LATENCY_3WS	;
 	}
-
-	/* SYSTICK CONFIG */
-/*
-	{
-		SysTick->LOAD |= SysTick_LOAD_RELOAD_Msk; // this is about 1 second
-		//NVIC_SetPriority (SysTick_IRQn, (1UL << __NVIC_PRIO_BITS) - 1UL);
-		SysTick->VAL &= ~SysTick_VAL_CURRENT_Msk;
-		SysTick->CTRL |= 	SysTick_CTRL_CLKSOURCE_Msk 	|
-							SysTick_CTRL_TICKINT_Msk 	|
-							SysTick_CTRL_ENABLE_Msk		;
-	}
-*/
 
 	/* HSE PLL CONFIG AND ENABLE */
 	/* PLL 		M-8 	| N-192 	| P-4 	| Q-8
@@ -216,7 +130,6 @@ int main(void) {
 							GPIO_AFRL_AFRL2_2	);
 		USART2->CR2 |= (0x0 << USART_CR2_STOP_Pos);// Stop bit: 0b00 is 1 stop bit by default
 		USART2->CR1 |= USART_CR1_UE; 		// Enables USART
-		//USART2->CR1 |= USART_CR1_OVER8; 		// if 0-> 16x over-sampling; if 1-> 8x over-sampling
 		USART2->BRR &= ~USART_BRR_DIV_Mantissa_Msk;		// 9600 Baud
 		USART2->BRR &= ~USART_BRR_DIV_Fraction_Msk;
 		USART2->BRR |= (0x9C << USART_BRR_DIV_Mantissa_Pos);
@@ -231,9 +144,6 @@ int main(void) {
 		TIM2->ARR = TIM_ARR_ARR;
 		TIM2->PSC = 0;
 		TIM2->EGR |= TIM_EGR_UG;
-	//	TIM2->DIER |= TIM_DIER_UIE;
-	//	__NVIC_EnableIRQ(TIM2_IRQn);
-	//	NVIC->ISER[0] |= 1 << TIM2_IRQn; // IRQn of TIM2 => 0x10000000 = '28' (bit 28)
 	}
 
 	/* START PROMPT */
@@ -254,7 +164,7 @@ int main(void) {
 				TIM2_START();
 				int_result = integer1 + integer2;
 				TIM2_STOP();
-				timercount = ((TIM2->CNT*1e9)/96e6); // converts count to nanoseconds 	(PSC = 0 96MHz)
+				timercount = ((TIM2->CNT*1e9)/96e6);
 				time_of_all_trials += timercount;
 				TIM2->CNT = 0;
 			}
@@ -264,7 +174,6 @@ int main(void) {
 			Clear_Display();
 			Write_String(timerword);
 			delay(cycles);
-			Clear_Display();
 			GPIOD->ODR &= ~LED_BLUE;
 			GPIOD->ODR &= ~LED_GREEN;
 			delay(cycles);
@@ -280,7 +189,7 @@ int main(void) {
 				TIM2_START();
 				longlong_result = longlong1 + longlong2;
 				TIM2_STOP();
-				timercount = ((TIM2->CNT*1e9)/96e6); // converts count to nanoseconds 	(PSC = 0 96MHz)
+				timercount = ((TIM2->CNT*1e9)/96e6);
 				time_of_all_trials += timercount;
 				TIM2->CNT = 0;
 			}
@@ -290,7 +199,6 @@ int main(void) {
 			Clear_Display();
 			Write_String(timerword);
 			delay(cycles);
-			Clear_Display();
 			GPIOD->ODR &= ~LED_BLUE;
 			GPIOD->ODR &= ~LED_GREEN;
 			delay(cycles);
@@ -306,7 +214,7 @@ int main(void) {
 				TIM2_START();
 				int_result = integer1 * integer2;
 				TIM2_STOP();
-				timercount = ((TIM2->CNT*1e9)/96e6); // converts count to nanoseconds 	(PSC = 0 96MHz)
+				timercount = ((TIM2->CNT*1e9)/96e6);
 				time_of_all_trials += timercount;
 				TIM2->CNT = 0;
 			}
@@ -316,7 +224,6 @@ int main(void) {
 			Clear_Display();
 			Write_String(timerword);
 			delay(cycles);
-			Clear_Display();
 			GPIOD->ODR &= ~LED_BLUE;
 			GPIOD->ODR &= ~LED_GREEN;
 			delay(cycles);
@@ -332,7 +239,7 @@ int main(void) {
 				TIM2_START();
 				longlong_result = longlong1 * longlong2;
 				TIM2_STOP();
-				timercount = ((TIM2->CNT*1e9)/96e6); // converts count to nanoseconds 	(PSC = 0 96MHz)
+				timercount = ((TIM2->CNT*1e9)/96e6);
 				time_of_all_trials += timercount;
 				TIM2->CNT = 0;
 			}
@@ -342,7 +249,6 @@ int main(void) {
 			Clear_Display();
 			Write_String(timerword);
 			delay(cycles);
-			Clear_Display();
 			GPIOD->ODR &= ~LED_BLUE;
 			GPIOD->ODR &= ~LED_GREEN;
 			delay(cycles);
@@ -363,7 +269,7 @@ int main(void) {
 					fprintf(stderr, "Cannot divide by zero\n");
 				}
 				TIM2_STOP();
-				timercount = ((TIM2->CNT*1e9)/96e6); // converts count to nanoseconds 	(PSC = 0 96MHz)
+				timercount = ((TIM2->CNT*1e9)/96e6);
 				time_of_all_trials += timercount;
 				TIM2->CNT = 0;
 			}
@@ -373,7 +279,6 @@ int main(void) {
 			Clear_Display();
 			Write_String(timerword);
 			delay(cycles);
-			Clear_Display();
 			GPIOD->ODR &= ~LED_BLUE;
 			GPIOD->ODR &= ~LED_GREEN;
 			delay(cycles);
@@ -394,7 +299,7 @@ int main(void) {
 					fprintf(stderr, "Cannot divide by zero\n");
 				}
 				TIM2_STOP();
-				timercount = ((TIM2->CNT*1e9)/96e6); // converts count to nanoseconds 	(PSC = 0 96MHz)
+				timercount = ((TIM2->CNT*1e9)/96e6);
 				time_of_all_trials += timercount;
 				TIM2->CNT = 0;
 			}
@@ -404,7 +309,6 @@ int main(void) {
 			Clear_Display();
 			Write_String(timerword);
 			delay(cycles);
-			Clear_Display();
 			GPIOD->ODR &= ~LED_BLUE;
 			GPIOD->ODR &= ~LED_GREEN;
 			delay(cycles);
@@ -418,9 +322,10 @@ int main(void) {
 				TIM2_START();
 				letter2.letter = letter1.letter;
 				TIM2_STOP();
-				timercount = ((TIM2->CNT*1e9)/96e6); // converts count to nanoseconds 	(PSC = 0 96MHz)
+				timercount = ((TIM2->CNT*1e9)/96e6);
 				time_of_all_trials += timercount;
 				TIM2->CNT = 0;
+				letter2.letter = ' ';
 			}
 			GPIOD->ODR |= LED_GREEN;
 			average_run_time = time_of_all_trials / NUMTRIALS;
@@ -428,7 +333,6 @@ int main(void) {
 			Clear_Display();
 			Write_String(timerword);
 			delay(cycles);
-			Clear_Display();
 			GPIOD->ODR &= ~LED_BLUE;
 			GPIOD->ODR &= ~LED_GREEN;
 			delay(cycles);
@@ -442,9 +346,10 @@ int main(void) {
 				TIM2_START();
 				sentence1b.sentence = sentence1a.sentence;
 				TIM2_STOP();
-				timercount = ((TIM2->CNT*1e9)/96e6); // converts count to nanoseconds 	(PSC = 0 96MHz)
+				timercount = ((TIM2->CNT*1e9)/96e6);
 				time_of_all_trials += timercount;
 				TIM2->CNT = 0;
+				sentence1b.sentence = " ";
 			}
 			GPIOD->ODR |= LED_GREEN;
 			average_run_time = time_of_all_trials / NUMTRIALS;
@@ -452,7 +357,6 @@ int main(void) {
 			Clear_Display();
 			Write_String(timerword);
 			delay(cycles);
-			Clear_Display();
 			GPIOD->ODR &= ~LED_BLUE;
 			GPIOD->ODR &= ~LED_GREEN;
 			delay(cycles);
@@ -466,9 +370,10 @@ int main(void) {
 				TIM2_START();
 				sentence2b.sentence = sentence2a.sentence;
 				TIM2_STOP();
-				timercount = ((TIM2->CNT*1e9)/96e6); // converts count to nanoseconds 	(PSC = 0 96MHz)
+				timercount = ((TIM2->CNT*1e9)/96e6);
 				time_of_all_trials += timercount;
 				TIM2->CNT = 0;
+				sentence2b.sentence = " ";
 			}
 			GPIOD->ODR |= LED_GREEN;
 			average_run_time = time_of_all_trials / NUMTRIALS;
@@ -476,7 +381,6 @@ int main(void) {
 			Clear_Display();
 			Write_String(timerword);
 			delay(cycles);
-			Clear_Display();
 			GPIOD->ODR &= ~LED_BLUE;
 			GPIOD->ODR &= ~LED_GREEN;
 			delay(cycles);
