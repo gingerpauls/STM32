@@ -11,10 +11,11 @@
 #define LED_ORANGE GPIO_ODR_OD13
 #define LED_RED GPIO_ODR_OD14
 #define LED_BLUE GPIO_ODR_OD15
+#define NUMTRIALS 100
 
 void TIM2_START(void);
 void TIM2_STOP(void);
-void delay(uint32_t cycles);
+void delay(const uint32_t cycles);
 
 typedef struct {
 	char letter;
@@ -29,25 +30,27 @@ typedef struct {
 } Struct1024;
 
 int main(void) {
-	int cycles = 9600000;
+	const int cycles = 9600000;
 	volatile uint32_t timercount = 0;
 	char timerword[32];
 
-	uint32_t integer1, integer2;
-	uint64_t longlong1, longlong2;
-	float int_result, longlong_result;
+	volatile uint32_t integer1, integer2;
+	volatile uint64_t longlong1, longlong2;
+	volatile float int_result, longlong_result;
+	volatile uint64_t time_of_all_trials, average_run_time;
+
 
 	srand((unsigned) time(0));
 
-	Struct8 letter1, letter2;
+	volatile Struct8 letter1, letter2;
 	letter1.letter = 'c';
 	letter2.letter = ' ';
-	Struct128 sentence1a, sentence1b;
+	volatile Struct128 sentence1a, sentence1b;
 
 	sentence1a.sentence = 	"The quick brown fox jumps over the lazy dog, "
 							"showcasing its agility and speed in a single "
 							"graceful leap.";
-	Struct1024 sentence2a, sentence2b;
+	volatile Struct1024 sentence2a, sentence2b;
 	sentence2a.sentence = 	"In the vast expanse of the digital realm, where "
 							"information flows like a ceaseless river, technology "
 							"intertwines with human existence, shaping the landscape "
@@ -61,30 +64,46 @@ int main(void) {
 							"of human experience.";
 	sentence1b.sentence = " ";
 	sentence2b.sentence = " ";
-
+/*
 	{
-		integer1 = rand() / 2.15e6;
-		integer2 = rand() / 2.15e6;
+		integer1 = rand();
+		integer2 = rand();
 		int_result = integer1 + integer2;
 	}
+*/
+
+/*
 	{
-		longlong1 = (rand()/2.15e6) + (rand()/2.15e6);
-		longlong2 = (rand()/2.15e6) + (rand()/2.15e6);
+		longlong1 = rand() + rand();
+		longlong2 = rand() + rand();
 		longlong_result = longlong1 + longlong2;
 	}
+*/
+
+/*
+
 	{
-		integer1 = rand() / 2.15e6;
-		integer2 = rand() / 2.15e6;
+		integer1 = rand();
+		integer2 = rand();
 		int_result = integer1 * integer2;
 	}
+
+*/
+
+/*
 	{
-		longlong1 = (rand()/2.15e6) + (rand()/2.15e6);
-		longlong2 = (rand()/2.15e6) + (rand()/2.15e6);
+		longlong1 = rand() + rand();
+		longlong2 = rand() + rand();
 		longlong_result = longlong1 * longlong2;
 	}
+
+*/
+
+/*
+
 	{
-		integer1 = rand() / 2.15e6;
-		integer2 = rand() / 2.15e6;
+		integer1 = rand();
+		integer2 = rand();
 		if(integer2 > 0){
 			int_result = (float)integer1 / (float)integer2;
 		}
@@ -92,9 +111,14 @@ int main(void) {
 			fprintf(stderr, "Cannot divide by zero\n");
 		}
 	}
+
+*/
+
+/*
+
 	{
-		longlong1 = (rand()/2.15e6) + (rand()/2.15e6);
-		longlong2 = (rand()/2.15e6) + (rand()/2.15e6);
+		longlong1 = rand() + rand();
+		longlong2 = rand() + rand();
 		if(longlong2 > 0){
 			longlong_result = (float)longlong1 / (float)longlong2;
 		}
@@ -102,11 +126,16 @@ int main(void) {
 			fprintf(stderr, "Cannot divide by zero\n");
 		}
 	}
+*/
 
-	letter2.letter = letter1.letter;
+/*
 
-	sentence1b.sentence = sentence1a.sentence;
-	sentence2b.sentence = sentence2a.sentence;
+	{
+		letter2.letter = letter1.letter;
+		sentence1b.sentence = sentence1a.sentence;
+		sentence2b.sentence = sentence2a.sentence;
+	}
+*/
 
 
 	/* FLASH AND POWER */
@@ -216,67 +245,248 @@ int main(void) {
 	Write_String("BEGIN STOPWATCH");
 	delay(cycles);
 	Clear_Display();
+	while(1)
+	{
+		// ADD 32 INT
+		{
+			time_of_all_trials = 0;
+			GPIOD->ODR |= LED_BLUE;
+			for(volatile int i = 0; i < NUMTRIALS; i++)
+			{
+				integer1 = rand();
+				integer2 = rand();
+				TIM2_START();
+				int_result = integer1 + integer2;
+				TIM2_STOP();
+				timercount = ((TIM2->CNT*1e9)/96e6); // converts count to nanoseconds 	(PSC = 0 96MHz)
+				time_of_all_trials += timercount;
+				TIM2->CNT = 0;
+			}
+			GPIOD->ODR |= LED_GREEN;
+			average_run_time = time_of_all_trials / NUMTRIALS;
+			sprintf(timerword, "ADD32: %d ns", average_run_time);
+			Clear_Display();
+			Write_String(timerword);
+			delay(cycles);
+			Clear_Display();
+			GPIOD->ODR &= ~LED_BLUE;
+			GPIOD->ODR &= ~LED_GREEN;
+			delay(cycles);
+		}
+		// ADD 64 INT
+		{
+			time_of_all_trials = 0;
+			GPIOD->ODR |= LED_BLUE;
+			for(volatile int i = 0; i < NUMTRIALS; i++)
+			{
+				longlong1 = rand() + rand();
+				longlong2 = rand() + rand();
+				TIM2_START();
+				longlong_result = longlong1 + longlong2;
+				TIM2_STOP();
+				timercount = ((TIM2->CNT*1e9)/96e6); // converts count to nanoseconds 	(PSC = 0 96MHz)
+				time_of_all_trials += timercount;
+				TIM2->CNT = 0;
+			}
+			GPIOD->ODR |= LED_GREEN;
+			average_run_time = time_of_all_trials / NUMTRIALS;
+			sprintf(timerword, "ADD64: %d ns", average_run_time);
+			Clear_Display();
+			Write_String(timerword);
+			delay(cycles);
+			Clear_Display();
+			GPIOD->ODR &= ~LED_BLUE;
+			GPIOD->ODR &= ~LED_GREEN;
+			delay(cycles);
+		}
+		// MULTIPLY 32 INT
+		{
+			time_of_all_trials = 0;
+			GPIOD->ODR |= LED_BLUE;
+			for(volatile int i = 0; i < NUMTRIALS; i++)
+			{
+				longlong1 = rand() + rand();
+				longlong2 = rand() + rand();
+				TIM2_START();
+				int_result = integer1 * integer2;
+				TIM2_STOP();
+				timercount = ((TIM2->CNT*1e9)/96e6); // converts count to nanoseconds 	(PSC = 0 96MHz)
+				time_of_all_trials += timercount;
+				TIM2->CNT = 0;
+			}
+			GPIOD->ODR |= LED_GREEN;
+			average_run_time = time_of_all_trials / NUMTRIALS;
+			sprintf(timerword, "MULT32: %d ns", average_run_time);
+			Clear_Display();
+			Write_String(timerword);
+			delay(cycles);
+			Clear_Display();
+			GPIOD->ODR &= ~LED_BLUE;
+			GPIOD->ODR &= ~LED_GREEN;
+			delay(cycles);
+		}
+		// MUTIPLY 64 INT
+		{
+			time_of_all_trials = 0;
+			GPIOD->ODR |= LED_BLUE;
+			for(volatile int i = 0; i < NUMTRIALS; i++)
+			{
+				longlong1 = rand() + rand();
+				longlong2 = rand() + rand();
+				TIM2_START();
+				longlong_result = longlong1 * longlong2;
+				TIM2_STOP();
+				timercount = ((TIM2->CNT*1e9)/96e6); // converts count to nanoseconds 	(PSC = 0 96MHz)
+				time_of_all_trials += timercount;
+				TIM2->CNT = 0;
+			}
+			GPIOD->ODR |= LED_GREEN;
+			average_run_time = time_of_all_trials / NUMTRIALS;
+			sprintf(timerword, "MULT64: %d ns", average_run_time);
+			Clear_Display();
+			Write_String(timerword);
+			delay(cycles);
+			Clear_Display();
+			GPIOD->ODR &= ~LED_BLUE;
+			GPIOD->ODR &= ~LED_GREEN;
+			delay(cycles);
+		}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	/* MAIN ROUTINE */
-/*
-
-	while(1){
-		// test
-		GPIOD->ODR ^= LED_BLUE;
-		TIM2_START();
-		Clear_Display();
-		Write_String("ThisIsAThirty-TwoCharacterArray!");
-		TIM2_STOP();
-		GPIOD->ODR ^= LED_GREEN;
-		// calculations & display runtime
-		timercount = ((TIM2->CNT*1e9)/96e6); // converts count to nanoseconds 	(PSC = 0 96MHz
-		sprintf(timerword, "%d ns", timercount);
-		delay(cycles);
-		TIM2->CNT = 0;
-		Clear_Display();
-		Write_String(timerword);
-		delay(cycles);
-		Clear_Display();
-		GPIOD->ODR &= ~LED_BLUE;
-		GPIOD->ODR &= ~LED_GREEN;
-		delay(cycles);
+		// DIVIDE 32 INT
+		{
+			time_of_all_trials = 0;
+			GPIOD->ODR |= LED_BLUE;
+			for(volatile int i = 0; i < NUMTRIALS; i++)
+			{
+				integer1 = rand();
+				integer2 = rand();
+				TIM2_START();
+				if(integer2 > 0){
+					int_result = (float)integer1 / (float)integer2;
+				}
+				else{
+					fprintf(stderr, "Cannot divide by zero\n");
+				}
+				TIM2_STOP();
+				timercount = ((TIM2->CNT*1e9)/96e6); // converts count to nanoseconds 	(PSC = 0 96MHz)
+				time_of_all_trials += timercount;
+				TIM2->CNT = 0;
+			}
+			GPIOD->ODR |= LED_GREEN;
+			average_run_time = time_of_all_trials / NUMTRIALS;
+			sprintf(timerword, "DIV32: %d ns", average_run_time);
+			Clear_Display();
+			Write_String(timerword);
+			delay(cycles);
+			Clear_Display();
+			GPIOD->ODR &= ~LED_BLUE;
+			GPIOD->ODR &= ~LED_GREEN;
+			delay(cycles);
+		}
+		// DIVIDE 64 INT
+		{
+			time_of_all_trials = 0;
+			GPIOD->ODR |= LED_BLUE;
+			for(volatile int i = 0; i < NUMTRIALS; i++)
+			{
+				longlong1 = rand() + rand();
+				longlong2 = rand() + rand();
+				TIM2_START();
+				if(longlong2 > 0){
+					longlong_result = (float)longlong1 / (float)longlong2;
+				}
+				else{
+					fprintf(stderr, "Cannot divide by zero\n");
+				}
+				TIM2_STOP();
+				timercount = ((TIM2->CNT*1e9)/96e6); // converts count to nanoseconds 	(PSC = 0 96MHz)
+				time_of_all_trials += timercount;
+				TIM2->CNT = 0;
+			}
+			GPIOD->ODR |= LED_GREEN;
+			average_run_time = time_of_all_trials / NUMTRIALS;
+			sprintf(timerword, "DIV64: %d ns", average_run_time);
+			Clear_Display();
+			Write_String(timerword);
+			delay(cycles);
+			Clear_Display();
+			GPIOD->ODR &= ~LED_BLUE;
+			GPIOD->ODR &= ~LED_GREEN;
+			delay(cycles);
+		}
+		// COPY 8 BYTE STRUCT
+		{
+			time_of_all_trials = 0;
+			GPIOD->ODR |= LED_BLUE;
+			for(volatile int i = 0; i < NUMTRIALS; i++)
+			{
+				TIM2_START();
+				letter2.letter = letter1.letter;
+				TIM2_STOP();
+				timercount = ((TIM2->CNT*1e9)/96e6); // converts count to nanoseconds 	(PSC = 0 96MHz)
+				time_of_all_trials += timercount;
+				TIM2->CNT = 0;
+			}
+			GPIOD->ODR |= LED_GREEN;
+			average_run_time = time_of_all_trials / NUMTRIALS;
+			sprintf(timerword, "CPY8: %d ns", average_run_time);
+			Clear_Display();
+			Write_String(timerword);
+			delay(cycles);
+			Clear_Display();
+			GPIOD->ODR &= ~LED_BLUE;
+			GPIOD->ODR &= ~LED_GREEN;
+			delay(cycles);
+		}
+		// COPY 128 BYTE STRUCT
+		{
+			time_of_all_trials = 0;
+			GPIOD->ODR |= LED_BLUE;
+			for(volatile int i = 0; i < NUMTRIALS; i++)
+			{
+				TIM2_START();
+				sentence1b.sentence = sentence1a.sentence;
+				TIM2_STOP();
+				timercount = ((TIM2->CNT*1e9)/96e6); // converts count to nanoseconds 	(PSC = 0 96MHz)
+				time_of_all_trials += timercount;
+				TIM2->CNT = 0;
+			}
+			GPIOD->ODR |= LED_GREEN;
+			average_run_time = time_of_all_trials / NUMTRIALS;
+			sprintf(timerword, "CPY128: %d ns", average_run_time);
+			Clear_Display();
+			Write_String(timerword);
+			delay(cycles);
+			Clear_Display();
+			GPIOD->ODR &= ~LED_BLUE;
+			GPIOD->ODR &= ~LED_GREEN;
+			delay(cycles);
+		}
+		// COPY 1024 BYTE STRUCT
+		{
+			time_of_all_trials = 0;
+			GPIOD->ODR |= LED_BLUE;
+			for(volatile int i = 0; i < NUMTRIALS; i++)
+			{
+				TIM2_START();
+				sentence2b.sentence = sentence2a.sentence;
+				TIM2_STOP();
+				timercount = ((TIM2->CNT*1e9)/96e6); // converts count to nanoseconds 	(PSC = 0 96MHz)
+				time_of_all_trials += timercount;
+				TIM2->CNT = 0;
+			}
+			GPIOD->ODR |= LED_GREEN;
+			average_run_time = time_of_all_trials / NUMTRIALS;
+			sprintf(timerword, "CPY1024: %d ns", average_run_time);
+			Clear_Display();
+			Write_String(timerword);
+			delay(cycles);
+			Clear_Display();
+			GPIOD->ODR &= ~LED_BLUE;
+			GPIOD->ODR &= ~LED_GREEN;
+			delay(cycles);
+		}
 	}
-
-*/
-
-/*
-	while(1){
-		GPIOD->ODR ^= LED_BLUE;
-		Clear_Display();
-		TIM2_START();
-		timercount = ((TIM2->CNT));
-		sprintf(timerword, "%d", timercount);
-		Write_String(timerword);
-	}
-*/
-
 	return 0;
 }
 
@@ -290,6 +500,6 @@ void TIM2_START(void){
 void TIM2_STOP(void){
 	TIM2->CR1 &= ~TIM_CR1_CEN;
 }
-void delay(uint32_t cycles) {
+void delay(const uint32_t cycles) {
 	for (volatile uint32_t i = 0; i < cycles; i++) {}
 }
