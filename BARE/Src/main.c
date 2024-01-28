@@ -4,7 +4,7 @@
 #include "stdio.h"
 #include "time.h"
 #include "stdlib.h"
-#include "gmp.h"
+//#include "gmp.h"
 
 #define BUTTON_MODE 0 	//0-HOLD 1-TOGGLE
 #define LED_GREEN GPIO_ODR_OD12
@@ -30,23 +30,18 @@ typedef struct {
 } Struct1024;
 
 int main(void) {
+	srand((unsigned) time(0) + getpid());
 	const int cycles = 9600000;
 	volatile uint32_t timercount = 0;
-	char timerword[32];
-
+	volatile char timerword[32];
 	volatile uint32_t integer1, integer2;
 	volatile uint64_t longlong1, longlong2;
 	volatile float int_result, longlong_result;
 	volatile uint64_t time_of_all_trials, average_run_time;
-
-
-	srand((unsigned) time(0));
-
 	volatile Struct8 letter1, letter2;
 	letter1.letter = 'c';
 	letter2.letter = ' ';
 	volatile Struct128 sentence1a, sentence1b;
-
 	sentence1a.sentence = 	"The quick brown fox jumps over the lazy dog, "
 							"showcasing its agility and speed in a single "
 							"graceful leap.";
@@ -64,6 +59,7 @@ int main(void) {
 							"of human experience.";
 	sentence1b.sentence = " ";
 	sentence2b.sentence = " ";
+
 /*
 	{
 		integer1 = rand();
@@ -351,7 +347,6 @@ int main(void) {
 			GPIOD->ODR &= ~LED_GREEN;
 			delay(cycles);
 		}
-
 		// DIVIDE 32 INT
 		{
 			time_of_all_trials = 0;
