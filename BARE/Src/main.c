@@ -36,8 +36,6 @@ int main(void) {
 	uint32_t integer1, integer2;
 	uint64_t longlong1, longlong2;
 	float int_result, longlong_result;
-	mpz_t superlongnumber;
-
 
 	srand((unsigned) time(0));
 
@@ -65,40 +63,40 @@ int main(void) {
 	sentence2b.sentence = " ";
 
 	{
-		integer1 = rand();
-		integer2 = rand();
+		integer1 = rand() / 2.15e6;
+		integer2 = rand() / 2.15e6;
 		int_result = integer1 + integer2;
 	}
 	{
-		longlong1 = rand() + rand();
-		longlong2 = rand() + rand();
+		longlong1 = (rand()/2.15e6) + (rand()/2.15e6);
+		longlong2 = (rand()/2.15e6) + (rand()/2.15e6);
 		longlong_result = longlong1 + longlong2;
 	}
 	{
-		integer1 = rand();
-		integer2 = rand();
+		integer1 = rand() / 2.15e6;
+		integer2 = rand() / 2.15e6;
 		int_result = integer1 * integer2;
 	}
 	{
-		longlong1 = rand() + rand();
-		longlong2 = rand() + rand();
+		longlong1 = (rand()/2.15e6) + (rand()/2.15e6);
+		longlong2 = (rand()/2.15e6) + (rand()/2.15e6);
 		longlong_result = longlong1 * longlong2;
 	}
 	{
-		integer1 = rand();
-		integer2 = rand();
+		integer1 = rand() / 2.15e6;
+		integer2 = rand() / 2.15e6;
 		if(integer2 > 0){
-			int_result = integer1 / integer2;
+			int_result = (float)integer1 / (float)integer2;
 		}
 		else{
 			fprintf(stderr, "Cannot divide by zero\n");
 		}
 	}
 	{
-		longlong1 = rand() + rand();
-		longlong2 = rand() + rand();
+		longlong1 = (rand()/2.15e6) + (rand()/2.15e6);
+		longlong2 = (rand()/2.15e6) + (rand()/2.15e6);
 		if(longlong2 > 0){
-			longlong_result = longlong1 / longlong2;
+			longlong_result = (float)longlong1 / (float)longlong2;
 		}
 		else{
 			fprintf(stderr, "Cannot divide by zero\n");
