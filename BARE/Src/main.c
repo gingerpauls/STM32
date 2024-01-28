@@ -4,7 +4,7 @@
 #include "stdio.h"
 #include "time.h"
 #include "stdlib.h"
-//#include "gmp.h"
+#include "gmp.h"
 
 #define BUTTON_MODE 0 	//0-HOLD 1-TOGGLE
 #define LED_GREEN GPIO_ODR_OD12
@@ -36,7 +36,7 @@ int main(void) {
 	uint32_t integer1, integer2;
 	uint64_t longlong1, longlong2;
 	float int_result, longlong_result;
-	//mpz_t superlongnumber;
+	mpz_t superlongnumber;
 
 
 	srand((unsigned) time(0));
