@@ -170,7 +170,7 @@ int main(void) {
 			}
 			GPIOD->ODR |= LED_GREEN;
 			average_run_time = time_of_all_trials / NUMTRIALS;
-			sprintf(timerword, "ADD32: %d ns", average_run_time);
+			sprintf(timerword, "ADD32: %7dns", average_run_time);
 			Clear_Display();
 			Write_String(timerword);
 			delay(cycles);
@@ -195,7 +195,7 @@ int main(void) {
 			}
 			GPIOD->ODR |= LED_GREEN;
 			average_run_time = time_of_all_trials / NUMTRIALS;
-			sprintf(timerword, "ADD64: %d ns", average_run_time);
+			sprintf(timerword, "ADD64: %7dns", average_run_time);
 			Clear_Display();
 			Write_String(timerword);
 			delay(cycles);
@@ -220,7 +220,7 @@ int main(void) {
 			}
 			GPIOD->ODR |= LED_GREEN;
 			average_run_time = time_of_all_trials / NUMTRIALS;
-			sprintf(timerword, "MULT32: %d ns", average_run_time);
+			sprintf(timerword, "MULT32: %6dns", average_run_time);
 			Clear_Display();
 			Write_String(timerword);
 			delay(cycles);
@@ -245,7 +245,7 @@ int main(void) {
 			}
 			GPIOD->ODR |= LED_GREEN;
 			average_run_time = time_of_all_trials / NUMTRIALS;
-			sprintf(timerword, "MULT64: %d ns", average_run_time);
+			sprintf(timerword, "MULT64: %6dns", average_run_time);
 			Clear_Display();
 			Write_String(timerword);
 			delay(cycles);
@@ -275,7 +275,7 @@ int main(void) {
 			}
 			GPIOD->ODR |= LED_GREEN;
 			average_run_time = time_of_all_trials / NUMTRIALS;
-			sprintf(timerword, "DIV32: %d ns", average_run_time);
+			sprintf(timerword, "DIV32: %7dns", average_run_time);
 			Clear_Display();
 			Write_String(timerword);
 			delay(cycles);
@@ -305,7 +305,7 @@ int main(void) {
 			}
 			GPIOD->ODR |= LED_GREEN;
 			average_run_time = time_of_all_trials / NUMTRIALS;
-			sprintf(timerword, "DIV64: %d ns", average_run_time);
+			sprintf(timerword, "DIV64: %7dns", average_run_time);
 			Clear_Display();
 			Write_String(timerword);
 			delay(cycles);
@@ -329,7 +329,7 @@ int main(void) {
 			}
 			GPIOD->ODR |= LED_GREEN;
 			average_run_time = time_of_all_trials / NUMTRIALS;
-			sprintf(timerword, "CPY8: %d ns", average_run_time);
+			sprintf(timerword, "CPY8: %8dns", average_run_time);
 			Clear_Display();
 			Write_String(timerword);
 			delay(cycles);
@@ -353,7 +353,7 @@ int main(void) {
 			}
 			GPIOD->ODR |= LED_GREEN;
 			average_run_time = time_of_all_trials / NUMTRIALS;
-			sprintf(timerword, "CPY128: %d ns", average_run_time);
+			sprintf(timerword, "CPY128: %6dns", average_run_time);
 			Clear_Display();
 			Write_String(timerword);
 			delay(cycles);
@@ -377,7 +377,7 @@ int main(void) {
 			}
 			GPIOD->ODR |= LED_GREEN;
 			average_run_time = time_of_all_trials / NUMTRIALS;
-			sprintf(timerword, "CPY1024: %d ns", average_run_time);
+			sprintf(timerword, "CPY1024: %5dns", average_run_time);
 			Clear_Display();
 			Write_String(timerword);
 			delay(cycles);
