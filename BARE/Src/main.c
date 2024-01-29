@@ -29,6 +29,9 @@ typedef struct {
 	uint64_t num[128];
 } Struct1024;
 
+void init_struct128_zero(Struct128* struct_to_init, int size);
+
+
 int main(void) {
 	srand((unsigned) time(0));
 
@@ -48,18 +51,25 @@ int main(void) {
     num8a.num = 0;
     num8b.num = rand();
 
-    for(volatile int i = 0; i < (sizeof(num128a) / sizeof(num128a.num[i])); i++)
-    {
-    	num128a.num[i] = 0;
-    }
-    for(volatile int i = 0; i < (sizeof(num128b) / sizeof(num128b.num[i])); i++)
-    {
-    	num128b.num[i] = 0;
-    }
-    for(volatile int i = 0; i < (sizeof(num128b) / sizeof(num128b.num[i])); i++)
-    {
-    	num128b.num[i] = rand();
-    }
+    init_struct128_zero(&num128a, (sizeof(num128a) / sizeof(num128a.num[0])));
+
+//    for(volatile int i = 0; i < (sizeof(num128a) / sizeof(num128a.num[i])); i++)
+//    {
+//    	num128a.num[i] = 0;
+//    }
+//    for(volatile int i = 0; i < (sizeof(num128b) / sizeof(num128b.num[i])); i++)
+//    {
+//    	num128b.num[i] = 0;
+//    }
+//    for(volatile int i = 0; i < (sizeof(num128b) / sizeof(num128b.num[i])); i++)
+//    {
+//    	num128b.num[i] = rand();
+//    }
+
+
+
+
+
     for(volatile int i = 0; i < (sizeof(num1024a) / sizeof(num1024a.num[i])); i++)
     {
     	num1024a.num[i] = 0;
@@ -72,9 +82,6 @@ int main(void) {
     {
     	num1024b.num[i] = rand();
     }
-
-
-
 
 	/* FLASH AND POWER */
 	{
@@ -417,4 +424,11 @@ void TIM2_STOP(void){
 }
 void delay(const uint32_t cycles) {
 	for (volatile uint32_t i = 0; i < cycles; i++) {}
+}
+
+void init_struct128_zero(Struct128* struct_to_init, int size){
+    for(volatile int i = 0; i < size; i++)
+    {
+    	struct_to_init->num[i] = 0;
+    }
 }
