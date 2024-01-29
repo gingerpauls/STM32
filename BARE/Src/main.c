@@ -29,11 +29,10 @@ typedef struct {
 	uint64_t num[128];
 } Struct1024;
 
-void init_struct128_zero(Struct128* struct_to_init, int size);
-void init_struct128_random(Struct128* struct_to_init, int size);
-void init_struct1024_zero(Struct1024* struct_to_init, int size);
-void init_struct1024_random(Struct1024* struct_to_init, int size);
-
+void init_128_zero(Struct128* struct_to_init);
+void init_128_random(Struct128* struct_to_init);
+void init_1024_zero(Struct1024* struct_to_init);
+void init_1024_random(Struct1024* struct_to_init);
 
 int main(void) {
 	srand((unsigned) time(0));
@@ -54,13 +53,11 @@ int main(void) {
     num8a.num = 0;
     num8b.num = rand();
 
-    init_struct128_zero(&num128a, (sizeof(num128a) / sizeof(num128a.num[0])));
-    init_struct128_zero(&num128b, (sizeof(num128b) / sizeof(num128b.num[0])));
-    init_struct128_random(&num128b, (sizeof(num128b) / sizeof(num128b.num[0])));
+    init_128_zero(&num128a);
+    init_128_random(&num128b);
+    init_1024_zero(&num1024a);
+    init_1024_random(&num1024b);
 
-    init_struct1024_zero(&num1024a, (sizeof(num1024a) / sizeof(num1024a.num[0])));
-    init_struct1024_zero(&num1024b, (sizeof(num1024b) / sizeof(num1024b.num[0])));
-    init_struct1024_random(&num1024b, (sizeof(num1024b) / sizeof(num1024b.num[0])));
 
 	/* FLASH AND POWER */
 	{
@@ -316,18 +313,19 @@ int main(void) {
 			delay(cycles);
 		}
 		// COPY 8 BYTE STRUCT
-/*		{
+		{
 			time_of_all_trials = 0;
 			GPIOD->ODR |= LED_BLUE;
 			for(volatile int i = 0; i < NUMTRIALS; i++)
 			{
 				TIM2_START();
-				letter2.letter = letter1.letter;
+				num8a = num8b;
 				TIM2_STOP();
 				timercount = ((TIM2->CNT*1e9)/96e6);
 				time_of_all_trials += timercount;
 				TIM2->CNT = 0;
-				letter2.letter = ' ';
+				num8a.num = 0;
+				num8b.num = rand();
 			}
 			GPIOD->ODR |= LED_GREEN;
 			average_run_time = time_of_all_trials / NUMTRIALS;
@@ -346,12 +344,13 @@ int main(void) {
 			for(volatile int i = 0; i < NUMTRIALS; i++)
 			{
 				TIM2_START();
-				sentence1b.sentence = sentence1a.sentence;
+				num128a = num128b;
 				TIM2_STOP();
 				timercount = ((TIM2->CNT*1e9)/96e6);
 				time_of_all_trials += timercount;
 				TIM2->CNT = 0;
-				sentence1b.sentence = " ";
+				init_128_zero(&num128a);
+				init_128_random(&num128b);
 			}
 			GPIOD->ODR |= LED_GREEN;
 			average_run_time = time_of_all_trials / NUMTRIALS;
@@ -370,12 +369,13 @@ int main(void) {
 			for(volatile int i = 0; i < NUMTRIALS; i++)
 			{
 				TIM2_START();
-				sentence2b.sentence = sentence2a.sentence;
+				num1024a = num1024b;
 				TIM2_STOP();
 				timercount = ((TIM2->CNT*1e9)/96e6);
 				time_of_all_trials += timercount;
 				TIM2->CNT = 0;
-				sentence2b.sentence = " ";
+				init_1024_zero(&num1024a);
+				init_1024_random(&num1024b);
 			}
 			GPIOD->ODR |= LED_GREEN;
 			average_run_time = time_of_all_trials / NUMTRIALS;
@@ -386,7 +386,7 @@ int main(void) {
 			GPIOD->ODR &= ~LED_BLUE;
 			GPIOD->ODR &= ~LED_GREEN;
 			delay(cycles);
-		}*/
+		}
 	}
 	return 0;
 }
@@ -405,26 +405,26 @@ void delay(const uint32_t cycles) {
 	for (volatile uint32_t i = 0; i < cycles; i++) {}
 }
 
-void init_struct128_zero(Struct128* struct_to_init, int size){
-    for(volatile int i = 0; i < size; i++)
+void init_128_zero(Struct128* struct_to_init){
+    for(volatile int i = 0; i < (sizeof(*struct_to_init) / sizeof(*struct_to_init->num)); i++)
     {
     	struct_to_init->num[i] = 0;
     }
 }
-void init_struct128_random(Struct128* struct_to_init, int size){
-    for(volatile int i = 0; i < size; i++)
+void init_128_random(Struct128* struct_to_init){
+    for(volatile int i = 0; i < (sizeof(*struct_to_init) / sizeof(*struct_to_init->num)); i++)
     {
     	struct_to_init->num[i] = rand();
     }
 }
-void init_struct1024_zero(Struct1024* struct_to_init, int size){
-    for(volatile int i = 0; i < size; i++)
+void init_1024_zero(Struct1024* struct_to_init){
+    for(volatile int i = 0; i < (sizeof(*struct_to_init) / sizeof(*struct_to_init->num)); i++)
     {
     	struct_to_init->num[i] = 0;
     }
 }
-void init_struct1024_random(Struct1024* struct_to_init, int size){
-    for(volatile int i = 0; i < size; i++)
+void init_1024_random(Struct1024* struct_to_init){
+    for(volatile int i = 0; i < (sizeof(*struct_to_init) / sizeof(*struct_to_init->num)); i++)
     {
     	struct_to_init->num[i] = rand();
     }
