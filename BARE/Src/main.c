@@ -18,47 +18,63 @@ void TIM2_STOP(void);
 void delay(const uint32_t cycles);
 
 typedef struct {
-	char letter;
+	uint64_t num;
 } Struct8;
 
 typedef struct {
-	char* sentence;
+	uint64_t num[16];
 } Struct128;
 
 typedef struct {
-	char* sentence;
+	uint64_t num[128];
 } Struct1024;
 
 int main(void) {
-	srand((unsigned) time(0) + getpid());
+	srand((unsigned) time(0));
+
 	const int cycles = 9600000;
 	volatile uint32_t timercount = 0;
 	volatile char timerword[32];
+
 	volatile uint32_t integer1, integer2;
 	volatile uint64_t longlong1, longlong2;
 	volatile float int_result, longlong_result;
 	volatile uint64_t time_of_all_trials, average_run_time;
-	volatile Struct8 letter1, letter2;
-	letter1.letter = 'c';
-	letter2.letter = ' ';
-	volatile Struct128 sentence1a, sentence1b;
-	sentence1a.sentence = 	"The quick brown fox jumps over the lazy dog, "
-							"showcasing its agility and speed in a single "
-							"graceful leap.";
-	volatile Struct1024 sentence2a, sentence2b;
-	sentence2a.sentence = 	"In the vast expanse of the digital realm, where "
-							"information flows like a ceaseless river, technology "
-							"intertwines with human existence, shaping the landscape "
-							"of our interconnected lives, influencing communication, "
-							"innovation, and the very fabric of society, as we "
-							"navigate this complex network of ones and zeros, forging "
-							"a path towards an uncertain future filled with both promise "
-							"and challenges, where the boundaries between the physical and "
-							"virtual blur, giving rise to new possibilities and profound "
-							"transformations that echo across the ever-evolving tapestry "
-							"of human experience.";
-	sentence1b.sentence = " ";
-	sentence2b.sentence = " ";
+
+	volatile Struct8 num8a, num8b;
+    volatile Struct128 num128a, num128b;
+    volatile Struct1024 num1024a, num1024b;
+
+    num8a.num = 0;
+    num8b.num = rand();
+
+    for(volatile int i = 0; i < (sizeof(num128a) / sizeof(num128a.num[i])); i++)
+    {
+    	num128a.num[i] = 0;
+    }
+    for(volatile int i = 0; i < (sizeof(num128b) / sizeof(num128b.num[i])); i++)
+    {
+    	num128b.num[i] = 0;
+    }
+    for(volatile int i = 0; i < (sizeof(num128b) / sizeof(num128b.num[i])); i++)
+    {
+    	num128b.num[i] = rand();
+    }
+    for(volatile int i = 0; i < (sizeof(num1024a) / sizeof(num1024a.num[i])); i++)
+    {
+    	num1024a.num[i] = 0;
+    }
+    for(volatile int i = 0; i < (sizeof(num1024b) / sizeof(num1024b.num[i])); i++)
+    {
+    	num1024b.num[i] = 0;
+    }
+    for(volatile int i = 0; i < (sizeof(num1024b) / sizeof(num1024b.num[i])); i++)
+    {
+    	num1024b.num[i] = rand();
+    }
+
+
+
 
 	/* FLASH AND POWER */
 	{
@@ -314,7 +330,7 @@ int main(void) {
 			delay(cycles);
 		}
 		// COPY 8 BYTE STRUCT
-		{
+/*		{
 			time_of_all_trials = 0;
 			GPIOD->ODR |= LED_BLUE;
 			for(volatile int i = 0; i < NUMTRIALS; i++)
@@ -384,7 +400,7 @@ int main(void) {
 			GPIOD->ODR &= ~LED_BLUE;
 			GPIOD->ODR &= ~LED_GREEN;
 			delay(cycles);
-		}
+		}*/
 	}
 	return 0;
 }
