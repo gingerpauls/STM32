@@ -13,15 +13,23 @@
 #define LED_BLUE GPIO_ODR_OD15
 #define NUMTRIALS 100
 
-typedef struct {
+typedef enum
+{
+	ZERO, RANDOM,
+} Init_Struct_Value;
+
+typedef struct
+{
 	uint64_t num;
 } Struct8;
 
-typedef struct {
+typedef struct
+{
 	uint64_t num[16];
 } Struct128;
 
-typedef struct {
+typedef struct
+{
 	uint64_t num[128];
 } Struct1024;
 
@@ -29,14 +37,12 @@ void TIM2_START(void);
 void TIM2_STOP(void);
 void delay(const uint32_t cycles);
 
-void init_128_zero(Struct128* struct_to_init);
-void init_128_random(Struct128* struct_to_init);
-void init_1024_zero(Struct1024* struct_to_init);
-void init_1024_random(Struct1024* struct_to_init);
+void init_struct(void *struct_to_init, int size, Init_Struct_Value value);
 
 void init_hardware(void);
 
-int main(void) {
+int main(void)
+{
 	srand((unsigned) time(0));
 
 	const int cycles = 9600000;
@@ -49,33 +55,34 @@ int main(void) {
 	uint64_t time_of_all_trials, average_run_time;
 
 	Struct8 num8a, num8b;
-    Struct128 num128a, num128b;
-    Struct1024 num1024a, num1024b;
+	Struct128 num128a, num128b;
+	Struct1024 num1024a, num1024b;
 
-    num8a.num = 0;
-    num8b.num = rand();
-    init_128_zero(&num128a);
-    init_128_random(&num128b);
-    init_1024_zero(&num1024a);
-    init_1024_random(&num1024b);
+	num8a.num = 0;
+	num8b.num = rand();
+
+	init_struct(&num128b, sizeof(num128b), ZERO);
+	init_struct(&num128b, sizeof(num128b), RANDOM);
+	init_struct(&num1024b, sizeof(num1024b), ZERO);
+	init_struct(&num1024b, sizeof(num1024b), RANDOM);
 
 	init_hardware();
 
 	// MAIN LOOP
-	while(1)
+	while (1)
 	{
 		// ADD 32 INT
 		{
 			time_of_all_trials = 0;
 			GPIOD->ODR |= LED_BLUE;
-			for(volatile int i = 0; i < NUMTRIALS; i++)
+			for (volatile int i = 0; i < NUMTRIALS; i++)
 			{
 				integer1 = rand();
 				integer2 = rand();
 				TIM2_START();
 				int_result = integer1 + integer2;
 				TIM2_STOP();
-				timercount = ((TIM2->CNT*1e9)/96e6);
+				timercount = ((TIM2->CNT * 1e9) / 96e6);
 				time_of_all_trials += timercount;
 				TIM2->CNT = 0;
 				printf("+32: %d", int_result);
@@ -97,14 +104,14 @@ int main(void) {
 		{
 			time_of_all_trials = 0;
 			GPIOD->ODR |= LED_BLUE;
-			for(volatile int i = 0; i < NUMTRIALS; i++)
+			for (volatile int i = 0; i < NUMTRIALS; i++)
 			{
 				longlong1 = rand() + rand();
 				longlong2 = rand() + rand();
 				TIM2_START();
 				longlong_result = longlong1 + longlong2;
 				TIM2_STOP();
-				timercount = ((TIM2->CNT*1e9)/96e6);
+				timercount = ((TIM2->CNT * 1e9) / 96e6);
 				time_of_all_trials += timercount;
 				TIM2->CNT = 0;
 				printf("+64: %d", longlong_result);
@@ -126,14 +133,14 @@ int main(void) {
 		{
 			time_of_all_trials = 0;
 			GPIOD->ODR |= LED_BLUE;
-			for(volatile int i = 0; i < NUMTRIALS; i++)
+			for (volatile int i = 0; i < NUMTRIALS; i++)
 			{
 				longlong1 = rand() + rand();
 				longlong2 = rand() + rand();
 				TIM2_START();
 				int_result = integer1 * integer2;
 				TIM2_STOP();
-				timercount = ((TIM2->CNT*1e9)/96e6);
+				timercount = ((TIM2->CNT * 1e9) / 96e6);
 				time_of_all_trials += timercount;
 				TIM2->CNT = 0;
 				printf("x32: %d", int_result);
@@ -154,14 +161,14 @@ int main(void) {
 		{
 			time_of_all_trials = 0;
 			GPIOD->ODR |= LED_BLUE;
-			for(volatile int i = 0; i < NUMTRIALS; i++)
+			for (volatile int i = 0; i < NUMTRIALS; i++)
 			{
 				longlong1 = rand() + rand();
 				longlong2 = rand() + rand();
 				TIM2_START();
 				longlong_result = longlong1 * longlong2;
 				TIM2_STOP();
-				timercount = ((TIM2->CNT*1e9)/96e6);
+				timercount = ((TIM2->CNT * 1e9) / 96e6);
 				time_of_all_trials += timercount;
 				TIM2->CNT = 0;
 				printf("x64: %d", longlong_result);
@@ -175,7 +182,7 @@ int main(void) {
 				delay(cycles);
 				GPIOD->ODR &= ~LED_BLUE;
 				GPIOD->ODR &= ~LED_GREEN;
-				delay(cycles); 
+				delay(cycles);
 			}
 
 		}
@@ -183,19 +190,21 @@ int main(void) {
 		{
 			time_of_all_trials = 0;
 			GPIOD->ODR |= LED_BLUE;
-			for(volatile int i = 0; i < NUMTRIALS; i++)
+			for (volatile int i = 0; i < NUMTRIALS; i++)
 			{
 				integer1 = rand();
 				integer2 = rand();
 				TIM2_START();
-				if(integer2 > 0){
-					int_result = (float)integer1 / (float)integer2;
+				if (integer2 > 0)
+				{
+					int_result = (float) integer1 / (float) integer2;
 				}
-				else{
+				else
+				{
 					fprintf(stderr, "Cannot divide by zero\n");
 				}
 				TIM2_STOP();
-				timercount = ((TIM2->CNT*1e9)/96e6);
+				timercount = ((TIM2->CNT * 1e9) / 96e6);
 				time_of_all_trials += timercount;
 				TIM2->CNT = 0;
 				printf("/32: %d", int_result);
@@ -216,19 +225,21 @@ int main(void) {
 		{
 			time_of_all_trials = 0;
 			GPIOD->ODR |= LED_BLUE;
-			for(volatile int i = 0; i < NUMTRIALS; i++)
+			for (volatile int i = 0; i < NUMTRIALS; i++)
 			{
 				longlong1 = rand() + rand();
 				longlong2 = rand() + rand();
 				TIM2_START();
-				if(longlong2 > 0){
-					longlong_result = (float)longlong1 / (float)longlong2;
+				if (longlong2 > 0)
+				{
+					longlong_result = (float) longlong1 / (float) longlong2;
 				}
-				else{
+				else
+				{
 					fprintf(stderr, "Cannot divide by zero\n");
 				}
 				TIM2_STOP();
-				timercount = ((TIM2->CNT*1e9)/96e6);
+				timercount = ((TIM2->CNT * 1e9) / 96e6);
 				time_of_all_trials += timercount;
 				TIM2->CNT = 0;
 				printf("/64: %d", longlong_result);
@@ -250,18 +261,18 @@ int main(void) {
 		{
 			time_of_all_trials = 0;
 			GPIOD->ODR |= LED_BLUE;
-			for(volatile int i = 0; i < NUMTRIALS; i++)
+			for (volatile int i = 0; i < NUMTRIALS; i++)
 			{
 				num8a.num = 0;
 				num8b.num = rand();
 				TIM2_START();
 				num8a = num8b;
 				TIM2_STOP();
-				timercount = ((TIM2->CNT*1e9)/96e6);
+				timercount = ((TIM2->CNT * 1e9) / 96e6);
 				time_of_all_trials += timercount;
 				TIM2->CNT = 0;
 				printf("+32: %d", num8a.num);
-			} 
+			}
 			{
 				GPIOD->ODR |= LED_GREEN;
 				average_run_time = time_of_all_trials / NUMTRIALS;
@@ -279,14 +290,14 @@ int main(void) {
 		{
 			time_of_all_trials = 0;
 			GPIOD->ODR |= LED_BLUE;
-			for(volatile int i = 0; i < NUMTRIALS; i++)
+			for (volatile int i = 0; i < NUMTRIALS; i++)
 			{
-				init_128_zero(&num128a);
-				init_128_random(&num128b);
+				init_struct(&num128a, sizeof(&num128a), ZERO);
+				init_struct(&num128b, sizeof(&num128b), RANDOM);
 				TIM2_START();
 				num128a = num128b;
 				TIM2_STOP();
-				timercount = ((TIM2->CNT*1e9)/96e6);
+				timercount = ((TIM2->CNT * 1e9) / 96e6);
 				time_of_all_trials += timercount;
 				TIM2->CNT = 0;
 				printf("CPY128: %d", num128a);
@@ -308,14 +319,14 @@ int main(void) {
 		{
 			time_of_all_trials = 0;
 			GPIOD->ODR |= LED_BLUE;
-			for(volatile int i = 0; i < NUMTRIALS; i++)
+			for (volatile int i = 0; i < NUMTRIALS; i++)
 			{
-				init_1024_zero(&num1024a);
-				init_1024_random(&num1024b);
+				init_struct(&num1024a, sizeof(&num1024a), ZERO);
+				init_struct(&num1024b, sizeof(&num1024b), RANDOM);
 				TIM2_START();
 				num1024a = num1024b;
 				TIM2_STOP();
-				timercount = ((TIM2->CNT*1e9)/96e6);
+				timercount = ((TIM2->CNT * 1e9) / 96e6);
 				time_of_all_trials += timercount;
 				TIM2->CNT = 0;
 				printf("CPY1024: %d", num1024a);
@@ -337,47 +348,82 @@ int main(void) {
 	return 0;
 }
 
-void TIM2_IRQHandler(void) {
+void TIM2_IRQHandler(void)
+{
 	TIM2->SR &= ~TIM_SR_UIF;
 	GPIOD->ODR ^= LED_RED;
 }
-void TIM2_START(void){
+void TIM2_START(void)
+{
 	TIM2->CR1 |= TIM_CR1_CEN;
 }
-void TIM2_STOP(void){
+void TIM2_STOP(void)
+{
 	TIM2->CR1 &= ~TIM_CR1_CEN;
 }
-void delay(const uint32_t cycles) {
-	for (volatile uint32_t i = 0; i < cycles; i++) {}
+void delay(const uint32_t cycles)
+{
+	for (volatile uint32_t i = 0; i < cycles; i++)
+	{
+	}
 }
 
-void init_128_zero(Struct128* struct_to_init){
-    for(volatile int i = 0; i < (sizeof(*struct_to_init) / sizeof(*struct_to_init->num)); i++)
-    {
-    	struct_to_init->num[i] = 0;
-    }
-}
-void init_128_random(Struct128* struct_to_init){
-    for(volatile int i = 0; i < (sizeof(*struct_to_init) / sizeof(*struct_to_init->num)); i++)
-    {
-    	struct_to_init->num[i] = rand();
-    }
-}
-void init_1024_zero(Struct1024* struct_to_init){
-    for(volatile int i = 0; i < (sizeof(*struct_to_init) / sizeof(*struct_to_init->num)); i++)
-    {
-    	struct_to_init->num[i] = 0;
-    }
-}
-void init_1024_random(Struct1024* struct_to_init){
-    for(volatile int i = 0; i < (sizeof(*struct_to_init) / sizeof(*struct_to_init->num)); i++)
-    {
-    	struct_to_init->num[i] = rand();
-    }
+void init_struct(void *struct_to_init, int size, Init_Struct_Value value)
+{
+	// for Struct128
+	if (((size == (sizeof(*(Struct128*) struct_to_init)) && value == ZERO)))
+	{
+		for (volatile int i = 0;
+				i < (size / (sizeof((*(Struct128*) struct_to_init).num[i])));
+				i++)
+		{
+			(*(Struct128*) struct_to_init).num[i] = 0;
+		}
+	}
+	else if (((size == (sizeof(*(Struct128*) struct_to_init)) && value == RANDOM)))
+	{
+		for (volatile int i = 0;
+				i < (size / (sizeof((*(Struct128*) struct_to_init).num[i])));
+				i++)
+		{
+			(*(Struct128*) struct_to_init).num[i] = rand();
+		}
+	}
+	else
+	{
+		fprintf(stderr, "unknown struct type\n");
+	}
+	// for Struct1024
+	if (((size == (sizeof(*(Struct1024*) struct_to_init)) && value == ZERO)))
+	{
+		for (volatile int i = 0;
+				i < (size / (sizeof((*(Struct1024*) struct_to_init).num[i])));
+				i++)
+		{
+			(*(Struct1024*) struct_to_init).num[i] = 0;
+		}
+	}
+	else if (((size == (sizeof(*(Struct1024*) struct_to_init))
+			&& value == RANDOM)))
+	{
+		for (volatile int i = 0;
+				i < (size / (sizeof((*(Struct1024*) struct_to_init).num[i])));
+				i++)
+		{
+			(*(Struct1024*) struct_to_init).num[i] = rand();
+		}
+	}
+	else
+	{
+		fprintf(stderr, "unknown struct type\n");
+	}
 }
 
-void init_hardware(void){
+void init_hardware(void)
+{
+	// @formatter:off
 	/* FLASH AND POWER */
+
 		{
 			PWR->CR |= PWR_CR_VOS;
 			FLASH->ACR |= 	FLASH_ACR_ICEN 			|
@@ -462,4 +508,5 @@ void init_hardware(void){
 			TIM2->PSC = 0;
 			TIM2->EGR |= TIM_EGR_UG;
 		}
-}
+			// @formatter:on
+	}
