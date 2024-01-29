@@ -30,6 +30,9 @@ typedef struct {
 } Struct1024;
 
 void init_struct128_zero(Struct128* struct_to_init, int size);
+void init_struct128_random(Struct128* struct_to_init, int size);
+void init_struct1024_zero(Struct1024* struct_to_init, int size);
+void init_struct1024_random(Struct1024* struct_to_init, int size);
 
 
 int main(void) {
@@ -52,36 +55,12 @@ int main(void) {
     num8b.num = rand();
 
     init_struct128_zero(&num128a, (sizeof(num128a) / sizeof(num128a.num[0])));
+    init_struct128_zero(&num128b, (sizeof(num128b) / sizeof(num128b.num[0])));
+    init_struct128_random(&num128b, (sizeof(num128b) / sizeof(num128b.num[0])));
 
-//    for(volatile int i = 0; i < (sizeof(num128a) / sizeof(num128a.num[i])); i++)
-//    {
-//    	num128a.num[i] = 0;
-//    }
-//    for(volatile int i = 0; i < (sizeof(num128b) / sizeof(num128b.num[i])); i++)
-//    {
-//    	num128b.num[i] = 0;
-//    }
-//    for(volatile int i = 0; i < (sizeof(num128b) / sizeof(num128b.num[i])); i++)
-//    {
-//    	num128b.num[i] = rand();
-//    }
-
-
-
-
-
-    for(volatile int i = 0; i < (sizeof(num1024a) / sizeof(num1024a.num[i])); i++)
-    {
-    	num1024a.num[i] = 0;
-    }
-    for(volatile int i = 0; i < (sizeof(num1024b) / sizeof(num1024b.num[i])); i++)
-    {
-    	num1024b.num[i] = 0;
-    }
-    for(volatile int i = 0; i < (sizeof(num1024b) / sizeof(num1024b.num[i])); i++)
-    {
-    	num1024b.num[i] = rand();
-    }
+    init_struct1024_zero(&num1024a, (sizeof(num1024a) / sizeof(num1024a.num[0])));
+    init_struct1024_zero(&num1024b, (sizeof(num1024b) / sizeof(num1024b.num[0])));
+    init_struct1024_random(&num1024b, (sizeof(num1024b) / sizeof(num1024b.num[0])));
 
 	/* FLASH AND POWER */
 	{
@@ -430,5 +409,23 @@ void init_struct128_zero(Struct128* struct_to_init, int size){
     for(volatile int i = 0; i < size; i++)
     {
     	struct_to_init->num[i] = 0;
+    }
+}
+void init_struct128_random(Struct128* struct_to_init, int size){
+    for(volatile int i = 0; i < size; i++)
+    {
+    	struct_to_init->num[i] = rand();
+    }
+}
+void init_struct1024_zero(Struct1024* struct_to_init, int size){
+    for(volatile int i = 0; i < size; i++)
+    {
+    	struct_to_init->num[i] = 0;
+    }
+}
+void init_struct1024_random(Struct1024* struct_to_init, int size){
+    for(volatile int i = 0; i < size; i++)
+    {
+    	struct_to_init->num[i] = rand();
     }
 }
