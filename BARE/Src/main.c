@@ -153,16 +153,42 @@ int main(void)
 	 */
 	{
 		RCC->AHB1ENR |= RCC_AHB1ENR_GPIOAEN | RCC_AHB1ENR_GPIOCEN;
-		RCC->APB1ENR |= RCC_APB1ENR_SPI3EN;
+		RCC->APB1ENR |= RCC_APB1ENR_SPI3EN; // I2S comes out of SPI ports
 
-		GPIOA->MODER |= GPIO_MODER_MODE4_1; // Port A4 => alternate function
+		GPIOA->MODER |= GPIO_MODER_MODE4_1; // alternate function: WS PA4
 		GPIOA->OSPEEDR |= (0x3<<8); // high speed
 		GPIOA->AFR[0] |= (0x6<<16); // Port A4 => AF06
 
-		GPIOC->MODER |= GPIO_MODER_MODE7_1 | GPIO_MODER_MODE10_1 | GPIO_MODER_MODE12_1;
-		GPIOC->OSPEEDR |= (0x3<<14) | (0x3<<20) | (0x3<<24);
-		GPIOC->AFR[0] |= GPIO_AFRL_AFRL7_1 | GPIO_AFRL_AFRL7_2;
-		GPIOC->AFR[1] |= (0x6<<8) | (0x6<<16); //AF06 on Port C 10 & 12
+		GPIOC->MODER |= GPIO_MODER_MODE7_1 | GPIO_MODER_MODE10_1 | GPIO_MODER_MODE12_1; // MCK, CK, SD
+		GPIOC->OSPEEDR |= (0x3<<14) | (0x3<<20) | (0x3<<24); // high speed
+		GPIOC->AFR[0] |= GPIO_AFRL_AFRL7_1 | GPIO_AFRL_AFRL7_2; // MCK alt function
+		GPIOC->AFR[1] |= (0x6<<8) | (0x6<<16); // CK, SD alternate function
+
+		/*
+			1. Select the I2SDIV[7:0] bits in the SPI_I2SPR register to define the serial clock baud
+			rate to reach the proper audio sample frequency. The ODD bit in the SPI_I2SPR
+			register also has to be defined.
+
+			2. Select the CKPOL bit to define the steady level for the communication clock. Set the
+			MCKOE bit in the SPI_I2SPR register if the master clock MCK needs to be provided to
+			the external DAC/ADC audio component (the I2SDIV and ODD values should be
+			computed depending on the state of the MCK output, for more details refer to
+			Section 20.4.4: Clock generator).
+
+			3. Set the I2SMOD bit in SPI_I2SCFGR to activate the I2S functionalities and choose the
+			I
+			2S standard through the I2SSTD[1:0] and PCMSYNC bits, the data length through the
+			DATLEN[1:0] bits and the number of bits per channel by configuring the CHLEN bit.
+			Select also the I2S master mode and direction (Transmitter or Receiver) through the
+			I2SCFG[1:0] bits in the SPI_I2SCFGR register.
+			4. If needed, select all the potential interruption sources and the DMA capabilities by
+			writing the SPI_CR2 register.
+			5. The I2SE bit in SPI_I2SCFGR register must be set.
+		 */
+
+		SPI3->CR1 |= SPI_CR1_DFF; // 16 bit data frame
+		//SPI3->I2SPR |=
+		#error "Finish I2S3 config"
 	}
 
 	/* Configure DAC - do before or after power up? */
