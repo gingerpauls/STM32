@@ -139,10 +139,10 @@ int main(void)
 	 *
 	 * CS43		??		 		Pin			Alternate function
 	 * -------------------------------------------------------
-	 * MCLK 	I2S3_MCK 		PC7			I2S3_MCK
-	 * SCLK 	I2S3_SCK		PC10		I2S3_CK
-	 * SDIN 	I2S3_SD			PC12		I2S3_SD
-	 * LRCK		I2S3_WS			PA4			I2S3_WS
+	 * MCLK 	I2S3_MCK 		PC7			I2S3_MCK	AF06
+	 * SCLK 	I2S3_SCK		PC10		I2S3_CK		AF06
+	 * SDIN 	I2S3_SD			PC12		I2S3_SD		AF06
+	 * LRCK		I2S3_WS			PA4			I2S3_WS		AF06
 	 * RESET 	Audio_RST		PD4			n/a
 	 *
 	 * AIN1A/B	Audio_DAC_OUT	PA4
@@ -153,8 +153,16 @@ int main(void)
 	 */
 	{
 		RCC->AHB1ENR |= RCC_AHB1ENR_GPIOAEN | RCC_AHB1ENR_GPIOCEN;
+		RCC->APB1ENR |= RCC_APB1ENR_SPI3EN;
 
+		GPIOA->MODER |= GPIO_MODER_MODE4_1; // Port A4 => alternate function
+		GPIOA->OSPEEDR |= (0x3<<8); // high speed
+		GPIOA->AFR[0] |= (0x6<<16); // Port A4 => AF06
 
+		GPIOC->MODER |= GPIO_MODER_MODE7_1 | GPIO_MODER_MODE10_1 | GPIO_MODER_MODE12_1;
+		GPIOC->OSPEEDR |= (0x3<<14) | (0x3<<20) | (0x3<<24);
+		GPIOC->AFR[0] |= GPIO_AFRL_AFRL7_1 | GPIO_AFRL_AFRL7_2;
+		GPIOC->AFR[1] |= (0x6<<8) | (0x6<<16); //AF06 on Port C 10 & 12
 	}
 
 	/* Configure DAC - do before or after power up? */
