@@ -187,8 +187,10 @@ int main(void)
 		 */
 
 		SPI3->CR1 |= SPI_CR1_DFF; // 16 bit data frame
-		//SPI3->I2SPR |=
-		#error "Finish I2S3 config"
+		SPI3->I2SPR |= SPI_I2SPR_MCKOE; // unsure if this is needed
+		SPI3->I2SPR |= SPI_I2SPR_; // unsure if this is needed
+
+		//#error "Finish I2S3 config"
 	}
 
 	/* Configure DAC - do before or after power up? */
