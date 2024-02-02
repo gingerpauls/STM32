@@ -186,9 +186,9 @@ int main(void)
 			5. The I2SE bit in SPI_I2SCFGR register must be set.
 		 */
 
-		SPI3->CR1 |= SPI_CR1_DFF; // 16 bit data frame
-		SPI3->I2SPR |= SPI_I2SPR_MCKOE; // unsure if this is needed
-		SPI3->I2SPR |= SPI_I2SPR_; // unsure if this is needed
+		//SPI3->CR1 |= SPI_CR1_DFF; // 16 bit data frame
+		//SPI3->I2SPR |= SPI_I2SPR_MCKOE; // unsure if this is needed
+		//SPI3->I2SPR |= SPI_I2SPR_; // unsure if this is needed
 
 		//#error "Finish I2S3 config"
 	}
@@ -231,14 +231,16 @@ void I2C_WRITE(uint8_t regaddress, uint8_t data){
 	I2C_START();
 	// chip address always starts with '0b1001010x' (0x94) AD0 is always 0 (connected to DGND) I think...
 	I2C1->DR = 0x94; // address phase
+	while(I2C1->SR1 & I2C_SR1_AF){}
 	while(!(I2C1->SR1 & I2C_SR1_ADDR)){}
 	//dummy = I2C1->SR1 | I2C1->SR2; // this clears ADDR
 	(void)I2C1->SR2;
 	I2C1->DR = regaddress;
-	//while(!(I2C1->SR1 & I2C_SR1_AF)){}
+	while(I2C1->SR1 & I2C_SR1_AF){}
 	while(!(I2C1->SR1 & I2C_SR1_BTF)){}
 	while(!(I2C1->SR1 & I2C_SR1_TXE)){}
 	I2C1->DR = data;
+	while(I2C1->SR1 & I2C_SR1_AF){}
 	while(!(I2C1->SR1 & I2C_SR1_TXE)){}
 	while(!(I2C1->SR1 & I2C_SR1_BTF)){}
 	I2C_STOP();
