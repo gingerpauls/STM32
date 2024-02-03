@@ -164,7 +164,7 @@ int main(void)
 		GPIOC->AFR[0] |= GPIO_AFRL_AFRL7_1 | GPIO_AFRL_AFRL7_2; // MCK alt function
 		GPIOC->AFR[1] |= (0x6<<8) | (0x6<<16); // CK, SD alternate function
 
-		/*
+		/*  I2S Master Mode Configuration
 			1. Select the I2SDIV[7:0] bits in the SPI_I2SPR register to define the serial clock baud
 			rate to reach the proper audio sample frequency. The ODD bit in the SPI_I2SPR
 			register also has to be defined.
@@ -193,14 +193,7 @@ int main(void)
 		//#error "Finish I2S3 config"
 	}
 
-	/* Configure DAC - do before or after power up? */
-	{
 
-		I2C_WRITE(0x1C, 0x7F);	// Beep address; beep frequency (260Hz) & time (5.2s)
-		I2C_WRITE(0x1E, 0xC0);	// beep & tone configuration address
-		I2C_WRITE(0x04, 0x2);	// headphones always on
-		I2C_WRITE(0x05, 0x1);	// auto detect clock when CS43L22 is slave
-	}
 
 	/* DAC POWER UP */
 	{
@@ -217,10 +210,21 @@ int main(void)
 		// write 0x00 to register 0x00
 		I2C_WRITE(0x00,0x00);
 		// apply MCLK at appropriate freq
-		I2C_WRITE(0x05,0x23); // 48KHz: 0bx0100011 => 0x23
+		//I2C_WRITE(0x05,0x23); // 48KHz: 0bx0100011 => 0x23
 		// Power Ctl.1 'Powered Up'
 		I2C_WRITE(0x02,0x9E);
 		delay(1000000);
+	}
+
+	/* Configure DAC - do before or after power up? */
+	{
+
+		//I2C_WRITE(0x05, 0xA0);	// Auto detect speed mode, etc.
+		I2C_WRITE(0x1C, 0x73);	// Beep address; beep frequency (260Hz) & time (1.2s)
+		I2C_WRITE(0x1D, 0x00);	// Beep off 1.23s, -6dB
+		I2C_WRITE(0x1E, 0xC0);	// beep & tone configuration address
+		I2C_WRITE(0x04, 0x2);	// headphones always on
+		//I2C_WRITE(0x05, 0x1);	// auto detect clock when CS43L22 is slave
 	}
 
 	GPIOD->ODR |= LED_GREEN;
@@ -229,12 +233,10 @@ int main(void)
 
 void I2C_WRITE(uint8_t regaddress, uint8_t data){
 	I2C_START();
-	// chip address always starts with '0b1001010x' (0x94) AD0 is always 0 (connected to DGND) I think...
-	I2C1->DR = 0x94; // address phase
+	I2C1->DR = 0x94;
 	while(I2C1->SR1 & I2C_SR1_AF){}
 	while(!(I2C1->SR1 & I2C_SR1_ADDR)){}
-	//dummy = I2C1->SR1 | I2C1->SR2; // this clears ADDR
-	(void)I2C1->SR2;
+	(void)I2C1->SR2; // reading SR2 after SR1 will clear the ADDR flag
 	I2C1->DR = regaddress;
 	while(I2C1->SR1 & I2C_SR1_AF){}
 	while(!(I2C1->SR1 & I2C_SR1_BTF)){}
