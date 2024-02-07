@@ -64,17 +64,16 @@ void Backlight_OFF(void);
 void Backlight_ON(void);
 
 int main(void) {
-	char *word = "Hello World!     ";
+	char *word = "New text";
 	int cycles = 9600000;
 
 	FLASH_AND_POWER_CONFIG(); // for HCLK = 96MHz
 	GPIO_CONFIG();
 	HSE_PLL_CLK_EN();
 	//Reset_Baud_Rate(); // MUST REMOVE AFTER RESETTING
-	USART2_CONFIG(0x9C, 0x4, 0x0); 		// 9600
-	//Change_Baud_Rate(0x0D); 		// 9600
-	//Change_Baud_Rate(0x0C);			// 4800
-	//USART2_CONFIG(0x138, 0x8, USART_CR2_STOP_Msk); 		// 4800
+	USART2_CONFIG(156, 0X4, 0x0);
+	Change_Baud_Rate(0xD);
+
 
 	//Blink_Cursor();
 	delay(cycles);
@@ -116,11 +115,6 @@ void GPIO_CONFIG(void) {
 						GPIO_MODER_MODE13_0 |
 						GPIO_MODER_MODE14_0 |
 						GPIO_MODER_MODE15_0	; // set GPIO to "output" mode for LEDs
-
-//	GPIOD->OSPEEDR |= 	GPIO_OSPEEDER_OSPEEDR12 |
-//						GPIO_OSPEEDER_OSPEEDR13 |
-//						GPIO_OSPEEDER_OSPEEDR14 |
-//						GPIO_OSPEEDER_OSPEEDR15;
 }
 
 void TIM2_CONFIG(uint32_t timeMilliSeconds) {

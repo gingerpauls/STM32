@@ -40,17 +40,14 @@
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
-UART_HandleTypeDef huart2;
 
 /* USER CODE BEGIN PV */
-#define SYSTICK_RELOAD_VALUE = (SystemCoreClock / 1000) - 1
 
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
-static void MX_USART2_UART_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -88,7 +85,6 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
 
   /* USER CODE END 2 */
@@ -100,25 +96,7 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	  //HAL_GPIO_WritePin(GPIOD, GPIO_PIN_12, GPIO_PIN_SET);
-
-		USART2->CR1 |= USART_CR1_TE; 		// Transmitter enabled
-		//USART2->CR2 |= USART_CR2_STOP;	// Stop bit: 0b00 is 1 stop bit by default
-		USART2->DR |= 0x01;
-
-		if(!(USART2->SR & USART_SR_TC)){
-			while (USART2->SR & USART_SR_TC);
-		}
-
-		//if (USART2->SR & USART_SR_TXE); 	// if Transmit data register empty
-		if (USART2->SR & USART_SR_TC){
-			GPIOD->ODR |= GPIO_PIN_12; 	// if transmission complete
-		}
-
-
-
-
-    HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_12);
+    HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_15);
     HAL_Delay(1000);
   }
   /* USER CODE END 3 */
@@ -167,39 +145,6 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
-}
-
-/**
-  * @brief USART2 Initialization Function
-  * @param None
-  * @retval None
-  */
-static void MX_USART2_UART_Init(void)
-{
-
-  /* USER CODE BEGIN USART2_Init 0 */
-
-  /* USER CODE END USART2_Init 0 */
-
-  /* USER CODE BEGIN USART2_Init 1 */
-
-  /* USER CODE END USART2_Init 1 */
-  huart2.Instance = USART2;
-  huart2.Init.BaudRate = 9600;
-  huart2.Init.WordLength = UART_WORDLENGTH_8B;
-  huart2.Init.StopBits = UART_STOPBITS_1;
-  huart2.Init.Parity = UART_PARITY_NONE;
-  huart2.Init.Mode = UART_MODE_TX_RX;
-  huart2.Init.HwFlowCtl = UART_HWCONTROL_NONE;
-  huart2.Init.OverSampling = UART_OVERSAMPLING_16;
-  if (HAL_UART_Init(&huart2) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  /* USER CODE BEGIN USART2_Init 2 */
-
-  /* USER CODE END USART2_Init 2 */
-
 }
 
 /**
