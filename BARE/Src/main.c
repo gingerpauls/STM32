@@ -66,6 +66,7 @@ int main(void) {
 }
 
 void FLASH_AND_POWER_CONFIG(void) {
+	RCC->APB1ENR |= RCC_APB1ENR_PWREN;
 	PWR->CR |= PWR_CR_VOS;
 	FLASH->ACR |= 	FLASH_ACR_ICEN 			|
 					FLASH_ACR_DCEN			|
