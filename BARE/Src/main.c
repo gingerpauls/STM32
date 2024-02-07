@@ -64,16 +64,15 @@ void Backlight_OFF(void);
 void Backlight_ON(void);
 
 int main(void) {
-	char *word = "New text";
+	char *word = "Hello World!      ";
 	int cycles = 9600000;
 
 	FLASH_AND_POWER_CONFIG(); // for HCLK = 96MHz
 	GPIO_CONFIG();
 	HSE_PLL_CLK_EN();
 	//Reset_Baud_Rate(); // MUST REMOVE AFTER RESETTING
-	USART2_CONFIG(156, 0X4, 0x0);
-	Change_Baud_Rate(0xD);
-
+	USART2_CONFIG(0x27, 0x1, 0x0);
+	Change_Baud_Rate(0x10);
 
 	//Blink_Cursor();
 	delay(cycles);
