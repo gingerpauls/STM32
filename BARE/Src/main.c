@@ -77,7 +77,7 @@ int main(void) {
 
 	//Blink_Cursor();
 	delay(cycles);
-	for (int i = 0; i < 4; i++) {
+	for (;;) {
 		Clear_Display();
 		delay(cycles);
 		GPIOD->ODR |= LED_GREEN;
