@@ -18,6 +18,7 @@
 #include "main.h"
 #include "string.h"
 #include "lcd.h"
+#include "stdio.h"
 
 #define LED_GREEN GPIO_ODR_OD12
 #define LED_ORANGE GPIO_ODR_OD13
@@ -31,7 +32,7 @@ void GPIO_CONFIG(void);
 void HSI_PLL_CLK_EN(void);
 void HSE_PLL_CLK_EN(void);
 
-void TIM2_CONFIG(uint32_t timeMilliSeconds);
+void TIM2_CONFIG(uint32_t cycles);
 void TIM10_CONFIG(uint32_t frequency);
 
 void USART2_CONFIG(uint32_t, uint32_t, uint32_t);
@@ -39,26 +40,35 @@ void USART2_CONFIG(uint32_t, uint32_t, uint32_t);
 void delay(uint32_t cycles);
 
 int main(void) {
-	char *word = "jesus tapdancing christ!";
+	char *word = "Test Print";
 	int cycles = 9600000;
+	uint32_t timercount;
+	char timerword[32];
 
 	FLASH_AND_POWER_CONFIG(); // for HCLK = 96MHz
 	GPIO_CONFIG();
 	HSE_PLL_CLK_EN();
+	TIM2_CONFIG(TIM_ARR_ARR);
 	//Reset_Baud_Rate(); // MUST REMOVE AFTER RESETTING
-	USART2_CONFIG(0x27, 0x1, 0x0); // 38400 Baud Rate
-	Change_Baud_Rate(0x10); // 38400 Baud Rate
+	USART2_CONFIG(0x27, 0x1, 0x0); // 38400 Baud Rate: 0x27, 0x1, 0x0 @ 24MHz
+	//Change_Baud_Rate(0x10); // remove after setting
 
-	Blink_Cursor();
-	delay(cycles);
 	for (;;) {
-		Clear_Display();
-		delay(cycles);
 		GPIOD->ODR |= LED_GREEN;
+		TIM2->CR1 |= TIM_CR1_CEN;
+		Clear_Display();
 		Write_String(word);
+		TIM2->CR1 &= ~TIM_CR1_CEN;
+		timercount = ((TIM2->CNT * 1e9) / 96e6);
+		sprintf(timerword, "%dns", timercount);
 		delay(cycles);
+		SetCursor(64);
+		Write_String(timerword);
+		delay(cycles);
+		TIM2->CNT = 0;
 		GPIOD->ODR &= ~LED_GREEN;
 		Clear_Display();
+		delay(cycles);
 	}
 
 	RCC->APB1ENR &= ~RCC_APB1ENR_USART2EN;
@@ -66,7 +76,7 @@ int main(void) {
 }
 
 void FLASH_AND_POWER_CONFIG(void) {
-	RCC->APB1ENR |= RCC_APB1ENR_PWREN;
+	//RCC->APB1ENR |= RCC_APB1ENR_PWREN;
 	PWR->CR |= PWR_CR_VOS;
 	FLASH->ACR |= 	FLASH_ACR_ICEN 			|
 					FLASH_ACR_DCEN			|
@@ -140,6 +150,7 @@ void HSE_PLL_CLK_EN(void) {
 						RCC_PLLCFGR_PLLM_5);
 
 	RCC->CFGR |= RCC_CFGR_PPRE1_DIV4;
+	RCC->DCKCFGR |= RCC_DCKCFGR_TIMPRE;
 
 	RCC->PLLCFGR |= RCC_PLLCFGR_PLLSRC_HSE;
 
@@ -165,14 +176,14 @@ void SysTick_Handler(void) {
 	GPIOD->ODR ^= LED_BLUE;
 }
 
-void TIM2_CONFIG(uint32_t timeMilliSeconds) {
+void TIM2_CONFIG(uint32_t cycles) {
 	SystemCoreClockUpdate();
 	RCC->APB1ENR |= RCC_APB1ENR_TIM2EN | RCC_APB1ENR_PWREN;
-	TIM2->ARR = timeMilliSeconds; // 1000 * 1ms = 1s
-	TIM2->PSC = ((SystemCoreClock / 2) / 1000) - 1; // 1ms
+	TIM2->ARR = cycles;
+	TIM2->PSC = 0;
 	TIM2->DIER |= TIM_DIER_UIE;
 	TIM2->CR1 |= TIM_CR1_CEN;
-	//__NVIC_EnableIRQ(TIM2_IRQn); //
+	__NVIC_EnableIRQ(TIM2_IRQn); //
 	NVIC->ISER[0] |= 1 << TIM2_IRQn; // IRQn of TIM2 => 0x10000000 = '28' (bit 28)
 }
 void TIM2_IRQHandler(void) {
@@ -187,9 +198,9 @@ void TIM10_CONFIG(uint32_t frequency) {
 	TIM10->ARR = (1000000 / (2 * frequency)); // set in us
 	TIM10->PSC = (SystemCoreClock / 1000000) - 1; // 1 us
 	TIM10->DIER |= TIM_DIER_UIE;
-	TIM10->CR1 |= TIM_CR1_CEN;
+	//TIM10->CR1 |= TIM_CR1_CEN;
 	//__NVIC_EnableIRQ(TIM1_UP_TIM10_IRQn);
-	NVIC->ISER[0] |= 1 << TIM1_UP_TIM10_IRQn; // IRQn of TIM2 = 25
+	//NVIC->ISER[0] |= 1 << TIM1_UP_TIM10_IRQn; // IRQn of TIM2 = 25
 }
 void TIM1_UP_TIM10_IRQHandler(void) {
 	TIM10->SR &= ~TIM_SR_UIF; // Clear the update interrupt flag

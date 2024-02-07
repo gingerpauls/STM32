@@ -77,3 +77,12 @@ void Backlight_ON(void) {
 	while (!(USART2->SR & USART_SR_TXE));
 	while (!(USART2->SR & USART_SR_TC));
 }
+
+void SetCursor(uint8_t position){
+	USART2->DR |= 0XFE;
+	while (!(USART2->SR & USART_SR_TXE));
+	USART2->DR |= 0x80 + position;
+	while (!(USART2->SR & USART_SR_TXE));
+	while (!(USART2->SR & USART_SR_TC));
+
+}

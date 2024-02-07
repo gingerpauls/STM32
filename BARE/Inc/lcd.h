@@ -18,5 +18,5 @@ void Change_Baud_Rate(uint8_t);
 void Reset_Baud_Rate(void);
 void Backlight_OFF(void);
 void Backlight_ON(void);
-
+void SetCursor(uint8_t position);
 #endif /* LCD_H_ */
