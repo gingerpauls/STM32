@@ -40,7 +40,7 @@ void USART2_CONFIG(uint32_t, uint32_t, uint32_t);
 void delay(uint32_t cycles);
 
 int main(void) {
-	char *word = "Test Print";
+	char *word = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456";
 	int cycles = 9600000;
 	uint32_t timercount;
 	char timerword[32];
@@ -62,7 +62,7 @@ int main(void) {
 		timercount = ((TIM2->CNT * 1e9) / 96e6);
 		sprintf(timerword, "%dns", timercount);
 		delay(cycles);
-		SetCursor(64);
+		Clear_Display();
 		Write_String(timerword);
 		delay(cycles);
 		TIM2->CNT = 0;
