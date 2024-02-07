@@ -17,6 +17,7 @@
  */
 #include "main.h"
 #include "string.h"
+#include "lcd.h"
 
 #define LED_GREEN GPIO_ODR_OD12
 #define LED_ORANGE GPIO_ODR_OD13
@@ -35,21 +36,10 @@ void TIM10_CONFIG(uint32_t frequency);
 
 void USART2_CONFIG(uint32_t, uint32_t, uint32_t);
 
-void Clear_Display(void);
-void Write_Character(char);
-void Write_String(char*);
-void Scroll_Right(void);
-void Scroll_Left(void);
-void Blink_Cursor(void);
-void Change_Baud_Rate(uint8_t);
-void Reset_Baud_Rate(void);
-void Backlight_OFF(void);
-void Backlight_ON(void);
-
 void delay(uint32_t cycles);
 
 int main(void) {
-	char *word = "Hello World!";
+	char *word = "jesus tapdancing christ!";
 	int cycles = 9600000;
 
 	FLASH_AND_POWER_CONFIG(); // for HCLK = 96MHz
@@ -235,77 +225,6 @@ void USART2_CONFIG(uint32_t mantissa, uint32_t fraction, uint32_t stop) {
 	USART2->BRR |= (fraction << USART_BRR_DIV_Fraction_Pos);
 
 	USART2->CR1 |= USART_CR1_TE; 		// Transmitter enabled
-}
-
-void Clear_Display(void) {
-	USART2->DR |= 0xFE; // 0xFE and 0x7C are special commands
-	while (!(USART2->SR & USART_SR_TXE));
-	USART2->DR |= 0x01; // Clear display
-	while (!(USART2->SR & USART_SR_TXE));
-}
-void Write_Character(char letter) {
-	USART2->DR |= letter;
-	while (!(USART2->SR & USART_SR_TXE));
-
-}
-void Write_String(char *word) {
-//	for(int i = 0; i < strlen(*(word); i++){
-//		USART2->DR |= *word[i];
-//		while(!(USART2->SR & USART_SR_TXE));
-//	}
-	while (*word != '\0') {
-		USART2->DR |= *word;
-		while (!(USART2->SR & USART_SR_TXE));
-		word++;
-	}
-	while (!(USART2->SR & USART_SR_TC));
-}
-void Scroll_Right(void) {
-	USART2->DR |= 0xFE;
-	while (!(USART2->SR & USART_SR_TXE));
-	USART2->DR |= 0x1C;
-	while (!(USART2->SR & USART_SR_TXE));
-	while (!(USART2->SR & USART_SR_TC));
-}
-void Scroll_Left(void) {
-	USART2->DR |= 0xFE;
-	while (!(USART2->SR & USART_SR_TXE));
-	USART2->DR |= 0x18;
-	while (!(USART2->SR & USART_SR_TXE));
-	while (!(USART2->SR & USART_SR_TC));
-}
-void Blink_Cursor(void) {
-	USART2->DR |= 0xFE;
-	while (!(USART2->SR & USART_SR_TXE));
-	USART2->DR |= 0x0D;
-	while (!(USART2->SR & USART_SR_TXE));
-	while (!(USART2->SR & USART_SR_TC));
-}
-void Change_Baud_Rate(uint8_t lcdbaudrate) {
-	USART2->DR |= 0x7C;
-	while (!(USART2->SR & USART_SR_TXE));
-	USART2->DR |= lcdbaudrate; //0x10 for 38400; 0x0D for 9600; 0x0F for 19200
-	while (!(USART2->SR & USART_SR_TXE));
-	while (!(USART2->SR & USART_SR_TC));
-}
-void Reset_Baud_Rate(void) {
-	USART2->DR |= 0x12;
-	while (!(USART2->SR & USART_SR_TXE));
-	while (!(USART2->SR & USART_SR_TC));
-}
-void Backlight_OFF(void) {
-	USART2->DR |= 0x7C;
-	while (!(USART2->SR & USART_SR_TXE));
-	USART2->DR |= 0x80;
-	while (!(USART2->SR & USART_SR_TXE));
-	while (!(USART2->SR & USART_SR_TC));
-}
-void Backlight_ON(void) {
-	USART2->DR |= 0x7C;
-	while (!(USART2->SR & USART_SR_TXE));
-	USART2->DR |= 0x9D;
-	while (!(USART2->SR & USART_SR_TXE));
-	while (!(USART2->SR & USART_SR_TC));
 }
 
 void delay(uint32_t cycles) {
