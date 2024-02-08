@@ -42,8 +42,7 @@ void PPL_CLK_EN(int clocksource);
 void TIM2_CONFIG(uint32_t cycles);
 void TIM10_CONFIG(uint32_t frequency);
 
-void USART2_CONFIG(uint32_t mantissa, uint32_t fraction, uint32_t stopbits);
-void BAUD_RATE_CALCULATE(uint32_t peripheralclock, uint32_t baudrate, bool over8);
+void USART2_CONFIG(uint32_t baudrate, bool over8, uint32_t stopbits);
 
 void delay(uint32_t cycles);
 
@@ -59,9 +58,8 @@ int main(void) {
 	PPL_CLK_EN(HSE);
 	TIM2_CONFIG(TIM_ARR_ARR);
 	//Reset_Baud_Rate(); // MUST REMOVE AFTER RESETTING
-	BAUD_RATE_CALCULATE(24e6, 4800, 0);
-	USART2_CONFIG(39, 1, 0); // 38400 Baud Rate: 0x27, 0x1, 0x0 @ 24MHz
-	//Change_Baud_Rate(0x10); // remove after setting
+	USART2_CONFIG(38400, 0, 0);
+	//Change_Baud_Rate(38400); // remove after setting
 
 	while(1) {
 		GPIOD->ODR |= LED_GREEN;
@@ -224,7 +222,7 @@ void TIM1_UP_TIM10_IRQHandler(void) {
 	GPIOD->ODR ^= LED_GREEN; // Toggle the green LED
 }
 
-void USART2_CONFIG(uint32_t mantissa, uint32_t fraction, uint32_t stopbits) {
+void USART2_CONFIG(uint32_t baudrate, bool over8, uint32_t stopbits) {
 	/* 	USART2_TX: PA2->alternate function uses AHB & "Alternate Function 7"
 	 *	LCD:
 	 *		5V TTL
@@ -233,6 +231,9 @@ void USART2_CONFIG(uint32_t mantissa, uint32_t fraction, uint32_t stopbits) {
 	 *		1 stop
 	 *		no parity
 	 */
+	float usart_brr;
+	uint32_t mantissa, fraction;
+
 	RCC->AHB1ENR |= RCC_AHB1ENR_GPIOAEN;
 	RCC->APB1ENR |= RCC_APB1ENR_USART2EN;
 
@@ -243,23 +244,19 @@ void USART2_CONFIG(uint32_t mantissa, uint32_t fraction, uint32_t stopbits) {
 
 	USART2->CR2 |= (stopbits << USART_CR2_STOP_Pos); // 0b00 is 1 stop bit by default
 	USART2->CR1 |= USART_CR1_UE;
-	//USART2->CR1 |= USART_CR1_OVER8; 		// if 0-> 16x over-sampling; if 1-> 8x over-sampling
+	USART2->CR1 |= over8; 		// if 0-> 16x over-sampling; if 1-> 8x over-sampling
 
 	USART2->BRR &= ~USART_BRR_DIV_Mantissa_Msk;
 	USART2->BRR &= ~USART_BRR_DIV_Fraction_Msk;
+
+	usart_brr = (float)(SystemCoreClock / 4) / ( 8 * (2 - over8) * baudrate );
+	mantissa = (uint32_t)usart_brr;
+	fraction = round((usart_brr - mantissa) * (8 * (2 - over8)) );
 
 	USART2->BRR |= (mantissa << USART_BRR_DIV_Mantissa_Pos);
 	USART2->BRR |= (fraction << USART_BRR_DIV_Fraction_Pos);
 
 	USART2->CR1 |= USART_CR1_TE;
-}
-void BAUD_RATE_CALCULATE(uint32_t peripheralclock, uint32_t baudrate, bool over8){
-	float usart_brr;
-	uint32_t mantissa, fraction;
-
-	usart_brr = (float)peripheralclock / ( 8 * (2 - over8) * baudrate );
-	mantissa = (uint32_t)usart_brr;
-	fraction = round((usart_brr - mantissa) * (8 * (2 - over8)) );
 }
 
 void delay(uint32_t cycles) {

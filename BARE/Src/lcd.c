@@ -51,10 +51,28 @@ void Blink_Cursor(void) {
 	while (!(USART2->SR & USART_SR_TXE));
 	while (!(USART2->SR & USART_SR_TC));
 }
-void Change_Baud_Rate(uint8_t lcdbaudrate) {
+void Change_Baud_Rate(uint32_t lcdbaudrate) {
+	if (lcdbaudrate == 2400){
+		lcdbaudrate = (uint8_t)0x0B;
+	}
+	else if (lcdbaudrate == 4800){
+		lcdbaudrate = (uint8_t)0x0C;
+	}
+	else if (lcdbaudrate == 9600){
+		lcdbaudrate = (uint8_t)0x0D;
+	}
+	else if (lcdbaudrate == 14400){
+		lcdbaudrate = (uint8_t)0x0E;
+	}
+	else if (lcdbaudrate == 19200){
+		lcdbaudrate = (uint8_t)0x0F;
+	}
+	else if (lcdbaudrate == 38400){
+		lcdbaudrate = (uint8_t)0x10;
+	}
 	USART2->DR |= 0x7C;
 	while (!(USART2->SR & USART_SR_TXE));
-	USART2->DR |= lcdbaudrate; //0x10 for 38400; 0x0D for 9600; 0x0F for 19200
+	USART2->DR |= lcdbaudrate;
 	while (!(USART2->SR & USART_SR_TXE));
 	while (!(USART2->SR & USART_SR_TC));
 }
