@@ -82,7 +82,6 @@ void FLASH_AND_POWER_CONFIG(void) {
 }
 void GPIO_CONFIG(void) {
 	RCC->AHB1ENR |= RCC_AHB1ENR_GPIODEN;
-
 	GPIOD->MODER |= 	GPIO_MODER_MODE12_0 |
 						GPIO_MODER_MODE13_0 |
 						GPIO_MODER_MODE14_0 |
@@ -206,11 +205,10 @@ void TIM1_UP_TIM10_IRQHandler(void) {
 }
 
 void USART2_CONFIG(uint32_t mantissa, uint32_t fraction, uint32_t stopbits) {
-	/* 	USART2_TX -> PA2 (alternate function) uses AHB
-	 *	USART on PA2 -> AF7
+	/* 	USART2_TX: PA2->alternate function uses AHB & "Alternate Function 7"
 	 *	LCD:
 	 *		5V TTL
-	 *		9600 baud
+	 *		9600 baud default
 	 *		8 bits
 	 *		1 stop
 	 *		no parity

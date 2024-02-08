@@ -21,7 +21,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "lcd.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -31,7 +31,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-
+void USART2_CONFIG(uint32_t mantissa, uint32_t fraction, uint32_t stopbits);
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -101,8 +101,12 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	  Clear_Display();
-	  Write_String("Hello World!");
+	Reset_Baud_Rate(); // MUST REMOVE AFTER RESETTING
+	//USART2_CONFIG(0x27, 0x1, 0x0); // 38400 Baud Rate: 0x27, 0x1, 0x0 @ 24MHz
+	//USART2_CONFIG(0x9C, 0x4, 0x0); // 38400 Baud Rate: 0x27, 0x1, 0x0 @ 24MHz
+	//Change_Baud_Rate(0x10); // remove after setting
+	Clear_Display();
+	Write_String("ABCDEFGHIJKLMNOPQRSTUVWXYZ123456");
 
 
 
@@ -135,8 +139,8 @@ void SystemClock_Config(void)
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
   RCC_OscInitStruct.PLL.PLLM = 4;
-  RCC_OscInitStruct.PLL.PLLN = 192;
-  RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV4;
+  RCC_OscInitStruct.PLL.PLLN = 96;
+  RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
   RCC_OscInitStruct.PLL.PLLQ = 8;
   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
   {
@@ -334,24 +338,34 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-void Write_String(char *word) {
-//	for(int i = 0; i < strlen(*(word); i++){
-//		USART2->DR |= *word[i];
-//		while(!(USART2->SR & USART_SR_TXE));
-//	}
-	while (*word != '\0') {
-		USART2->DR |= *word;
-		while (!(USART2->SR & USART_SR_TXE));
-		word++;
-	}
-	while (!(USART2->SR & USART_SR_TC));
-}
+void USART2_CONFIG(uint32_t mantissa, uint32_t fraction, uint32_t stopbits) {
+	/* 	USART2_TX: PA2->alternate function uses AHB & "Alternate Function 7"
+	 *	LCD:
+	 *		5V TTL
+	 *		9600 baud default
+	 *		8 bits
+	 *		1 stop
+	 *		no parity
+	 */
+	RCC->AHB1ENR |= RCC_AHB1ENR_GPIOAEN;
+	RCC->APB1ENR |= RCC_APB1ENR_USART2EN;
 
-void Clear_Display(void) {
-	USART2->DR |= 0xFE; // 0xFE and 0x7C are special commands
-	while (!(USART2->SR & USART_SR_TXE));
-	USART2->DR |= 0x01; // Clear display
-	while (!(USART2->SR & USART_SR_TXE));
+	GPIOA->MODER |= GPIO_MODER_MODE2_1; // Alternate function
+	GPIOA->AFR[0] |= ( 	GPIO_AFRL_AFRL2_0 	|
+						GPIO_AFRL_AFRL2_1 	|
+						GPIO_AFRL_AFRL2_2	);
+
+	USART2->CR2 |= (stopbits << USART_CR2_STOP_Pos); // 0b00 is 1 stop bit by default
+	USART2->CR1 |= USART_CR1_UE;
+	//USART2->CR1 |= USART_CR1_OVER8; 		// if 0-> 16x over-sampling; if 1-> 8x over-sampling
+
+	USART2->BRR &= ~USART_BRR_DIV_Mantissa_Msk;
+	USART2->BRR &= ~USART_BRR_DIV_Fraction_Msk;
+
+	USART2->BRR |= (mantissa << USART_BRR_DIV_Mantissa_Pos);
+	USART2->BRR |= (fraction << USART_BRR_DIV_Fraction_Pos);
+
+	USART2->CR1 |= USART_CR1_TE;
 }
 
 /* USER CODE END 4 */
