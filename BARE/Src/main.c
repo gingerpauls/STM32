@@ -316,3 +316,21 @@ void I2C1_WRITE(uint8_t regaddress, uint8_t data){
 void delay(uint32_t cycles) {
 	for (uint32_t i = 0; i < cycles; i++);
 }
+
+
+
+/* I2C CONFIG - Gyro I3G4250D
+ * I3G4250D		Pin			Alternate function
+ * -------------------------------------------------------
+ * SCL/SPC		PA5			SPI1_SCK		AF??
+ * SDA/SDI/SDO 	PA7			SPI1_MOSI		AF??
+ * SDO/SA0		PA6			SPI1_MISO		AF??
+ * CS			PE3			CS_12C/SPI		AF??
+ *
+ * DRDY/INT2	PE1			MEMS_INT2		AF??
+ * INT1			PE0			MEMS_INT1		AF??
+ *
+ * WHAT BUS
+ * WHAT WHAT CLOCK FREQ
+ * chip address 110100xb
+ */
