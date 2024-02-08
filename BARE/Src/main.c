@@ -25,12 +25,17 @@
 #define LED_RED GPIO_ODR_OD14
 #define LED_BLUE GPIO_ODR_OD15
 
+enum
+{
+	HSI,
+	HSE,
+};
+
 void FLASH_AND_POWER_CONFIG(void);
 void SYSTICK_CONFIG(void);
-void GPIO_CONFIG(void);
+void LED_CONFIG(void);
 
-void HSI_PLL_CLK_EN(void);
-void HSE_PLL_CLK_EN(void);
+void PPL_CLK_EN(int clocksource);
 
 void TIM2_CONFIG(uint32_t cycles);
 void TIM10_CONFIG(uint32_t frequency);
@@ -46,8 +51,8 @@ int main(void) {
 	char timerword[32];
 
 	FLASH_AND_POWER_CONFIG();
-	GPIO_CONFIG();
-	HSE_PLL_CLK_EN();
+	LED_CONFIG();
+	PPL_CLK_EN(HSI);
 	TIM2_CONFIG(TIM_ARR_ARR);
 	//Reset_Baud_Rate(); // MUST REMOVE AFTER RESETTING
 	USART2_CONFIG(0x27, 0x1, 0x0); // 38400 Baud Rate: 0x27, 0x1, 0x0 @ 24MHz
@@ -80,7 +85,7 @@ void FLASH_AND_POWER_CONFIG(void) {
 					FLASH_ACR_PRFTEN 		|
 					FLASH_ACR_LATENCY_3WS	;
 }
-void GPIO_CONFIG(void) {
+void LED_CONFIG(void) {
 	RCC->AHB1ENR |= RCC_AHB1ENR_GPIODEN;
 	GPIOD->MODER |= 	GPIO_MODER_MODE12_0 |
 						GPIO_MODER_MODE13_0 |
@@ -88,77 +93,85 @@ void GPIO_CONFIG(void) {
 						GPIO_MODER_MODE15_0	; // set GPIO to "output" mode for LEDs
 }
 
-void HSI_PLL_CLK_EN(void) {
-	/* PLL 		M-8 	| N-192 	| P-4 	| Q-8
-	 * PLLI2S	M-10	| N-200		| R-2
-	 * AHB		1
-	 * APB1		4
-	 * APB2		1
-	*/
-	RCC->PLLCFGR |= RCC_PLLCFGR_PLLQ_3;
-	RCC->PLLCFGR &= ~( 	RCC_PLLCFGR_PLLQ_0 	|
-						RCC_PLLCFGR_PLLQ_1 	|
-						RCC_PLLCFGR_PLLQ_2	);
+void PPL_CLK_EN(int clocksource){
+	if(clocksource == HSI){
+		/* PLL 		M-8 	| N-192 	| P-4 	| Q-8
+			 * PLLI2S	M-10	| N-200		| R-2
+			 * AHB		1
+			 * APB1		4
+			 * APB2		1
+			*/
+			RCC->PLLCFGR |= RCC_PLLCFGR_PLLQ_3;
+			RCC->PLLCFGR &= ~( 	RCC_PLLCFGR_PLLQ_0 	|
+								RCC_PLLCFGR_PLLQ_1 	|
+								RCC_PLLCFGR_PLLQ_2	);
 
-	RCC->PLLCFGR |= RCC_PLLCFGR_PLLP_0;
-	RCC->PLLCFGR &= ~(RCC_PLLCFGR_PLLP_1);
+			RCC->PLLCFGR |= RCC_PLLCFGR_PLLP_0;
+			RCC->PLLCFGR &= ~(RCC_PLLCFGR_PLLP_1);
 
-	RCC->PLLCFGR |= RCC_PLLCFGR_PLLM_3;
-	RCC->PLLCFGR &= ~( 	RCC_PLLCFGR_PLLM_0 	|
-						RCC_PLLCFGR_PLLM_1 	|
-						RCC_PLLCFGR_PLLM_2 	|
-						RCC_PLLCFGR_PLLM_4 	|
-						RCC_PLLCFGR_PLLM_5	);
+			RCC->PLLCFGR |= RCC_PLLCFGR_PLLM_3;
+			RCC->PLLCFGR &= ~( 	RCC_PLLCFGR_PLLM_0 	|
+								RCC_PLLCFGR_PLLM_1 	|
+								RCC_PLLCFGR_PLLM_2 	|
+								RCC_PLLCFGR_PLLM_4 	|
+								RCC_PLLCFGR_PLLM_5	);
 
-	RCC->CFGR |= RCC_CFGR_PPRE1_DIV4;
-	RCC->DCKCFGR |= RCC_DCKCFGR_TIMPRE;
+			RCC->CFGR |= RCC_CFGR_PPRE1_DIV4;
+			RCC->DCKCFGR |= RCC_DCKCFGR_TIMPRE;
 
-	RCC->PLLCFGR |= RCC_PLLCFGR_PLLSRC_HSI;
+			RCC->PLLCFGR |= RCC_PLLCFGR_PLLSRC_HSI;
 
-	RCC->CR |= RCC_CR_HSION;
-	while (!(RCC->CR & RCC_CR_HSIRDY)) {}
+			RCC->CR |= RCC_CR_HSION;
+			while (!(RCC->CR & RCC_CR_HSIRDY));
 
-	RCC->CR |= RCC_CR_PLLON;
-	while (!(RCC->CR & RCC_CR_PLLRDY)) {}
+			RCC->CR |= RCC_CR_PLLON;
+			while (!(RCC->CR & RCC_CR_PLLRDY));
 
-	RCC->CFGR |= RCC_CFGR_SW_PLL;
-	while (!(RCC->CFGR & RCC_CFGR_SWS_PLL)) {}
-}
-void HSE_PLL_CLK_EN(void) {
-	/* PLL 		M-4 	| N-192 	| P-4 	| Q-8
-	 * PLLI2S	M-5	| N-200		| R-2
-	 * AHB		1
-	 * APB1		4
-	 * APB2		1
-	*/
-	RCC->PLLCFGR |= RCC_PLLCFGR_PLLQ_3;
-	RCC->PLLCFGR &= ~( 	RCC_PLLCFGR_PLLQ_0 |
-						RCC_PLLCFGR_PLLQ_1 |
-						RCC_PLLCFGR_PLLQ_2);
+			RCC->CFGR |= RCC_CFGR_SW_PLL;
+			while (!(RCC->CFGR & RCC_CFGR_SWS_PLL));
+	}
+	else if (clocksource == HSE)
+	{
+		/* PLL 		M-4 	| N-192 	| P-4 	| Q-8
+		 * PLLI2S	M-5	| N-200		| R-2
+		 * AHB		1
+		 * APB1		4
+		 * APB2		1
+		*/
+		RCC->PLLCFGR |= RCC_PLLCFGR_PLLQ_3;
+		RCC->PLLCFGR &= ~( 	RCC_PLLCFGR_PLLQ_0 |
+							RCC_PLLCFGR_PLLQ_1 |
+							RCC_PLLCFGR_PLLQ_2);
 
-	RCC->PLLCFGR |= RCC_PLLCFGR_PLLP_0;
-	RCC->PLLCFGR &= ~(RCC_PLLCFGR_PLLP_1);
+		RCC->PLLCFGR |= RCC_PLLCFGR_PLLP_0;
+		RCC->PLLCFGR &= ~(RCC_PLLCFGR_PLLP_1);
 
-	RCC->PLLCFGR |= RCC_PLLCFGR_PLLM_2;
-	RCC->PLLCFGR &= ~( 	RCC_PLLCFGR_PLLM_0 |
-						RCC_PLLCFGR_PLLM_1 |
-						RCC_PLLCFGR_PLLM_3 |
-						RCC_PLLCFGR_PLLM_4 |
-						RCC_PLLCFGR_PLLM_5);
+		RCC->PLLCFGR |= RCC_PLLCFGR_PLLM_2;
+		RCC->PLLCFGR &= ~( 	RCC_PLLCFGR_PLLM_0 |
+							RCC_PLLCFGR_PLLM_1 |
+							RCC_PLLCFGR_PLLM_3 |
+							RCC_PLLCFGR_PLLM_4 |
+							RCC_PLLCFGR_PLLM_5);
 
-	RCC->CFGR |= RCC_CFGR_PPRE1_DIV4;
-	RCC->DCKCFGR |= RCC_DCKCFGR_TIMPRE;
+		RCC->CFGR |= RCC_CFGR_PPRE1_DIV4;
+		RCC->DCKCFGR |= RCC_DCKCFGR_TIMPRE;
 
-	RCC->PLLCFGR |= RCC_PLLCFGR_PLLSRC_HSE;
+		RCC->PLLCFGR |= RCC_PLLCFGR_PLLSRC_HSE;
 
-	RCC->CR |= RCC_CR_HSEON;
-	while (!(RCC->CR & RCC_CR_HSERDY)) {}
+		RCC->CR |= RCC_CR_HSEON;
+		while (!(RCC->CR & RCC_CR_HSERDY)) {}
 
-	RCC->CR |= RCC_CR_PLLON;
-	while (!(RCC->CR & RCC_CR_PLLRDY)) {}
+		RCC->CR |= RCC_CR_PLLON;
+		while (!(RCC->CR & RCC_CR_PLLRDY)) {}
 
-	RCC->CFGR |= RCC_CFGR_SW_PLL;
-	while (!(RCC->CFGR & RCC_CFGR_SWS_PLL)) {}
+		RCC->CFGR |= RCC_CFGR_SW_PLL;
+		while (!(RCC->CFGR & RCC_CFGR_SWS_PLL)) {}
+	}
+	else
+	{
+		fprintf(stderr, "Select HSI or HSE as clock source.\n");
+	}
+
 }
 
 void SYSTICK_CONFIG(void) {
