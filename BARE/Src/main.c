@@ -27,10 +27,10 @@ void TIM10_CONFIG(uint32_t frequency);
 
 void USART2_CONFIG(uint32_t baudrate, bool over8, uint32_t stopbits);
 
-void I2C_CONFIG(void);
-void I2C_START(void);
-void I2C_STOP(void);
-void I2C_WRITE(uint8_t, uint8_t);
+void I2C1_CONFIG(void);
+void I2C1_START(void);
+void I2C1_STOP(void);
+void I2C1_WRITE(uint8_t, uint8_t);
 
 void delay(uint32_t cycles);
 
@@ -48,7 +48,7 @@ int main(void) {
 	//Reset_Baud_Rate(); // MUST REMOVE AFTER RESETTING
 	USART2_CONFIG(38400, 0, 0);
 	//Change_Baud_Rate(38400); // remove after setting
-	I2C_CONFIG();
+	I2C1_CONFIG();
 
 	while(1) {
 		GPIOD->ODR |= LED_GREEN;
@@ -248,7 +248,7 @@ void USART2_CONFIG(uint32_t baudrate, bool over8, uint32_t stopbits) {
 	USART2->CR1 |= USART_CR1_TE;
 }
 
-void I2C_CONFIG(void){
+void I2C1_CONFIG(void){
 	/* I2C CONFIG - DAC - CS43L22
 	 *
 	 * CS43		??		 		Pin			Alternate function
@@ -288,16 +288,16 @@ void I2C_CONFIG(void){
 	I2C1->CR1 |= I2C_CR1_ACK; // ACK on
 	I2C1->CR1 |= I2C_CR1_PE; // Peripheral Enable I2C
 }
-void I2C_START(void){
+void I2C1_START(void){
 	I2C1->CR1 |= I2C_CR1_START; // starts master mode from default
 	while(!(I2C1->SR1 & I2C_SR1_SB)){} // wait for start bit to go high
 }
-void I2C_STOP(void){
+void I2C1_STOP(void){
 	I2C1->CR1 |= I2C_CR1_STOP;
 	while(!(I2C1->SR2 & I2C_SR2_BUSY));
 }
-void I2C_WRITE(uint8_t regaddress, uint8_t data){
-	I2C_START();
+void I2C1_WRITE(uint8_t regaddress, uint8_t data){
+	I2C1_START();
 	I2C1->DR = 0x94;
 	while(I2C1->SR1 & I2C_SR1_AF){}
 	while(!(I2C1->SR1 & I2C_SR1_ADDR)){}
@@ -310,7 +310,7 @@ void I2C_WRITE(uint8_t regaddress, uint8_t data){
 	while(I2C1->SR1 & I2C_SR1_AF){}
 	while(!(I2C1->SR1 & I2C_SR1_TXE)){}
 	while(!(I2C1->SR1 & I2C_SR1_BTF)){}
-	I2C_STOP();
+	I2C1_STOP();
 }
 
 void delay(uint32_t cycles) {
