@@ -19,6 +19,8 @@
 #include "string.h"
 #include "lcd.h"
 #include "stdio.h"
+#include "stdbool.h"
+#include "math.h"
 
 #define LED_GREEN GPIO_ODR_OD12
 #define LED_ORANGE GPIO_ODR_OD13
@@ -41,6 +43,7 @@ void TIM2_CONFIG(uint32_t cycles);
 void TIM10_CONFIG(uint32_t frequency);
 
 void USART2_CONFIG(uint32_t mantissa, uint32_t fraction, uint32_t stopbits);
+void BAUD_RATE_CALCULATE(uint32_t peripheralclock, uint32_t baudrate, bool over8);
 
 void delay(uint32_t cycles);
 
@@ -50,12 +53,14 @@ int main(void) {
 	uint32_t timercount;
 	char timerword[32];
 
+
 	FLASH_AND_POWER_CONFIG();
 	LED_CONFIG();
-	PPL_CLK_EN(HSI);
+	PPL_CLK_EN(HSE);
 	TIM2_CONFIG(TIM_ARR_ARR);
 	//Reset_Baud_Rate(); // MUST REMOVE AFTER RESETTING
-	USART2_CONFIG(0x27, 0x1, 0x0); // 38400 Baud Rate: 0x27, 0x1, 0x0 @ 24MHz
+	BAUD_RATE_CALCULATE(24e6, 4800, 0);
+	USART2_CONFIG(39, 1, 0); // 38400 Baud Rate: 0x27, 0x1, 0x0 @ 24MHz
 	//Change_Baud_Rate(0x10); // remove after setting
 
 	while(1) {
@@ -129,6 +134,7 @@ void PPL_CLK_EN(int clocksource){
 
 			RCC->CFGR |= RCC_CFGR_SW_PLL;
 			while (!(RCC->CFGR & RCC_CFGR_SWS_PLL));
+			SystemCoreClockUpdate();
 	}
 	else if (clocksource == HSE)
 	{
@@ -166,6 +172,7 @@ void PPL_CLK_EN(int clocksource){
 
 		RCC->CFGR |= RCC_CFGR_SW_PLL;
 		while (!(RCC->CFGR & RCC_CFGR_SWS_PLL)) {}
+		SystemCoreClockUpdate();
 	}
 	else
 	{
@@ -245,6 +252,14 @@ void USART2_CONFIG(uint32_t mantissa, uint32_t fraction, uint32_t stopbits) {
 	USART2->BRR |= (fraction << USART_BRR_DIV_Fraction_Pos);
 
 	USART2->CR1 |= USART_CR1_TE;
+}
+void BAUD_RATE_CALCULATE(uint32_t peripheralclock, uint32_t baudrate, bool over8){
+	float usart_brr;
+	uint32_t mantissa, fraction;
+
+	usart_brr = (float)peripheralclock / ( 8 * (2 - over8) * baudrate );
+	mantissa = (uint32_t)usart_brr;
+	fraction = round((usart_brr - mantissa) * (8 * (2 - over8)) );
 }
 
 void delay(uint32_t cycles) {
