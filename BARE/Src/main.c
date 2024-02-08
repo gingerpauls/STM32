@@ -27,6 +27,7 @@ void TIM10_CONFIG(uint32_t frequency);
 
 void USART2_CONFIG(uint32_t baudrate, bool over8, uint32_t stopbits);
 
+void I2C_CONFIG(void);
 void I2C_START(void);
 void I2C_STOP(void);
 void I2C_WRITE(uint8_t, uint8_t);
@@ -47,6 +48,7 @@ int main(void) {
 	//Reset_Baud_Rate(); // MUST REMOVE AFTER RESETTING
 	USART2_CONFIG(38400, 0, 0);
 	//Change_Baud_Rate(38400); // remove after setting
+	I2C_CONFIG();
 
 	while(1) {
 		GPIOD->ODR |= LED_GREEN;
@@ -246,20 +248,24 @@ void USART2_CONFIG(uint32_t baudrate, bool over8, uint32_t stopbits) {
 	USART2->CR1 |= USART_CR1_TE;
 }
 
-	/* I2C CONFIG - DAC - CS43L22
+void I2C_CONFIG(void){
+	/* I2C CONFIG - Gyro I3G4250D
 	 *
-	 * CS43		??		 		Pin			Alternate function
+	 * I3G4250D		Pin			Alternate function
 	 * -------------------------------------------------------
-	 * SDA 		Audio_SDA 		PB9			I2C1_SDA		AF04
-	 * SCL 		Audio_SCL 		PB6			I2C1_SCL		AF04
+	 * SCL/SPC		PA5			SPI1_SCK		AF??
+	 * SDA/SDI/SDO 	PA7			SPI1_MOSI		AF??
+	 * SDO/SA0		PA6			SPI1_MISO		AF??
+	 * CS			PE3			CS_12C/SPI		AF??
 	 *
-	 * AIN1A/B	Audio_DAC_OUT	PA4
-	 * AIN4A/B	PDM_OUT			PC3(4 too?)	I2S2_SD
+	 * DRDY/INT2	PE1			MEMS_INT2		AF??
+	 * INT1			PE0			MEMS_INT1		AF??
 	 *
-	 * APB1 => I2C1 & IS23 bus
-	 * APB2 frequency = 24MHz
+	 *
+	 * WHAT BUS
+	 * WHAT WHAT CLOCK FREQ
 	 */
-	{
+
 		RCC->APB1ENR |= RCC_APB1ENR_I2C1EN; // RCC_APB1ENR_PWREN? "Power interface clock enable"
 		RCC->AHB1ENR |= RCC_AHB1ENR_GPIOBEN;
 
@@ -284,8 +290,16 @@ void USART2_CONFIG(uint32_t baudrate, bool over8, uint32_t stopbits) {
 		I2C1->TRISE |= (25<<I2C_TRISE_TRISE_Pos); // (1000 ns / (1 / 24 MHz))
 		I2C1->CR1 |= I2C_CR1_ACK; // ACK on
 		I2C1->CR1 |= I2C_CR1_PE; // Peripheral Enable I2C
-	}
 
+}
+void I2C_START(void){
+	I2C1->CR1 |= I2C_CR1_START; // starts master mode from default
+	while(!(I2C1->SR1 & I2C_SR1_SB)){} // wait for start bit to go high
+}
+void I2C_STOP(void){
+	I2C1->CR1 |= I2C_CR1_STOP;
+	while(!(I2C1->SR2 & I2C_SR2_BUSY));
+}
 void I2C_WRITE(uint8_t regaddress, uint8_t data){
 	I2C_START();
 	I2C1->DR = 0x94;
@@ -301,20 +315,6 @@ void I2C_WRITE(uint8_t regaddress, uint8_t data){
 	while(!(I2C1->SR1 & I2C_SR1_TXE)){}
 	while(!(I2C1->SR1 & I2C_SR1_BTF)){}
 	I2C_STOP();
-}
-
-void I2C_START(void){
-	I2C1->CR1 |= I2C_CR1_START; // starts master mode from default
-	while(!(I2C1->SR1 & I2C_SR1_SB)){} // wait for start bit to go high
-}
-
-void I2C_STOP(void){
-	I2C1->CR1 |= I2C_CR1_STOP;
-	while(!(I2C1->SR2 & I2C_SR2_BUSY));
-}
-
-void delay(uint32_t cycles){
-	for(uint32_t i = 0; i < cycles; i++){}
 }
 
 void delay(uint32_t cycles) {
