@@ -27,6 +27,10 @@ void TIM10_CONFIG(uint32_t frequency);
 
 void USART2_CONFIG(uint32_t baudrate, bool over8, uint32_t stopbits);
 
+void I2C_START(void);
+void I2C_STOP(void);
+void I2C_WRITE(uint8_t, uint8_t);
+
 void delay(uint32_t cycles);
 
 int main(void) {
@@ -240,6 +244,77 @@ void USART2_CONFIG(uint32_t baudrate, bool over8, uint32_t stopbits) {
 	USART2->BRR |= (fraction << USART_BRR_DIV_Fraction_Pos);
 
 	USART2->CR1 |= USART_CR1_TE;
+}
+
+	/* I2C CONFIG - DAC - CS43L22
+	 *
+	 * CS43		??		 		Pin			Alternate function
+	 * -------------------------------------------------------
+	 * SDA 		Audio_SDA 		PB9			I2C1_SDA		AF04
+	 * SCL 		Audio_SCL 		PB6			I2C1_SCL		AF04
+	 *
+	 * AIN1A/B	Audio_DAC_OUT	PA4
+	 * AIN4A/B	PDM_OUT			PC3(4 too?)	I2S2_SD
+	 *
+	 * APB1 => I2C1 & IS23 bus
+	 * APB2 frequency = 24MHz
+	 */
+	{
+		RCC->APB1ENR |= RCC_APB1ENR_I2C1EN; // RCC_APB1ENR_PWREN? "Power interface clock enable"
+		RCC->AHB1ENR |= RCC_AHB1ENR_GPIOBEN;
+
+		GPIOB->MODER |= GPIO_MODER_MODE6_1; // alt function
+		GPIOB->AFR[0] |= (0x4<<24); // AFR[0] is lower; 0x4 is AF4; 24 is bit position of Pin 6
+		GPIOB->MODER |= GPIO_MODER_MODE9_1; // alt function
+		GPIOB->AFR[1] |= (0x4<<4); // AFR[1] is higher; 0x4 is AF4; 4 is bit position of Pin 9
+		GPIOB->PUPDR |= GPIO_PUPDR_PUPD6_0 | GPIO_PUPDR_PUPD9_0; // pull up
+		GPIOB->OTYPER |= GPIO_OTYPER_OT6 | GPIO_OTYPER_OT9; // open drain - is this correct config for I2C?
+
+		GPIOD->MODER |= GPIO_MODER_MODE4_0; // output to RESET
+		//GPIOD->MODER |= GPIO_MODER_MODE4_1; // alt function to RESET
+		//GPIOD->AFR[0] |= 0x4<<16; // AFR[0] is lower; 0x4 is AF4; 16 is bit position of Pin 4
+		GPIOD->ODR |= GPIO_ODR_OD4; // Sets RESET high (device is powered on)
+
+		I2C1->CR1 |= I2C_CR1_SWRST; // this will clear the BUSY flag in SR2
+		I2C1->CR1 &= ~I2C_CR1_SWRST; // this will clear the BUSY flag in SR2
+
+		I2C1->CR2 |= (24<<I2C_CR2_FREQ_Pos); // APB1 => 24 MHz
+		I2C1->CCR |= (120<<I2C_CCR_CCR_Pos); // CCR = Thigh / Tpclk1 = 5us/41.666ns = 120
+		//I2C1->TRISE &= ~(I2C_TRISE_TRISE_Msk);
+		I2C1->TRISE |= (25<<I2C_TRISE_TRISE_Pos); // (1000 ns / (1 / 24 MHz))
+		I2C1->CR1 |= I2C_CR1_ACK; // ACK on
+		I2C1->CR1 |= I2C_CR1_PE; // Peripheral Enable I2C
+	}
+
+void I2C_WRITE(uint8_t regaddress, uint8_t data){
+	I2C_START();
+	I2C1->DR = 0x94;
+	while(I2C1->SR1 & I2C_SR1_AF){}
+	while(!(I2C1->SR1 & I2C_SR1_ADDR)){}
+	(void)I2C1->SR2; // reading SR2 after SR1 will clear the ADDR flag
+	I2C1->DR = regaddress;
+	while(I2C1->SR1 & I2C_SR1_AF){}
+	while(!(I2C1->SR1 & I2C_SR1_BTF)){}
+	while(!(I2C1->SR1 & I2C_SR1_TXE)){}
+	I2C1->DR = data;
+	while(I2C1->SR1 & I2C_SR1_AF){}
+	while(!(I2C1->SR1 & I2C_SR1_TXE)){}
+	while(!(I2C1->SR1 & I2C_SR1_BTF)){}
+	I2C_STOP();
+}
+
+void I2C_START(void){
+	I2C1->CR1 |= I2C_CR1_START; // starts master mode from default
+	while(!(I2C1->SR1 & I2C_SR1_SB)){} // wait for start bit to go high
+}
+
+void I2C_STOP(void){
+	I2C1->CR1 |= I2C_CR1_STOP;
+	while(!(I2C1->SR2 & I2C_SR2_BUSY));
+}
+
+void delay(uint32_t cycles){
+	for(uint32_t i = 0; i < cycles; i++){}
 }
 
 void delay(uint32_t cycles) {
